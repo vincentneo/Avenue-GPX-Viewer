@@ -1,0 +1,21 @@
+PODS:
+  - CoreGPX (0.6.5)
+
+DEPENDENCIES:
+  - CoreGPX (from `https://github.com/VincentNeo/CoreGPX`)
+
+EXTERNAL SOURCES:
+  CoreGPX:
+    :git: https://github.com/VincentNeo/CoreGPX
+
+CHECKOUT OPTIONS:
+  CoreGPX:
+    :commit: 4dbc033a2008282f21f446304868bb3f299abaa7
+    :git: https://github.com/VincentNeo/CoreGPX
+
+SPEC CHECKSUMS:
+  CoreGPX: ba7807800b30ac05cd357f4d20d82c13451940d5
+
+PODFILE CHECKSUM: 86e09da8a08729cd6245f325772739adcc6eaedd
+
+COCOAPODS: 1.7.3
