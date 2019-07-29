@@ -10,6 +10,8 @@ import Cocoa
 import CoreGPX
 
 class Document: NSDocument {
+    
+    weak var delegate: DocumentDelegate?
 
     override init() {
         super.init()
@@ -38,7 +40,11 @@ class Document: NSDocument {
         // Alternatively, you could remove this method and override read(from:ofType:) instead.
         // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
         let gpx = GPXParser(withData: data).parsedData()
+        delegate?.loadedGPXFile(gpx)
         Swift.print(gpx)
+        if gpx.tracks.count == 0 {
+            //throw NSError(domain: , code: unimpErr, userInfo: nil)
+        }
         //Swift.print(gpx.tracks[0].tracksegments[0].trackpoints[0].latitude)
         //throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }

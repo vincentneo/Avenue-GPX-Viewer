@@ -739,6 +739,9 @@
                             <constraint firstAttribute="trailing" secondItem="QKA-GJ-N3C" secondAttribute="trailing" id="zEO-s9-YqG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="QKA-GJ-N3C" id="PFi-US-w2e"/>
+                    </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

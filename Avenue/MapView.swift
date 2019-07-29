@@ -10,7 +10,12 @@ import Cocoa
 import MapKit
 import CoreGPX
 
-class MapView: MKMapView {
+class MapView: MKMapView, DocumentDelegate {
+    func loadedGPXFile(_ root: GPXRoot) {
+        print("GPX File Loaded")
+        print(root)
+    }
+    
     
     
 }
