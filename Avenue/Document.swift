@@ -11,7 +11,7 @@ import CoreGPX
 
 class Document: NSDocument {
     
-    weak var delegate: DocumentDelegate?
+    var gpx = GPXRoot()
 
     override init() {
         super.init()
@@ -25,8 +25,12 @@ class Document: NSDocument {
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
+        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! WindowController
+        windowController.barTitle.stringValue = self.fileURL?.lastPathComponent ?? ""
         self.addWindowController(windowController)
+        
+        let viewController = windowController.contentViewController as! ViewController
+        viewController.mapView.loadedGPXFile(gpx)
     }
 
     override func data(ofType typeName: String) throws -> Data {
@@ -39,10 +43,11 @@ class Document: NSDocument {
         // Insert code here to read your document from the given data of the specified type, throwing an error in case of failure.
         // Alternatively, you could remove this method and override read(from:ofType:) instead.
         // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
-        let gpx = GPXParser(withData: data).parsedData()
-        delegate?.loadedGPXFile(gpx)
+        let gpx1 = GPXParser(withData: data).parsedData()
+        //self.delegate?.loadedGPXFile(gpx)
         Swift.print(gpx)
         if gpx.tracks.count == 0 {
+            self.gpx = gpx1
             //throw NSError(domain: , code: unimpErr, userInfo: nil)
         }
         //Swift.print(gpx.tracks[0].tracksegments[0].trackpoints[0].latitude)

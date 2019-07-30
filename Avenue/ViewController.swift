@@ -7,15 +7,33 @@
 //
 
 import Cocoa
+import MapKit
+import CoreGPX
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mapView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    //
+    /// Displays the line for each segment
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay.isKind(of: MKTileOverlay.self) {
+            return MKTileOverlayRenderer(overlay: overlay)
+        }
+        
+        if overlay is MKPolyline {
+            let pr = MKPolylineRenderer(overlay: overlay)
+            pr.strokeColor = NSColor.blue.withAlphaComponent(0.5)
+            pr.lineWidth = 3
+            return pr
+        }
+        return MKOverlayRenderer()
     }
 
     override var representedObject: Any? {
@@ -26,4 +44,3 @@ class ViewController: NSViewController {
 
 
 }
-

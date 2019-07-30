@@ -703,9 +703,24 @@
                                         </buttonCell>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="BF5F30F1-F805-45FD-B9DC-927ABA71B798" label="barTitle" paletteLabel="barTitle" sizingBehavior="auto" id="9NC-dN-VgB">
+                                    <nil key="toolTip"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lI5-bJ-PDa">
+                                        <rect key="frame" x="5" y="14" width="37" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="right" title="Label" usesSingleLineMode="YES" bezelStyle="round" id="ftx-MP-ysA">
+                                            <font key="font" metaFont="systemLight" size="12"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="S0k-PL-XeI"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="y9P-Wf-7VF"/>
+                                <toolbarItem reference="S0k-PL-XeI"/>
+                                <toolbarItem reference="9NC-dN-VgB"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -713,6 +728,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="barTitle" destination="lI5-bJ-PDa" id="dmp-Kw-Slb"/>
                         <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
                     </connections>
                 </windowController>
@@ -730,6 +746,9 @@
                         <subviews>
                             <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QKA-GJ-N3C" customClass="MapView" customModule="Avenue" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="276"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5gI-5U-AMq" id="57b-oY-P8f"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <constraints>
