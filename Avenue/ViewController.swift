@@ -29,8 +29,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         if overlay is MKPolyline {
             let pr = MKPolylineRenderer(overlay: overlay)
-            pr.strokeColor = NSColor.blue.withAlphaComponent(0.5)
-            pr.lineWidth = 3
+            pr.strokeColor = NSColor(named: NSColor.Name("Poly Line Colour"))
+            pr.lineWidth = 4
             return pr
         }
         return MKOverlayRenderer()

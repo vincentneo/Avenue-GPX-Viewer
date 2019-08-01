@@ -686,11 +686,11 @@
             <objects>
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="WindowController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="0EEF5A14-8378-48A4-8460-11D6D979D7C4" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="TlO-sG-wAA">
+                        <toolbar key="toolbar" implicitIdentifier="0EEF5A14-8378-48A4-8460-11D6D979D7C4" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="TlO-sG-wAA">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="6D6F2236-97C4-44A9-B5EB-72153FF70CE2" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="y9P-Wf-7VF">
                                     <nil key="toolTip"/>
@@ -706,10 +706,10 @@
                                 <toolbarItem implicitItemIdentifier="BF5F30F1-F805-45FD-B9DC-927ABA71B798" label="barTitle" paletteLabel="barTitle" sizingBehavior="auto" id="9NC-dN-VgB">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lI5-bJ-PDa">
-                                        <rect key="frame" x="5" y="14" width="37" height="22"/>
+                                        <rect key="frame" x="0.0" y="14" width="105" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="right" title="Label" usesSingleLineMode="YES" bezelStyle="round" id="ftx-MP-ysA">
-                                            <font key="font" metaFont="systemLight" size="12"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" usesSingleLineMode="YES" id="ftx-MP-ysA">
+                                            <font key="font" metaFont="systemSemibold" size="18"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -718,9 +718,8 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="S0k-PL-XeI"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="y9P-Wf-7VF"/>
-                                <toolbarItem reference="S0k-PL-XeI"/>
                                 <toolbarItem reference="9NC-dN-VgB"/>
+                                <toolbarItem reference="S0k-PL-XeI"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>

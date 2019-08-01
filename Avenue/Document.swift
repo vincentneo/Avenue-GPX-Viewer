@@ -26,7 +26,17 @@ class Document: NSDocument {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! WindowController
-        windowController.barTitle.stringValue = self.fileURL?.lastPathComponent ?? ""
+        
+        if let fileName = self.fileURL?.lastPathComponent {
+            let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15, weight: .regular) ]
+            let systemSemibold = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .semibold) ]
+            let title = NSMutableAttributedString(string: "Avenue: \(fileName)", attributes: systemRegular)
+            title.addAttributes(systemSemibold, range: NSMakeRange(0, 7))
+            
+            //windowController.barTitle.stringValue = "Avenue - \(title)"
+            windowController.barTitle.attributedStringValue = title
+        }
+        windowController.barTitle.isHidden = false
         self.addWindowController(windowController)
         
         let viewController = windowController.contentViewController as! ViewController
@@ -43,15 +53,16 @@ class Document: NSDocument {
         // Insert code here to read your document from the given data of the specified type, throwing an error in case of failure.
         // Alternatively, you could remove this method and override read(from:ofType:) instead.
         // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
-        let gpx1 = GPXParser(withData: data).parsedData()
-        //self.delegate?.loadedGPXFile(gpx)
-        Swift.print(gpx)
-        if gpx.tracks.count == 0 {
-            self.gpx = gpx1
-            //throw NSError(domain: , code: unimpErr, userInfo: nil)
+        let fileGPX = GPXParser(withData: data).parsedData()
+        
+        
+        if fileGPX.tracks.count != 0 || fileGPX.waypoints.count != 0 {
+            self.gpx = fileGPX
         }
-        //Swift.print(gpx.tracks[0].tracksegments[0].trackpoints[0].latitude)
-        //throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        else {
+            throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        }
+        
     }
 
 

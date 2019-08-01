@@ -15,8 +15,7 @@ class MapView: MKMapView {
     //weak var documentDelegate: DocumentDelegate?
     
     func loadedGPXFile(_ root: GPXRoot) {
-        print("GPX File Loaded")
-        print(root)
+        print("MapView: GPX Object Loaded \(root)")
         
         for waypoint in root.waypoints {
             self.addAnnotation(waypoint)
