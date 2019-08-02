@@ -28,7 +28,7 @@ class Document: NSDocument {
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! WindowController
         
         if let fileName = self.fileURL?.lastPathComponent {
-            let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15, weight: .regular) ]
+            let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15, weight: .light) ]
             let systemSemibold = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .semibold) ]
             let title = NSMutableAttributedString(string: "Avenue: \(fileName)", attributes: systemRegular)
             title.addAttributes(systemSemibold, range: NSMakeRange(0, 7))
