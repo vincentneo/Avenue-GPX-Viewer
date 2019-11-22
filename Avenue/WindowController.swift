@@ -18,6 +18,8 @@ class WindowController: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         barTitle.stringValue = "Avenue"
         barTitle.isHidden = true
+        
+        window?.tabbingMode = .preferred
     }
-
+    
 }
