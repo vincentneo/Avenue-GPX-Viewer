@@ -46,10 +46,11 @@ class MapView: MKMapView {
             // UI end parse release
             DispatchQueue.main.sync {
                 self.setUserInteraction(state: true)
-                self.loadedGPXFile(fileGPX)
                 indicator.removeFromSuperview()
                 visualView.removeFromSuperview()
                 indicator.stopAnimation(self)
+                guard let fileGPX = fileGPX else { return }
+                self.loadedGPXFile(fileGPX)
             }
 
         }
