@@ -12,6 +12,7 @@ import CoreGPX
 class Document: NSDocument {
     
     var gpx = GPXRoot()
+    var data = Data()
 
     override init() {
         super.init()
@@ -28,10 +29,10 @@ class Document: NSDocument {
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! WindowController
         
         if let fileName = self.fileURL?.lastPathComponent {
-            let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15, weight: .light) ]
+            let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .regular) ]
             let systemSemibold = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .semibold) ]
-            let title = NSMutableAttributedString(string: fileName/*"Avenue: \(fileName)"*/, attributes: systemRegular)
-            //title.addAttributes(systemSemibold, range: NSMakeRange(0, 7))
+            let title = NSMutableAttributedString(string: " File: \(fileName)", attributes: systemSemibold)
+            title.addAttributes(systemRegular, range: NSMakeRange(0, 5))
             
             //windowController.barTitle.stringValue = "Avenue - \(title)"
             windowController.barTitle.attributedStringValue = title
@@ -40,7 +41,8 @@ class Document: NSDocument {
         self.addWindowController(windowController)
         
         let viewController = windowController.contentViewController as! ViewController
-        viewController.mapView.loadedGPXFile(gpx)
+        //viewController.mapView.loadedGPXFile(gpx)
+        viewController.mapView.loadedGPXData(data)
     }
 
     override func data(ofType typeName: String) throws -> Data {
@@ -53,6 +55,8 @@ class Document: NSDocument {
         // Insert code here to read your document from the given data of the specified type, throwing an error in case of failure.
         // Alternatively, you could remove this method and override read(from:ofType:) instead.
         // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
+        self.data = data
+        /*
         let fileGPX = GPXParser(withData: data).parsedData()
         
         
@@ -62,7 +66,7 @@ class Document: NSDocument {
         else {
             throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         }
-        
+        */
     }
 
 
