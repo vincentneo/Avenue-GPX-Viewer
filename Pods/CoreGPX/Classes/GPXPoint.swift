@@ -12,7 +12,7 @@ import Foundation
  
  `ptType` of GPX schema. Not supported in GPXRoot, nor GPXParser's parsing.
  */
-open class GPXPoint: GPXElement {
+open class GPXPoint: GPXElement, Codable {
 
     /// Elevation Value in (metre, m)
     public var elevation: Double?
@@ -35,15 +35,11 @@ open class GPXPoint: GPXElement {
         self.latitude = latitude
         self.longitude = longitude
     }
-    /// Internal initializer, for parsing only.
-    init(dictionary: [String : String]) {
-        super.init()
-        self.latitude = Convert.toDouble(from: dictionary["lat"])
-        self.longitude = Convert.toDouble(from: dictionary["lon"])
-        self.elevation = Convert.toDouble(from: dictionary["ele"])
-        self.time = GPXDateParser.parse(date: dictionary["time"])
-    }
     
+    /// Inits native element from raw parser value
+    ///
+    /// - Parameters:
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         self.latitude = Convert.toDouble(from: raw.attributes["lat"])
         self.longitude = Convert.toDouble(from: raw.attributes["lon"])
@@ -67,10 +63,10 @@ open class GPXPoint: GPXElement {
     override func addOpenTag(toGPX gpx: NSMutableString, indentationLevel: Int) {
         let attribute = NSMutableString()
         if let latitude = latitude {
-            attribute.appendFormat(" lat=\"%f\"", latitude)
+            attribute.append(" lat=\"\(latitude)\"")
         }
         if let longitude = longitude {
-            attribute.appendFormat(" lon=\"%f\"", longitude)
+            attribute.append(" lon=\"\(longitude)\"")
         }
         
         gpx.appendOpenTag(indentation: indent(forIndentationLevel: indentationLevel), tag: tagName(), attribute: attribute)

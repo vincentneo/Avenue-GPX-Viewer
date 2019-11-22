@@ -12,7 +12,7 @@ import Foundation
  
     `GPXRoot` holds all `metadata`, `waypoints`, `tracks`, `routes` and `extensions` types together before being packaged as a GPX file, or formatted as per GPX schema's requirements.
 */
-open class GPXRoot: GPXElement {
+public final class GPXRoot: GPXElement, Codable {
     
     /// GPX version that will be generated. Currently, only the latest (version 1.1) is supported.
     public var version: String = "1.1"
@@ -95,27 +95,10 @@ open class GPXRoot: GPXElement {
         self.creator = creator
     }
     
-    /// For internal use only
-    ///
-    /// Initializes the metadata using a dictionary, with each key being an attribute name.
-    ///
-    /// - Remark:
-    /// This initializer is designed only for use when parsing GPX files, and shouldn't be used in other ways.
+    /// Inits native element from raw parser value
     ///
     /// - Parameters:
-    ///     - dictionary: a dictionary with a key of an attribute, followed by the value which is set as the GPX file is parsed.
-    ///
-    internal init(dictionary: inout [String : String]) {
-        super.init()
-        self.creator = dictionary.removeValue(forKey: "creator")
-        self.version = dictionary.removeValue(forKey: "version") ?? ""
-        dictionary.removeValue(forKey: self.tagName())
-        
-        if dictionary.count > 0 {
-            //self.extensions = GPXExtensions(dictionary: dictionary)
-        }
-    }
-    
+    ///     - raw: Raw element expected from parser
     init(raw: GPXRawElement) {
         super.init()
         for (key, value) in raw.attributes {
@@ -205,13 +188,13 @@ open class GPXRoot: GPXElement {
     public func remove(waypoint: GPXWaypoint) {
         let contains = waypoints.contains(waypoint)
         if contains == true {
-            waypoint.parent = nil
             if let index = waypoints.firstIndex(of: waypoint) {
                 self.waypoints.remove(at: index)
             }
         }
     }
     
+    /// Remove waypoint from root's array at index.
     public func remove(WaypointAtIndex index: Int) {
         self.waypoints.remove(at: index)
     }
@@ -262,7 +245,6 @@ open class GPXRoot: GPXElement {
     public func remove(route: GPXRoute) {
         let contains = routes.contains(route)
         if contains == true {
-            route.parent = nil
             if let index = routes.firstIndex(of: route) {
                 self.waypoints.remove(at: index)
             }
@@ -313,7 +295,6 @@ open class GPXRoot: GPXElement {
     public func remove(track: GPXTrack) {
         let contains = tracks.contains(track)
         if contains == true {
-            track.parent = nil
             if let index = tracks.firstIndex(of: track) {
                self.waypoints.remove(at: index)
             }
