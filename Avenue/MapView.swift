@@ -14,6 +14,8 @@ class MapView: MKMapView {
     
     //weak var documentDelegate: DocumentDelegate?
     
+    var extent = GPXExtentCoordinates()
+    
     func loadedGPXFile(_ root: GPXRoot) {
         print("MapView: GPX Object Loaded \(root)")
         
@@ -26,10 +28,13 @@ class MapView: MKMapView {
                 let overlay = segment.overlay
                 //self.addOverlay(overlay)
                 self.addOverlay(overlay, level: .aboveLabels)
+                for trkpt in segment.trackpoints {
+                    self.extent.extendAreaToIncludeLocation(trkpt.coordinate)
+                }
             }
         }
+        self.setRegion(extent.region, animated: true)
     }
-    
     
     
 }

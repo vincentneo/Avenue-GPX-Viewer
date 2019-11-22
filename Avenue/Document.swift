@@ -30,8 +30,8 @@ class Document: NSDocument {
         if let fileName = self.fileURL?.lastPathComponent {
             let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15, weight: .light) ]
             let systemSemibold = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .semibold) ]
-            let title = NSMutableAttributedString(string: "Avenue: \(fileName)", attributes: systemRegular)
-            title.addAttributes(systemSemibold, range: NSMakeRange(0, 7))
+            let title = NSMutableAttributedString(string: fileName/*"Avenue: \(fileName)"*/, attributes: systemRegular)
+            //title.addAttributes(systemSemibold, range: NSMakeRange(0, 7))
             
             //windowController.barTitle.stringValue = "Avenue - \(title)"
             windowController.barTitle.attributedStringValue = title

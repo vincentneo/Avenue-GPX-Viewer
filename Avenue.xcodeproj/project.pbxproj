@@ -14,6 +14,7 @@
 		BF4F5AB522D1FBCF00C8E95A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5AB422D1FBCF00C8E95A /* Assets.xcassets */; };
 		BF4F5AB822D1FBCF00C8E95A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5AB622D1FBCF00C8E95A /* Main.storyboard */; };
 		BF4F5AC422D1FBCF00C8E95A /* AvenueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AC322D1FBCF00C8E95A /* AvenueTests.swift */; };
+		BF5D102F2387F2C000F7D3C9 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
 		BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
 		BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
 		BFF76B5422D36F4500C269D8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF76B5322D36F4500C269D8 /* WindowController.swift */; };
@@ -45,6 +46,7 @@
 		BF4F5ABF22D1FBCF00C8E95A /* AvenueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvenueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AC322D1FBCF00C8E95A /* AvenueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvenueTests.swift; sourceTree = "<group>"; };
 		BF4F5AC522D1FBCF00C8E95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXExtentCoordinates.swift; sourceTree = "<group>"; };
 		BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		BFF76B5322D36F4500C269D8 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				BF4F5AB922D1FBCF00C8E95A /* Info.plist */,
 				BF4F5ABA22D1FBCF00C8E95A /* Avenue.entitlements */,
 				BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */,
+				BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */,
 				BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */,
 			);
 			path = Avenue;
@@ -285,6 +288,7 @@
 				BF4F5AB322D1FBCD00C8E95A /* Document.swift in Sources */,
 				BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */,
 				BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */,
+				BF5D102F2387F2C000F7D3C9 /* GPXExtentCoordinates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
