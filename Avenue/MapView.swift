@@ -75,6 +75,7 @@ class MapView: MKMapView {
             }
         }
         self.setRegion(extent.region, animated: true)
+        
     }
     
     /// Sets all user interactable UI enabledness based on state parameter.
@@ -86,3 +87,4 @@ class MapView: MKMapView {
     }
     
 }
+
