@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120A142A249D055F0014E690 /* LaunchWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120A1429249D055F0014E690 /* LaunchWindow.xib */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
 		BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */; };
 		BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120A1429249D055F0014E690 /* LaunchWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchWindow.xib; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				BFF76B5322D36F4500C269D8 /* WindowController.swift */,
 				BF4F5AB222D1FBCD00C8E95A /* Document.swift */,
 				BF4F5AB422D1FBCF00C8E95A /* Assets.xcassets */,
+				120A1429249D055F0014E690 /* LaunchWindow.xib */,
 				BF4F5AB622D1FBCF00C8E95A /* Main.storyboard */,
 				BF4F5AB922D1FBCF00C8E95A /* Info.plist */,
 				BF4F5ABA22D1FBCF00C8E95A /* Avenue.entitlements */,
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4F5AB522D1FBCF00C8E95A /* Assets.xcassets in Resources */,
+				120A142A249D055F0014E690 /* LaunchWindow.xib in Resources */,
 				BF4F5AB822D1FBCF00C8E95A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

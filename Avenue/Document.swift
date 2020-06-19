@@ -13,10 +13,13 @@ class Document: NSDocument {
     
     var gpx = GPXRoot()
     var data = Data()
+    
+    let appDelegate = NSApp.delegate as! AppDelegate
 
     override init() {
         super.init()
         // Add your subclass-specific initialization here.
+        appDelegate.closeLaunchWindow()
     }
 
     override class var autosavesInPlace: Bool {
@@ -43,6 +46,7 @@ class Document: NSDocument {
         let viewController = windowController.contentViewController as! ViewController
         //viewController.mapView.loadedGPXFile(gpx)
         viewController.mapView.loadedGPXData(data)
+        
     }
 
     override func data(ofType typeName: String) throws -> Data {
