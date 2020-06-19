@@ -20,6 +20,7 @@ class WindowController: NSWindowController {
         barTitle.isHidden = true
         
         window?.tabbingMode = .preferred
+        window?.minSize = NSSize(width: 510, height: 280)
     }
     
 }

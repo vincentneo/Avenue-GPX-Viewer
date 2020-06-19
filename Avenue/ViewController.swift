@@ -23,14 +23,35 @@ class ViewController: NSViewController, MKMapViewDelegate {
         miniMap.autoresizingMask = .none
         let subView = NSView(frame: self.view.frame)
         subView.addSubview(miniMap)
-        miniMap.frame = NSRect(x: 10, y: subView.frame.height - 110, width: 100, height: 100)
+        let kSize: CGFloat = 135
+        miniMap.frame = NSRect(x: 10, y: subView.frame.height - (kSize + 10), width: kSize, height: kSize)
         mapView.addSubview(subView)
+        
+        // it will be weird to have legal text on both map views
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = miniMap.subviews.filter({ $0.isKind(of: textClass) }).first {
             mapText.isHidden = true
         }
+        
+        
+        // disable user interaction on mini map
         miniMap.isZoomEnabled = false
         miniMap.isScrollEnabled = false
+        
+        miniMap.wantsLayer = true
+
+        miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor//NSColor.gray.cgColor
+        miniMap.layer?.borderWidth = 1.5
+        miniMap.layer?.cornerRadius = 10
+        
+        DistributedNotificationCenter.default.addObserver(self, selector: #selector(themeDidChange(_:)), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
+    }
+
+    @objc func themeDidChange(_ sender: NSNotification) {
+        // this seems to be called roughly .1 sec earlier than actual theme change
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor
+        }
     }
     
     //
@@ -42,7 +63,12 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         if overlay is MKPolyline {
             let pr = MKPolylineRenderer(overlay: overlay)
-            pr.strokeColor = NSColor(named: NSColor.Name("Poly Line Colour"))
+            if #available(OSX 10.14, *) {
+                pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
+                pr.alpha = 0.65
+            } else {
+                pr.strokeColor = NSColor(named: NSColor.Name("Poly Line Color"))
+            }
             pr.lineWidth = 4
             return pr
         }
@@ -54,13 +80,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     func setMiniMapRegion(_ mapView: MKMapView) {
         var region = mapView.region
-        
+
         // seems like somewhere between 2.5 * 10 will cause zoom to stop. Might as well remove minimap entirely.
         if region.span.latitudeDelta > 2.5 {
-            miniMap.isHidden = true
+            miniMap.animator().isHidden = true
             return
         }
-        miniMap.isHidden = false
+        miniMap.animator().isHidden = false
         region.span.latitudeDelta *= 10
         region.span.longitudeDelta *= 10
         miniMap.region = region
