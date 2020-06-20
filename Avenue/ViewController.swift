@@ -41,8 +41,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
         miniMap.wantsLayer = true
 
         miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor//NSColor.gray.cgColor
-        miniMap.layer?.borderWidth = 1.5
+        miniMap.layer?.borderWidth = 1
         miniMap.layer?.cornerRadius = 10
+        let shadow = CALayer()
+
+        miniMap.layer?.addSublayer(shadow)
         
         DistributedNotificationCenter.default.addObserver(self, selector: #selector(themeDidChange(_:)), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
     }

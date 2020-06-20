@@ -19,7 +19,7 @@ class Document: NSDocument {
     override init() {
         super.init()
         // Add your subclass-specific initialization here.
-        appDelegate.closeLaunchWindow()
+        self.appDelegate.launch.window?.close() 
     }
 
     override class var autosavesInPlace: Bool {
