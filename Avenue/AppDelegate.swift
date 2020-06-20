@@ -11,12 +11,13 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    @IBOutlet weak var showMiniMap: NSMenuItem!
+    @IBOutlet weak var hideMiniMap: NSMenuItem!
+    
     let launch = NSWindowController(windowNibName: "LaunchWindow")
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        //launch.window?.isRestorable = false
-        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -27,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
         print("didRun")
         launch.showWindow(self)
+        disableAllViewMenuItems()
         return false
     }
     
@@ -34,5 +36,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         launch.window?.performClose(self)
     }
     
+    @IBAction func showMiniMapClicked(_ sender: NSMenuItem) {
+        hideMiniMap.isHidden = false
+        showMiniMap.isHidden = true
+        
+        NotificationCenter.default.post(name: .miniMapAction, object: nil)
+    }
+    
+    @IBAction func hideMiniMapClicked(_ sender: NSMenuItem) {
+        showMiniMap.isHidden = false
+        hideMiniMap.isHidden = true
+        NotificationCenter.default.post(name: .miniMapAction, object: nil)
+    }
+    
+    func disableAllViewMenuItems() {
+        let main = NSApplication.shared.menu?.item(withTitle: "View")
+        let subMenuItems = main?.submenu?.items
+        for item in subMenuItems! {
+                item.isEnabled = false
+
+        }
+    }
+    
+    func enableMiniMapMenuItems() {
+        let main = NSApplication.shared.menu?.item(withTitle: "View")
+        let subMenuItems = main?.submenu?.items
+        for item in subMenuItems! {
+
+                item.isEnabled = true
+        
+            
+        }
+    }
+    
 }
 
+extension NSNotification.Name {
+    static let miniMapAction = Notification.Name("MiniMapAction")
+}

@@ -46,7 +46,8 @@ class Document: NSDocument {
         let viewController = windowController.contentViewController as! ViewController
         //viewController.mapView.loadedGPXFile(gpx)
         viewController.mapView.loadedGPXData(data)
-        
+        appDelegate.enableMiniMapMenuItems()
+        //viewController.mmHidden = !UserDefaults.standard.bool(forKey: "showMiniMap")
     }
 
     override func data(ofType typeName: String) throws -> Data {
