@@ -45,8 +45,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
         // Do any additional setup after loading the view.
         miniMap.autoresizingMask = .none
         let kSize: CGFloat = 135
-        miniMap.frame = NSRect(x: 10, y: mapView.frame.minY + 10, width: kSize, height: kSize)
-        mapView.addSubview(miniMap)
+        let view = NSView(frame: NSRect(x: 10, y: mapView.frame.minY + 10, width: kSize, height: kSize))
+        miniMap.frame = NSRect(x: 0, y: 0, width: kSize, height: kSize)
+        view.addSubview(miniMap)
+        mapView.addSubview(view)
         //miniMap.delegate = mmDelegate
         
         // it will be weird to have legal text on both map views
@@ -55,7 +57,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
             mapText.isHidden = true
         }
         if let textClass = NSClassFromString("MKAttributionLabel"),
-           let mapText = miniMap.subviews.filter({ $0.isKind(of: textClass) }).first {
+           let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
             segments.frame = segments.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
         }
         
@@ -125,8 +127,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         switch sender.selectedSegment {
         case 0: mapType = .standard
-        case 1: mapType = .satellite
-        case 2: mapType = .hybrid
+        case 1: mapType = .satelliteFlyover
+        case 2: mapType = .hybridFlyover
         default:
             mapType = .standard
         }
@@ -189,8 +191,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
     func setMiniMapRegion(_ mapView: MKMapView) {
         var region = MKCoordinateRegion()
         region = mapView.region
-
-        // seems like somewhere between 2.5 * 10 will cause zoom to stop. Might as well remove minimap entirely.
+        
+        // seems like somewhere between 2.5 will cause zoom to stop. Might as well remove minimap entirely.
         if region.span.latitudeDelta > 2.5 {
             miniMap.animator().isHidden = true
             mmBoundsReached = true

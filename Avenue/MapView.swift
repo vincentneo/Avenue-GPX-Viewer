@@ -16,7 +16,7 @@ class MapView: MKMapView {
     
     var extent = GPXExtentCoordinates()
     
-    func loadedGPXData(_ data: Data) {
+    func loadedGPXData(_ data: Data, _ windowCon: WindowController) {
         let indicator = NSProgressIndicator(frame: self.frame)
         let visualView = NSVisualEffectView(frame: self.frame)
         visualView.blendingMode = .withinWindow
@@ -50,6 +50,13 @@ class MapView: MKMapView {
                 visualView.removeFromSuperview()
                 indicator.stopAnimation(self)
                 guard let fileGPX = fileGPX else { return }
+                var length = 0.0
+                for track in fileGPX.tracks {
+                    for trackseg in track.tracksegments {
+                        length += trackseg.length()
+                    }
+                }
+                windowCon.barDistance.stringValue = length.toDistance(useImperial: false)
                 self.loadedGPXFile(fileGPX)
             }
 

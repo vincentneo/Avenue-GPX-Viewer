@@ -40,7 +40,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRF-cJ-3kg">
                         <rect key="frame" x="-1" y="-3" width="302" height="67"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="📁 Open a GPX File" bezelStyle="smallSquare" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f4d-A7-yvu">
+                        <buttonCell key="cell" type="smallSquare" title="📂 Open a GPX File" bezelStyle="smallSquare" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f4d-A7-yvu">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="18" name="HelveticaNeue"/>
                         </buttonCell>

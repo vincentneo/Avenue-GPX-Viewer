@@ -190,12 +190,14 @@
                                         </buttonCell>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="BF5F30F1-F805-45FD-B9DC-927ABA71B798" label="barTitle" paletteLabel="barTitle" sizingBehavior="auto" id="9NC-dN-VgB">
+                                <toolbarItem implicitItemIdentifier="BF5F30F1-F805-45FD-B9DC-927ABA71B798" label="File Title" paletteLabel="File Title" id="9NC-dN-VgB">
                                     <nil key="toolTip"/>
+                                    <size key="minSize" width="300" height="22"/>
+                                    <size key="maxSize" width="1000" height="22"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lI5-bJ-PDa">
-                                        <rect key="frame" x="0.0" y="14" width="105" height="22"/>
+                                        <rect key="frame" x="0.0" y="14" width="300" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" usesSingleLineMode="YES" id="ftx-MP-ysA">
+                                        <textFieldCell key="cell" alignment="left" title="Label" usesSingleLineMode="YES" id="ftx-MP-ysA">
                                             <font key="font" metaFont="systemSemibold" size="18"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -203,10 +205,23 @@
                                     </textField>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="S0k-PL-XeI"/>
+                                <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
+                                    <nil key="toolTip"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
+                                        <rect key="frame" x="0.0" y="14" width="68" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="right" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
+                                            <font key="font" metaFont="systemMedium" size="15"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="9NC-dN-VgB"/>
                                 <toolbarItem reference="S0k-PL-XeI"/>
+                                <toolbarItem reference="x6A-dH-1Dg"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -214,7 +229,8 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="barTitle" destination="lI5-bJ-PDa" id="dmp-Kw-Slb"/>
+                        <outlet property="barDistance" destination="Uub-Ud-ev7" id="iDN-BJ-kgS"/>
+                        <outlet property="barTitle" destination="lI5-bJ-PDa" id="R2k-6b-giL"/>
                         <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
                     </connections>
                 </windowController>

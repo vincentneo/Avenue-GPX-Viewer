@@ -11,6 +11,8 @@ import Cocoa
 class WindowController: NSWindowController {
     
     @IBOutlet weak var barTitle: NSTextField!
+    @IBOutlet weak var barDistance: NSTextField!
+    
     
     override func windowDidLoad() {
         super.windowDidLoad()
