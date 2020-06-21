@@ -54,7 +54,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let subMenuItems = main?.submenu?.items
         for item in subMenuItems! {
                 item.isEnabled = false
-
         }
     }
     
@@ -62,10 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let main = NSApplication.shared.menu?.item(withTitle: "View")
         let subMenuItems = main?.submenu?.items
         for item in subMenuItems! {
-
                 item.isEnabled = true
-        
-            
         }
     }
     
