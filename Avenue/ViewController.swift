@@ -30,26 +30,33 @@ class ViewController: NSViewController, MKMapViewDelegate {
     var heightConstraints = NSLayoutConstraint()
     var widthConstraints = NSLayoutConstraint()
     
+    let segments = NSSegmentedControl(labels: ["Standard", "Satellite", "Hybrid"], trackingMode: .selectOne, target: nil, action: #selector(segmentControlDidChange(_:)))
+    
     // improve perf
     var skipCounter = 3
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(segments)
+        segments.selectedSegment = 0
+        segments.segmentStyle = .texturedRounded
         mapView.delegate = self
         // Do any additional setup after loading the view.
         miniMap.autoresizingMask = .none
-        let subView = NSView(frame: self.view.frame)
-        subView.addSubview(miniMap)
         let kSize: CGFloat = 135
-        miniMap.frame = NSRect(x: 10, y: subView.frame.height - (kSize + 10), width: kSize, height: kSize)
-        mapView.addSubview(subView)
+        miniMap.frame = NSRect(x: 10, y: mapView.frame.minY + 10, width: kSize, height: kSize)
+        mapView.addSubview(miniMap)
         //miniMap.delegate = mmDelegate
         
         // it will be weird to have legal text on both map views
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = miniMap.subviews.filter({ $0.isKind(of: textClass) }).first {
             mapText.isHidden = true
+        }
+        if let textClass = NSClassFromString("MKAttributionLabel"),
+           let mapText = miniMap.subviews.filter({ $0.isKind(of: textClass) }).first {
+            segments.frame = segments.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
         }
         
         // disable user interaction on mini map
@@ -111,6 +118,21 @@ class ViewController: NSViewController, MKMapViewDelegate {
             skipCounter += 1
         }
         
+    }
+    
+    @objc func segmentControlDidChange(_ sender: NSSegmentedControl) {
+        var mapType: MKMapType
+        
+        switch sender.selectedSegment {
+        case 0: mapType = .standard
+        case 1: mapType = .satellite
+        case 2: mapType = .hybrid
+        default:
+            mapType = .standard
+        }
+
+        miniMap.mapType = mapType
+        mapView.mapType = mapType
     }
     
     @objc func viewSizeDidChange(_ sender: Notification) {
@@ -182,7 +204,6 @@ class ViewController: NSViewController, MKMapViewDelegate {
         scale = (CGFloat(region.span.latitudeDelta) / 3) + CGFloat(log(region.span.latitudeDelta) / -25) - 0.1
         region.span.latitudeDelta *= 6
         region.span.longitudeDelta *= 6
-        print(CGFloat(log(region.span.latitudeDelta) / -25))
         miniMap.region = region
         setBoundsSize(width: width, height: height)
     }
