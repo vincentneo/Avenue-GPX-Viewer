@@ -45,6 +45,7 @@ class MapView: MKMapView {
             
             // UI end parse release
             DispatchQueue.main.sync {
+                NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
                 self.setUserInteraction(state: true)
                 indicator.removeFromSuperview()
                 visualView.removeFromSuperview()

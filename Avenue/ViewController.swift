@@ -100,6 +100,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         DistributedNotificationCenter.default.addObserver(self, selector: #selector(themeDidChange(_:)), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(miniMapDidChange(_:)), name: .miniMapAction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
     }
     
     func setBoundsSize(width: CGFloat, height: CGFloat) {
@@ -120,6 +121,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
             skipCounter += 1
         }
         
+    }
+    
+    @objc func gpxFileFinishedLoading(_ sender: Notification) {
+        skipCounter = 3 // force bound to update
+        setBoundsSize(width: width, height: height)
     }
     
     @objc func segmentControlDidChange(_ sender: NSSegmentedControl) {
@@ -143,8 +149,6 @@ class ViewController: NSViewController, MKMapViewDelegate {
         width = (window.frame.width / 10)
         
         setBoundsSize(width: width, height: height)
-        //print(height, width)
-        //print(aspect)
     }
     
     @objc func miniMapDidChange(_ sender: Notification) {
