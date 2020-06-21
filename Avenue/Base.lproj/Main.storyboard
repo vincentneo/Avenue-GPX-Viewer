@@ -175,14 +175,15 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="239" width="480" height="271"/>
+                        <rect key="contentRect" x="360" y="580" width="600" height="320"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="510" height="280"/>
                         <toolbar key="toolbar" implicitIdentifier="0EEF5A14-8378-48A4-8460-11D6D979D7C4" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="TlO-sG-wAA">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="6D6F2236-97C4-44A9-B5EB-72153FF70CE2" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="y9P-Wf-7VF">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="NUB-UO-CXV">
-                                        <rect key="frame" x="0.0" y="14" width="127" height="25"/>
+                                        <rect key="frame" x="0.0" y="14" width="126" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kEi-MT-WVU">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -208,7 +209,7 @@
                                 <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
-                                        <rect key="frame" x="0.0" y="14" width="68" height="20"/>
+                                        <rect key="frame" x="0.0" y="14" width="92" height="20"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="right" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
                                             <font key="font" metaFont="systemMedium" size="15"/>

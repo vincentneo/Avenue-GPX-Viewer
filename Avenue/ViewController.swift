@@ -38,9 +38,6 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(segments)
-        segments.selectedSegment = 0
-        segments.segmentStyle = .texturedRounded
         mapView.delegate = self
         // Do any additional setup after loading the view.
         miniMap.autoresizingMask = .none
@@ -51,6 +48,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
         mapView.addSubview(view)
         //miniMap.delegate = mmDelegate
         
+        self.view.addSubview(segments)
+        segments.selectedSegment = 0
+        segments.segmentStyle = .texturedRounded
+        
+        //segments.frame = CGRect(x: 3, y: mapView.frame.height, width: segments.frame.width, height: segments.frame.height)
         // it will be weird to have legal text on both map views
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = miniMap.subviews.filter({ $0.isKind(of: textClass) }).first {
@@ -67,7 +69,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         miniMap.wantsLayer = true
 
-        miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor//NSColor.gray.cgColor
+        if #available(OSX 10.13, *) {
+            miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor
+        } else {
+            miniMap.layer?.borderColor = NSColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1).cgColor
+        }
         miniMap.layer?.borderWidth = 1
         miniMap.layer?.cornerRadius = 10
         
@@ -93,8 +99,6 @@ class ViewController: NSViewController, MKMapViewDelegate {
         setBoundsSize(width: width, height: height)
         //box.addConstraint(heightConstraints)
         //box.addConstraint(widthConstraints)
-        
-
         
         
         DistributedNotificationCenter.default.addObserver(self, selector: #selector(themeDidChange(_:)), name: NSNotification.Name(rawValue: "AppleInterfaceThemeChangedNotification"), object: nil)
@@ -161,9 +165,17 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func themeDidChange(_ sender: NSNotification) {
         // this seems to be called roughly .1 sec earlier than actual theme change
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor
+            if #available(OSX 10.13, *) {
+                self.miniMap.layer?.borderColor = NSColor(named: NSColor.Name("MiniMapBorder"))?.cgColor
+            }
+            else {
+                self.miniMap.layer?.borderColor = NSColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1).cgColor
+            }
             if #available(OSX 10.14, *) {
                 self.box.layer?.borderColor = NSColor.controlAccentColor.cgColor
+            }
+            else {
+                self.box.layer?.borderColor = NSColor.blue.cgColor
             }
         }
     }
@@ -179,10 +191,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
             let pr = MKPolylineRenderer(overlay: overlay)
             if #available(OSX 10.14, *) {
                 pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
-                pr.alpha = 0.65
             } else {
-                pr.strokeColor = NSColor(named: NSColor.Name("Poly Line Color"))
+                pr.strokeColor = .blue
             }
+            pr.alpha = 0.65
             pr.lineWidth = 4
             return pr
         }

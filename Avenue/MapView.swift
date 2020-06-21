@@ -30,8 +30,8 @@ class MapView: MKMapView {
             // UI start parse indication
             DispatchQueue.main.sync {
                 self.setUserInteraction(state: false)
-                self.addSubview(visualView)
-                self.addSubview(indicator)
+                windowCon.contentViewController?.view.addSubview(visualView)
+                windowCon.contentViewController?.view.addSubview(indicator)
                 indicator.translatesAutoresizingMaskIntoConstraints = false
                 visualView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint(item: indicator, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true

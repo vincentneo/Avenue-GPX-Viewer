@@ -21,7 +21,9 @@ class WindowController: NSWindowController {
         barTitle.stringValue = "Avenue"
         barTitle.isHidden = true
         
-        window?.tabbingMode = .preferred
+        if #available(OSX 10.12, *) {
+            window?.tabbingMode = .preferred
+        }
         window?.minSize = NSSize(width: 510, height: 280)
     }
     
