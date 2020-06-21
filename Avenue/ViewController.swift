@@ -76,6 +76,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         miniMap.layer?.borderWidth = 1
         miniMap.layer?.cornerRadius = 10
+        miniMap.layer?.opacity = 0.9
         
         width = mapView.frame.width / 10
         height = mapView.frame.height / 10
