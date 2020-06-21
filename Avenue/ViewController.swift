@@ -165,7 +165,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     func setMiniMapRegion(_ mapView: MKMapView) {
-        var region = mapView.region
+        var region = MKCoordinateRegion()
+        region = mapView.region
 
         // seems like somewhere between 2.5 * 10 will cause zoom to stop. Might as well remove minimap entirely.
         if region.span.latitudeDelta > 2.5 {
@@ -173,14 +174,16 @@ class ViewController: NSViewController, MKMapViewDelegate {
             mmBoundsReached = true
             return
         }
+
         mmBoundsReached = false
         miniMap.animator().isHidden = mmHidden
-        region.span.latitudeDelta *= 10
-        region.span.longitudeDelta *= 10
+        
+        // guess work calibrated. Not accurate what so ever. Seems more accurate when zoomed in, very inaccurate when zoomed out.
+        scale = (CGFloat(region.span.latitudeDelta) / 3) + CGFloat(log(region.span.latitudeDelta) / -25) - 0.1
+        region.span.latitudeDelta *= 6
+        region.span.longitudeDelta *= 6
+        print(CGFloat(log(region.span.latitudeDelta) / -25))
         miniMap.region = region
-
-        scale = CGFloat(region.span.latitudeDelta / 6.5)
-        // TODO:- add a bounding box to represent current size of main map view, represented in map.
         setBoundsSize(width: width, height: height)
     }
     
