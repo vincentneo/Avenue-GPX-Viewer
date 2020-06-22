@@ -12,8 +12,6 @@ import CoreGPX
 
 class MapView: MKMapView {
     
-    //weak var documentDelegate: DocumentDelegate?
-    
     var extent = GPXExtentCoordinates()
     
     func loadedGPXData(_ data: Data, _ windowCon: WindowController) {
