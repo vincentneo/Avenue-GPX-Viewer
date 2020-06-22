@@ -209,8 +209,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
         var region = MKCoordinateRegion()
         region = mapView.region
         
-        // seems like somewhere between 2.5 will cause zoom to stop. Might as well remove minimap entirely.
-        if region.span.latitudeDelta > 2.5 {
+        // Remove minimap when it is displaying useless information.
+        // seems like somewhere between 2.5 will cause zoom to stop.
+        // anything above 1.25, appears to make bounding box super inaccurate.
+        if region.span.latitudeDelta > 1.25 {
             miniMap.animator().isHidden = true
             mmBoundsReached = true
             return
