@@ -11,7 +11,7 @@ import CoreGPX
 
 class Document: NSDocument {
     
-    var gpx = GPXRoot()
+    //var gpx = GPXRoot()
     var data = Data()
     
     let appDelegate = NSApp.delegate as! AppDelegate

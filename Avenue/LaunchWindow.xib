@@ -46,7 +46,7 @@
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YFc-ua-DeL">
                         <rect key="frame" x="77" y="154" width="146" height="146"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="NSApplicationIcon" id="5UB-cU-DuS"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Avenue-Icon" id="5UB-cU-DuS"/>
                     </imageView>
                 </subviews>
             </view>
@@ -54,6 +54,6 @@
         </window>
     </objects>
     <resources>
-        <image name="NSApplicationIcon" width="32" height="32"/>
+        <image name="Avenue-Icon" width="512" height="512"/>
     </resources>
 </document>

@@ -211,7 +211,7 @@
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
                                         <rect key="frame" x="0.0" y="14" width="92" height="20"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="right" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="center" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
                                             <font key="font" metaFont="systemMedium" size="15"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
