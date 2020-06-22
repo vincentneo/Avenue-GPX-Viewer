@@ -1,58 +1,139 @@
 {
   "images" : [
     {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-16.png",
       "idiom" : "mac",
-      "size" : "16x16",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "16x16"
     },
     {
+      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "size" : "16x16",
-      "scale" : "2x"
+      "scale" : "1x",
+      "size" : "16x16"
     },
     {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-32.png",
       "idiom" : "mac",
-      "size" : "32x32",
-      "scale" : "1x"
+      "scale" : "2x",
+      "size" : "16x16"
     },
     {
+      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "size" : "32x32",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "16x16"
     },
     {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-32.png",
       "idiom" : "mac",
-      "size" : "128x128",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "32x32"
     },
     {
+      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "size" : "128x128",
-      "scale" : "2x"
+      "scale" : "1x",
+      "size" : "32x32"
     },
     {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-64.png",
       "idiom" : "mac",
-      "size" : "256x256",
-      "scale" : "1x"
+      "scale" : "2x",
+      "size" : "32x32"
     },
     {
+      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "size" : "256x256",
-      "scale" : "2x"
+      "scale" : "2x",
+      "size" : "32x32"
     },
     {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-128.png",
       "idiom" : "mac",
-      "size" : "512x512",
-      "scale" : "1x"
+      "scale" : "1x",
+      "size" : "128x128"
     },
     {
+      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "size" : "512x512",
-      "scale" : "2x"
+      "scale" : "1x",
+      "size" : "128x128"
+    },
+    {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-256.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "128x128"
+    },
+    {
+      "display-gamut" : "display-P3",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "128x128"
+    },
+    {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-256.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "256x256"
+    },
+    {
+      "display-gamut" : "display-P3",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "256x256"
+    },
+    {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-512.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "256x256"
+    },
+    {
+      "display-gamut" : "display-P3",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "256x256"
+    },
+    {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-512.png",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "512x512"
+    },
+    {
+      "display-gamut" : "display-P3",
+      "idiom" : "mac",
+      "scale" : "1x",
+      "size" : "512x512"
+    },
+    {
+      "display-gamut" : "sRGB",
+      "filename" : "Avenue-Icon@2x-1024.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "512x512"
+    },
+    {
+      "display-gamut" : "display-P3",
+      "filename" : "Avenue-Icon@2x.png",
+      "idiom" : "mac",
+      "scale" : "2x",
+      "size" : "512x512"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

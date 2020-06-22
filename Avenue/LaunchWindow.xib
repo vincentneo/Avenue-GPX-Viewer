@@ -23,13 +23,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YFc-ua-DeL">
-                        <rect key="frame" x="90" y="172" width="120" height="120"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="NSNetwork" id="5UB-cU-DuS"/>
-                    </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fY7-nu-coe">
-                        <rect key="frame" x="-2" y="131" width="304" height="33"/>
+                        <rect key="frame" x="-2" y="115" width="304" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Welcome To Avenue!" id="fGl-Oa-GnB">
                             <font key="font" metaFont="systemSemibold" size="24"/>
@@ -48,12 +43,17 @@
                             <action selector="openDocument:" target="-1" id="8Ob-c2-4CL"/>
                         </connections>
                     </button>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YFc-ua-DeL">
+                        <rect key="frame" x="77" y="154" width="146" height="146"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="NSApplicationIcon" id="5UB-cU-DuS"/>
+                    </imageView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="187" y="69"/>
         </window>
     </objects>
     <resources>
-        <image name="NSNetwork" width="32" height="32"/>
+        <image name="NSApplicationIcon" width="32" height="32"/>
     </resources>
 </document>
