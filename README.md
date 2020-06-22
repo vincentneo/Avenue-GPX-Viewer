@@ -47,7 +47,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
-Please note that this source code was released under the GPL license. So any change on the code shall be made publicly available and distributed under the GPL license (this does not apply to the pods included in the project which have their own license).
+Please note that this source code was released under the GPL license. So any change on the code shall be made publicly available and distributed under the GPL license (this does not apply to the swift packages included in the project which have their own license).
 
 ## Dependency
 - [CoreGPX](https://github.com/vincentneo/CoreGPX), used for parsing and handling of GPX files.
