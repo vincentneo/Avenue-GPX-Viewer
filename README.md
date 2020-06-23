@@ -1,5 +1,5 @@
 <p align="center">
-  <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/READMEResources/Avenue-Title.png"/>
+  <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/Avenue-Title.png"/>
   <br/>
   <b> A simple GPS exchange format viewer for macOS. </b>
 </p>
@@ -8,7 +8,7 @@ Avenue is a GPX file viewer that aims to allow quick and easy access to the data
 
 Requires macOS 10.12 Sierra and above.
 <p align="center">
-  <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/READMEResources/Screenshot.png"/>
+  <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/Screenshot.png"/>
 </p>
 
 Avenue is based on some codes over at [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker).
