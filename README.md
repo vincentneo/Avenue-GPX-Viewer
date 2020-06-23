@@ -2,6 +2,23 @@
   <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/Avenue-Title.png"/>
   <br/>
   <b> A simple GPS exchange format viewer for macOS. </b>
+  <br/>
+  <a href="https://travis-ci.com/github/vincentneo/Avenue-GPX-Viewer">
+    <img src="https://travis-ci.com/vincentneo/Avenue-GPX-Viewer.svg"/>
+  </a>
+  <a href="https://github.com/vincentneo/CoreGPX">
+    <img src="https://img.shields.io/badge/CoreGPX-0.8.0-yellow.svg"/>
+  </a>
+  <a href="https://swift.org">
+    <img src="https://img.shields.io/badge/Swift-5.2-orange.svg"/>
+  </a>
+  <a href="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-GPLv3-blue.svg"/>
+  </a>
+  <a href="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/platform-macOS >= 10.12-red.svg"/>
+  </a>
+  
 </p>
 
 Avenue is a GPX file viewer that aims to allow quick and easy access to the data in a GPX file. 
