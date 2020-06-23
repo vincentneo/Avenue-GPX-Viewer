@@ -1,0 +1,21 @@
+
+os: osx
+osx_image: xcode8.3
+language: swift
+env: 
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  - WORKSPACE=Avenue.xcodeproj
+  - SCHEME="Avenue"
+  - DESTINATION="arch=x86_64"
+  - SDK="macosx10.12"
+  # SDK to target lowest supported version for now.
+
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  
+  - xcodebuild -workspace "$WORKSPACE" -list
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
