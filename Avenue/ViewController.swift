@@ -26,7 +26,6 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     var height = CGFloat.zero
     var width = CGFloat.zero
-    var scale = CGFloat.zero
     var heightConstraints = NSLayoutConstraint()
     var widthConstraints = NSLayoutConstraint()
     
@@ -113,8 +112,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
             widthConstraints.isActive = false
             heightConstraints.isActive = false
             box.updateConstraints()
-            widthConstraints = NSLayoutConstraint(item: box, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width * scale)
-            heightConstraints =  NSLayoutConstraint(item: box, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height * scale)
+            widthConstraints = NSLayoutConstraint(item: box, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
+            heightConstraints =  NSLayoutConstraint(item: box, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height)
 
             widthConstraints.isActive = true
             heightConstraints.isActive = true
@@ -149,11 +148,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     @objc func viewSizeDidChange(_ sender: Notification) {
-        guard let window = sender.object as? NSWindow else { return }
-        height = (window.frame.height / 10)
-        width = (window.frame.width / 10)
-        
-        setBoundsSize(width: width, height: height)
+        // allow for box size update everytime when view size is changed.
+        skipCounter = 3
+        mapViewDidChangeVisibleRegion(mapView)
     }
     
     @objc func miniMapDidChange(_ sender: Notification) {
@@ -212,7 +209,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         // Remove minimap when it is displaying useless information.
         // seems like somewhere between 2.5 will cause zoom to stop.
         // anything above 1.25, appears to make bounding box super inaccurate.
-        if region.span.latitudeDelta > 1.25 {
+        // 1.85 for current zoom easeOutQuad algorithm
+        if region.span.latitudeDelta > 1.85 {
             miniMap.animator().isHidden = true
             mmBoundsReached = true
             return
@@ -221,14 +219,27 @@ class ViewController: NSViewController, MKMapViewDelegate {
         mmBoundsReached = false
         miniMap.animator().isHidden = mmHidden
         
-        // guess work calibrated. Not accurate what so ever. Seems more accurate when zoomed in, very inaccurate when zoomed out.
-        scale = (CGFloat(region.span.latitudeDelta) / 3) + CGFloat(log(region.span.latitudeDelta) / -25) - 0.1
-        region.span.latitudeDelta *= 6
-        region.span.longitudeDelta *= 6
+        
+        // Some pages that was referred. Content may or may not be relevant to final implementation.
+        // https://stackoverflow.com/questions/36685372/how-to-zoom-in-out-in-react-native-map/36688156#36688156
+        // https://stackoverflow.com/questions/2081753/getting-the-bounds-of-an-mkmapview
+        //for minimap2.0
+
+        // latitude delta of main map
+        let mVLat = mapView.region.span.latitudeDelta
+        // longitude delta of main map
+        let mVLon = mapView.region.span.longitudeDelta
+        
+        // formula: -t^2 + 2t from https://hackernoon.com/ease-out-the-half-sigmoid-7240df433d98, where x = delta of lat/lon
+        region.span.latitudeDelta = pow((-1 * mVLat * 2), 2) + (2 * mVLat * 2)
+        region.span.longitudeDelta = pow((-1 * mVLon * 2), 2) + (2 * mVLon * 2)
         miniMap.region = region
+ 
+        // as a percentage conversion btn main and mini map
+        width = CGFloat((mapView.region.span.longitudeDelta / miniMap.region.span.longitudeDelta)) * miniMap.frame.width
+        height = CGFloat((mapView.region.span.latitudeDelta / miniMap.region.span.latitudeDelta)) * miniMap.frame.height
         setBoundsSize(width: width, height: height)
     }
-    
     
 
     override var representedObject: Any? {
