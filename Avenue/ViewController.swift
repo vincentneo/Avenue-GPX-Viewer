@@ -26,7 +26,6 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     var height = CGFloat.zero
     var width = CGFloat.zero
-    var scale = CGFloat.zero
     var heightConstraints = NSLayoutConstraint()
     var widthConstraints = NSLayoutConstraint()
     
@@ -113,8 +112,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
             widthConstraints.isActive = false
             heightConstraints.isActive = false
             box.updateConstraints()
-            widthConstraints = NSLayoutConstraint(item: box, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width * scale)
-            heightConstraints =  NSLayoutConstraint(item: box, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height * scale)
+            widthConstraints = NSLayoutConstraint(item: box, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
+            heightConstraints =  NSLayoutConstraint(item: box, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height)
 
             widthConstraints.isActive = true
             heightConstraints.isActive = true
@@ -149,11 +148,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     @objc func viewSizeDidChange(_ sender: Notification) {
-        guard let window = sender.object as? NSWindow else { return }
-        //height = (window.frame.height / 10)
-        //width = (window.frame.width / 10)
-        
-        setBoundsSize(width: width, height: height)
+        // allow for box size update everytime when view size is changed.
+        skipCounter = 3
+        mapViewDidChangeVisibleRegion(mapView)
     }
     
     @objc func miniMapDidChange(_ sender: Notification) {
@@ -212,7 +209,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         // Remove minimap when it is displaying useless information.
         // seems like somewhere between 2.5 will cause zoom to stop.
         // anything above 1.25, appears to make bounding box super inaccurate.
-        if region.span.latitudeDelta > 2.5 {
+        // 1.85 for current zoom easeOutQuad algorithm
+        if region.span.latitudeDelta > 1.85 {
             miniMap.animator().isHidden = true
             mmBoundsReached = true
             return
@@ -222,85 +220,26 @@ class ViewController: NSViewController, MKMapViewDelegate {
         miniMap.animator().isHidden = mmHidden
         
         
-        // REF TO https://stackoverflow.com/questions/36685372/how-to-zoom-in-out-in-react-native-map/36688156#36688156
+        // Some pages that was referred. Content may or may not be relevant to final implementation.
+        // https://stackoverflow.com/questions/36685372/how-to-zoom-in-out-in-react-native-map/36688156#36688156
         // https://stackoverflow.com/questions/2081753/getting-the-bounds-of-an-mkmapview
         //for minimap2.0
-        
-        let bounds = mapView.bounds
-        // get main map view bounds for all four corners
-        let topLeft = CGPoint(x: 0, y: bounds.maxY)
-        let topRight = CGPoint(x: bounds.maxX, y: bounds.maxY)
-        let bottomLeft = CGPoint(x: bounds.origin.x, y: bounds.origin.y)
-        let bottomRight = CGPoint(x: bounds.maxX, y: bounds.origin.y)
-        let centerX = CGPoint(x: bounds.origin.x, y: bounds.midY)
-        let centerY = CGPoint(x: bounds.midX, y: bounds.origin.y)
-        
-        //print(bounds.maxY)
-        
-        // convert to coordinates
-        let coordTL = mapView.convert(topLeft, toCoordinateFrom: mapView)
-        let coordTR = mapView.convert(topRight, toCoordinateFrom: mapView)
-        let coordBL = mapView.convert(bottomLeft, toCoordinateFrom: mapView)
-        let coordBR = mapView.convert(bottomRight, toCoordinateFrom: mapView)
-        let coordCX = mapView.convert(centerX, toCoordinateFrom: mapView)
-        let coordCY = mapView.convert(centerY, toCoordinateFrom: mapView)
-        
-        
 
-        //print(width, height)
-        scale = 1
-        // guess work calibrated. Not accurate what so ever. Seems more accurate when zoomed in, very inaccurate when zoomed out.
-        //scale = (CGFloat(region.span.latitudeDelta) / 3) + CGFloat(log(region.span.latitudeDelta) / -25) - 0.1
-
-        region.span.latitudeDelta *= 6
-        region.span.longitudeDelta *= 6
+        // latitude delta of main map
+        let mVLat = mapView.region.span.latitudeDelta
+        // longitude delta of main map
+        let mVLon = mapView.region.span.longitudeDelta
+        
+        // formula: -t^2 + 2t from https://hackernoon.com/ease-out-the-half-sigmoid-7240df433d98, where x = delta of lat/lon
+        region.span.latitudeDelta = pow((-1 * mVLat * 2), 2) + (2 * mVLat * 2)
+        region.span.longitudeDelta = pow((-1 * mVLon * 2), 2) + (2 * mVLon * 2)
         miniMap.region = region
-        
-        let halfLatDelta = mapView.region.span.latitudeDelta / 2
-        let halfLngDelta = mapView.region.span.longitudeDelta / 2
-
-        let topLeftCoord = CLLocationCoordinate2D(
-            latitude: mapView.region.center.latitude + halfLatDelta,
-            longitude: mapView.region.center.longitude - halfLngDelta
-        )
-        let bottomRightCoord = CLLocationCoordinate2D(
-            latitude: mapView.region.center.latitude - halfLatDelta,
-            longitude: mapView.region.center.longitude + halfLngDelta
-        )
-        let bottomLeftCoord = CLLocationCoordinate2D(
-            latitude: mapView.region.center.latitude - halfLatDelta,
-            longitude: mapView.region.center.longitude - halfLngDelta
-        )
-        let topRightCoord = CLLocationCoordinate2D(
-            latitude: mapView.region.center.latitude + halfLatDelta,
-            longitude: mapView.region.center.longitude + halfLngDelta
-        )
-        
-        let mmTL = miniMap.convert(topLeftCoord, toPointTo: miniMap)
-        let mmTR = miniMap.convert(topRightCoord, toPointTo: miniMap)
-        let mmBL = miniMap.convert(bottomLeftCoord, toPointTo: miniMap)
-        let mmBR = miniMap.convert(bottomRightCoord, toPointTo: miniMap)
-        
-        // convert coordinates to mini map view points
-        print(topLeftCoord)
-
-        let mmCX = miniMap.convert(CLLocationCoordinate2D(latitude: coordCX.latitude, longitude: coordCX.longitude), toPointTo: miniMap)
-        let mmCY = miniMap.convert(CLLocationCoordinate2D(latitude: coordCY.latitude, longitude: coordCX.longitude), toPointTo: miniMap)
-        // width ≈ lon
-        //print(coordCX)
-        let mmCXend = miniMap.convert(CLLocationCoordinate2D(latitude: coordCX.latitude, longitude: coordCY.longitude + region.span.longitudeDelta), toPointTo: miniMap)
-        let mmCYend = miniMap.convert(CLLocationCoordinate2D(latitude: coordCY.latitude + region.span.latitudeDelta, longitude: coordCY.longitude), toPointTo: miniMap)
-        //print(region.span.latitudeDelta)
-        //print(mmTL, mmTR, mmBL, mmBR)
-        width = mmTR.x - mmTL.x//mmCXend.x - mmCX.x//mmBR.x - mmTL.x
-        print(" TLC: \(topLeftCoord) \n TRC: \(topRightCoord) \n BLC: \(bottomLeftCoord) \n BRC: \(bottomRightCoord) \n")
-        print(" TL: \(mmTL) \n TR: \(mmTR) \n BL: \(mmBL) \n BR: \(mmBR) \n")
-        //print(mmCXend.x, mmCX)
-        height = mmBL.y - mmTL.y//mmCY.y - mmCYend.y//mmTL.y - mmBR.y
+ 
+        // as a percentage conversion btn main and mini map
+        width = CGFloat((mapView.region.span.longitudeDelta / miniMap.region.span.longitudeDelta)) * miniMap.frame.width
+        height = CGFloat((mapView.region.span.latitudeDelta / miniMap.region.span.latitudeDelta)) * miniMap.frame.height
         setBoundsSize(width: width, height: height)
-        print(width, height)
     }
-    
     
 
     override var representedObject: Any? {
