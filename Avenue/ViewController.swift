@@ -49,8 +49,14 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         self.view.addSubview(segments)
         segments.selectedSegment = 0
-        segments.segmentStyle = .texturedRounded
-        
+        if #available(OSX 10.16, *) {
+            // looks better for Big Sur, though can be better for visibility.
+            segments.segmentStyle = .rounded
+            
+        }
+        else {
+            segments.segmentStyle = .texturedRounded
+        }
         //segments.frame = CGRect(x: 3, y: mapView.frame.height, width: segments.frame.width, height: segments.frame.height)
         // it will be weird to have legal text on both map views
         if let textClass = NSClassFromString("MKAttributionLabel"),
