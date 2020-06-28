@@ -12,29 +12,37 @@ import CoreGPX
 
 class ViewController: NSViewController, MKMapViewDelegate {
 
+    /// main map that forms main view. Displays actual gps log and user interactable.
     @IBOutlet weak var mapView: MapView!
     
+    /// mini map that typically locates at top left corner of view.
     let miniMap = MKMapView()
+    
+    /// mini map's center box
+    var box = NSView(frame: NSRect.zero)
+    var boxHeight = CGFloat.zero
+    var boxWidth = CGFloat.zero
+    var boxHeightConstraints = NSLayoutConstraint()
+    var boxwidthConstraints = NSLayoutConstraint()
     
     /// Mini Map's zoom out boundaries reached: point of no zooming
     var mmBoundsReached = false
     
-    var box = NSView(frame: NSRect.zero)
-    
     /// Mini Map's should be hidden or not, by settings.
     var mmHidden = false
     
-    var height = CGFloat.zero
-    var width = CGFloat.zero
-    var heightConstraints = NSLayoutConstraint()
-    var widthConstraints = NSLayoutConstraint()
-    
+    /// segments that allow users to choose apple map type at bottom left corner above legal text. Subject to changes in future.
     let segments = NSSegmentedControl(labels: ["Standard", "Satellite", "Hybrid"], trackingMode: .selectOne, target: nil, action: #selector(segmentControlDidChange(_:)))
     
-    // improve perf
+    /// a counter for use to improve performance in minimap bound box drawing,
+    /// as size change calls may be overly repetitive, and that its fine to skip some drawing cycles.
     var skipCounter = 3
     
-    var observer: NSKeyValueObservation?
+    /// Observes system accent color changes, according to `UserDefaults` AppleHighlightColor.
+    var systemAccentObserver: NSKeyValueObservation?
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +86,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         miniMap.layer?.cornerRadius = 10
         miniMap.layer?.opacity = 0.9
         
-        width = mapView.frame.width / 10
-        height = mapView.frame.height / 10
+        boxWidth = mapView.frame.width / 10
+        boxHeight = mapView.frame.height / 10
         //let height:CGFloat = 150//(miniMap.frame.width / mapView.frame.width) * miniMap.frame.width
         //let width:CGFloat = 40 //(miniMap.frame.height / mapView.frame.height) * miniMap.frame.height
             //print(width, height)
@@ -97,7 +105,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NSLayoutConstraint(item: box, attribute: .centerX, relatedBy: .equal, toItem: miniMap, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: box, attribute: .centerY, relatedBy: .equal, toItem: miniMap, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
 
-        setBoundsSize(width: width, height: height)
+        setBoundsSize(width: boxWidth, height: boxHeight)
         //box.addConstraint(heightConstraints)
         //box.addConstraint(widthConstraints)
         
@@ -106,7 +114,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(miniMapDidChange(_:)), name: .miniMapAction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
-        observer = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
+        systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 self.setBoxBorderColor()
@@ -115,20 +123,20 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     deinit {
-        observer?.invalidate()
+        systemAccentObserver?.invalidate()
     }
     
     
     func setBoundsSize(width: CGFloat, height: CGFloat) {
         if skipCounter == 3 {
-            widthConstraints.isActive = false
-            heightConstraints.isActive = false
+            boxwidthConstraints.isActive = false
+            boxHeightConstraints.isActive = false
             box.updateConstraints()
-            widthConstraints = NSLayoutConstraint(item: box, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
-            heightConstraints =  NSLayoutConstraint(item: box, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height)
+            boxwidthConstraints = NSLayoutConstraint(item: box, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
+            boxHeightConstraints =  NSLayoutConstraint(item: box, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: height)
 
-            widthConstraints.isActive = true
-            heightConstraints.isActive = true
+            boxwidthConstraints.isActive = true
+            boxHeightConstraints.isActive = true
             
             box.updateConstraints()
             skipCounter = 0
@@ -141,7 +149,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     @objc func gpxFileFinishedLoading(_ sender: Notification) {
         skipCounter = 3 // force bound to update
-        setBoundsSize(width: width, height: height)
+        setBoundsSize(width: boxWidth, height: boxHeight)
     }
     
     @objc func segmentControlDidChange(_ sender: NSSegmentedControl) {
@@ -252,9 +260,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
         miniMap.region = region
  
         // as a percentage conversion btn main and mini map
-        width = CGFloat((mapView.region.span.longitudeDelta / miniMap.region.span.longitudeDelta)) * miniMap.frame.width
-        height = CGFloat((mapView.region.span.latitudeDelta / miniMap.region.span.latitudeDelta)) * miniMap.frame.height
-        setBoundsSize(width: width, height: height)
+        boxWidth = CGFloat((mapView.region.span.longitudeDelta / miniMap.region.span.longitudeDelta)) * miniMap.frame.width
+        boxHeight = CGFloat((mapView.region.span.latitudeDelta / miniMap.region.span.latitudeDelta)) * miniMap.frame.height
+        setBoundsSize(width: boxWidth, height: boxHeight)
     }
     
 
@@ -268,6 +276,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
 }
 
 extension UserDefaults {
+    
+    // from https://stackoverflow.com/a/47856467
+    
+    /// name does not respect lowerCamelCase
+    /// as the source of implementation states that no callbacks if name != key.
     @objc dynamic var AppleHighlightColor: String? {
         return string(forKey: "AppleHighlightColor")
     }
