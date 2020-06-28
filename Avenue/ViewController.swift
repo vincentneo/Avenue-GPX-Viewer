@@ -34,6 +34,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     // improve perf
     var skipCounter = 3
     
+    var observer: NSKeyValueObservation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +106,18 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(miniMapDidChange(_:)), name: .miniMapAction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
+        observer = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
+            // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                self.setBoxBorderColor()
+            }
+        })
     }
+    
+    deinit {
+        observer?.invalidate()
+    }
+    
     
     func setBoundsSize(width: CGFloat, height: CGFloat) {
         if skipCounter == 3 {
@@ -169,12 +181,16 @@ class ViewController: NSViewController, MKMapViewDelegate {
             else {
                 self.miniMap.layer?.borderColor = NSColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1).cgColor
             }
-            if #available(OSX 10.14, *) {
-                self.box.layer?.borderColor = NSColor.controlAccentColor.cgColor
-            }
-            else {
-                self.box.layer?.borderColor = NSColor.blue.cgColor
-            }
+            self.setBoxBorderColor()
+        }
+    }
+    
+    func setBoxBorderColor() {
+        if #available(OSX 10.14, *) {
+            self.box.layer?.borderColor = NSColor.controlAccentColor.cgColor
+        }
+        else {
+            self.box.layer?.borderColor = NSColor.blue.cgColor
         }
     }
     
@@ -249,4 +265,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
 
 
+}
+
+extension UserDefaults {
+    @objc dynamic var AppleHighlightColor: String? {
+        return string(forKey: "AppleHighlightColor")
+    }
 }
