@@ -17,6 +17,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     /// mini map that typically locates at top left corner of view.
     let miniMap = MKMapView()
+    var mmBackingView = NSView()
     
     /// mini map's center box
     var box = NSView(frame: NSRect.zero)
@@ -41,7 +42,29 @@ class ViewController: NSViewController, MKMapViewDelegate {
     /// Observes system accent color changes, according to `UserDefaults` AppleHighlightColor.
     var systemAccentObserver: NSKeyValueObservation?
     
+    enum MiniMapSize: CGFloat {
+        
+        static let shared = MiniMapSize.small
+        
+        case small = 135
+        case mid = 160
+        case full = 185
+        
+        func preferredSize(_ width: CGFloat, _ height: CGFloat) -> CGFloat {
+            // window?.minSize = NSSize(width: 510, height: 280)
+            if width < 540 || height < 330 {
+                return MiniMapSize.small.rawValue
+            }
+            else if width < 1200 || height < 1000 {
+                return MiniMapSize.mid.rawValue
+            }
+            else {
+                return MiniMapSize.full.rawValue
+            }
+        }
+    }
     
+    var mmSize = MiniMapSize.shared
     
     
     override func viewDidLoad() {
@@ -49,11 +72,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
         mapView.delegate = self
         // Do any additional setup after loading the view.
         miniMap.autoresizingMask = .none
-        let kSize: CGFloat = 135
-        let view = NSView(frame: NSRect(x: 10, y: mapView.frame.minY + 10, width: kSize, height: kSize))
+        
+        // size of minimap
+        let kSize: CGFloat = mmSize.preferredSize(mapView.frame.width, mapView.frame.height)
+        mmBackingView = NSView(frame: NSRect(x: 10, y: mapView.frame.minY + 10, width: kSize, height: kSize))
         miniMap.frame = NSRect(x: 0, y: 0, width: kSize, height: kSize)
-        view.addSubview(miniMap)
-        mapView.addSubview(view)
+        mmBackingView.addSubview(miniMap)
+        mapView.addSubview(mmBackingView)
         //miniMap.delegate = mmDelegate
         
         self.view.addSubview(segments)
@@ -171,6 +196,17 @@ class ViewController: NSViewController, MKMapViewDelegate {
         // allow for box size update everytime when view size is changed.
         skipCounter = 3
         mapViewDidChangeVisibleRegion(mapView)
+        let kSize = mmSize.preferredSize(mapView.frame.width, mapView.frame.height)
+        
+        // dispatch after to prevent erronous frame sizes.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.mmBackingView.animator().frame = NSRect(x: 10, y: self.mapView.frame.minY + 10, width: kSize, height: kSize)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.miniMap.animator().frame = NSRect(x: 0, y: 0, width: kSize, height: kSize)
+        }
+        
+
     }
     
     @objc func miniMapDidChange(_ sender: Notification) {
