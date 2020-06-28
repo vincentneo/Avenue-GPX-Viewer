@@ -28,6 +28,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
         print("didRun")
         launch.showWindow(self)
+        launch.window?.standardWindowButton(.zoomButton)?.isHidden = true
+        launch.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         disableAllViewMenuItems()
         return false
     }
