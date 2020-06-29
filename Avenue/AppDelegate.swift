@@ -15,9 +15,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var hideMiniMap: NSMenuItem!
     
     let launch = NSWindowController(windowNibName: "LaunchWindow")
+    let prefs = Preferences.shared
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        let prefsShowMiniMap = Preferences.shared.showMiniMap
+        hideMiniMap.isHidden = !prefsShowMiniMap
+        showMiniMap.isHidden = prefsShowMiniMap
+        print(prefsShowMiniMap)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

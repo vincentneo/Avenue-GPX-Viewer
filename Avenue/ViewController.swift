@@ -69,6 +69,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mmHidden = !Preferences.shared.showMiniMap
         mapView.delegate = self
         // Do any additional setup after loading the view.
         miniMap.autoresizingMask = .none
@@ -139,6 +140,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(miniMapDidChange(_:)), name: .miniMapAction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(miniMapPreferences(_:)), name: .miniMapPrefsCall, object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -209,11 +211,18 @@ class ViewController: NSViewController, MKMapViewDelegate {
 
     }
     
+    @objc func miniMapPreferences(_ sender: Notification) {
+        if Preferences.shared.showMiniMap != mmHidden {
+            miniMapDidChange(Notification(name: .miniMapPrefsCall))
+        }
+    }
+    
     @objc func miniMapDidChange(_ sender: Notification) {
         mmHidden = !mmHidden
         if !mmBoundsReached {
             miniMap.animator().isHidden = mmHidden
         }
+        Preferences.shared.showMiniMap = !mmHidden
     }
     
     @objc func themeDidChange(_ sender: NSNotification) {
@@ -320,4 +329,8 @@ extension UserDefaults {
     @objc dynamic var AppleHighlightColor: String? {
         return string(forKey: "AppleHighlightColor")
     }
+}
+
+extension NSNotification.Name {
+    static let miniMapPrefsCall = Notification.Name("MiniMapPrefsCall")
 }
