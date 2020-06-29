@@ -52,7 +52,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         func preferredSize(_ width: CGFloat, _ height: CGFloat) -> CGFloat {
             // window?.minSize = NSSize(width: 510, height: 280)
-            if width < 540 || height < 330 {
+            if width < 650 || height < 450 {
                 return MiniMapSize.small.rawValue
             }
             else if width < 1200 || height < 1000 {
