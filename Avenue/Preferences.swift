@@ -6,7 +6,7 @@
 import Foundation
 import CoreLocation
 
-let kDefaultsShowMiniMap: String = "ShowMiniMap"
+let kDefaultsHideMiniMap: String = "ShowMiniMap"
 
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
@@ -24,7 +24,7 @@ class Preferences: NSObject {
     ///
     static let shared = Preferences()
     
-    private var _showMiniMap: Bool = true
+    private var _hideMiniMap: Bool = true
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
@@ -32,21 +32,21 @@ class Preferences: NSObject {
     /// Loads preferences from UserDefaults.
     private override init() {
         //loads preferences into private vars
-        if let showMiniMap = defaults.object(forKey: kDefaultsShowMiniMap) as? Bool {
-            _showMiniMap = showMiniMap
+        if let hideMiniMap = defaults.object(forKey: kDefaultsHideMiniMap) as? Bool {
+            _hideMiniMap = hideMiniMap
         }
         
     }
     
     /// If true, user prefers to display imperial units (miles, feets). Otherwise metric units
     /// are displayed.
-    var showMiniMap: Bool {
+    var hideMiniMap: Bool {
         get {
-            return _showMiniMap
+            return _hideMiniMap
         }
         set {
-            _showMiniMap = newValue
-            defaults.set(newValue, forKey: kDefaultsShowMiniMap)
+            _hideMiniMap = newValue
+            defaults.set(newValue, forKey: kDefaultsHideMiniMap)
         }
     }
     

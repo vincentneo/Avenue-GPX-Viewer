@@ -19,10 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        let prefsShowMiniMap = Preferences.shared.showMiniMap
-        hideMiniMap.isHidden = !prefsShowMiniMap
-        showMiniMap.isHidden = prefsShowMiniMap
-        print(prefsShowMiniMap)
+        let prefs = Preferences.shared.hideMiniMap
+        hideMiniMap.isHidden = prefs
+        showMiniMap.isHidden = !prefs
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
