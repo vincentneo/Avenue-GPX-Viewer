@@ -33,6 +33,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     var mmHidden = false
     
     /// segments that allow users to choose apple map type at bottom left corner above legal text. Subject to changes in future.
+    let dropDownMenu = NSPopUpButton(title: "", target: nil, action: #selector(dropDownDidChange(_:)))
     let segments = NSSegmentedControl(labels: ["Standard", "Satellite", "Hybrid"], trackingMode: .selectOne, target: nil, action: #selector(segmentControlDidChange(_:)))
     
     /// a counter for use to improve performance in minimap bound box drawing,
@@ -82,9 +83,19 @@ class ViewController: NSViewController, MKMapViewDelegate {
         mapView.addSubview(mmBackingView)
         //miniMap.delegate = mmDelegate
         
-        self.view.addSubview(segments)
-        segments.selectedSegment = 0
-        segments.segmentStyle = .texturedRounded
+        dropDownMenu.frame = NSRect(x: 0, y: 0, width: 160, height: 25)
+        dropDownMenu.addItem(withTitle: " Standard")
+        dropDownMenu.addItem(withTitle: " Hybrid")
+        dropDownMenu.addItem(withTitle: " Satellite")
+        dropDownMenu.addItem(withTitle: " Alternate")
+        dropDownMenu.addItem(withTitle: "Open Street Map")
+        dropDownMenu.select(dropDownMenu.item(at: 0))
+        //dropDownMenu.menu?.items.append()
+        self.view.addSubview(dropDownMenu)
+        
+        //self.view.addSubview(segments)
+        //segments.selectedSegment = 0
+        //segments.segmentStyle = .texturedRounded
         
         //segments.frame = CGRect(x: 3, y: mapView.frame.height, width: segments.frame.width, height: segments.frame.height)
         // it will be weird to have legal text on both map views
@@ -94,7 +105,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
-            segments.frame = segments.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
+            dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
+            //segments.frame = segments.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
         }
         
         // disable user interaction on mini map
@@ -176,6 +188,29 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func gpxFileFinishedLoading(_ sender: Notification) {
         skipCounter = 3 // force bound to update
         setBoundsSize(width: boxWidth, height: boxHeight)
+    }
+    
+    @objc func dropDownDidChange(_ sender: NSPopUpButton) {
+        var mapType: MKMapType
+        
+        switch sender.indexOfSelectedItem {
+        case 0: mapType = .standard
+        case 1: mapType = .satelliteFlyover
+        case 2: mapType = .hybridFlyover
+        case 3:
+            mapType = .hybridFlyover
+            miniMap.mapType = mapType
+            mapView.mapType = mapType
+            if #available(OSX 10.13, *) {
+                mapType = .mutedStandard
+            }
+            
+        default:
+            mapType = .standard
+        }
+
+        miniMap.mapType = mapType
+        mapView.mapType = mapType
     }
     
     @objc func segmentControlDidChange(_ sender: NSSegmentedControl) {
