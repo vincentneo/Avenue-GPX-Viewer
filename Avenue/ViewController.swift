@@ -15,9 +15,72 @@ class ViewController: NSViewController, MKMapViewDelegate {
     /// main map that forms main view. Displays actual gps log and user interactable.
     @IBOutlet weak var mapView: MapView!
     
+    // from OpenGPXTracker-iOS
+    /// Overlay that holds map tiles
+    var tileServerOverlay: MKTileOverlay = MKTileOverlay()
+    // from OpenGPXTracker-iOS
+    var tileServer: GPXTileServer = .apple {
+        willSet {
+            print("Setting map tiles overlay to: \(newValue.name)" )
+
+            // remove current overlay
+            if self.tileServer != .apple {
+                //to see apple maps we need to remove the overlay added by map cache.
+                mapView.removeOverlay(self.tileServerOverlay)
+                miniMap.removeOverlay(self.tileServerOverlay)
+            }
+            
+            /// Min distance to the floor of the camera
+            if #available(OSX 10.15, *) {
+             mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
+             miniMap.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
+            }
+            
+            //add new overlay to map if not using Apple Maps
+            if newValue != .apple {
+                /* MapCache is still iOS only. May arrive at later date
+                //Update cacheConfig
+                config.subdomains = newValue.subdomains
+                
+                if newValue.maximumZ > 0 {
+                    config.maximumZ = newValue.maximumZ
+                }
+                if newValue.minimumZ > 0  {
+                    config.minimumZ = newValue.minimumZ
+                }
+                let cache = MapCache(withConfig: config)
+                // the overlay returned substitutes Apple Maps tile overlay.
+                // we need to keep a reference to remove it, in case we return back to Apple Maps.
+                */
+                self.tileServerOverlay = MKTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
+                self.tileServerOverlay.canReplaceMapContent = true
+                
+                mapView.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
+                miniMap.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
+
+
+            }
+        }
+        didSet {
+            
+            if #available(OSX 10.14, *) {
+                if tileServer == .apple {
+                    NSApp.appearance = nil
+                }
+                else { // if map is third party, dark mode is disabled.
+                    let bestMatch = NSAppearance().bestMatch(from: [.aqua, .accessibilityHighContrastAqua]) ?? .aqua
+                    NSApp.appearance = NSAppearance(named: bestMatch)
+                }
+                themeDidChange(NSNotification(name: .mapChangedTheme, object: nil))
+            }
+            
+        }
+    }
+    
     /// mini map that typically locates at top left corner of view.
     let miniMap = MKMapView()
     var mmBackingView = NSView()
+    let mmDelegate = MiniDelegate()
     
     /// mini map's center box
     var box = NSView(frame: NSRect.zero)
@@ -74,7 +137,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         mapView.delegate = self
         // Do any additional setup after loading the view.
         miniMap.autoresizingMask = .none
-        
+        miniMap.delegate = mmDelegate
         // size of minimap
         let kSize: CGFloat = mmSize.preferredSize(mapView.frame.width, mapView.frame.height)
         mmBackingView = NSView(frame: NSRect(x: 10, y: mapView.frame.minY + 10, width: kSize, height: kSize))
@@ -166,6 +229,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
         systemAccentObserver?.invalidate()
     }
     
+    // from merlos/MapCache
+    public func randomSubdomain(_ subdomains: [String], domain: String) -> String? {
+        if subdomains.count == 0 {
+            return nil
+        }
+        let rand = Int(arc4random_uniform(UInt32(subdomains.count)))
+        
+        return domain.replacingOccurrences(of: "{s}", with: subdomains[rand])
+    }
     
     func setBoundsSize(width: CGFloat, height: CGFloat) {
         if skipCounter == 3 {
@@ -195,13 +267,12 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {
         var mapType: MKMapType
         
-
-        
         switch sender.indexOfSelectedItem {
-        case 0: mapType = .standard
-        case 1: mapType = .satelliteFlyover
-        case 2: mapType = .hybridFlyover
-        // case 3: will be a seperator; > 4 = custom
+        case 0: mapType = .standard;             tileServer = .apple
+        case 1: mapType = .satelliteFlyover;     tileServer = .apple
+        case 2: mapType = .hybridFlyover;        tileServer = .apple
+     // case 3: will be a seperator; > 4 = custom
+        case 4: mapType = .standard;             tileServer = .openStreetMap
         default:
             mapType = .standard
         }
@@ -354,4 +425,29 @@ extension UserDefaults {
     @objc dynamic var AppleHighlightColor: String? {
         return string(forKey: "AppleHighlightColor")
     }
+}
+
+class MiniDelegate: NSObject, MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay.isKind(of: MKTileOverlay.self) {
+            return MKTileOverlayRenderer(overlay: overlay)
+        }
+        
+        if overlay is MKPolyline {
+            let pr = MKPolylineRenderer(overlay: overlay)
+            if #available(OSX 10.14, *) {
+                pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
+            } else {
+                pr.strokeColor = .blue
+            }
+            pr.alpha = 0.65
+            pr.lineWidth = 4
+            return pr
+        }
+        return MKOverlayRenderer()
+    }
+}
+
+extension Notification.Name {
+    static let mapChangedTheme = Notification.Name("MapChangedTheme")
 }
