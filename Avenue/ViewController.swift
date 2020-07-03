@@ -268,11 +268,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
         var mapType: MKMapType
         
         switch sender.indexOfSelectedItem {
-        case 0: mapType = .standard;             tileServer = .apple
-        case 1: mapType = .satelliteFlyover;     tileServer = .apple
-        case 2: mapType = .hybridFlyover;        tileServer = .apple
-     // case 3: will be a seperator; > 4 = custom
-        case 4: mapType = .standard;             tileServer = .openStreetMap
+            case 0: mapType = .standard;             tileServer = .apple
+            case 1: mapType = .satelliteFlyover;     tileServer = .apple
+            case 2: mapType = .hybridFlyover;        tileServer = .apple
+         // case 3: will be a seperator; > 4 = custom
+            case 4: mapType = .standard;             tileServer = .openStreetMap
+            case 5: mapType = .standard;             tileServer = .cartoDB
+            case 6: mapType = .standard;             tileServer = .openTopoMap
         default:
             mapType = .standard
         }
