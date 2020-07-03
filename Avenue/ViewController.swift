@@ -87,8 +87,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
         dropDownMenu.addItem(withTitle: " Standard")
         dropDownMenu.addItem(withTitle: " Hybrid")
         dropDownMenu.addItem(withTitle: " Satellite")
-        dropDownMenu.addItem(withTitle: " Alternate")
+        dropDownMenu.menu?.addItem(.separator())
         dropDownMenu.addItem(withTitle: "Open Street Map")
+        dropDownMenu.addItem(withTitle: "CartoDB")
+        dropDownMenu.addItem(withTitle: "OpenTopoMap")
         dropDownMenu.select(dropDownMenu.item(at: 0))
         //dropDownMenu.menu?.items.append()
         self.view.addSubview(dropDownMenu)
@@ -193,18 +195,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {
         var mapType: MKMapType
         
+
+        
         switch sender.indexOfSelectedItem {
         case 0: mapType = .standard
         case 1: mapType = .satelliteFlyover
         case 2: mapType = .hybridFlyover
-        case 3:
-            mapType = .hybridFlyover
-            miniMap.mapType = mapType
-            mapView.mapType = mapType
-            if #available(OSX 10.13, *) {
-                mapType = .mutedStandard
-            }
-            
+        // case 3: will be a seperator; > 4 = custom
         default:
             mapType = .standard
         }

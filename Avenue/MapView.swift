@@ -80,6 +80,10 @@ class MapView: MKMapView {
                 }
             }
         }
+        // reduce region span being too close to bounds of view
+        extent.region.span.latitudeDelta *= 1.25
+        extent.region.span.longitudeDelta *= 1.25
+        
         self.setRegion(extent.region, animated: true)
         
     }
