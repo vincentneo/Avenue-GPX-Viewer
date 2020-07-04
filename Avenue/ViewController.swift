@@ -450,24 +450,26 @@ class MiniDelegate: NSObject, MKMapViewDelegate {
             } else {
                 pr.strokeColor = .blue
             }
-            pr.alpha = 0.65
-            pr.lineWidth = 1
+            pr.alpha = 0.8
+            pr.lineWidth = 1.5
             return pr
         }
         return MKOverlayRenderer()
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //guard annotation is MKPointAnnotation else { return nil }
+        guard annotation is GPXWaypoint else {
+            print("Non-GPXWaypoint annotation for minimap found")
+            return nil
+        }
         
-        let identifier = "Annotation1"
+        let identifier = "mmPin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        
         annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        guard let img = NSImage(named: NSImage.Name("avenue-pin")) else { print("ohno"); return nil}
+        
+        guard let img = NSImage(named: NSImage.Name("avenue-pin")) else { print("Oh no! Mini map pin not found :("); return nil}
         annotationView?.image = img
-       
-        annotationView?.canShowCallout = true
+        annotationView?.canShowCallout = false // minimap is not user interactable
         
         return annotationView
     }
