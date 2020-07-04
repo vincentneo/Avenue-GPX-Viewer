@@ -43,7 +43,7 @@ class MapView: MKMapView {
             
             // UI end parse release
             DispatchQueue.main.sync {
-                NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
+                
                 self.setUserInteraction(state: true)
                 indicator.removeFromSuperview()
                 visualView.removeFromSuperview()
@@ -57,6 +57,7 @@ class MapView: MKMapView {
                 }
                 windowCon.barDistance.stringValue = length.toDistance(useImperial: false)
                 self.loadedGPXFile(fileGPX)
+                NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
             }
 
         }

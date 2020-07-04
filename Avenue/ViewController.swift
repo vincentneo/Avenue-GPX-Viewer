@@ -146,7 +146,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         mapView.addSubview(mmBackingView)
         //miniMap.delegate = mmDelegate
         
-        dropDownMenu.frame = NSRect(x: 0, y: 0, width: 160, height: 25)
+        dropDownMenu.frame = NSRect(x: 0, y: 0, width: 145, height: 25)
         dropDownMenu.addItem(withTitle: " Standard")
         dropDownMenu.addItem(withTitle: " Hybrid")
         dropDownMenu.addItem(withTitle: " Satellite")
@@ -155,6 +155,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         dropDownMenu.addItem(withTitle: "CartoDB")
         dropDownMenu.addItem(withTitle: "OpenTopoMap")
         dropDownMenu.select(dropDownMenu.item(at: 0))
+        dropDownMenu.wantsLayer = true
+        dropDownMenu.layer?.opacity = 0.9
         //dropDownMenu.menu?.items.append()
         self.view.addSubview(dropDownMenu)
         
@@ -262,6 +264,12 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func gpxFileFinishedLoading(_ sender: Notification) {
         skipCounter = 3 // force bound to update
         setBoundsSize(width: boxWidth, height: boxHeight)
+        for overlay in mapView.overlays {
+            if overlay is MKPolyline {
+                miniMap.addOverlay(overlay, level: .aboveLabels)
+            }
+        }
+        miniMap.addAnnotations(mapView.annotations)
     }
     
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {
@@ -443,10 +451,25 @@ class MiniDelegate: NSObject, MKMapViewDelegate {
                 pr.strokeColor = .blue
             }
             pr.alpha = 0.65
-            pr.lineWidth = 4
+            pr.lineWidth = 1
             return pr
         }
         return MKOverlayRenderer()
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //guard annotation is MKPointAnnotation else { return nil }
+        
+        let identifier = "Annotation1"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        guard let img = NSImage(named: NSImage.Name("avenue-pin")) else { print("ohno"); return nil}
+        annotationView?.image = img
+       
+        annotationView?.canShowCallout = true
+        
+        return annotationView
     }
 }
 
