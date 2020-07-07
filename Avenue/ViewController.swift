@@ -106,6 +106,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
     /// Observes system accent color changes, according to `UserDefaults` AppleHighlightColor.
     var systemAccentObserver: NSKeyValueObservation?
     
+    var externalLegal = NSTextField(frame: CGRect(x: 0, y: 0, width: 180, height: 20))
+    
     enum MiniMapSize: CGFloat {
         
         static let shared = MiniMapSize.small
@@ -225,6 +227,16 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 self.setBoxBorderColor()
             }
         })
+        
+        mapView.addSubview(externalLegal)
+        externalLegal.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: externalLegal, attribute: .leading, relatedBy: .equal, toItem: mapView, attribute: .leading, multiplier: 1, constant: 5).isActive = true
+        NSLayoutConstraint(item: externalLegal, attribute: .bottom, relatedBy: .equal, toItem: mapView, attribute: .bottom, multiplier: 1, constant: -3).isActive = true
+        
+        externalLegal.isBezeled = false
+        externalLegal.drawsBackground = false
+        externalLegal.isEditable = false
+        externalLegal.isSelectable = false
     }
     
     deinit {
@@ -275,17 +287,37 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {
         var mapType: MKMapType
         
+        var legalLabel: String?
+        
         switch sender.indexOfSelectedItem {
             case 0: mapType = .standard;             tileServer = .apple
             case 1: mapType = .satelliteFlyover;     tileServer = .apple
             case 2: mapType = .hybridFlyover;        tileServer = .apple
          // case 3: will be a seperator; > 4 = custom
-            case 4: mapType = .standard;             tileServer = .openStreetMap
-            case 5: mapType = .standard;             tileServer = .cartoDB
-            case 6: mapType = .standard;             tileServer = .openTopoMap
+            case 4: mapType = .standard;             tileServer = .openStreetMap; legalLabel = "© OpenStreetMap contributors"
+            case 5: mapType = .standard;             tileServer = .cartoDB; legalLabel = "© OpenStreetMap contributors, © CARTO"
+            case 6: mapType = .standard;             tileServer = .openTopoMap; legalLabel = "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
         default:
             mapType = .standard
         }
+        
+        if let textClass = NSClassFromString("MKAttributionLabel"),
+           let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
+            if sender.indexOfSelectedItem > 3 {
+                externalLegal.font = .boldSystemFont(ofSize: 8.5)
+                guard let legalLabel = legalLabel else { return }
+                externalLegal.stringValue = legalLabel
+                externalLegal.isHidden = false
+                mapText.isHidden = true
+                
+            }
+            else {
+                mapText.isHidden = false
+                externalLegal.isHidden = true
+            }
+
+        }
+
 
         miniMap.mapType = mapType
         mapView.mapType = mapType
