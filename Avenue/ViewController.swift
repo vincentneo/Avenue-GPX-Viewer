@@ -206,7 +206,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
             box.layer?.borderColor = NSColor.blue.cgColor
         }
         box.layer?.borderWidth = 2
+        let shadow = NSShadow()
+        
+        shadow.shadowColor = .gray
+        shadow.shadowOffset = NSSize(width: 0, height: 0)
+        shadow.shadowBlurRadius = 2
         miniMap.addSubview(box)
+        box.shadow = shadow
         
         box.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: box, attribute: .centerX, relatedBy: .equal, toItem: miniMap, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
@@ -318,8 +324,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
 
         }
 
-
-        miniMap.mapType = mapType
+        if mapType == .hybridFlyover {
+            miniMap.mapType = .hybrid
+        }
+        else if mapType == .satelliteFlyover {
+            miniMap.mapType = .satellite
+        }
+        else {
+            miniMap.mapType = mapType
+        }
         mapView.mapType = mapType
     }
     

@@ -22,6 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let prefs = Preferences.shared.hideMiniMap
         hideMiniMap.isHidden = prefs
         showMiniMap.isHidden = !prefs
+        /*
+        if prefs == true {
+            showMiniMap.keyEquivalent = "m"
+            showMiniMap.keyEquivalentModifierMask = [.option, .command]
+        }*/
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -45,7 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func showMiniMapClicked(_ sender: NSMenuItem) {
         hideMiniMap.isHidden = false
         showMiniMap.isHidden = true
-        
         NotificationCenter.default.post(name: .miniMapAction, object: nil)
     }
     
