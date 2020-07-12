@@ -460,12 +460,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
         // seems like somewhere between 2.5 will cause zoom to stop.
         // anything above 1.25, appears to make bounding box super inaccurate.
         // 1.85 for current zoom easeOutQuad algorithm
+        // not accurate at latitude boundaries (mercator projection)
         if region.span.latitudeDelta > 1.85 {
             miniMap.animator().isHidden = true
             mmBoundsReached = true
             return
         }
-
+        
         mmBoundsReached = false
         miniMap.animator().isHidden = mmHidden
         
@@ -483,8 +484,14 @@ class ViewController: NSViewController, MKMapViewDelegate {
         // formula: -t^2 + 2t from https://hackernoon.com/ease-out-the-half-sigmoid-7240df433d98, where x = delta of lat/lon
         region.span.latitudeDelta = pow((-1 * mVLat * 2), 2) + (2 * mVLat * 2)
         region.span.longitudeDelta = pow((-1 * mVLon * 2), 2) + (2 * mVLon * 2)
+        
+        // prevent a crash at the polar regions, as longitudeDelta could rise above 360.
+        // ideally, the algorithm shall not do this. :(
+        if region.span.longitudeDelta > 359 {
+            return
+        }
         miniMap.region = region
- 
+        
         // as a percentage conversion btn main and mini map
         boxWidth = CGFloat((mapView.region.span.longitudeDelta / miniMap.region.span.longitudeDelta)) * miniMap.frame.width
         boxHeight = CGFloat((mapView.region.span.latitudeDelta / miniMap.region.span.latitudeDelta)) * miniMap.frame.height
