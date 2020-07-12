@@ -106,7 +106,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     /// Observes system accent color changes, according to `UserDefaults` AppleHighlightColor.
     var systemAccentObserver: NSKeyValueObservation?
     
-    var externalLegal = NSTextField(frame: CGRect(x: 0, y: 0, width: 180, height: 20))
+    var attribution = NSTextField(frame: CGRect(x: 0, y: 0, width: 180, height: 20))
     
     enum MiniMapSize: CGFloat {
         
@@ -234,15 +234,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
             }
         })
         
-        mapView.addSubview(externalLegal)
-        externalLegal.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: externalLegal, attribute: .leading, relatedBy: .equal, toItem: mapView, attribute: .leading, multiplier: 1, constant: 5).isActive = true
-        NSLayoutConstraint(item: externalLegal, attribute: .bottom, relatedBy: .equal, toItem: mapView, attribute: .bottom, multiplier: 1, constant: -3).isActive = true
+        mapView.addSubview(attribution)
+        attribution.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: attribution, attribute: .leading, relatedBy: .equal, toItem: mapView, attribute: .leading, multiplier: 1, constant: 5).isActive = true
+        NSLayoutConstraint(item: attribution, attribute: .bottom, relatedBy: .equal, toItem: mapView, attribute: .bottom, multiplier: 1, constant: -3).isActive = true
         
-        externalLegal.isBezeled = false
-        externalLegal.drawsBackground = false
-        externalLegal.isEditable = false
-        externalLegal.isSelectable = false
+        attribution.isBezeled = false
+        attribution.drawsBackground = false
+        attribution.isEditable = false
+        attribution.isSelectable = false
     }
     
     deinit {
@@ -310,16 +310,16 @@ class ViewController: NSViewController, MKMapViewDelegate {
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
             if sender.indexOfSelectedItem > 3 {
-                externalLegal.font = .boldSystemFont(ofSize: 8.5)
+                attribution.font = .boldSystemFont(ofSize: 8.5)
                 guard let legalLabel = legalLabel else { return }
-                externalLegal.stringValue = legalLabel
-                externalLegal.isHidden = false
+                attribution.stringValue = legalLabel
+                attribution.isHidden = false
                 mapText.isHidden = true
                 
             }
             else {
                 mapText.isHidden = false
-                externalLegal.isHidden = true
+                attribution.isHidden = true
             }
 
         }
@@ -408,6 +408,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
         if overlay is MKPolyline {
             let pr = MKPolylineRenderer(overlay: overlay)
             if #available(OSX 10.14, *) {
+                if #available(OSX 10.15, *) {
+                    pr.shouldRasterize = true
+                }
                 pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
             } else {
                 pr.strokeColor = .blue
@@ -491,6 +494,9 @@ class MiniDelegate: NSObject, MKMapViewDelegate {
         if overlay is MKPolyline {
             let pr = MKPolylineRenderer(overlay: overlay)
             if #available(OSX 10.14, *) {
+                if #available(OSX 10.15, *) {
+                    pr.shouldRasterize = true
+                }
                 pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
             } else {
                 pr.strokeColor = .blue
