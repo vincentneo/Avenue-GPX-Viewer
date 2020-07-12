@@ -9,6 +9,7 @@
 import Cocoa
 import MapKit
 import CoreGPX
+import MapCache
 
 class ViewController: NSViewController, MKMapViewDelegate {
 
@@ -18,6 +19,17 @@ class ViewController: NSViewController, MKMapViewDelegate {
     // from OpenGPXTracker-iOS
     /// Overlay that holds map tiles
     var tileServerOverlay: MKTileOverlay = MKTileOverlay()
+    
+    /// Is the map using local image cache??
+    var useCache: Bool = true { //use tile overlay cache (
+        didSet {
+            if self.tileServerOverlay is CachedTileOverlay {
+                print("GPXMapView:: setting useCache \(self.useCache)")
+                (self.tileServerOverlay as! CachedTileOverlay).useCache = self.useCache
+            }
+        }
+    }
+    
     // from OpenGPXTracker-iOS
     var tileServer: GPXTileServer = .apple {
         willSet {
@@ -38,8 +50,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
             
             //add new overlay to map if not using Apple Maps
             if newValue != .apple {
-                /* MapCache is still iOS only. May arrive at later date
+                 //MapCache is still iOS only. May arrive at later date
                 //Update cacheConfig
+                var config = MapCacheConfig(withUrlTemplate: newValue.templateUrl)
                 config.subdomains = newValue.subdomains
                 
                 if newValue.maximumZ > 0 {
@@ -51,8 +64,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 let cache = MapCache(withConfig: config)
                 // the overlay returned substitutes Apple Maps tile overlay.
                 // we need to keep a reference to remove it, in case we return back to Apple Maps.
-                */
-                self.tileServerOverlay = MKTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
+                self.tileServerOverlay = useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
                 self.tileServerOverlay.canReplaceMapContent = true
                 
                 mapView.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
@@ -75,6 +87,21 @@ class ViewController: NSViewController, MKMapViewDelegate {
             }
             
         }
+    }
+    
+    /// borrowed cache
+    func useCache(_ cache: MapCache) -> CachedTileOverlay {
+        let tileServerOverlay = CachedTileOverlay(withCache: cache)
+        tileServerOverlay.canReplaceMapContent = true
+        
+        if cache.config.maximumZ > 0 {
+            tileServerOverlay.maximumZ = cache.config.maximumZ
+        }
+        
+        if cache.config.minimumZ > 0 {
+            tileServerOverlay.minimumZ = cache.config.minimumZ
+        }
+        return tileServerOverlay
     }
     
     /// mini map that typically locates at top left corner of view.

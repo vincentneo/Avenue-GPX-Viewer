@@ -9,6 +9,15 @@
           "revision": "f0810db2ca9c52ec09d58538c77551747e73c10b",
           "version": "0.8.0"
         }
+      },
+      {
+        "package": "MapCache",
+        "repositoryURL": "https://github.com/vincentneo/MapCache",
+        "state": {
+          "branch": "master",
+          "revision": "8accb74465e576d9e5b038859f83cba6466b3909",
+          "version": null
+        }
       }
     ]
   },
