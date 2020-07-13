@@ -254,6 +254,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(miniMapDidChange(_:)), name: .miniMapAction, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(decodeRestorableState(_:)), name: Notification.Name("DecodeRestorableState"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -306,6 +307,14 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
     }
     
+    @objc func decodeRestorableState(_ sender: Notification) {
+        guard let userInfo = sender.userInfo, let data = userInfo as? [String : Int] else { return }
+        //if let vcHash = data["vcHash"], vcHash == self.hash {
+            dropDownMenu.selectItem(at: data["index"] ?? 0)
+            dropDownDidChange(dropDownMenu)
+       // }
+    }
+    
     @objc func gpxFileFinishedLoading(_ sender: Notification) {
         skipCounter = 3 // force bound to update
         setBoundsSize(width: boxWidth, height: boxHeight)
@@ -333,6 +342,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         default:
             mapType = .standard
         }
+        let userInfo = ["index" : sender.indexOfSelectedItem, "vcHash" : self.hash]
+        NotificationCenter.default.post(name: NSNotification.Name("EncodeRestorableState"), object: nil, userInfo: userInfo)
         
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {

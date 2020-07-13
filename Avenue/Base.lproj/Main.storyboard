@@ -35,6 +35,20 @@
                     <view key="view" id="pgP-JJ-pLD">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hht-iU-RfX">
+                                <rect key="frame" x="169" y="122" width="143" height="27"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Coming Soon" id="cfF-76-HWE">
+                                    <font key="font" metaFont="system" size="23"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hht-iU-RfX" firstAttribute="centerX" secondItem="pgP-JJ-pLD" secondAttribute="centerX" id="mlN-qk-Tqt"/>
+                            <constraint firstItem="hht-iU-RfX" firstAttribute="centerY" secondItem="pgP-JJ-pLD" secondAttribute="centerY" id="muW-e6-Eks"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
