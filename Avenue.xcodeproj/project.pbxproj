@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		120A142A249D055F0014E690 /* LaunchWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120A1429249D055F0014E690 /* LaunchWindow.xib */; };
+		121CE49724BB19F200BF1E09 /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = 121CE49624BB19F200BF1E09 /* MapCache */; };
 		122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
 		12B1A1A024A0B428005F781F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 12B1A19F24A0B428005F781F /* Credits.html */; };
 		12D813D624AA3D77003397F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
+		12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
 		BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */; };
 		BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */; };
 		BF4F5AB322D1FBCD00C8E95A /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AB222D1FBCD00C8E95A /* Document.swift */; };
@@ -40,6 +42,7 @@
 		122BD57A249F4C63006FBB2F /* Double+Measures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Measures.swift"; sourceTree = "<group>"; };
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				121CE49724BB19F200BF1E09 /* MapCache in Frameworks */,
 				12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +125,7 @@
 				BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */,
 				BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */,
 				BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */,
+				12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */,
 				122BD57A249F4C63006FBB2F /* Double+Measures.swift */,
 			);
 			path = Avenue;
@@ -153,6 +158,7 @@
 			name = Avenue;
 			packageProductDependencies = (
 				12C445052478F67D00BE9465 /* CoreGPX */,
+				121CE49624BB19F200BF1E09 /* MapCache */,
 			);
 			productName = Avenue;
 			productReference = BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */;
@@ -206,6 +212,7 @@
 			mainGroup = BF4F5AA222D1FBCD00C8E95A;
 			packageReferences = (
 				12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */,
+				121CE49524BB19F200BF1E09 /* XCRemoteSwiftPackageReference "MapCache" */,
 			);
 			productRefGroup = BF4F5AAC22D1FBCD00C8E95A /* Products */;
 			projectDirPath = "";
@@ -249,6 +256,7 @@
 				122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */,
 				BFF76B5622D3819100C269D8 /* MapView.swift in Sources */,
 				BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */,
+				12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */,
 				BF4F5AB322D1FBCD00C8E95A /* Document.swift in Sources */,
 				BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */,
 				BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */,
@@ -337,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -392,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -409,14 +417,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 55;
+				CURRENT_PROJECT_VERSION = 74;
 				INFOPLIST_FILE = Avenue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -431,14 +439,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 55;
+				CURRENT_PROJECT_VERSION = 74;
 				INFOPLIST_FILE = Avenue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -518,6 +526,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		121CE49524BB19F200BF1E09 /* XCRemoteSwiftPackageReference "MapCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vincentneo/MapCache";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
@@ -529,6 +545,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		121CE49624BB19F200BF1E09 /* MapCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 121CE49524BB19F200BF1E09 /* XCRemoteSwiftPackageReference "MapCache" */;
+			productName = MapCache;
+		};
 		12C445052478F67D00BE9465 /* CoreGPX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;

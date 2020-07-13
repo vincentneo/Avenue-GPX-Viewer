@@ -43,7 +43,7 @@ class MapView: MKMapView {
             
             // UI end parse release
             DispatchQueue.main.sync {
-                NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
+                
                 self.setUserInteraction(state: true)
                 indicator.removeFromSuperview()
                 visualView.removeFromSuperview()
@@ -57,6 +57,7 @@ class MapView: MKMapView {
                 }
                 windowCon.barDistance.stringValue = length.toDistance(useImperial: false)
                 self.loadedGPXFile(fileGPX)
+                NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
             }
 
         }
@@ -80,6 +81,10 @@ class MapView: MKMapView {
                 }
             }
         }
+        // reduce region span being too close to bounds of view
+        extent.region.span.latitudeDelta *= 1.25
+        extent.region.span.longitudeDelta *= 1.25
+        
         self.setRegion(extent.region, animated: true)
         
     }
