@@ -11,8 +11,10 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var showMiniMap: NSMenuItem!
-    @IBOutlet weak var hideMiniMap: NSMenuItem!
+    @IBOutlet weak var toggleMiniMap: NSMenuItem!
+    
+    // false == mini map will be SHOWN
+    var hideMiniMap = false
     
     let launch = NSWindowController(windowNibName: "LaunchWindow")
     let prefs = Preferences.shared
@@ -20,13 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         let prefs = Preferences.shared.hideMiniMap
-        hideMiniMap.isHidden = prefs
-        showMiniMap.isHidden = !prefs
-        /*
-        if prefs == true {
-            showMiniMap.keyEquivalent = "m"
-            showMiniMap.keyEquivalentModifierMask = [.option, .command]
-        }*/
+        hideMiniMap = prefs
+        switchTitle(hideMiniMap)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -35,11 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 
     func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
-        print("didRun")
+        print("Launch Screen will be launched")
         launch.showWindow(self)
         launch.window?.standardWindowButton(.zoomButton)?.isHidden = true
         launch.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
-        disableAllViewMenuItems()
+        disableViewMenuItem()
         return false
     }
     
@@ -47,32 +44,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         launch.window?.performClose(self)
     }
     
-    @IBAction func showMiniMapClicked(_ sender: NSMenuItem) {
-        hideMiniMap.isHidden = false
-        showMiniMap.isHidden = true
-        NotificationCenter.default.post(name: .miniMapAction, object: nil)
-    }
-    
     @IBAction func hideMiniMapClicked(_ sender: NSMenuItem) {
-        showMiniMap.isHidden = false
-        hideMiniMap.isHidden = true
+        hideMiniMap = !hideMiniMap
+        switchTitle(hideMiniMap)
         NotificationCenter.default.post(name: .miniMapAction, object: nil)
     }
     
-    func disableAllViewMenuItems() {
-        let main = NSApplication.shared.menu?.item(withTitle: "View")
-        let subMenuItems = main?.submenu?.items
-        for item in subMenuItems! {
-                item.isEnabled = false
+    
+    func switchTitle(_ state: Bool) {
+        if state {
+            //show mini map, meaning mini map is HIDDEN
+            toggleMiniMap.title = "Show Mini Map"
+        }
+        else {
+            toggleMiniMap.title = "Hide Mini Map"
         }
     }
     
-    func enableMiniMapMenuItems() {
+    /// Disables entire "View" menu item
+    func disableViewMenuItem() {
         let main = NSApplication.shared.menu?.item(withTitle: "View")
-        let subMenuItems = main?.submenu?.items
-        for item in subMenuItems! {
-                item.isEnabled = true
-        }
+        main?.isHidden = true
+    }
+    
+    /// Enables entire "View" menu item
+    func enableViewMenuItem() {
+        let main = NSApplication.shared.menu?.item(withTitle: "View")
+        main?.isHidden = false
     }
     
 }

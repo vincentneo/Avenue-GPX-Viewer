@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -133,7 +133,7 @@
                             </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="View" autoenablesItems="NO" id="HyV-fh-RgO">
+                                <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
                                         <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
@@ -142,14 +142,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
-                                        <menuItem title="Show Mini Map" tag="1" hidden="YES" enabled="NO" id="M9G-Bd-4uK">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="showMiniMapClicked:" target="Voe-Tx-rLC" id="Agk-pN-Boe"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Hide Mini Map" id="aL5-h0-S2s">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Hide Mini Map" keyEquivalent="s" id="aL5-h0-S2s">
                                             <connections>
                                                 <action selector="hideMiniMapClicked:" target="Voe-Tx-rLC" id="jTE-eW-zQH"/>
                                             </connections>
@@ -197,8 +190,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Avenue" customModuleProvider="target">
                     <connections>
-                        <outlet property="hideMiniMap" destination="aL5-h0-S2s" id="r1L-X3-ENk"/>
-                        <outlet property="showMiniMap" destination="M9G-Bd-4uK" id="XOf-1T-JO3"/>
+                        <outlet property="toggleMiniMap" destination="aL5-h0-S2s" id="r1L-X3-ENk"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>

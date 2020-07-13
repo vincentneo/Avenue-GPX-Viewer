@@ -6,7 +6,7 @@
 import Foundation
 import CoreLocation
 
-let kDefaultsHideMiniMap: String = "ShowMiniMap"
+let kDefaultsHideMiniMap: String = "HideMiniMap"
 
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
@@ -24,7 +24,7 @@ class Preferences: NSObject {
     ///
     static let shared = Preferences()
     
-    private var _hideMiniMap: Bool = true
+    private var _hideMiniMap: Bool = false
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
