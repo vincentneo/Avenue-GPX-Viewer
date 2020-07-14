@@ -13,7 +13,7 @@ class WindowController: NSWindowController {
     @IBOutlet weak var barTitle: NSTextField!
     @IBOutlet weak var barDistance: NSTextField!
     
-    private var dropDownIndex = 0
+    private var dropDownIndex = [String : Int]() // filePath : idx
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -30,21 +30,23 @@ class WindowController: NSWindowController {
     }
     
     @objc func updateDropDownIndex(_ sender: Notification) {
-        guard let userInfo = sender.userInfo, let data = userInfo as? [String : Int] else { return }
-        dropDownIndex = data["index"] ?? 0
+        guard let userInfo = sender.userInfo, let data = userInfo as? [String : Any] else { return }
+        guard let idx = (data["index"] ?? 0) as? Int,
+            let filePath = (data["filePath"] ?? "") as? String else { return }
+        dropDownIndex[filePath] = idx
     }
     
     override func encodeRestorableState(with coder: NSCoder) {
-        coder.encode(dropDownIndex, forKey: "dropDownMenu")
+        coder.encode(dropDownIndex, forKey: "dropDownIndex")
         print("Restoring previous tile server and drop down index setting")
         super.encodeRestorableState(with: coder)
     }
     
     override func restoreState(with coder: NSCoder) {
-        dropDownIndex = coder.decodeInteger(forKey: "dropDownMenu")
-        let vcHash = coder.decodeInteger(forKey: "vcHash")
+        guard let decoded = coder.decodeObject(forKey: "dropDownIndex") as? [String : Int] else { super.restoreState(with: coder); return }
+        dropDownIndex = decoded
         print("Saving current tile server and drop down index setting")
-        NotificationCenter.default.post(name: NSNotification.Name("DecodeRestorableState"), object: nil, userInfo: ["index" : dropDownIndex, "vcHash" : vcHash])
+        NotificationCenter.default.post(name: NSNotification.Name("DecodeRestorableState"), object: nil, userInfo: ["index" : dropDownIndex])
         super.restoreState(with: coder)
     }
     

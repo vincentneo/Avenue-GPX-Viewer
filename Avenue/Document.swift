@@ -46,6 +46,7 @@ class Document: NSDocument {
         let viewController = windowController.contentViewController as! ViewController
         //viewController.mapView.loadedGPXFile(gpx)
         viewController.mapView.loadedGPXData(data, windowController)
+        viewController.filePath = fileURL?.absoluteString ?? ""
         appDelegate.enableViewMenuItem()
         //viewController.mmHidden = !UserDefaults.standard.bool(forKey: "showMiniMap")
     }

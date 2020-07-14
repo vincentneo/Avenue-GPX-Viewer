@@ -20,6 +20,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
     /// Overlay that holds map tiles
     var tileServerOverlay: MKTileOverlay = MKTileOverlay()
     
+    var filePath = String()
+    
     /// Is the map using local image cache??
     var useCache: Bool = true { //use tile overlay cache (
         didSet {
@@ -308,11 +310,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     @objc func decodeRestorableState(_ sender: Notification) {
-        guard let userInfo = sender.userInfo, let data = userInfo as? [String : Int] else { return }
-        //if let vcHash = data["vcHash"], vcHash == self.hash {
-            dropDownMenu.selectItem(at: data["index"] ?? 0)
-            dropDownDidChange(dropDownMenu)
-       // }
+        guard let userInfo = sender.userInfo, let data = userInfo as? [String : [String : Int]] else { return }
+        for (path, idx) in (data["index"] ?? [String : Int]()) {
+            if path == filePath {
+                dropDownMenu.selectItem(at: idx)
+            }
+        }
+        dropDownDidChange(dropDownMenu)
     }
     
     @objc func gpxFileFinishedLoading(_ sender: Notification) {
@@ -342,7 +346,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         default:
             mapType = .standard
         }
-        let userInfo = ["index" : sender.indexOfSelectedItem, "vcHash" : self.hash]
+        let userInfo = ["index" : sender.indexOfSelectedItem, "filePath" : self.filePath] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name("EncodeRestorableState"), object: nil, userInfo: userInfo)
         
         if let textClass = NSClassFromString("MKAttributionLabel"),
