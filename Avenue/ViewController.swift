@@ -79,11 +79,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
             
             if #available(OSX 10.14, *) {
                 if tileServer == .apple {
-                    NSApp.appearance = nil
+                    mapView.appearance = nil
+                    miniMap.appearance = nil
+                    dropDownMenu.appearance = nil
                 }
                 else { // if map is third party, dark mode is disabled.
                     let bestMatch = NSAppearance().bestMatch(from: [.aqua, .accessibilityHighContrastAqua]) ?? .aqua
-                    NSApp.appearance = NSAppearance(named: bestMatch)
+                    mapView.appearance = NSAppearance(named: bestMatch)
+                    miniMap.appearance = NSAppearance(named: bestMatch)
+                    dropDownMenu.appearance = NSAppearance(named: bestMatch)
                 }
                 themeDidChange(NSNotification(name: .mapChangedTheme, object: nil))
             }
