@@ -147,15 +147,19 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         case small = 135
         case mid = 160
-        case full = 185
+        case large = 185
+        case full = 200
         
         func preferredSize(_ width: CGFloat, _ height: CGFloat) -> CGFloat {
-            // window?.minSize = NSSize(width: 510, height: 280)
+            // NOTE: minimum (width: 510, height: 280)
             if width < 650 || height < 450 {
                 return MiniMapSize.small.rawValue
             }
-            else if width < 1200 || height < 1000 {
+            else if width < 1200 || height < 900 {
                 return MiniMapSize.mid.rawValue
+            }
+            else if width < 1500 || height < 1000 {
+                return MiniMapSize.large.rawValue
             }
             else {
                 return MiniMapSize.full.rawValue
