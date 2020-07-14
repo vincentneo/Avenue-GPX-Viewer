@@ -345,8 +345,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         switch sender.indexOfSelectedItem {
             case 0: mapType = .standard;             tileServer = .apple
-            case 1: mapType = .satelliteFlyover;     tileServer = .apple
-            case 2: mapType = .hybridFlyover;        tileServer = .apple
+            case 1: mapType = .hybridFlyover;        tileServer = .apple
+            case 2: mapType = .satelliteFlyover;     tileServer = .apple
          // case 3: will be a seperator; > 4 = custom
             case 4: mapType = .standard;             tileServer = .openStreetMap; legalLabel = "© OpenStreetMap contributors"
             case 5: mapType = .standard;             tileServer = .cartoDB; legalLabel = "© OpenStreetMap contributors, © CARTO"
