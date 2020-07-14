@@ -12,10 +12,11 @@
             <objects>
                 <windowController showSeguePresentationStyle="single" id="cCk-Xl-d1i" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="o2Z-0o-3Ex">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="313" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+                        <value key="maxSize" type="size" width="481" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="cCk-Xl-d1i" id="T5y-5C-NY6"/>
                         </connections>
@@ -28,32 +29,100 @@
             </objects>
             <point key="canvasLocation" x="15" y="-363"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences-->
         <scene sceneID="mVJ-M5-hcc">
             <objects>
-                <viewController id="3rf-Gu-ZGF" sceneMemberID="viewController">
+                <viewController title="Preferences" showSeguePresentationStyle="single" id="3rf-Gu-ZGF" customClass="PreferenceViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pgP-JJ-pLD">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="499" height="271"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hht-iU-RfX">
-                                <rect key="frame" x="169" y="122" width="143" height="27"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Coming Soon" id="cfF-76-HWE">
-                                    <font key="font" metaFont="system" size="23"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
+                                <rect key="frame" x="17" y="124" width="465" height="129"/>
+                                <view key="contentView" id="j0r-nZ-idm">
+                                    <rect key="frame" x="3" y="3" width="459" height="123"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
+                                            <rect key="frame" x="18" y="79" width="66" height="24"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
+                                                <font key="font" metaFont="systemSemibold" size="21"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
+                                            <rect key="frame" x="18" y="28" width="417" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="WtD-KG-Igf">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="cacheCheckBoxChanged:" target="3rf-Gu-ZGF" id="856-YA-tWM"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-zv-0ZR">
+                                            <rect key="frame" x="18" y="52" width="153" height="19"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Current Cache Size: " id="eIQ-e1-Cjj">
+                                                <font key="font" metaFont="system" size="16"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-Ol-b7u">
+                                            <rect key="frame" x="175" y="52" width="78" height="19"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Loading..." id="I0e-gG-oth">
+                                                <font key="font" metaFont="systemMedium" size="16"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-5v-HwY">
+                                            <rect key="frame" x="325" y="43" width="114" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Clear Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cje-Sj-iGg">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="clearButtonPressed:" target="3rf-Gu-ZGF" id="5o9-Rc-hxe"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="DEL-zv-0ZR" secondAttribute="bottom" constant="8" symbolic="YES" id="2DO-Hm-M7s"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="20" symbolic="YES" id="5T4-0L-apb"/>
+                                        <constraint firstItem="Fdv-5v-HwY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="80" id="Bc8-Yg-oFQ"/>
+                                        <constraint firstItem="Fdv-5v-HwY" firstAttribute="trailing" secondItem="aFn-5E-saa" secondAttribute="trailing" id="BhJ-l1-8kB"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="377" id="Go4-t6-xQV"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="baseline" secondItem="2a1-Ol-b7u" secondAttribute="baseline" id="KIZ-hR-t2B"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" secondItem="aFn-5E-saa" secondAttribute="leading" id="Kyp-nN-Une"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="leading" id="NT6-M4-6Gc"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" symbolic="YES" id="UVb-o4-BHx"/>
+                                        <constraint firstItem="2a1-Ol-b7u" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="trailing" constant="8" symbolic="YES" id="aMt-fF-1i8"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="centerY" secondItem="j0r-nZ-idm" secondAttribute="centerY" id="dNh-mg-CRP"/>
+                                        <constraint firstItem="2a1-Ol-b7u" firstAttribute="baseline" secondItem="Fdv-5v-HwY" secondAttribute="baseline" id="iZT-hp-qmc"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="20" symbolic="YES" id="kBc-EK-RsI"/>
+                                        <constraint firstAttribute="bottom" secondItem="aFn-5E-saa" secondAttribute="bottom" constant="30" id="wUb-PT-7jw"/>
+                                    </constraints>
+                                </view>
+                            </box>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hht-iU-RfX" firstAttribute="centerX" secondItem="pgP-JJ-pLD" secondAttribute="centerX" id="mlN-qk-Tqt"/>
-                            <constraint firstItem="hht-iU-RfX" firstAttribute="centerY" secondItem="pgP-JJ-pLD" secondAttribute="centerY" id="muW-e6-Eks"/>
+                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" symbolic="YES" id="9sg-0B-5ff"/>
+                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" symbolic="YES" id="Ebl-Lf-V3m"/>
+                            <constraint firstAttribute="bottom" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="128" id="W5o-RX-8ve"/>
+                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="rN8-6K-7oF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cacheCheckBox" destination="aFn-5E-saa" id="FiP-2M-q2g"/>
+                        <outlet property="clearCacheButton" destination="Fdv-5v-HwY" id="Bjb-Nc-Yaj"/>
+                        <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
+                    </connections>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="-363"/>
+            <point key="canvasLocation" x="738.5" y="-363"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">

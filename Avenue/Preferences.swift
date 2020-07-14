@@ -8,6 +8,8 @@ import CoreLocation
 
 let kDefaultsHideMiniMap: String = "HideMiniMap"
 
+let kDefaultsEnableCache: String = "CacheSettings"
+
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
 ///
@@ -25,6 +27,7 @@ class Preferences: NSObject {
     static let shared = Preferences()
     
     private var _hideMiniMap: Bool = false
+    private var _enableCache: Bool = true
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
@@ -36,10 +39,12 @@ class Preferences: NSObject {
             _hideMiniMap = hideMiniMap
         }
         
+        if let enableCache = defaults.object(forKey: kDefaultsEnableCache) as? Bool {
+            _enableCache = enableCache
+        }
+        
     }
     
-    /// If true, user prefers to display imperial units (miles, feets). Otherwise metric units
-    /// are displayed.
     var hideMiniMap: Bool {
         get {
             return _hideMiniMap
@@ -47,6 +52,16 @@ class Preferences: NSObject {
         set {
             _hideMiniMap = newValue
             defaults.set(newValue, forKey: kDefaultsHideMiniMap)
+        }
+    }
+    
+    var enableCache: Bool {
+        get {
+            return _enableCache
+        }
+        set {
+            _enableCache = newValue
+            defaults.set(newValue, forKey: kDefaultsEnableCache)
         }
     }
     
