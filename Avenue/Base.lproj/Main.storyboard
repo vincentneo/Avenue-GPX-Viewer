@@ -92,9 +92,9 @@
                                         <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="DEL-zv-0ZR" secondAttribute="bottom" constant="8" symbolic="YES" id="2DO-Hm-M7s"/>
                                         <constraint firstItem="HzW-jp-WHY" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="20" symbolic="YES" id="5T4-0L-apb"/>
                                         <constraint firstItem="Fdv-5v-HwY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="80" id="Bc8-Yg-oFQ"/>
-                                        <constraint firstItem="Fdv-5v-HwY" firstAttribute="trailing" secondItem="aFn-5E-saa" secondAttribute="trailing" id="BhJ-l1-8kB"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="377" id="Go4-t6-xQV"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="baseline" secondItem="2a1-Ol-b7u" secondAttribute="baseline" id="KIZ-hR-t2B"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdv-5v-HwY" secondAttribute="trailing" constant="26" id="KZm-Qh-5N1"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" secondItem="aFn-5E-saa" secondAttribute="leading" id="Kyp-nN-Une"/>
                                         <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="leading" id="NT6-M4-6Gc"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" symbolic="YES" id="UVb-o4-BHx"/>
