@@ -11,12 +11,12 @@
         <scene sceneID="m0h-gX-8fy">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="cCk-Xl-d1i" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="o2Z-0o-3Ex">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="o2Z-0o-3Ex">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="313" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-                        <value key="maxSize" type="size" width="481" height="270"/>
+                        <value key="maxSize" type="size" width="480" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="cCk-Xl-d1i" id="T5y-5C-NY6"/>
                         </connections>
@@ -27,7 +27,7 @@
                 </windowController>
                 <customObject id="d2e-Va-5gc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15" y="-363"/>
+            <point key="canvasLocation" x="518" y="-209"/>
         </scene>
         <!--Preferences-->
         <scene sceneID="mVJ-M5-hcc">
@@ -41,18 +41,10 @@
                                 <rect key="frame" x="17" y="124" width="465" height="129"/>
                                 <view key="contentView" id="j0r-nZ-idm">
                                     <rect key="frame" x="3" y="3" width="459" height="123"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
-                                            <rect key="frame" x="18" y="79" width="66" height="24"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
-                                                <font key="font" metaFont="systemSemibold" size="21"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
-                                            <rect key="frame" x="18" y="28" width="417" height="18"/>
+                                            <rect key="frame" x="21" y="28" width="417" height="18"/>
                                             <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="WtD-KG-Igf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -62,7 +54,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-zv-0ZR">
-                                            <rect key="frame" x="18" y="52" width="153" height="19"/>
+                                            <rect key="frame" x="21" y="52" width="153" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Current Cache Size: " id="eIQ-e1-Cjj">
                                                 <font key="font" metaFont="system" size="16"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -70,7 +62,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-Ol-b7u">
-                                            <rect key="frame" x="175" y="52" width="78" height="19"/>
+                                            <rect key="frame" x="174" y="52" width="78" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Loading..." id="I0e-gG-oth">
                                                 <font key="font" metaFont="systemMedium" size="16"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -87,31 +79,39 @@
                                                 <action selector="clearButtonPressed:" target="3rf-Gu-ZGF" id="5o9-Rc-hxe"/>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
+                                            <rect key="frame" x="21" y="79" width="66" height="24"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
+                                                <font key="font" metaFont="systemSemibold" size="21"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="DEL-zv-0ZR" secondAttribute="bottom" constant="8" symbolic="YES" id="2DO-Hm-M7s"/>
-                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="20" symbolic="YES" id="5T4-0L-apb"/>
-                                        <constraint firstItem="Fdv-5v-HwY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="80" id="Bc8-Yg-oFQ"/>
-                                        <constraint firstItem="Fdv-5v-HwY" firstAttribute="trailing" secondItem="aFn-5E-saa" secondAttribute="trailing" id="BhJ-l1-8kB"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="377" id="Go4-t6-xQV"/>
-                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="baseline" secondItem="2a1-Ol-b7u" secondAttribute="baseline" id="KIZ-hR-t2B"/>
-                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" secondItem="aFn-5E-saa" secondAttribute="leading" id="Kyp-nN-Une"/>
-                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="leading" id="NT6-M4-6Gc"/>
-                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" symbolic="YES" id="UVb-o4-BHx"/>
-                                        <constraint firstItem="2a1-Ol-b7u" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="trailing" constant="8" symbolic="YES" id="aMt-fF-1i8"/>
-                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="centerY" secondItem="j0r-nZ-idm" secondAttribute="centerY" id="dNh-mg-CRP"/>
-                                        <constraint firstItem="2a1-Ol-b7u" firstAttribute="baseline" secondItem="Fdv-5v-HwY" secondAttribute="baseline" id="iZT-hp-qmc"/>
-                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="20" symbolic="YES" id="kBc-EK-RsI"/>
-                                        <constraint firstAttribute="bottom" secondItem="aFn-5E-saa" secondAttribute="bottom" constant="30" id="wUb-PT-7jw"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="Fdv-5v-HwY" secondAttribute="bottom" constant="6" id="7Dj-vk-egO"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdv-5v-HwY" secondAttribute="trailing" constant="26" id="8Ni-Mw-cjQ"/>
+                                        <constraint firstItem="2a1-Ol-b7u" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="trailing" constant="4" id="8mc-ZM-FjD"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="BKO-rG-fHU"/>
+                                        <constraint firstItem="Fdv-5v-HwY" firstAttribute="leading" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="81" id="Cao-hU-YHc"/>
+                                        <constraint firstItem="2a1-Ol-b7u" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="52" id="Idf-QA-Xso"/>
+                                        <constraint firstAttribute="centerX" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="144.5" id="TMr-dh-j20"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="Y5f-1v-aa0"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="centerX" secondItem="j0r-nZ-idm" secondAttribute="centerX" id="cUf-1H-IBw"/>
+                                        <constraint firstAttribute="centerX" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="-20.5" id="cjI-b8-WKT"/>
+                                        <constraint firstAttribute="bottom" secondItem="aFn-5E-saa" secondAttribute="bottom" constant="30" id="ohF-gG-17I"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" id="s9M-OY-4y1"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="2a1-Ol-b7u" secondAttribute="bottom" constant="8" id="wQX-8b-auw"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="20" id="yuS-Mq-W5S"/>
                                     </constraints>
                                 </view>
                             </box>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" symbolic="YES" id="9sg-0B-5ff"/>
-                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" symbolic="YES" id="Ebl-Lf-V3m"/>
-                            <constraint firstAttribute="bottom" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="128" id="W5o-RX-8ve"/>
-                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="rN8-6K-7oF"/>
+                            <constraint firstAttribute="bottom" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="128" id="L6U-Fb-O0t"/>
+                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" id="jxY-lm-JyU"/>
+                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" id="qwZ-zF-HEJ"/>
+                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" id="xTa-vU-rc1"/>
                         </constraints>
                     </view>
                     <connections>
@@ -122,7 +122,7 @@
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="738.5" y="-363"/>
+            <point key="canvasLocation" x="720.5" y="264.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
