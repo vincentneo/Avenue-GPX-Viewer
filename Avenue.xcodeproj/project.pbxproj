@@ -11,6 +11,7 @@
 		1214D2DB24BE0590002D399E /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DA24BE0590002D399E /* PreferenceViewController.swift */; };
 		1214D2DD24BE06E7002D399E /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */; };
 		121CE49724BB19F200BF1E09 /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = 121CE49624BB19F200BF1E09 /* MapCache */; };
+		121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121E04C724C6F303008EAA29 /* MapKit.framework */; };
 		122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
 		12B1A1A024A0B428005F781F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 12B1A19F24A0B428005F781F /* Credits.html */; };
 		12D813D624AA3D77003397F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
@@ -43,6 +44,7 @@
 		120A1429249D055F0014E690 /* LaunchWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchWindow.xib; sourceTree = "<group>"; };
 		1214D2DA24BE0590002D399E /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+asFilesize.swift"; sourceTree = "<group>"; };
+		121E04C724C6F303008EAA29 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		122BD57A249F4C63006FBB2F /* Double+Measures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Measures.swift"; sourceTree = "<group>"; };
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				121CE49724BB19F200BF1E09 /* MapCache in Frameworks */,
+				121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */,
 				12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +91,7 @@
 		12C4452A2478FA4100BE9465 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				121E04C724C6F303008EAA29 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -422,10 +426,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Avenue/Avenue.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 82;
+				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				INFOPLIST_FILE = Avenue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,10 +449,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Avenue/Avenue.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 80;
+				CURRENT_PROJECT_VERSION = 82;
+				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				INFOPLIST_FILE = Avenue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,8 +461,9 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vincent-neo.Avenue";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
