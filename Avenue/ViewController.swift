@@ -342,17 +342,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {
         var mapType: MKMapType
         
-        var legalLabel: String?
-        
         switch sender.indexOfSelectedItem {
             case 0: mapType = .standard;             tileServer = .apple
             case 1: mapType = .hybridFlyover;        tileServer = .apple
             case 2: mapType = .satelliteFlyover;     tileServer = .apple
          // case 3: will be a seperator; > 4 = custom
-            case 4: mapType = .standard;             tileServer = .openStreetMap; legalLabel = "© OpenStreetMap contributors"
-            case 5: mapType = .standard;             tileServer = .cartoDB; legalLabel = "© OpenStreetMap contributors, © CARTO"
-            case 6: mapType = .standard;             tileServer = .openTopoMap; legalLabel = "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
-            case 7: mapType = .standard;             tileServer = .wikimedia; legalLabel = "Wikimedia Maps | Map Data © OpenStreetMap contributors"
+            case 4: mapType = .standard;             tileServer = .openStreetMap
+            case 5: mapType = .standard;             tileServer = .cartoDB
+            case 6: mapType = .standard;             tileServer = .openTopoMap
+            case 7: mapType = .standard;             tileServer = .wikimedia
         default:
             mapType = .standard
         }
@@ -363,8 +361,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
             if sender.indexOfSelectedItem > 3 {
                 attribution.font = .boldSystemFont(ofSize: 8.5)
-                guard let legalLabel = legalLabel else { return }
-                attribution.stringValue = legalLabel
+                guard tileServer != .apple else { return }
+                attribution.stringValue = tileServer.attribution
                 attribution.isHidden = false
                 mapText.isHidden = true
                 

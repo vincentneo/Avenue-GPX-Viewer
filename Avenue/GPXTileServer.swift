@@ -42,7 +42,7 @@ enum GPXTileServer: Int {
         case .openStreetMap: return "Open Street Map"
         case .cartoDB: return "Carto DB"
         case .openTopoMap: return "OpenTopoMap"
-        case .wikimedia: return "Wikimedia Foundation"
+        case .wikimedia: return "Wikimedia"
         //case .AnotherMap: return "My Map"
         }
     }
@@ -145,6 +145,15 @@ enum GPXTileServer: Int {
         }
     }
     
+    var attribution: String {
+        switch self {
+        case .apple: return ""
+        case .openStreetMap: return "© OpenStreetMap contributors"
+        case .cartoDB: return "© OpenStreetMap contributors, © CARTO"
+        case .openTopoMap: return "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
+        case .wikimedia: return "Wikimedia Maps | Map Data © OpenStreetMap contributors"
+        }
+    }
     
     /// Returns the number of tile servers currently defined
     static var count: Int { return GPXTileServer.openTopoMap.rawValue + 1}
