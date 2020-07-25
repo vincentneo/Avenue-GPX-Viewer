@@ -54,7 +54,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
             if newValue != .apple {
                  //MapCache is still iOS only. May arrive at later date
                 //Update cacheConfig
+                var tileSize = 256
                 var config = MapCacheConfig(withUrlTemplate: newValue.templateUrl)
+                if Preferences.shared.preferRetina, let retinaUrl = newValue.retinaUrl {
+                    config.urlTemplate = retinaUrl
+                    tileSize = newValue.tileSize
+                }
+                
                 config.subdomains = newValue.subdomains
                 
                 if newValue.maximumZ > 0 {
@@ -69,8 +75,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 self.tileServerOverlay = useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
                 self.tileServerOverlay.canReplaceMapContent = true
                 
-                // retina tile support
-                self.tileServerOverlay.tileSize = CGSize(width: newValue.tileSize, height: newValue.tileSize)
+                // retina tile size support
+                self.tileServerOverlay.tileSize = CGSize(width: tileSize, height: tileSize)
+                
                 mapView.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
                 miniMap.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
             }
@@ -266,6 +273,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(decodeRestorableState(_:)), name: Notification.Name("DecodeRestorableState"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(retinaSettingDidChange(_:)), name: Notification.Name("RetinaSettingDidChange"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -337,6 +345,16 @@ class ViewController: NSViewController, MKMapViewDelegate {
             }
         }
         miniMap.addAnnotations(mapView.annotations)
+    }
+    
+    @objc func retinaSettingDidChange(_ sender: Notification) {
+        let currentTile = tileServer
+        
+        // only reload when theres retina support
+        if currentTile.retinaUrl != nil {
+            tileServer = .apple
+            tileServer = currentTile
+        }
     }
     
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {

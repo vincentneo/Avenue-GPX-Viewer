@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17140" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17140"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="17140"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,17 +34,17 @@
             <objects>
                 <viewController title="Preferences" showSeguePresentationStyle="single" id="3rf-Gu-ZGF" customClass="PreferenceViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pgP-JJ-pLD">
-                        <rect key="frame" x="0.0" y="0.0" width="499" height="271"/>
+                        <rect key="frame" x="0.0" y="0.0" width="507" height="332"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="124" width="465" height="129"/>
+                                <rect key="frame" x="17" y="183" width="473" height="131"/>
                                 <view key="contentView" id="j0r-nZ-idm">
-                                    <rect key="frame" x="3" y="3" width="459" height="123"/>
+                                    <rect key="frame" x="3" y="3" width="467" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
-                                            <rect key="frame" x="21" y="28" width="417" height="18"/>
+                                            <rect key="frame" x="25" y="29" width="421" height="18"/>
                                             <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="WtD-KG-Igf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -54,7 +54,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-zv-0ZR">
-                                            <rect key="frame" x="21" y="52" width="153" height="19"/>
+                                            <rect key="frame" x="25" y="54" width="153" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Current Cache Size: " id="eIQ-e1-Cjj">
                                                 <font key="font" metaFont="system" size="16"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -62,7 +62,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-Ol-b7u">
-                                            <rect key="frame" x="174" y="52" width="78" height="19"/>
+                                            <rect key="frame" x="178" y="54" width="78" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Loading..." id="I0e-gG-oth">
                                                 <font key="font" metaFont="systemMedium" size="16"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -70,7 +70,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-5v-HwY">
-                                            <rect key="frame" x="325" y="43" width="114" height="32"/>
+                                            <rect key="frame" x="328" y="45" width="120" height="32"/>
                                             <buttonCell key="cell" type="push" title="Clear Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cje-Sj-iGg">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -80,7 +80,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
-                                            <rect key="frame" x="21" y="79" width="66" height="24"/>
+                                            <rect key="frame" x="25" y="81" width="66" height="24"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -97,7 +97,7 @@
                                         <constraint firstItem="2a1-Ol-b7u" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="52" id="Idf-QA-Xso"/>
                                         <constraint firstAttribute="centerX" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="144.5" id="TMr-dh-j20"/>
                                         <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="Y5f-1v-aa0"/>
-                                        <constraint firstItem="aFn-5E-saa" firstAttribute="centerX" secondItem="j0r-nZ-idm" secondAttribute="centerX" id="cUf-1H-IBw"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="centerX" secondItem="j0r-nZ-idm" secondAttribute="centerX" constant="3" id="cUf-1H-IBw"/>
                                         <constraint firstAttribute="centerX" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="-20.5" id="cjI-b8-WKT"/>
                                         <constraint firstAttribute="bottom" secondItem="aFn-5E-saa" secondAttribute="bottom" constant="30" id="ohF-gG-17I"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" id="s9M-OY-4y1"/>
@@ -106,9 +106,62 @@
                                     </constraints>
                                 </view>
                             </box>
+                            <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
+                                <rect key="frame" x="17" y="57" width="473" height="126"/>
+                                <view key="contentView" id="VOx-0n-Jex">
+                                    <rect key="frame" x="3" y="3" width="467" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
+                                            <rect key="frame" x="27" y="76" width="57" height="24"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
+                                                <font key="font" metaFont="systemSemibold" size="21"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
+                                            <rect key="frame" x="27" y="51" width="357" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="HTp-6w-Ag5"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="check" title="Prefer Retina/HiDPI resolution map tiles when available" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3SV-nz-FNV">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="preferRetinaCheckBox:" target="3rf-Gu-ZGF" id="opC-zm-IKj"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MLG-vf-3Hx">
+                                            <rect key="frame" x="27" y="29" width="357" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="Dh8-oj-f6B"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="check" title="Enable Map Scale" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="yUC-6g-TWh">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="MLG-vf-3Hx" secondAttribute="bottom" constant="30" id="91W-5m-XBK"/>
+                                        <constraint firstItem="eYQ-Q4-sO5" firstAttribute="centerX" secondItem="VOx-0n-Jex" secondAttribute="centerX" constant="-27" id="AJr-6D-EDW"/>
+                                        <constraint firstItem="WKb-wA-L0B" firstAttribute="top" secondItem="VOx-0n-Jex" secondAttribute="top" constant="20" id="B8F-qe-ifu"/>
+                                        <constraint firstItem="eYQ-Q4-sO5" firstAttribute="top" secondItem="WKb-wA-L0B" secondAttribute="bottom" constant="8" symbolic="YES" id="HuV-gb-Ptu"/>
+                                        <constraint firstAttribute="centerX" secondItem="WKb-wA-L0B" secondAttribute="trailing" constant="151.5" id="TcZ-59-7zp"/>
+                                        <constraint firstItem="MLG-vf-3Hx" firstAttribute="top" secondItem="eYQ-Q4-sO5" secondAttribute="bottom" constant="6" symbolic="YES" id="cYt-xv-IO6"/>
+                                        <constraint firstItem="WKb-wA-L0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="23" id="ckc-cB-s1r"/>
+                                        <constraint firstItem="MLG-vf-3Hx" firstAttribute="centerX" secondItem="VOx-0n-Jex" secondAttribute="centerX" constant="-27" id="v5A-iu-8co"/>
+                                    </constraints>
+                                </view>
+                            </box>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="128" id="L6U-Fb-O0t"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="61" id="EJb-8d-QJI"/>
+                            <constraint firstItem="bQ6-mG-Hit" firstAttribute="top" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="6" id="Q2G-q3-OdQ"/>
+                            <constraint firstItem="bQ6-mG-Hit" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="f30-f1-HfN"/>
+                            <constraint firstAttribute="trailing" secondItem="bQ6-mG-Hit" secondAttribute="trailing" constant="20" symbolic="YES" id="h2b-re-HL7"/>
                             <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" id="jxY-lm-JyU"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" id="qwZ-zF-HEJ"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" id="xTa-vU-rc1"/>
@@ -117,12 +170,14 @@
                     <connections>
                         <outlet property="cacheCheckBox" destination="aFn-5E-saa" id="FiP-2M-q2g"/>
                         <outlet property="clearCacheButton" destination="Fdv-5v-HwY" id="Bjb-Nc-Yaj"/>
+                        <outlet property="enableScaleCheckBox" destination="MLG-vf-3Hx" id="d7v-L4-C5B"/>
+                        <outlet property="preferRetinaCheckBox" destination="eYQ-Q4-sO5" id="0wt-xJ-eSs"/>
                         <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
                     </connections>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720.5" y="264.5"/>
+            <point key="canvasLocation" x="720.5" y="292.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -296,8 +351,8 @@
                                 <toolbarItem implicitItemIdentifier="6D6F2236-97C4-44A9-B5EB-72153FF70CE2" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="y9P-Wf-7VF">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="NUB-UO-CXV">
-                                        <rect key="frame" x="0.0" y="14" width="126" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="121" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kEi-MT-WVU">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -322,8 +377,8 @@
                                 <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
-                                        <rect key="frame" x="0.0" y="14" width="92" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="95" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="center" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
                                             <font key="font" metaFont="systemMedium" size="15"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>

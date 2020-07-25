@@ -14,6 +14,8 @@ class PreferenceViewController: NSViewController {
     @IBOutlet weak var sizeText: NSTextField!
     @IBOutlet weak var cacheCheckBox: NSButton!
     @IBOutlet weak var clearCacheButton: NSButton!
+    @IBOutlet weak var preferRetinaCheckBox: NSButton!
+    @IBOutlet weak var enableScaleCheckBox: NSButton!
     
     /// Global Preferences
     var preferences : Preferences = Preferences.shared
@@ -26,12 +28,10 @@ class PreferenceViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if preferences.enableCache {
-            cacheCheckBox.state = .on
-        }
-        else {
-            cacheCheckBox.state = .off
-        }
+        cacheCheckBox.state = preferences.enableCache ? .on : .off
+        preferRetinaCheckBox.state = preferences.preferRetina ? .on : .off
+        enableScaleCheckBox.state = preferences.showMapScale ? .on : .off
+
         let fileSize = cache.diskCache.fileSize ?? 0
         cachedSize = Int(fileSize).asFileSize()
         sizeText.stringValue = cachedSize
@@ -54,6 +54,25 @@ class PreferenceViewController: NSViewController {
         }
         else {
             preferences.enableCache = false
+        }
+    }
+    
+    @IBAction func preferRetinaCheckBox(_ sender: NSButton) {
+        if sender.state == .on {
+            preferences.preferRetina = true
+        }
+        else {
+            preferences.preferRetina = false
+        }
+        NotificationCenter.default.post(Notification(name: Notification.Name("RetinaSettingDidChange")))
+    }
+    
+    @IBAction func enableScaleCheckBoxChanged(_ sender: NSButton) {
+        if sender.state == .on {
+            preferences.showMapScale = true
+        }
+        else {
+            preferences.showMapScale = false
         }
     }
 }
