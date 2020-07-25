@@ -32,6 +32,9 @@ enum GPXTileServer: Int {
     /// OpenTopoMap tile server
     case openTopoMap
     
+    /// Wikimedia tile server
+    case wikimedia
+    
     ///String that describes the selected tile server.
     var name: String {
         switch self {
@@ -39,6 +42,7 @@ enum GPXTileServer: Int {
         case .openStreetMap: return "Open Street Map"
         case .cartoDB: return "Carto DB"
         case .openTopoMap: return "OpenTopoMap"
+        case .wikimedia: return "Wikimedia Foundation"
         //case .AnotherMap: return "My Map"
         }
     }
@@ -51,6 +55,7 @@ enum GPXTileServer: Int {
        // case .cartoDB: return "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
         case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png"
         case .openTopoMap: return "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+        case .wikimedia: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png"
         //case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
         }
     }
@@ -68,6 +73,7 @@ enum GPXTileServer: Int {
         case .openStreetMap: return ["a","b","c"]
         case .cartoDB: return ["a","b","c"]
         case .openTopoMap: return ["a","b","c"]
+        case .wikimedia: return []
         //case .AnotherMap: return ["a","b"]
         }
     }
@@ -87,6 +93,7 @@ enum GPXTileServer: Int {
             case .openStreetMap: return 19
             case .cartoDB: return 25
             case .openTopoMap: return 17
+            case .wikimedia: return 19
             //case .AnotherMap: return 10
         }
     }
@@ -104,6 +111,7 @@ enum GPXTileServer: Int {
             case .openStreetMap: return 0
             case .cartoDB: return 0
             case .openTopoMap: return 0
+            case .wikimedia: return 0
             //case .AnotherMap: return ["a","b"]
         }
     }
@@ -121,6 +129,7 @@ enum GPXTileServer: Int {
         case .openStreetMap: return 850.0
         case .cartoDB: return 0
         case .openTopoMap: return 2850.0
+        case .wikimedia: return 350.0
             //case .AnotherMap: return 1000.0
         }
     }
@@ -131,6 +140,7 @@ enum GPXTileServer: Int {
         case .openStreetMap: return 256
         case .cartoDB: return 512
         case .openTopoMap: return 256
+        case .wikimedia: return 512
             //case .AnotherMap: return 1000.0
         }
     }

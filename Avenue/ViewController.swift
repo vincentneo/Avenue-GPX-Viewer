@@ -190,9 +190,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
         dropDownMenu.addItem(withTitle: " Hybrid")
         dropDownMenu.addItem(withTitle: " Satellite")
         dropDownMenu.menu?.addItem(.separator())
-        dropDownMenu.addItem(withTitle: "Open Street Map")
-        dropDownMenu.addItem(withTitle: "CartoDB")
-        dropDownMenu.addItem(withTitle: "OpenTopoMap")
+        dropDownMenu.addItem(withTitle: GPXTileServer.openStreetMap.name)
+        dropDownMenu.addItem(withTitle: GPXTileServer.cartoDB.name)
+        dropDownMenu.addItem(withTitle: GPXTileServer.openTopoMap.name)
+        dropDownMenu.addItem(withTitle: GPXTileServer.wikimedia.name)
         dropDownMenu.select(dropDownMenu.item(at: 0))
         dropDownMenu.wantsLayer = true
         dropDownMenu.layer?.opacity = 0.9
@@ -351,6 +352,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
             case 4: mapType = .standard;             tileServer = .openStreetMap; legalLabel = "© OpenStreetMap contributors"
             case 5: mapType = .standard;             tileServer = .cartoDB; legalLabel = "© OpenStreetMap contributors, © CARTO"
             case 6: mapType = .standard;             tileServer = .openTopoMap; legalLabel = "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
+            case 7: mapType = .standard;             tileServer = .wikimedia; legalLabel = "Wikimedia Maps | Map Data © OpenStreetMap contributors"
         default:
             mapType = .standard
         }
