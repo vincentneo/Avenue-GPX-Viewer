@@ -69,10 +69,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 self.tileServerOverlay = useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
                 self.tileServerOverlay.canReplaceMapContent = true
                 
+                // retina tile support
+                self.tileServerOverlay.tileSize = CGSize(width: newValue.tileSize, height: newValue.tileSize)
                 mapView.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
                 miniMap.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
-
-
             }
         }
         didSet {

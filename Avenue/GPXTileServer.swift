@@ -49,7 +49,7 @@ enum GPXTileServer: Int {
         case .apple: return ""
         case .openStreetMap: return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
        // case .cartoDB: return "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-        case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png"
+        case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png"
         case .openTopoMap: return "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
         //case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
         }
@@ -85,7 +85,7 @@ enum GPXTileServer: Int {
         switch self {
             case .apple: return -1
             case .openStreetMap: return 19
-            case .cartoDB: return 21
+            case .cartoDB: return 25
             case .openTopoMap: return 17
             //case .AnotherMap: return 10
         }
@@ -119,8 +119,18 @@ enum GPXTileServer: Int {
         switch self {
         case .apple: return -1.0 // Not limited
         case .openStreetMap: return 850.0
-        case .cartoDB: return 200.0
+        case .cartoDB: return 0
         case .openTopoMap: return 2850.0
+            //case .AnotherMap: return 1000.0
+        }
+    }
+    
+    var tileSize: Int {
+        switch self {
+        case .apple: return -1 // Not limited
+        case .openStreetMap: return 256
+        case .cartoDB: return 512
+        case .openTopoMap: return 256
             //case .AnotherMap: return 1000.0
         }
     }
