@@ -10,6 +10,11 @@ let kDefaultsHideMiniMap: String = "HideMiniMap"
 
 let kDefaultsEnableCache: String = "CacheSettings"
 
+let kDefaultsPreferRetina: String = "PreferRetina"
+
+let kDefaultsShowMapScale: String = "ShowMapScale"
+
+
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
 ///
@@ -28,6 +33,8 @@ class Preferences: NSObject {
     
     private var _hideMiniMap: Bool = false
     private var _enableCache: Bool = true
+    private var _preferRetina: Bool = true
+    private var _showMapScale: Bool = true
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
@@ -43,6 +50,13 @@ class Preferences: NSObject {
             _enableCache = enableCache
         }
         
+        if let preferRetina = defaults.object(forKey: kDefaultsPreferRetina) as? Bool {
+            _preferRetina = preferRetina
+        }
+        
+        if let showMapScale = defaults.object(forKey: kDefaultsShowMapScale) as? Bool {
+            _showMapScale = showMapScale
+        }
     }
     
     var hideMiniMap: Bool {
@@ -62,6 +76,26 @@ class Preferences: NSObject {
         set {
             _enableCache = newValue
             defaults.set(newValue, forKey: kDefaultsEnableCache)
+        }
+    }
+    
+    var preferRetina: Bool {
+        get {
+            return _preferRetina
+        }
+        set {
+            _preferRetina = newValue
+            defaults.set(newValue, forKey: kDefaultsPreferRetina)
+        }
+    }
+    
+    var showMapScale: Bool {
+        get {
+            return _showMapScale
+        }
+        set {
+            _showMapScale = newValue
+            defaults.set(newValue, forKey: kDefaultsShowMapScale)
         }
     }
     

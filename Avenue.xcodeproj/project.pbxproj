@@ -10,7 +10,6 @@
 		120A142A249D055F0014E690 /* LaunchWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120A1429249D055F0014E690 /* LaunchWindow.xib */; };
 		1214D2DB24BE0590002D399E /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DA24BE0590002D399E /* PreferenceViewController.swift */; };
 		1214D2DD24BE06E7002D399E /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */; };
-		121CE49724BB19F200BF1E09 /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = 121CE49624BB19F200BF1E09 /* MapCache */; };
 		121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121E04C724C6F303008EAA29 /* MapKit.framework */; };
 		122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
 		12B1A1A024A0B428005F781F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 12B1A19F24A0B428005F781F /* Credits.html */; };
@@ -24,6 +23,7 @@
 		BF4F5AB822D1FBCF00C8E95A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5AB622D1FBCF00C8E95A /* Main.storyboard */; };
 		BF4F5AC422D1FBCF00C8E95A /* AvenueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AC322D1FBCF00C8E95A /* AvenueTests.swift */; };
 		BF5D102F2387F2C000F7D3C9 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
+		BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = BF626D7624CC6CBB007E2EEF /* MapCache */; };
 		BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
 		BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
 		BFF76B5422D36F4500C269D8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF76B5322D36F4500C269D8 /* WindowController.swift */; };
@@ -72,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				121CE49724BB19F200BF1E09 /* MapCache in Frameworks */,
+				BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */,
 				121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */,
 				12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */,
 			);
@@ -168,7 +168,7 @@
 			name = Avenue;
 			packageProductDependencies = (
 				12C445052478F67D00BE9465 /* CoreGPX */,
-				121CE49624BB19F200BF1E09 /* MapCache */,
+				BF626D7624CC6CBB007E2EEF /* MapCache */,
 			);
 			productName = Avenue;
 			productReference = BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */;
@@ -222,7 +222,7 @@
 			mainGroup = BF4F5AA222D1FBCD00C8E95A;
 			packageReferences = (
 				12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */,
-				121CE49524BB19F200BF1E09 /* XCRemoteSwiftPackageReference "MapCache" */,
+				BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */,
 			);
 			productRefGroup = BF4F5AAC22D1FBCD00C8E95A /* Products */;
 			projectDirPath = "";
@@ -544,14 +544,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		121CE49524BB19F200BF1E09 /* XCRemoteSwiftPackageReference "MapCache" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/vincentneo/MapCache";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
@@ -560,18 +552,26 @@
 				minimumVersion = 0.8.0;
 			};
 		};
+		BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/merlos/MapCache.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		121CE49624BB19F200BF1E09 /* MapCache */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 121CE49524BB19F200BF1E09 /* XCRemoteSwiftPackageReference "MapCache" */;
-			productName = MapCache;
-		};
 		12C445052478F67D00BE9465 /* CoreGPX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;
 			productName = CoreGPX;
+		};
+		BF626D7624CC6CBB007E2EEF /* MapCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */;
+			productName = MapCache;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

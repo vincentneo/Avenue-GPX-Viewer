@@ -12,10 +12,10 @@
       },
       {
         "package": "MapCache",
-        "repositoryURL": "https://github.com/vincentneo/MapCache",
+        "repositoryURL": "https://github.com/merlos/MapCache.git",
         "state": {
           "branch": "master",
-          "revision": "fb183d9ce9111f261d5953fbfb591359327b321b",
+          "revision": "b76d76254fbc1286db349f1af0b7612c89102cd8",
           "version": null
         }
       }

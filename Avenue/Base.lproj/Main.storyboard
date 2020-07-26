@@ -11,8 +11,9 @@
         <scene sceneID="m0h-gX-8fy">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="cCk-Xl-d1i" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="o2Z-0o-3Ex">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" id="o2Z-0o-3Ex">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="313" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
@@ -34,18 +35,18 @@
             <objects>
                 <viewController title="Preferences" showSeguePresentationStyle="single" id="3rf-Gu-ZGF" customClass="PreferenceViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pgP-JJ-pLD">
-                        <rect key="frame" x="0.0" y="0.0" width="499" height="271"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="508" height="332"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="124" width="465" height="129"/>
+                                <rect key="frame" x="17" y="185" width="474" height="129"/>
                                 <view key="contentView" id="j0r-nZ-idm">
-                                    <rect key="frame" x="3" y="3" width="459" height="123"/>
+                                    <rect key="frame" x="3" y="3" width="468" height="123"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
-                                            <rect key="frame" x="21" y="28" width="417" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="WtD-KG-Igf">
+                                            <rect key="frame" x="27" y="28" width="417" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WtD-KG-Igf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -54,7 +55,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-zv-0ZR">
-                                            <rect key="frame" x="21" y="52" width="153" height="19"/>
+                                            <rect key="frame" x="26" y="52" width="153" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Current Cache Size: " id="eIQ-e1-Cjj">
                                                 <font key="font" metaFont="system" size="16"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -62,7 +63,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-Ol-b7u">
-                                            <rect key="frame" x="174" y="52" width="78" height="19"/>
+                                            <rect key="frame" x="179" y="52" width="78" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Loading..." id="I0e-gG-oth">
                                                 <font key="font" metaFont="systemMedium" size="16"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -70,7 +71,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-5v-HwY">
-                                            <rect key="frame" x="325" y="43" width="114" height="32"/>
+                                            <rect key="frame" x="330" y="43" width="114" height="32"/>
                                             <buttonCell key="cell" type="push" title="Clear Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cje-Sj-iGg">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -80,7 +81,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
-                                            <rect key="frame" x="21" y="79" width="66" height="24"/>
+                                            <rect key="frame" x="26" y="79" width="66" height="24"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -89,40 +90,86 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="3SG-zx-5PZ"/>
                                         <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="Fdv-5v-HwY" secondAttribute="bottom" constant="6" id="7Dj-vk-egO"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdv-5v-HwY" secondAttribute="trailing" constant="26" id="8Ni-Mw-cjQ"/>
                                         <constraint firstItem="2a1-Ol-b7u" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="trailing" constant="4" id="8mc-ZM-FjD"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="BKO-rG-fHU"/>
                                         <constraint firstItem="Fdv-5v-HwY" firstAttribute="leading" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="81" id="Cao-hU-YHc"/>
                                         <constraint firstItem="2a1-Ol-b7u" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="52" id="Idf-QA-Xso"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="leading" priority="250" id="LUn-Ej-fL4"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="2a1-Ol-b7u" secondAttribute="bottom" constant="8" id="O7m-aM-FEP"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="DEL-zv-0ZR" secondAttribute="bottom" constant="8" id="RPo-t7-vlN"/>
                                         <constraint firstAttribute="centerX" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="144.5" id="TMr-dh-j20"/>
                                         <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="Y5f-1v-aa0"/>
-                                        <constraint firstItem="aFn-5E-saa" firstAttribute="centerX" secondItem="j0r-nZ-idm" secondAttribute="centerX" id="cUf-1H-IBw"/>
-                                        <constraint firstAttribute="centerX" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="-20.5" id="cjI-b8-WKT"/>
+                                        <constraint firstItem="aFn-5E-saa" firstAttribute="centerX" secondItem="j0r-nZ-idm" secondAttribute="centerX" constant="1.5" id="cUf-1H-IBw"/>
+                                        <constraint firstAttribute="centerX" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="-21" id="cjI-b8-WKT"/>
                                         <constraint firstAttribute="bottom" secondItem="aFn-5E-saa" secondAttribute="bottom" constant="30" id="ohF-gG-17I"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" id="s9M-OY-4y1"/>
-                                        <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="2a1-Ol-b7u" secondAttribute="bottom" constant="8" id="wQX-8b-auw"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="firstBaseline" secondItem="2a1-Ol-b7u" secondAttribute="firstBaseline" id="wQX-8b-auw"/>
                                         <constraint firstItem="HzW-jp-WHY" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="20" id="yuS-Mq-W5S"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
+                                <rect key="frame" x="17" y="83" width="474" height="102"/>
+                                <view key="contentView" id="VOx-0n-Jex">
+                                    <rect key="frame" x="3" y="3" width="468" height="96"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
+                                            <rect key="frame" x="28" y="52" width="57" height="24"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
+                                                <font key="font" metaFont="systemSemibold" size="21"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
+                                            <rect key="frame" x="28" y="28" width="359" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="HTp-6w-Ag5"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="check" title="Prefer Retina/HiDPI resolution map tiles when available" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3SV-nz-FNV">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="preferRetinaCheckBox:" target="3rf-Gu-ZGF" id="opC-zm-IKj"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eYQ-Q4-sO5" firstAttribute="centerX" secondItem="VOx-0n-Jex" secondAttribute="centerX" constant="-27" id="AJr-6D-EDW"/>
+                                        <constraint firstItem="WKb-wA-L0B" firstAttribute="top" secondItem="VOx-0n-Jex" secondAttribute="top" constant="20" id="B8F-qe-ifu"/>
+                                        <constraint firstAttribute="bottom" secondItem="eYQ-Q4-sO5" secondAttribute="bottom" constant="30" id="Hfn-RN-XgK"/>
+                                        <constraint firstItem="eYQ-Q4-sO5" firstAttribute="top" secondItem="WKb-wA-L0B" secondAttribute="bottom" constant="8" symbolic="YES" id="HuV-gb-Ptu"/>
+                                        <constraint firstAttribute="centerX" secondItem="WKb-wA-L0B" secondAttribute="trailing" constant="151.5" id="TcZ-59-7zp"/>
+                                        <constraint firstItem="WKb-wA-L0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="23" id="ckc-cB-s1r"/>
                                     </constraints>
                                 </view>
                             </box>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="128" id="L6U-Fb-O0t"/>
-                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" id="jxY-lm-JyU"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="61" id="EJb-8d-QJI"/>
+                            <constraint firstItem="bQ6-mG-Hit" firstAttribute="top" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="6" id="Q2G-q3-OdQ"/>
+                            <constraint firstItem="bQ6-mG-Hit" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="f30-f1-HfN"/>
+                            <constraint firstAttribute="trailing" secondItem="bQ6-mG-Hit" secondAttribute="trailing" constant="20" symbolic="YES" id="h2b-re-HL7"/>
+                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" symbolic="YES" id="jxY-lm-JyU"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" id="qwZ-zF-HEJ"/>
-                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" id="xTa-vU-rc1"/>
+                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="xTa-vU-rc1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cacheCheckBox" destination="aFn-5E-saa" id="FiP-2M-q2g"/>
                         <outlet property="clearCacheButton" destination="Fdv-5v-HwY" id="Bjb-Nc-Yaj"/>
+                        <outlet property="preferRetinaCheckBox" destination="eYQ-Q4-sO5" id="0wt-xJ-eSs"/>
                         <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
                     </connections>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720.5" y="264.5"/>
+            <point key="canvasLocation" x="720" y="292"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -143,7 +190,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="cCk-Xl-d1i" kind="modal" id="l3e-QB-0pI"/>
+                                                <segue destination="cCk-Xl-d1i" kind="show" id="l3e-QB-0pI"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -285,8 +332,9 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="WindowController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="documentWindow" tabbingMode="preferred" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" fullScreenPrimary="YES" fullScreenAllowsTiling="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="360" y="580" width="600" height="320"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -296,8 +344,8 @@
                                 <toolbarItem implicitItemIdentifier="6D6F2236-97C4-44A9-B5EB-72153FF70CE2" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="y9P-Wf-7VF">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="NUB-UO-CXV">
-                                        <rect key="frame" x="0.0" y="14" width="126" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="121" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kEi-MT-WVU">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -322,8 +370,8 @@
                                 <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
-                                        <rect key="frame" x="0.0" y="14" width="92" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="95" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="center" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
                                             <font key="font" metaFont="systemMedium" size="15"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>

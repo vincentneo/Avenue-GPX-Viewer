@@ -54,7 +54,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
             if newValue != .apple {
                  //MapCache is still iOS only. May arrive at later date
                 //Update cacheConfig
+                var tileSize = 256
                 var config = MapCacheConfig(withUrlTemplate: newValue.templateUrl)
+                if Preferences.shared.preferRetina, let retinaUrl = newValue.retinaUrl {
+                    config.urlTemplate = retinaUrl
+                    tileSize = newValue.tileSize
+                }
+                
                 config.subdomains = newValue.subdomains
                 
                 if newValue.maximumZ > 0 {
@@ -67,12 +73,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 // the overlay returned substitutes Apple Maps tile overlay.
                 // we need to keep a reference to remove it, in case we return back to Apple Maps.
                 self.tileServerOverlay = useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
+                // to use cache or not
+                useCache = Preferences.shared.enableCache
                 self.tileServerOverlay.canReplaceMapContent = true
+                
+                // retina tile size support
+                self.tileServerOverlay.tileSize = CGSize(width: tileSize, height: tileSize)
                 
                 mapView.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
                 miniMap.insertOverlay(self.tileServerOverlay, at: 0, level: .aboveLabels)
-
-
             }
         }
         didSet {
@@ -190,9 +199,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
         dropDownMenu.addItem(withTitle: " Hybrid")
         dropDownMenu.addItem(withTitle: " Satellite")
         dropDownMenu.menu?.addItem(.separator())
-        dropDownMenu.addItem(withTitle: "Open Street Map")
-        dropDownMenu.addItem(withTitle: "CartoDB")
-        dropDownMenu.addItem(withTitle: "OpenTopoMap")
+        dropDownMenu.addItem(withTitle: GPXTileServer.openStreetMap.name)
+        dropDownMenu.addItem(withTitle: GPXTileServer.cartoDB.name)
+        dropDownMenu.addItem(withTitle: GPXTileServer.openTopoMap.name)
+        dropDownMenu.addItem(withTitle: GPXTileServer.wikimedia.name)
         dropDownMenu.select(dropDownMenu.item(at: 0))
         dropDownMenu.wantsLayer = true
         dropDownMenu.layer?.opacity = 0.9
@@ -265,6 +275,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(decodeRestorableState(_:)), name: Notification.Name("DecodeRestorableState"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cacheSettingsDidChange(_:)), name: Notification.Name("CacheSettingsDidChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(retinaSettingDidChange(_:)), name: Notification.Name("RetinaSettingDidChange"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -338,19 +350,35 @@ class ViewController: NSViewController, MKMapViewDelegate {
         miniMap.addAnnotations(mapView.annotations)
     }
     
+    @objc func cacheSettingsDidChange(_ sender: Notification) {
+        let currentTile = tileServer
+        useCache = Preferences.shared.enableCache
+        tileServer = .apple
+        tileServer = currentTile
+    }
+    
+    @objc func retinaSettingDidChange(_ sender: Notification) {
+        let currentTile = tileServer
+        
+        // only reload when theres retina support
+        if currentTile.retinaUrl != nil {
+            tileServer = .apple
+            tileServer = currentTile
+        }
+    }
+    
     @objc func dropDownDidChange(_ sender: NSPopUpButton) {
         var mapType: MKMapType
-        
-        var legalLabel: String?
         
         switch sender.indexOfSelectedItem {
             case 0: mapType = .standard;             tileServer = .apple
             case 1: mapType = .hybridFlyover;        tileServer = .apple
             case 2: mapType = .satelliteFlyover;     tileServer = .apple
          // case 3: will be a seperator; > 4 = custom
-            case 4: mapType = .standard;             tileServer = .openStreetMap; legalLabel = "© OpenStreetMap contributors"
-            case 5: mapType = .standard;             tileServer = .cartoDB; legalLabel = "© OpenStreetMap contributors, © CARTO"
-            case 6: mapType = .standard;             tileServer = .openTopoMap; legalLabel = "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
+            case 4: mapType = .standard;             tileServer = .openStreetMap
+            case 5: mapType = .standard;             tileServer = .cartoDB
+            case 6: mapType = .standard;             tileServer = .openTopoMap
+            case 7: mapType = .standard;             tileServer = .wikimedia
         default:
             mapType = .standard
         }
@@ -361,8 +389,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
             if sender.indexOfSelectedItem > 3 {
                 attribution.font = .boldSystemFont(ofSize: 8.5)
-                guard let legalLabel = legalLabel else { return }
-                attribution.stringValue = legalLabel
+                guard tileServer != .apple else { return }
+                attribution.stringValue = tileServer.attribution
                 attribution.isHidden = false
                 mapText.isHidden = true
                 
