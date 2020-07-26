@@ -46,7 +46,7 @@
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
                                             <rect key="frame" x="27" y="28" width="417" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="WtD-KG-Igf">
+                                            <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WtD-KG-Igf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>

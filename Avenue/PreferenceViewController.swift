@@ -15,7 +15,6 @@ class PreferenceViewController: NSViewController {
     @IBOutlet weak var cacheCheckBox: NSButton!
     @IBOutlet weak var clearCacheButton: NSButton!
     @IBOutlet weak var preferRetinaCheckBox: NSButton!
-    @IBOutlet weak var enableScaleCheckBox: NSButton!
     
     /// Global Preferences
     var preferences : Preferences = Preferences.shared
@@ -30,7 +29,6 @@ class PreferenceViewController: NSViewController {
         super.viewDidLoad()
         cacheCheckBox.state = preferences.enableCache ? .on : .off
         preferRetinaCheckBox.state = preferences.preferRetina ? .on : .off
-        enableScaleCheckBox.state = preferences.showMapScale ? .on : .off
 
         let fileSize = cache.diskCache.fileSize ?? 0
         cachedSize = Int(fileSize).asFileSize()
@@ -55,6 +53,7 @@ class PreferenceViewController: NSViewController {
         else {
             preferences.enableCache = false
         }
+         NotificationCenter.default.post(Notification(name: Notification.Name("CacheSettingsDidChange")))
     }
     
     @IBAction func preferRetinaCheckBox(_ sender: NSButton) {

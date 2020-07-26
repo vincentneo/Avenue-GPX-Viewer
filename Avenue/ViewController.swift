@@ -73,6 +73,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 // the overlay returned substitutes Apple Maps tile overlay.
                 // we need to keep a reference to remove it, in case we return back to Apple Maps.
                 self.tileServerOverlay = useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
+                // to use cache or not
+                useCache = Preferences.shared.enableCache
                 self.tileServerOverlay.canReplaceMapContent = true
                 
                 // retina tile size support
@@ -273,6 +275,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(viewSizeDidChange(_:)), name: Notification.Name("NSWindowDidResizeNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gpxFileFinishedLoading(_:)), name: Notification.Name("GPXFileFinishedLoading"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(decodeRestorableState(_:)), name: Notification.Name("DecodeRestorableState"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cacheSettingsDidChange(_:)), name: Notification.Name("CacheSettingsDidChange"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(retinaSettingDidChange(_:)), name: Notification.Name("RetinaSettingDidChange"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
@@ -345,6 +348,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
             }
         }
         miniMap.addAnnotations(mapView.annotations)
+    }
+    
+    @objc func cacheSettingsDidChange(_ sender: Notification) {
+        let currentTile = tileServer
+        useCache = Preferences.shared.enableCache
+        tileServer = .apple
+        tileServer = currentTile
     }
     
     @objc func retinaSettingDidChange(_ sender: Notification) {
