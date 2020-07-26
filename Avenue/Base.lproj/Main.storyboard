@@ -112,13 +112,13 @@
                                 </view>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
-                                <rect key="frame" x="17" y="63" width="474" height="122"/>
+                                <rect key="frame" x="17" y="83" width="474" height="102"/>
                                 <view key="contentView" id="VOx-0n-Jex">
-                                    <rect key="frame" x="3" y="3" width="468" height="116"/>
+                                    <rect key="frame" x="3" y="3" width="468" height="96"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
-                                            <rect key="frame" x="28" y="72" width="57" height="24"/>
+                                            <rect key="frame" x="28" y="52" width="57" height="24"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -126,7 +126,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
-                                            <rect key="frame" x="28" y="48" width="359" height="18"/>
+                                            <rect key="frame" x="28" y="28" width="359" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="HTp-6w-Ag5"/>
                                             </constraints>
@@ -138,26 +138,14 @@
                                                 <action selector="preferRetinaCheckBox:" target="3rf-Gu-ZGF" id="opC-zm-IKj"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MLG-vf-3Hx">
-                                            <rect key="frame" x="28" y="28" width="359" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="Dh8-oj-f6B"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="check" title="Enable Map Scale" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="yUC-6g-TWh">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="MLG-vf-3Hx" secondAttribute="bottom" constant="30" id="91W-5m-XBK"/>
                                         <constraint firstItem="eYQ-Q4-sO5" firstAttribute="centerX" secondItem="VOx-0n-Jex" secondAttribute="centerX" constant="-27" id="AJr-6D-EDW"/>
                                         <constraint firstItem="WKb-wA-L0B" firstAttribute="top" secondItem="VOx-0n-Jex" secondAttribute="top" constant="20" id="B8F-qe-ifu"/>
+                                        <constraint firstAttribute="bottom" secondItem="eYQ-Q4-sO5" secondAttribute="bottom" constant="30" id="Hfn-RN-XgK"/>
                                         <constraint firstItem="eYQ-Q4-sO5" firstAttribute="top" secondItem="WKb-wA-L0B" secondAttribute="bottom" constant="8" symbolic="YES" id="HuV-gb-Ptu"/>
                                         <constraint firstAttribute="centerX" secondItem="WKb-wA-L0B" secondAttribute="trailing" constant="151.5" id="TcZ-59-7zp"/>
-                                        <constraint firstItem="MLG-vf-3Hx" firstAttribute="top" secondItem="eYQ-Q4-sO5" secondAttribute="bottom" constant="6" symbolic="YES" id="cYt-xv-IO6"/>
                                         <constraint firstItem="WKb-wA-L0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="23" id="ckc-cB-s1r"/>
-                                        <constraint firstItem="MLG-vf-3Hx" firstAttribute="centerX" secondItem="VOx-0n-Jex" secondAttribute="centerX" constant="-27" id="v5A-iu-8co"/>
                                     </constraints>
                                 </view>
                             </box>
@@ -167,22 +155,21 @@
                             <constraint firstItem="bQ6-mG-Hit" firstAttribute="top" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="6" id="Q2G-q3-OdQ"/>
                             <constraint firstItem="bQ6-mG-Hit" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="f30-f1-HfN"/>
                             <constraint firstAttribute="trailing" secondItem="bQ6-mG-Hit" secondAttribute="trailing" constant="20" symbolic="YES" id="h2b-re-HL7"/>
-                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" id="jxY-lm-JyU"/>
+                            <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" symbolic="YES" id="jxY-lm-JyU"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" id="qwZ-zF-HEJ"/>
-                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" id="xTa-vU-rc1"/>
+                            <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="xTa-vU-rc1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cacheCheckBox" destination="aFn-5E-saa" id="FiP-2M-q2g"/>
                         <outlet property="clearCacheButton" destination="Fdv-5v-HwY" id="Bjb-Nc-Yaj"/>
-                        <outlet property="enableScaleCheckBox" destination="MLG-vf-3Hx" id="d7v-L4-C5B"/>
                         <outlet property="preferRetinaCheckBox" destination="eYQ-Q4-sO5" id="0wt-xJ-eSs"/>
                         <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
                     </connections>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720.5" y="292"/>
+            <point key="canvasLocation" x="720" y="292"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
