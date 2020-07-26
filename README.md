@@ -40,11 +40,15 @@ eventually it is developed to being more complete, and that it can be expected t
 - Display of total distance of the tracks 
 - Dark mode support
 - Minimap for easier locating in complicated tracks (can be disabled)
+- Auto restore of previous settings when reopened (like chosen map source, etc)
+- Support for third-party map sources
+  - Open Street Map
+  - Carto DB (with Retina Support)
+  - OpenTopoMap
+  - Wikimedia Foundation (with Retina Support)
 
 ## Upcoming features
 - Display of total tracked time
-- Saving of previously selected settings
-- Other map sources
 - Documentation
 
 ## Contributing
