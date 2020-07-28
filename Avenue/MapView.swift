@@ -50,12 +50,20 @@ class MapView: MKMapView {
                 indicator.stopAnimation(self)
                 guard let fileGPX = fileGPX else { return }
                 var length = 0.0
+                var timeInterval = 0.0
                 for track in fileGPX.tracks {
                     for trackseg in track.tracksegments {
                         length += trackseg.length()
                     }
+                    for trackseg in track.tracksegments {
+                        guard let startTime = trackseg.trackpoints.first?.time,
+                            let endTime = trackseg.trackpoints.last?.time else { continue }
+                        let timeBetween = endTime.timeIntervalSince(startTime)
+                        timeInterval += timeBetween
+                    }
                 }
-                windowCon.barDistance.stringValue = length.toDistance(useImperial: false)
+                let timeText = ElapsedTime.getString(from: timeInterval)
+                windowCon.barDistance.stringValue = "\(timeText) | \(length.toDistance(useImperial: false))"
                 self.loadedGPXFile(fileGPX)
                 NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
             }
