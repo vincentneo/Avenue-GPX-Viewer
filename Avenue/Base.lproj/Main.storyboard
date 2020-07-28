@@ -94,16 +94,16 @@
                                         <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="Fdv-5v-HwY" secondAttribute="bottom" constant="6" id="7Dj-vk-egO"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdv-5v-HwY" secondAttribute="trailing" constant="26" id="8Ni-Mw-cjQ"/>
                                         <constraint firstItem="2a1-Ol-b7u" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="trailing" constant="4" id="8mc-ZM-FjD"/>
-                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="BKO-rG-fHU"/>
+                                        <constraint firstItem="DEL-zv-0ZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" priority="250" constant="23" id="BKO-rG-fHU"/>
                                         <constraint firstItem="Fdv-5v-HwY" firstAttribute="leading" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="81" id="Cao-hU-YHc"/>
                                         <constraint firstItem="2a1-Ol-b7u" firstAttribute="top" secondItem="j0r-nZ-idm" secondAttribute="top" constant="52" id="Idf-QA-Xso"/>
-                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="leading" priority="250" id="LUn-Ej-fL4"/>
+                                        <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" secondItem="DEL-zv-0ZR" secondAttribute="leading" priority="750" id="LUn-Ej-fL4"/>
                                         <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="2a1-Ol-b7u" secondAttribute="bottom" constant="8" id="O7m-aM-FEP"/>
                                         <constraint firstItem="aFn-5E-saa" firstAttribute="top" secondItem="DEL-zv-0ZR" secondAttribute="bottom" constant="8" id="RPo-t7-vlN"/>
                                         <constraint firstAttribute="centerX" secondItem="HzW-jp-WHY" secondAttribute="trailing" constant="144.5" id="TMr-dh-j20"/>
                                         <constraint firstItem="HzW-jp-WHY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j0r-nZ-idm" secondAttribute="leading" constant="23" id="Y5f-1v-aa0"/>
                                         <constraint firstItem="aFn-5E-saa" firstAttribute="centerX" secondItem="j0r-nZ-idm" secondAttribute="centerX" constant="1.5" id="cUf-1H-IBw"/>
-                                        <constraint firstAttribute="centerX" secondItem="2a1-Ol-b7u" secondAttribute="trailing" constant="-21" id="cjI-b8-WKT"/>
+                                        <constraint firstAttribute="centerX" secondItem="2a1-Ol-b7u" secondAttribute="trailing" priority="250" constant="-21" id="cjI-b8-WKT"/>
                                         <constraint firstAttribute="bottom" secondItem="aFn-5E-saa" secondAttribute="bottom" constant="30" id="ohF-gG-17I"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="top" secondItem="HzW-jp-WHY" secondAttribute="bottom" constant="8" id="s9M-OY-4y1"/>
                                         <constraint firstItem="DEL-zv-0ZR" firstAttribute="firstBaseline" secondItem="2a1-Ol-b7u" secondAttribute="firstBaseline" id="wQX-8b-auw"/>
