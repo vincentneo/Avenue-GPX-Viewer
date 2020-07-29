@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17140" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17140"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="17140"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,13 +39,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="185" width="474" height="129"/>
+                                <rect key="frame" x="17" y="183" width="474" height="131"/>
                                 <view key="contentView" id="j0r-nZ-idm">
-                                    <rect key="frame" x="3" y="3" width="468" height="123"/>
+                                    <rect key="frame" x="3" y="3" width="468" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
-                                            <rect key="frame" x="27" y="28" width="417" height="18"/>
+                                            <rect key="frame" x="24" y="29" width="421" height="18"/>
                                             <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WtD-KG-Igf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -55,7 +55,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-zv-0ZR">
-                                            <rect key="frame" x="26" y="52" width="153" height="19"/>
+                                            <rect key="frame" x="26" y="54" width="153" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Current Cache Size: " id="eIQ-e1-Cjj">
                                                 <font key="font" metaFont="system" size="16"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -63,7 +63,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-Ol-b7u">
-                                            <rect key="frame" x="179" y="52" width="78" height="19"/>
+                                            <rect key="frame" x="179" y="54" width="78" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Loading..." id="I0e-gG-oth">
                                                 <font key="font" metaFont="systemMedium" size="16"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -71,7 +71,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-5v-HwY">
-                                            <rect key="frame" x="330" y="43" width="114" height="32"/>
+                                            <rect key="frame" x="329" y="45" width="120" height="32"/>
                                             <buttonCell key="cell" type="push" title="Clear Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cje-Sj-iGg">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -81,7 +81,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
-                                            <rect key="frame" x="26" y="79" width="66" height="24"/>
+                                            <rect key="frame" x="26" y="81" width="66" height="24"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -112,13 +112,13 @@
                                 </view>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
-                                <rect key="frame" x="17" y="83" width="474" height="102"/>
+                                <rect key="frame" x="17" y="79" width="474" height="104"/>
                                 <view key="contentView" id="VOx-0n-Jex">
-                                    <rect key="frame" x="3" y="3" width="468" height="96"/>
+                                    <rect key="frame" x="3" y="3" width="468" height="98"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
-                                            <rect key="frame" x="28" y="52" width="57" height="24"/>
+                                            <rect key="frame" x="28" y="54" width="57" height="24"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -126,7 +126,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
-                                            <rect key="frame" x="28" y="28" width="359" height="18"/>
+                                            <rect key="frame" x="28" y="29" width="357" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="HTp-6w-Ag5"/>
                                             </constraints>
@@ -332,58 +332,36 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="Document Window Controller" id="jGA-0Y-lOj" customClass="WindowController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="documentWindow" tabbingMode="preferred" id="Ckk-yw-fiv">
+                    <window key="window" title="File Name" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="documentWindow" tabbingMode="preferred" toolbarStyle="compact" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" fullScreenPrimary="YES" fullScreenAllowsTiling="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="360" y="580" width="600" height="320"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="510" height="280"/>
-                        <toolbar key="toolbar" implicitIdentifier="0EEF5A14-8378-48A4-8460-11D6D979D7C4" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="TlO-sG-wAA">
+                        <toolbar key="toolbar" implicitIdentifier="4F179493-BCE9-4000-9E5A-B47ABD761952" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="JME-x8-JlL">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="6D6F2236-97C4-44A9-B5EB-72153FF70CE2" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="y9P-Wf-7VF">
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="4xm-cR-fhY"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="rMu-GJ-g01"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="bnS-X3-8xE"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="1oY-zs-30C"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="rgw-Og-gtn"/>
+                                <toolbarItem implicitItemIdentifier="597DBA52-4BD7-4000-BF1F-BF48D4786F89" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="3b6-rq-E9j">
                                     <nil key="toolTip"/>
-                                    <button key="view" verticalHuggingPriority="750" id="NUB-UO-CXV">
-                                        <rect key="frame" x="0.0" y="14" width="121" height="23"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kEi-MT-WVU">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="BF5F30F1-F805-45FD-B9DC-927ABA71B798" label="File Title" paletteLabel="File Title" id="9NC-dN-VgB">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="300" height="22"/>
-                                    <size key="maxSize" width="1000" height="22"/>
-                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lI5-bJ-PDa">
-                                        <rect key="frame" x="0.0" y="14" width="300" height="22"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" alignment="left" title="Label" usesSingleLineMode="YES" id="ftx-MP-ysA">
-                                            <font key="font" metaFont="systemSemibold" size="18"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sgo-sg-f6I">
+                                        <rect key="frame" x="5" y="14" width="67" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="bezel" alignment="center" title="Label" bezelStyle="round" id="wXh-SD-iDQ">
+                                            <font key="font" metaFont="system" size="15"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="S0k-PL-XeI"/>
-                                <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
-                                    <nil key="toolTip"/>
-                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
-                                        <rect key="frame" x="0.0" y="14" width="95" height="22"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="center" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
-                                            <font key="font" metaFont="systemMedium" size="15"/>
-                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="9NC-dN-VgB"/>
-                                <toolbarItem reference="S0k-PL-XeI"/>
-                                <toolbarItem reference="x6A-dH-1Dg"/>
+                                <toolbarItem reference="rgw-Og-gtn"/>
+                                <toolbarItem reference="3b6-rq-E9j"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -391,8 +369,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="barDistance" destination="Uub-Ud-ev7" id="iDN-BJ-kgS"/>
-                        <outlet property="barTitle" destination="lI5-bJ-PDa" id="R2k-6b-giL"/>
+                        <outlet property="barDistance" destination="sgo-sg-f6I" id="rsV-A5-5tQ"/>
                         <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
                     </connections>
                 </windowController>

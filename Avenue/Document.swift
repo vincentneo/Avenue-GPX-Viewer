@@ -38,9 +38,10 @@ class Document: NSDocument {
             title.addAttributes(systemRegular, range: NSMakeRange(0, 5))
             
             //windowController.barTitle.stringValue = "Avenue - \(title)"
-            windowController.barTitle.attributedStringValue = title
+            windowController.window?.title = "File: \(fileName)"
+            //windowController.title.attributedStringValue = title
         }
-        windowController.barTitle.isHidden = false
+        //windowController.barTitle.isHidden = false
         self.addWindowController(windowController)
         
         let viewController = windowController.contentViewController as! ViewController
