@@ -40,7 +40,7 @@ enum GPXTileServer: Int {
         switch self {
         case .apple: return "Apple Mapkit (no offline cache)"
         case .openStreetMap: return "Open Street Map"
-        case .cartoDB: return "Carto DB"
+        case .cartoDB: return "CARTO"
         case .openTopoMap: return "OpenTopoMap"
         case .wikimedia: return "Wikimedia"
         //case .AnotherMap: return "My Map"

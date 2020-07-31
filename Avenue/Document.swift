@@ -34,7 +34,7 @@ class Document: NSDocument {
         if let fileName = self.fileURL?.lastPathComponent {
             let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .regular) ]
             let systemSemibold = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .semibold) ]
-            let title = NSMutableAttributedString(string: " File: \(fileName)", attributes: systemSemibold)
+            let title = NSMutableAttributedString(string: "File: \(fileName)", attributes: systemSemibold)
             title.addAttributes(systemRegular, range: NSMakeRange(0, 5))
             
             //windowController.barTitle.stringValue = "Avenue - \(title)"
