@@ -80,7 +80,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 // retina tile size support
                 self.tileServerOverlay.tileSize = CGSize(width: tileSize, height: tileSize)
                 
-                let level: MKOverlayLevel = newValue == .cartoDB ? .aboveRoads : .aboveLabels
+                let level: MKOverlayLevel = .aboveLabels
                 
                 mapView.insertOverlay(self.tileServerOverlay, at: 0, level: level)
                 miniMap.insertOverlay(self.tileServerOverlay, at: 0, level: level)

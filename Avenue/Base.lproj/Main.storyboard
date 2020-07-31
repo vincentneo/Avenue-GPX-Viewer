@@ -35,11 +35,11 @@
             <objects>
                 <viewController title="Preferences" showSeguePresentationStyle="single" id="3rf-Gu-ZGF" customClass="PreferenceViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pgP-JJ-pLD">
-                        <rect key="frame" x="0.0" y="0.0" width="508" height="332"/>
+                        <rect key="frame" x="0.0" y="0.0" width="508" height="306"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="185" width="474" height="129"/>
+                                <rect key="frame" x="17" y="159" width="474" height="129"/>
                                 <view key="contentView" id="j0r-nZ-idm">
                                     <rect key="frame" x="3" y="3" width="468" height="123"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                                 </view>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
-                                <rect key="frame" x="17" y="83" width="474" height="102"/>
+                                <rect key="frame" x="17" y="57" width="474" height="102"/>
                                 <view key="contentView" id="VOx-0n-Jex">
                                     <rect key="frame" x="3" y="3" width="468" height="96"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,13 +149,23 @@
                                     </constraints>
                                 </view>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-OM-v12">
+                                <rect key="frame" x="37" y="37" width="435" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change visibility of the mini map, use ⌘S or go to View &gt; Hide/Show Mini Map " id="ewJ-fA-SjV">
+                                    <font key="font" metaFont="message" size="11"/>
+                                    <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="61" id="EJb-8d-QJI"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="45" id="EJb-8d-QJI"/>
                             <constraint firstItem="bQ6-mG-Hit" firstAttribute="top" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="6" id="Q2G-q3-OdQ"/>
                             <constraint firstItem="bQ6-mG-Hit" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="f30-f1-HfN"/>
                             <constraint firstAttribute="trailing" secondItem="bQ6-mG-Hit" secondAttribute="trailing" constant="20" symbolic="YES" id="h2b-re-HL7"/>
+                            <constraint firstItem="7lP-OM-v12" firstAttribute="top" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="10" id="hjH-wH-Dd9"/>
                             <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" symbolic="YES" id="jxY-lm-JyU"/>
+                            <constraint firstItem="7lP-OM-v12" firstAttribute="centerX" secondItem="pgP-JJ-pLD" secondAttribute="centerX" id="lZv-1G-HZZ"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" id="qwZ-zF-HEJ"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="xTa-vU-rc1"/>
                         </constraints>
@@ -169,7 +179,7 @@
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="292"/>
+            <point key="canvasLocation" x="720" y="279"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
