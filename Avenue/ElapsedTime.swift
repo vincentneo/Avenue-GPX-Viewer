@@ -15,8 +15,8 @@ class ElapsedTime {
     /// Returns the elapsed time as a String with the format `MM:SS` or `HhMM:SS`
     ///
     ///  Examples:
-    ///    1. if elapsed time is 3 min 30 sec, returns `03:30`
-    ///    2. 3h 40 min 30 sec, returns  `3h40:20`
+    ///    1. if elapsed time is 3 min 30 sec, returns `3 min 30 s`
+    ///    2. 3h 40 min 30 sec, returns  `3 h 40 min 20 s`
     ///
     static func getString(from elapsedTime: TimeInterval) -> String {
        var tmpTime: TimeInterval = elapsedTime
@@ -33,14 +33,14 @@ class ElapsedTime {
        tmpTime -= TimeInterval(seconds)
 
        //display hours only if >0
-       let strHours = hours > 0 ? String(hours) + "h" : ""
+       let strHours = hours > 0 ? String(hours) + "h " : ""
        //add the leading zero for minutes, seconds and millseconds and store them as string constants
 
-       let strMinutes = minutes > 9 ? String(minutes):"0" + String(minutes)
-       let strSeconds = seconds > 9 ? String(seconds):"0" + String(seconds)
+       let strMinutes = String(minutes)
+       let strSeconds = String(seconds)
 
        //concatenate hours, minutes and seconds
-       return "\(strHours)\(strMinutes):\(strSeconds)"
+       return "\(strHours)\(strMinutes)min \(strSeconds)s"
     }
     
     /// Calls the delegate (didUpdateElapsedTimeString) to inform there was an update of the elapsed time.

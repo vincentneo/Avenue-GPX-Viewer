@@ -354,7 +354,7 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="BF5F30F1-F805-45FD-B9DC-927ABA71B798" label="File Title" paletteLabel="File Title" id="9NC-dN-VgB">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="300" height="22"/>
+                                    <size key="minSize" width="50" height="22"/>
                                     <size key="maxSize" width="1000" height="22"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lI5-bJ-PDa">
                                         <rect key="frame" x="0.0" y="14" width="300" height="22"/>
@@ -370,10 +370,10 @@
                                 <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
-                                        <rect key="frame" x="0.0" y="14" width="95" height="22"/>
+                                        <rect key="frame" x="0.0" y="14" width="87" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="center" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
-                                            <font key="font" metaFont="systemMedium" size="15"/>
+                                            <font key="font" metaFont="systemMedium" size="13"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>

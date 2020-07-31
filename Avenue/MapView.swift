@@ -63,7 +63,7 @@ class MapView: MKMapView {
                     }
                 }
                 let timeText = ElapsedTime.getString(from: timeInterval)
-                windowCon.barDistance.stringValue = "\(timeText) | \(length.toDistance(useImperial: false))"
+                windowCon.barDistance.stringValue = "\(timeText)｜\(length.toDistance(useImperial: false))"
                 self.loadedGPXFile(fileGPX)
                 NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
             }
