@@ -40,7 +40,7 @@ enum GPXTileServer: Int {
         switch self {
         case .apple: return "Apple Mapkit (no offline cache)"
         case .openStreetMap: return "Open Street Map"
-        case .cartoDB: return "Carto DB"
+        case .cartoDB: return "CARTO"
         case .openTopoMap: return "OpenTopoMap"
         case .wikimedia: return "Wikimedia"
         //case .AnotherMap: return "My Map"
@@ -53,7 +53,7 @@ enum GPXTileServer: Int {
         case .apple: return ""
         case .openStreetMap: return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
        // case .cartoDB: return "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-        case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png"
+        case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png"
         case .openTopoMap: return "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
         case .wikimedia: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
         //case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
@@ -63,7 +63,7 @@ enum GPXTileServer: Int {
     /// URL template of current tile server (it is of the form http://{s}.map.tile.server/{z}/{x}/{y}.png
     var retinaUrl: String? {
         switch self {
-        case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png"
+        case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png"
         case .wikimedia: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png"
         default: return nil
         }
