@@ -59,6 +59,8 @@ eventually it is developed to being more complete, and that it can be expected t
 Contributions to this project will be more than welcomed. Feel free to add a pull request or open an issue.
 If you require a feature that has yet to be available, do open an issue, describing why and what the feature could bring and how it would help you!
 
+Please do note that by contributing, you are providing me (Vincent Neo) the rights to include and distribute those changes on the binary app published on the App Store (which is released under Apple's Standard License Agreement).
+
 ## Like the project? Check out these too!
 - [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), an awesome open-sourced GPS tracker for iOS and watchOS.
 - [LocaleComplete](https://github.com/vincentneo/LocaleComplete), a small library to make `Locale` identifier hunting more easy and straightforward.
