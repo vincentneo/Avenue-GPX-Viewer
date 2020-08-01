@@ -54,7 +54,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "Avenue-Icon-Small@2x-128.png",
+      "filename" : "Avenue-Icon-Mid@2x-128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
@@ -67,7 +67,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "Avenue-Icon-Small@2x-256.png",
+      "filename" : "Avenue-Icon-Mid@2x-257.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
