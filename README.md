@@ -7,13 +7,13 @@
     <img src="https://travis-ci.com/vincentneo/Avenue-GPX-Viewer.svg"/>
   </a>
   <a href="https://github.com/vincentneo/CoreGPX">
-    <img src="https://img.shields.io/badge/CoreGPX-0.8.0-yellow.svg"/>
+    <img src="https://img.shields.io/badge/CoreGPX-v0.8.0-yellow.svg"/>
   </a>
   <a href="https://swift.org">
     <img src="https://img.shields.io/badge/Swift-5.2-orange.svg"/>
   </a>
   <a href="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-GPLv3-blue.svg"/>
+    <img src="https://img.shields.io/badge/license-GPLv3-black.svg"/>
   </a>
   <a href="https://support.apple.com/en-us/HT208202">
     <img src="https://img.shields.io/badge/platform-macOS >= 10.12-red.svg"/>
