@@ -13,10 +13,10 @@
     <img src="https://img.shields.io/badge/Swift-5.2-orange.svg"/>
   </a>
   <a href="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-GPLv3-black.svg"/>
+    <img src="https://img.shields.io/badge/license-GPLv3-red.svg"/>
   </a>
   <a href="https://support.apple.com/en-us/HT208202">
-    <img src="https://img.shields.io/badge/platform-macOS >= 10.12-red.svg"/>
+    <img src="https://img.shields.io/badge/platform-macOS >= 10.12-purple.svg"/>
   </a>
   <a href="https://github.com/vincentneo/Avenue-GPX-Viewer/releases/latest">
     <img src="https://img.shields.io/github/v/release/vincentneo/Avenue-GPX-Viewer?include_prereleases"/>
