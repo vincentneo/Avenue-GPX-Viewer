@@ -46,19 +46,19 @@ class ViewController: NSViewController, MKMapViewDelegate {
             
             /// Min distance to the floor of the camera
             if #available(OSX 10.15, *) {
-             mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
-             miniMap.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
+                mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
+                miniMap.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
             }
             
             //add new overlay to map if not using Apple Maps
             if newValue != .apple {
-                 //MapCache is still iOS only. May arrive at later date
+
                 //Update cacheConfig
                 var tileSize = 256
                 var config = MapCacheConfig(withUrlTemplate: newValue.templateUrl)
                 if Preferences.shared.preferRetina, let retinaUrl = newValue.retinaUrl {
                     config.urlTemplate = retinaUrl
-                    tileSize = newValue.tileSize
+                    tileSize = 512
                 }
                 
                 config.subdomains = newValue.subdomains
@@ -201,10 +201,9 @@ class ViewController: NSViewController, MKMapViewDelegate {
         dropDownMenu.addItem(withTitle: " Hybrid")
         dropDownMenu.addItem(withTitle: " Satellite")
         dropDownMenu.menu?.addItem(.separator())
-        dropDownMenu.addItem(withTitle: GPXTileServer.openStreetMap.name)
-        dropDownMenu.addItem(withTitle: GPXTileServer.cartoDB.name)
-        dropDownMenu.addItem(withTitle: GPXTileServer.openTopoMap.name)
-        dropDownMenu.addItem(withTitle: GPXTileServer.wikimedia.name)
+        for server in GPXTileServer.allCases {
+            dropDownMenu.addItem(withTitle: server.name)
+        }
         dropDownMenu.select(dropDownMenu.item(at: 0))
         dropDownMenu.wantsLayer = true
         dropDownMenu.layer?.opacity = 0.9
@@ -377,12 +376,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
             case 1: mapType = .hybridFlyover;        tileServer = .apple
             case 2: mapType = .satelliteFlyover;     tileServer = .apple
          // case 3: will be a seperator; > 4 = custom
-            case 4: mapType = .standard;             tileServer = .openStreetMap
-            case 5: mapType = .standard;             tileServer = .cartoDB
-            case 6: mapType = .standard;             tileServer = .openTopoMap
-            case 7: mapType = .standard;             tileServer = .wikimedia
         default:
-            mapType = .standard
+            mapType = .standard; tileServer = GPXTileServer(rawValue: sender.indexOfSelectedItem) ?? .apple
         }
         let userInfo = ["index" : sender.indexOfSelectedItem, "filePath" : self.filePath] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name("EncodeRestorableState"), object: nil, userInfo: userInfo)

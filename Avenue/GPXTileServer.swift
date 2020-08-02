@@ -17,13 +17,13 @@ import Foundation
 /// A tile server is defined by an internal id (for instance .openStreetMap), a name string for displaying
 /// on the interface and a URL template.
 ///
-enum GPXTileServer: Int {
+enum GPXTileServer: Int, CaseIterable {
     
     /// Apple tile server
     case apple
     
     /// Open Street Map tile server
-    case openStreetMap
+    case openStreetMap = 4
     //case AnotherMap
     
     /// CartoDB tile server
@@ -35,6 +35,10 @@ enum GPXTileServer: Int {
     /// Wikimedia tile server
     case wikimedia
     
+    
+    /// CyclOSM tile server
+    case cyclOSM
+    
     ///String that describes the selected tile server.
     var name: String {
         switch self {
@@ -43,6 +47,7 @@ enum GPXTileServer: Int {
         case .cartoDB: return "CARTO"
         case .openTopoMap: return "OpenTopoMap"
         case .wikimedia: return "Wikimedia"
+        case .cyclOSM: return "CyclOSM"
         //case .AnotherMap: return "My Map"
         }
     }
@@ -56,6 +61,7 @@ enum GPXTileServer: Int {
         case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png"
         case .openTopoMap: return "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
         case .wikimedia: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+        case .cyclOSM: return "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
         //case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
         }
     }
@@ -83,6 +89,7 @@ enum GPXTileServer: Int {
         case .cartoDB: return ["a","b","c","d"]
         case .openTopoMap: return ["a","b","c"]
         case .wikimedia: return []
+        case .cyclOSM: return ["a", "b", "c"]
         //case .AnotherMap: return ["a","b"]
         }
     }
@@ -103,6 +110,7 @@ enum GPXTileServer: Int {
             case .cartoDB: return 25
             case .openTopoMap: return 17
             case .wikimedia: return 19
+            case .cyclOSM: return 19
             //case .AnotherMap: return 10
         }
     }
@@ -121,6 +129,7 @@ enum GPXTileServer: Int {
             case .cartoDB: return 0
             case .openTopoMap: return 0
             case .wikimedia: return 0
+            case .cyclOSM: return 0
             //case .AnotherMap: return ["a","b"]
         }
     }
@@ -135,21 +144,11 @@ enum GPXTileServer: Int {
     var minCameraDistance: Double {
         switch self {
         case .apple: return -1.0 // Not limited
-        case .openStreetMap: return 850.0
+        case .openStreetMap: return 700.0
         case .cartoDB: return 0
         case .openTopoMap: return 2850.0
         case .wikimedia: return 350.0
-            //case .AnotherMap: return 1000.0
-        }
-    }
-    
-    var tileSize: Int {
-        switch self {
-        case .apple: return -1 // Not limited
-        case .openStreetMap: return 256
-        case .cartoDB: return 512
-        case .openTopoMap: return 256
-        case .wikimedia: return 512
+        case .cyclOSM: return 700.0
             //case .AnotherMap: return 1000.0
         }
     }
@@ -161,9 +160,14 @@ enum GPXTileServer: Int {
         case .cartoDB: return "© OpenStreetMap contributors, © CARTO"
         case .openTopoMap: return "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
         case .wikimedia: return "Wikimedia Maps | Map Data © OpenStreetMap contributors"
+        case .cyclOSM: return " CyclOSM | Map data © OpenStreetMap contributors"
         }
     }
     
     /// Returns the number of tile servers currently defined
-    static var count: Int { return GPXTileServer.openTopoMap.rawValue + 1}
+    static var count: Int { return GPXTileServer.cyclOSM.rawValue + 1 }
+    
+    static var allCases: [GPXTileServer] { return [.openStreetMap, .cartoDB,
+                                                   .openTopoMap, .wikimedia,
+                                                   .cyclOSM]}
 }
