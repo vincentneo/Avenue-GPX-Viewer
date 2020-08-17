@@ -35,6 +35,8 @@ Requires macOS 10.12 Sierra and above.
   <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/Screenshot.png"/>
 </p>
 
+### *Due to unforseened App Store Review issues, latest update will be delayed for at least 3 weeks.
+
 Avenue is based on some codes over at [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker).
 This application was developed by the contributor of the project (me), initally as a personal use app,
 eventually it is developed to being more complete, and that it can be expected to be improved on as time goes by.
