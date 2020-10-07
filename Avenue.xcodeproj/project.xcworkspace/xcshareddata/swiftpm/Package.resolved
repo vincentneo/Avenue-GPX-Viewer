@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/vincentneo/CoreGPX.git",
         "state": {
           "branch": null,
-          "revision": "f0810db2ca9c52ec09d58538c77551747e73c10b",
-          "version": "0.8.0"
+          "revision": "824b92a72cd1ce0ab7a8bc17ca0e07b0ff95a64a",
+          "version": "0.8.1"
         }
       },
       {
         "package": "MapCache",
         "repositoryURL": "https://github.com/merlos/MapCache.git",
         "state": {
-          "branch": "master",
-          "revision": "b76d76254fbc1286db349f1af0b7612c89102cd8",
-          "version": null
+          "branch": null,
+          "revision": "54000665b3cdf399236694e117f46b024faaf096",
+          "version": "0.9.0"
         }
       }
     ]

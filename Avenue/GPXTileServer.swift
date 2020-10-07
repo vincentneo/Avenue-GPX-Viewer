@@ -134,25 +134,6 @@ enum GPXTileServer: Int, CaseIterable {
         }
     }
     
-    /// Minimum distance from the floor of the camera (in meters)
-    ///
-    /// Note that there is a relationship between  the mazimumZ and the camera distance to the floor.
-    /// Because of that, this parameter be automatically calculated in the future.
-    /// For existing tile servers, it was calculated with trial and error.
-    ///
-    /// Negative value means no limit.
-    var minCameraDistance: Double {
-        switch self {
-        case .apple: return -1.0 // Not limited
-        case .openStreetMap: return 700.0
-        case .cartoDB: return 0
-        case .openTopoMap: return 2850.0
-        case .wikimedia: return 350.0
-        case .cyclOSM: return 700.0
-            //case .AnotherMap: return 1000.0
-        }
-    }
-    
     var attribution: String {
         switch self {
         case .apple: return ""

@@ -44,23 +44,20 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 miniMap.removeOverlay(self.tileServerOverlay)
             }
             
-            /// Min distance to the floor of the camera
-            if #available(OSX 10.15, *) {
-                mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
-                miniMap.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: newValue.minCameraDistance, maxCenterCoordinateDistance: -1), animated: true)
-            }
-            
             //add new overlay to map if not using Apple Maps
             if newValue != .apple {
 
                 //Update cacheConfig
-                var tileSize = 256
-                var config = MapCacheConfig(withUrlTemplate: newValue.templateUrl)
+                var config: MapCacheConfig
                 if Preferences.shared.preferRetina, let retinaUrl = newValue.retinaUrl {
-                    config.urlTemplate = retinaUrl
-                    tileSize = 512
+                    config = MapCacheConfig(withUrlTemplate: retinaUrl)
+                    config.tileSize = CGSize(width: 512, height: 512)
+                    print(config.tileSize)
                 }
-                
+                else {
+                    config = MapCacheConfig(withUrlTemplate: newValue.templateUrl)
+                    config.tileSize = CGSize(width: 256, height: 256)
+                }
                 config.subdomains = newValue.subdomains
                 
                 if newValue.maximumZ > 0 {
@@ -72,13 +69,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 let cache = MapCache(withConfig: config)
                 // the overlay returned substitutes Apple Maps tile overlay.
                 // we need to keep a reference to remove it, in case we return back to Apple Maps.
-                self.tileServerOverlay = useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
+                self.tileServerOverlay = mapView.useCache(cache)//useCache(cache)//KTileOverlay(urlTemplate: randomSubdomain(newValue.subdomains, domain: newValue.templateUrl))
                 // to use cache or not
                 useCache = Preferences.shared.enableCache
-                self.tileServerOverlay.canReplaceMapContent = true
                 
-                // retina tile size support
-                self.tileServerOverlay.tileSize = CGSize(width: tileSize, height: tileSize)
+                self.tileServerOverlay.canReplaceMapContent = true
                 
                 let level: MKOverlayLevel = .aboveLabels
                 
@@ -477,7 +472,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     /// Displays the line for each segment
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay.isKind(of: MKTileOverlay.self) {
-            return MKTileOverlayRenderer(overlay: overlay)
+            return mapView.mapCacheRenderer(forOverlay: overlay)
         }
         
         if overlay is MKPolyline {
@@ -570,7 +565,7 @@ extension UserDefaults {
 class MiniDelegate: NSObject, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay.isKind(of: MKTileOverlay.self) {
-            return MKTileOverlayRenderer(overlay: overlay)
+            return mapView.mapCacheRenderer(forOverlay: overlay)
         }
         
         if overlay is MKPolyline {
