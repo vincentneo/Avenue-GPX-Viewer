@@ -1,15 +1,33 @@
 {
   "images" : [
     {
+      "display-gamut" : "sRGB",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Avenue-Icon@2x.png",
+      "display-gamut" : "display-P3",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "display-gamut" : "sRGB",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "display-gamut" : "display-P3",
+      "filename" : "AppIcon1024.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "display-gamut" : "sRGB",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "display-gamut" : "display-P3",
       "idiom" : "universal",
       "scale" : "3x"
     }
