@@ -23,7 +23,7 @@
   </a>
   <br/>
   <a href="https://apps.apple.com/app/apple-store/id1523681067?pt=121799545&ct=WebsiteLink&mt=8">
-    <img src="https://raw.githubusercontent.com/vincentneo/vincentneo.github.io/master/images/mac-app-store.svg"/>
+    <img src="https://raw.githubusercontent.com/vincentneo/vincentneo.github.io/master/images/mac-appstore-black.svg"/>
   </a>
   
 </p>
