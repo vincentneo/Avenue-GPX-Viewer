@@ -13,9 +13,22 @@ import CoreGPX
 
 class MapView: MKMapView {
     var extent = GPXExtentCoordinates()
+    var length = 0.0
+    var timeInterval = 0.0
     
     func loadedGPXFile(_ root: GPXRoot) {
         print("MapView: GPX Object Loaded \(root)")
+        for track in root.tracks {
+            for trackseg in track.tracksegments {
+                length += trackseg.length()
+            }
+            for trackseg in track.tracksegments {
+                guard let startTime = trackseg.trackpoints.first?.time,
+                    let endTime = trackseg.trackpoints.last?.time else { continue }
+                let timeBetween = endTime.timeIntervalSince(startTime)
+                timeInterval += timeBetween
+            }
+        }
         
         for waypoint in root.waypoints {
             self.addAnnotation(waypoint)
@@ -41,9 +54,14 @@ class MapView: MKMapView {
     }
 }
 
-class PreviewViewController: NSViewController, QLPreviewingController {
+class PreviewViewController: NSViewController, QLPreviewingController, MKMapViewDelegate {
     
+    @IBOutlet weak var elapsedView: NSVisualEffectView!
+    @IBOutlet weak var distanceView: NSVisualEffectView!
+    @IBOutlet weak var elapsedLabel: NSTextField!
+    @IBOutlet weak var distanceLabel: NSTextField!
     @IBOutlet weak var mapView: MapView!
+    
     enum PossibleErrors: Error {
         case fileIsNil
     }
@@ -55,6 +73,17 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     override func loadView() {
         super.loadView()
         // Do any additional setup after loading the view.
+        mapView.delegate = self
+        
+        elapsedView.blendingMode = .withinWindow
+        elapsedView.wantsLayer = true
+        elapsedView.layer?.cornerRadius = 5
+        elapsedView.layer?.masksToBounds = true
+        
+        distanceView.blendingMode = .withinWindow
+        distanceView.wantsLayer = true
+        distanceView.layer?.cornerRadius = 5
+        distanceView.layer?.masksToBounds = true
     }
 
     /*
@@ -81,10 +110,39 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         do {
             guard let gpx = try parser.fallibleParsedData(forceContinue: false) else { handler(PossibleErrors.fileIsNil); return }
             mapView.loadedGPXFile(gpx)
+            let elapsedText = ElapsedTime.getString(from: mapView.timeInterval)
+            let distanceText = mapView.length.toDistance(useImperial: false)
+            if mapView.timeInterval == 0 {
+                elapsedLabel.isHidden = true
+            }
+            else {
+                elapsedLabel.stringValue = elapsedText
+            }
+            distanceLabel.stringValue = distanceText
+            
         }
         catch {
             handler(error)
         }
         handler(nil)
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let pr = MKPolylineRenderer(overlay: overlay)
+            if #available(OSX 10.14, *) {
+                if #available(OSX 10.15, *) {
+                    pr.shouldRasterize = true
+                }
+                pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
+            } else {
+                pr.strokeColor = .blue
+            }
+            pr.alpha = 0.65
+            pr.lineWidth = 5
+            return pr
+        }
+        return MKOverlayRenderer()
+    }
 }
+
