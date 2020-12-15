@@ -12,9 +12,21 @@
 		1214D2DD24BE06E7002D399E /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */; };
 		121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121E04C724C6F303008EAA29 /* MapKit.framework */; };
 		122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
+		12359FE12587C27300365811 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12359FE02587C27300365811 /* Quartz.framework */; };
+		12359FE42587C27300365811 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12359FE32587C27300365811 /* PreviewViewController.swift */; };
+		12359FE72587C27300365811 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12359FE52587C27300365811 /* PreviewViewController.xib */; };
+		12359FEC2587C27300365811 /* GPXQuickLook.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 12359FDF2587C27300365811 /* GPXQuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1235A0142587C78600365811 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 1235A0132587C78600365811 /* CoreGPX */; };
+		1235A0182587C7AF00365811 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
+		1235A01C2587C7C100365811 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
+		1235A0202587C7C600365811 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
+		1235A0242587C7C800365811 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
+		1235A03D2587D69300365811 /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43C6824D090A90075B8B8 /* ElapsedTime.swift */; };
+		1235A0412587D69800365811 /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
 		12B1A1A024A0B428005F781F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 12B1A19F24A0B428005F781F /* Credits.html */; };
 		12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43C6824D090A90075B8B8 /* ElapsedTime.swift */; };
 		12D813D624AA3D77003397F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
+		12F930DB25886E5500501C8F /* QLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F930DA25886E5500501C8F /* QLMapView.swift */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
 		12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
 		BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */; };
@@ -32,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		12359FEA2587C27300365811 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF4F5AA322D1FBCD00C8E95A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12359FDE2587C27300365811;
+			remoteInfo = GPXQuickLook;
+		};
 		BF4F5AC022D1FBCF00C8E95A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF4F5AA322D1FBCD00C8E95A /* Project object */;
@@ -41,15 +60,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		12359FED2587C27300365811 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				12359FEC2587C27300365811 /* GPXQuickLook.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		120A1429249D055F0014E690 /* LaunchWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchWindow.xib; sourceTree = "<group>"; };
 		1214D2DA24BE0590002D399E /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+asFilesize.swift"; sourceTree = "<group>"; };
 		121E04C724C6F303008EAA29 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		122BD57A249F4C63006FBB2F /* Double+Measures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Measures.swift"; sourceTree = "<group>"; };
+		12359FDF2587C27300365811 /* GPXQuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GPXQuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		12359FE02587C27300365811 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		12359FE32587C27300365811 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		12359FE62587C27300365811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
+		12359FE82587C27300365811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12359FE92587C27300365811 /* GPXQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLook.entitlements; sourceTree = "<group>"; };
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		12D43C6824D090A90075B8B8 /* ElapsedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
 		12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +110,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		12359FDC2587C27300365811 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12359FE12587C27300365811 /* Quartz.framework in Frameworks */,
+				1235A0142587C78600365811 /* CoreGPX in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12C445292478FA3E00BE9465 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,10 +139,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12359FE22587C27300365811 /* GPXQuickLook */ = {
+			isa = PBXGroup;
+			children = (
+				12359FE32587C27300365811 /* PreviewViewController.swift */,
+				12359FE52587C27300365811 /* PreviewViewController.xib */,
+				12F930DA25886E5500501C8F /* QLMapView.swift */,
+				12359FE82587C27300365811 /* Info.plist */,
+				12359FE92587C27300365811 /* GPXQuickLook.entitlements */,
+			);
+			path = GPXQuickLook;
+			sourceTree = "<group>";
+		};
 		12C4452A2478FA4100BE9465 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				121E04C724C6F303008EAA29 /* MapKit.framework */,
+				12359FE02587C27300365811 /* Quartz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -103,6 +165,7 @@
 			children = (
 				BF4F5AAD22D1FBCD00C8E95A /* Avenue */,
 				BF4F5AC222D1FBCF00C8E95A /* AvenueTests */,
+				12359FE22587C27300365811 /* GPXQuickLook */,
 				BF4F5AAC22D1FBCD00C8E95A /* Products */,
 				12C4452A2478FA4100BE9465 /* Frameworks */,
 			);
@@ -113,6 +176,7 @@
 			children = (
 				BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */,
 				BF4F5ABF22D1FBCF00C8E95A /* AvenueTests.xctest */,
+				12359FDF2587C27300365811 /* GPXQuickLook.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +220,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		12359FDE2587C27300365811 /* GPXQuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12359FF02587C27300365811 /* Build configuration list for PBXNativeTarget "GPXQuickLook" */;
+			buildPhases = (
+				12359FDB2587C27300365811 /* Sources */,
+				12359FDC2587C27300365811 /* Frameworks */,
+				12359FDD2587C27300365811 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPXQuickLook;
+			packageProductDependencies = (
+				1235A0132587C78600365811 /* CoreGPX */,
+			);
+			productName = GPXQuickLook;
+			productReference = 12359FDF2587C27300365811 /* GPXQuickLook.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BF4F5AAA22D1FBCD00C8E95A /* Avenue */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF4F5AC822D1FBCF00C8E95A /* Build configuration list for PBXNativeTarget "Avenue" */;
@@ -163,10 +247,12 @@
 				BF4F5AA722D1FBCD00C8E95A /* Sources */,
 				BF4F5AA922D1FBCD00C8E95A /* Resources */,
 				12C445292478FA3E00BE9465 /* Frameworks */,
+				12359FED2587C27300365811 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				12359FEB2587C27300365811 /* PBXTargetDependency */,
 			);
 			name = Avenue;
 			packageProductDependencies = (
@@ -201,10 +287,13 @@
 		BF4F5AA322D1FBCD00C8E95A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Vincent;
 				TargetAttributes = {
+					12359FDE2587C27300365811 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					BF4F5AAA22D1FBCD00C8E95A = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -233,11 +322,20 @@
 			targets = (
 				BF4F5AAA22D1FBCD00C8E95A /* Avenue */,
 				BF4F5ABE22D1FBCF00C8E95A /* AvenueTests */,
+				12359FDE2587C27300365811 /* GPXQuickLook */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		12359FDD2587C27300365811 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12359FE72587C27300365811 /* PreviewViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF4F5AA922D1FBCD00C8E95A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,6 +357,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		12359FDB2587C27300365811 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F930DB25886E5500501C8F /* QLMapView.swift in Sources */,
+				12359FE42587C27300365811 /* PreviewViewController.swift in Sources */,
+				1235A0202587C7C600365811 /* GPXTrackSegment+MapKit.swift in Sources */,
+				1235A0242587C7C800365811 /* GPXTileServer.swift in Sources */,
+				1235A0412587D69800365811 /* Double+Measures.swift in Sources */,
+				1235A03D2587D69300365811 /* ElapsedTime.swift in Sources */,
+				1235A0182587C7AF00365811 /* GPXWaypoint+MKAnnotation.swift in Sources */,
+				1235A01C2587C7C100365811 /* GPXExtentCoordinates.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF4F5AA722D1FBCD00C8E95A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,6 +404,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		12359FEB2587C27300365811 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12359FDE2587C27300365811 /* GPXQuickLook */;
+			targetProxy = 12359FEA2587C27300365811 /* PBXContainerItemProxy */;
+		};
 		BF4F5AC122D1FBCF00C8E95A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BF4F5AAA22D1FBCD00C8E95A /* Avenue */;
@@ -299,6 +417,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		12359FE52587C27300365811 /* PreviewViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12359FE62587C27300365811 /* Base */,
+			);
+			name = PreviewViewController.xib;
+			sourceTree = "<group>";
+		};
 		BF4F5AB622D1FBCF00C8E95A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -310,6 +436,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		12359FEE2587C27300365811 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 127;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GPXQuickLook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 1.3.0b;
+				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue.GPXQuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		12359FEF2587C27300365811 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 127;
+				DEVELOPMENT_TEAM = 3X69W4AQD6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GPXQuickLook/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 1.3.0b;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vincent-neo.Avenue.GPXQuickLook";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		BF4F5AC622D1FBCF00C8E95A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -430,12 +605,13 @@
 		BF4F5AC922D1FBCF00C8E95A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Avenue/Avenue.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 120;
+				CURRENT_PROJECT_VERSION = 127;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
@@ -444,7 +620,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.2.8;
+				MARKETING_VERSION = 1.3.0b;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -455,12 +631,13 @@
 		BF4F5ACA22D1FBCF00C8E95A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Avenue/Avenue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 120;
+				CURRENT_PROJECT_VERSION = 127;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
@@ -469,7 +646,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.2.8;
+				MARKETING_VERSION = 1.3.0b;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincent-neo.Avenue";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -520,6 +697,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		12359FF02587C27300365811 /* Build configuration list for PBXNativeTarget "GPXQuickLook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12359FEE2587C27300365811 /* Debug */,
+				12359FEF2587C27300365811 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BF4F5AA622D1FBCD00C8E95A /* Build configuration list for PBXProject "Avenue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -569,6 +755,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1235A0132587C78600365811 /* CoreGPX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;
+			productName = CoreGPX;
+		};
 		12C445052478F67D00BE9465 /* CoreGPX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;
