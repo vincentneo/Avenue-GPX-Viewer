@@ -1,5 +1,5 @@
 <p align="center">
-  <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/Avenue-Title.png"/>
+  <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/AvenueNewBadge.png"/>
   <br/>
   <b> A simple GPS exchange format viewer for macOS. </b>
   <br/>
@@ -35,7 +35,8 @@ Requires macOS 10.12 Sierra and above.
   <img width=65% height=65% src="https://github.com/vincentneo/Avenue-GPX-Viewer/blob/master/Resources/Screenshot.png"/>
 </p>
 
-### Version 1.2.6 update is now on the App Store!
+### Version 1.2.8 update is now on the App Store!
+For easier management, future updates will be distributed on the Mac App Store. You can still build your own copy using Xcode, if you wish.
 
 Avenue is based on some codes over at [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker).
 This application was developed by the contributor of the project (me), initally as a personal use app,
@@ -83,3 +84,4 @@ Please note that this source code was released under the GPL license. So any cha
 
 ## Dependency
 - [CoreGPX](https://github.com/vincentneo/CoreGPX), used for parsing and handling of GPX files.
+- [MapCache](https://github.com/merlos/MapCache), awesome third-party map caching library.
