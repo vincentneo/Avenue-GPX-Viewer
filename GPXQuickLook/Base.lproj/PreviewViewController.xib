@@ -13,7 +13,7 @@
                 <outlet property="distanceView" destination="z4j-eI-R5b" id="xtC-of-jqW"/>
                 <outlet property="elapsedLabel" destination="TCb-44-1O8" id="BDR-Rg-KLO"/>
                 <outlet property="elapsedView" destination="z9b-oc-KHM" id="cJ3-kz-UGI"/>
-                <outlet property="mapView" destination="UzC-PF-7Pd" id="GgQ-7C-5YP"/>
+                <outlet property="mapView" destination="UzC-PF-7Pd" id="ga4-Lj-1gy"/>
                 <outlet property="view" destination="c22-O7-iKe" id="NRM-P4-wb6"/>
             </connections>
         </customObject>
@@ -23,10 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="440" height="309"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UzC-PF-7Pd" customClass="MapView" customModule="GPXQuickLook" customModuleProvider="target">
+                <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UzC-PF-7Pd" customClass="QLMapView" customModule="GPXQuickLook" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="440" height="309"/>
                 </mapView>
-                <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-oc-KHM">
+                <visualEffectView blendingMode="behindWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-oc-KHM">
                     <rect key="frame" x="287" y="267" width="143" height="33"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-44-1O8">
@@ -40,7 +40,7 @@
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q3K-bU-gff">
                             <rect key="frame" x="7" y="10" width="39" height="13"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Elapsed" id="SwB-hW-NEz">
-                                <font key="font" metaFont="system" size="9"/>
+                                <font key="font" metaFont="miniSystem"/>
                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
@@ -57,7 +57,7 @@
                         <constraint firstItem="Q3K-bU-gff" firstAttribute="leading" secondItem="z9b-oc-KHM" secondAttribute="leading" constant="9" id="zjR-6B-Ued"/>
                     </constraints>
                 </visualEffectView>
-                <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="z4j-eI-R5b">
+                <visualEffectView blendingMode="behindWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="z4j-eI-R5b">
                     <rect key="frame" x="316" y="230" width="114" height="33"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-OW-i8f">
@@ -71,7 +71,7 @@
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="la4-nS-cgE">
                             <rect key="frame" x="3" y="10" width="43" height="13"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Distance" id="g1M-xM-aC9">
-                                <font key="font" metaFont="system" size="9"/>
+                                <font key="font" metaFont="miniSystem"/>
                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>

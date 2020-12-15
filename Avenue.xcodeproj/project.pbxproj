@@ -26,6 +26,7 @@
 		12B1A1A024A0B428005F781F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 12B1A19F24A0B428005F781F /* Credits.html */; };
 		12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43C6824D090A90075B8B8 /* ElapsedTime.swift */; };
 		12D813D624AA3D77003397F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
+		12F930DB25886E5500501C8F /* QLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F930DA25886E5500501C8F /* QLMapView.swift */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
 		12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
 		BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */; };
@@ -88,6 +89,7 @@
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		12D43C6824D090A90075B8B8 /* ElapsedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
 		12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				12359FE32587C27300365811 /* PreviewViewController.swift */,
 				12359FE52587C27300365811 /* PreviewViewController.xib */,
+				12F930DA25886E5500501C8F /* QLMapView.swift */,
 				12359FE82587C27300365811 /* Info.plist */,
 				12359FE92587C27300365811 /* GPXQuickLook.entitlements */,
 			);
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F930DB25886E5500501C8F /* QLMapView.swift in Sources */,
 				12359FE42587C27300365811 /* PreviewViewController.swift in Sources */,
 				1235A0202587C7C600365811 /* GPXTrackSegment+MapKit.swift in Sources */,
 				1235A0242587C7C800365811 /* GPXTileServer.swift in Sources */,
@@ -438,7 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 126;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = GPXQuickLook/Info.plist;
@@ -463,7 +467,7 @@
 				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 126;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = GPXQuickLook/Info.plist;
@@ -607,7 +611,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 126;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
@@ -633,7 +637,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 126;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
