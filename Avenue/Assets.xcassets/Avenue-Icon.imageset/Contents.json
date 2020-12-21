@@ -12,12 +12,13 @@
     },
     {
       "display-gamut" : "sRGB",
+      "filename" : "Avenue-1024.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
       "display-gamut" : "display-P3",
-      "filename" : "AppIcon1024.png",
+      "filename" : "Avenue.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -2,7 +2,7 @@
   "images" : [
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-16.png",
+      "filename" : "Avenue-16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
@@ -15,7 +15,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-32.png",
+      "filename" : "Avenue-32.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
@@ -28,7 +28,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-32.png",
+      "filename" : "Avenue-32.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
@@ -41,7 +41,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-64.png",
+      "filename" : "Avenue-64.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
@@ -54,7 +54,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-128.png",
+      "filename" : "Avenue-128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
@@ -67,7 +67,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-256.png",
+      "filename" : "Avenue-256.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
@@ -80,7 +80,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-256.png",
+      "filename" : "Avenue-256.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
@@ -93,7 +93,7 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-512.png",
+      "filename" : "Avenue-512.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
@@ -106,28 +106,27 @@
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-513.png",
+      "filename" : "Avenue-512.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
       "display-gamut" : "display-P3",
-      "filename" : "Icon-MacOS-256x256@2x.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
       "display-gamut" : "sRGB",
-      "filename" : "AppIcon-1024.png",
+      "filename" : "Avenue-1024.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
     },
     {
       "display-gamut" : "display-P3",
-      "filename" : "Icon-MacOS-512x512@2x.png",
+      "filename" : "Avenue.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
