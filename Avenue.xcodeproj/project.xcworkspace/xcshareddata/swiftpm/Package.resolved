@@ -5,9 +5,9 @@
         "package": "CoreGPX",
         "repositoryURL": "https://github.com/vincentneo/CoreGPX.git",
         "state": {
-          "branch": null,
-          "revision": "824b92a72cd1ce0ab7a8bc17ca0e07b0ff95a64a",
-          "version": "0.8.1"
+          "branch": "master",
+          "revision": "ee1fa3fed02a6ece9f8ac15167bc901d248ad14c",
+          "version": null
         }
       },
       {
