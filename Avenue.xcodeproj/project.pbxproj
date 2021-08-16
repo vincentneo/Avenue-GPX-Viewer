@@ -88,6 +88,8 @@
 		12359FE82587C27300365811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12359FE92587C27300365811 /* GPXQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLook.entitlements; sourceTree = "<group>"; };
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		12CA895326CAD6A200CFAE47 /* GPXQuickLookDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLookDebug.entitlements; sourceTree = "<group>"; };
+		12CA895426CAD6BC00CFAE47 /* AvenueDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvenueDebug.entitlements; sourceTree = "<group>"; };
 		12D43C6824D090A90075B8B8 /* ElapsedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				12F930DA25886E5500501C8F /* QLMapView.swift */,
 				12359FE82587C27300365811 /* Info.plist */,
 				12359FE92587C27300365811 /* GPXQuickLook.entitlements */,
+				12CA895326CAD6A200CFAE47 /* GPXQuickLookDebug.entitlements */,
 			);
 			path = GPXQuickLook;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				BF4F5AB622D1FBCF00C8E95A /* Main.storyboard */,
 				BF4F5AB922D1FBCF00C8E95A /* Info.plist */,
 				BF4F5ABA22D1FBCF00C8E95A /* Avenue.entitlements */,
+				12CA895426CAD6BC00CFAE47 /* AvenueDebug.entitlements */,
 				12D43C6824D090A90075B8B8 /* ElapsedTime.swift */,
 				1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */,
 				BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */,
@@ -441,11 +445,11 @@
 		12359FEE2587C27300365811 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLookDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 132;
-				DEVELOPMENT_TEAM = 3X69W4AQD6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = GPXQuickLook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,12 +613,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Avenue/Avenue.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Avenue/AvenueDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 132;
-				DEVELOPMENT_TEAM = 3X69W4AQD6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
