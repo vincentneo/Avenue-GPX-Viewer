@@ -3,8 +3,8 @@
   <br/>
   <b> A simple GPS exchange format viewer for macOS. </b>
   <br/>
-  <a href="https://travis-ci.com/github/vincentneo/Avenue-GPX-Viewer">
-    <img src="https://travis-ci.com/vincentneo/Avenue-GPX-Viewer.svg"/>
+  <a href="https://github.com/vincentneo/Avenue-GPX-Viewer/actions">
+    <img src="https://github.com/vincentneo/Avenue-GPX-Viewer/actions/workflows/swift.yml/badge.svg"/>
   </a>
   <a href="https://github.com/vincentneo/CoreGPX">
     <img src="https://img.shields.io/badge/CoreGPX-v0.8.0-yellow.svg"/>
