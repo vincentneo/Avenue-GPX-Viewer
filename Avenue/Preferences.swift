@@ -108,14 +108,12 @@ class Preferences: NSObject {
         }
     }
     
-    var mapTile: GPXTileServer {
+    var mapTileIndex: Int {
         get {
-            return GPXTileServer(rawValue: _defaultMapTile) ?? .apple
+            return _defaultMapTile
         }
         set {
-            let index = newValue.rawValue
-            _defaultMapTile = index
-            appGroupDefaults.set(index, forKey: kDefaultsMapTileIndex)
+            _defaultMapTile = newValue
         }
     }
     
