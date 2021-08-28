@@ -90,7 +90,8 @@ class PreferenceViewController: NSViewController {
     }
     
     @objc func popupButtonTriggered(_ sender: NSPopUpButton) {
-        print(sender.indexOfSelectedItem)
+        let newValue = sender.indexOfSelectedItem
+        preferences.mapTileIndex = newValue
     }
     
     

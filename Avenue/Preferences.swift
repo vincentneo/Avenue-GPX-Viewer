@@ -114,6 +114,7 @@ class Preferences: NSObject {
         }
         set {
             _defaultMapTile = newValue
+            appGroupDefaults.set(newValue, forKey: kDefaultsMapTileIndex)
         }
     }
     

@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "29616FCD-BB7D-46DF-B586-A8FDDF581F3F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Avenue/MapView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "loadedGPXFile(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1BF53BB7-E665-4BE3-A78D-062C47304DC2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -82,6 +66,176 @@
             endingLineNumber = "609"
             landmarkName = "init(raw:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - 761e1bb7fa55b86c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CoreGPX.GPXLegacyTrackSegment.points.getter : Swift.Array&lt;CoreGPX.GPXLegacyTrackPoint&gt;"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/CoreGPX/Classes/GPXLegacy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "610"
+                  endingLineNumber = "610"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - 75b077dee23bf860"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CoreGPX.GPXLegacyTrackSegment.points.setter : Swift.Array&lt;CoreGPX.GPXLegacyTrackPoint&gt;"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/CoreGPX/Classes/GPXLegacy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "610"
+                  endingLineNumber = "610"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - 36df7a5d6a4ae9c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CoreGPX.GPXLegacyTrackSegment.points.modify : Swift.Array&lt;CoreGPX.GPXLegacyTrackPoint&gt;"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/CoreGPX/Classes/GPXLegacy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - f42a06ddae6e5154"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CoreGPX.GPXLegacyTrackSegment.points.modify : Swift.Array&lt;CoreGPX.GPXLegacyTrackPoint&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/CoreGPX/Classes/GPXLegacy.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "610"
+                  endingLineNumber = "610"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Avenue/PreferenceViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "PreferenceViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 50337a6b20441ac9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Avenue.PreferenceViewController.preferences.getter : Avenue.Preferences"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "126">
+               </Location>
+               <Location
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 3fc3f269bebf44dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Avenue.PreferenceViewController.preferences.setter : Avenue.Preferences"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - c01e59e52d9bdc19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Avenue.PreferenceViewController.preferences.modify : Avenue.Preferences"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 31584b06a40a0c5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Avenue.PreferenceViewController.preferences.modify : Avenue.Preferences with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 91938dd826e3a191"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Avenue.PreferenceViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Avenue.PreferenceViewController"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "685">
+               </Location>
+               <Location
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - d9d5c5f4d3f49c9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Avenue.PreferenceViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Avenue.PreferenceViewController&gt;"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "614">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
