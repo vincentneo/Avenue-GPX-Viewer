@@ -10,6 +10,7 @@
 		120A142A249D055F0014E690 /* LaunchWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120A1429249D055F0014E690 /* LaunchWindow.xib */; };
 		1214D2DB24BE0590002D399E /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DA24BE0590002D399E /* PreferenceViewController.swift */; };
 		1214D2DD24BE06E7002D399E /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */; };
+		1219618726DB621D00B7B10F /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = 1219618626DB621D00B7B10F /* MapCache */; };
 		121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121E04C724C6F303008EAA29 /* MapKit.framework */; };
 		122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
 		12359FE12587C27300365811 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12359FE02587C27300365811 /* Quartz.framework */; };
@@ -88,8 +89,6 @@
 		12359FE82587C27300365811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12359FE92587C27300365811 /* GPXQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLook.entitlements; sourceTree = "<group>"; };
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
-		12CA895326CAD6A200CFAE47 /* GPXQuickLookDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLookDebug.entitlements; sourceTree = "<group>"; };
-		12CA895426CAD6BC00CFAE47 /* AvenueDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvenueDebug.entitlements; sourceTree = "<group>"; };
 		12D43C6824D090A90075B8B8 /* ElapsedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1219618726DB621D00B7B10F /* MapCache in Frameworks */,
 				12359FE12587C27300365811 /* Quartz.framework in Frameworks */,
 				1235A0142587C78600365811 /* CoreGPX in Frameworks */,
 			);
@@ -150,7 +150,6 @@
 				12F930DA25886E5500501C8F /* QLMapView.swift */,
 				12359FE82587C27300365811 /* Info.plist */,
 				12359FE92587C27300365811 /* GPXQuickLook.entitlements */,
-				12CA895326CAD6A200CFAE47 /* GPXQuickLookDebug.entitlements */,
 			);
 			path = GPXQuickLook;
 			sourceTree = "<group>";
@@ -201,7 +200,6 @@
 				BF4F5AB622D1FBCF00C8E95A /* Main.storyboard */,
 				BF4F5AB922D1FBCF00C8E95A /* Info.plist */,
 				BF4F5ABA22D1FBCF00C8E95A /* Avenue.entitlements */,
-				12CA895426CAD6BC00CFAE47 /* AvenueDebug.entitlements */,
 				12D43C6824D090A90075B8B8 /* ElapsedTime.swift */,
 				1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */,
 				BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */,
@@ -240,6 +238,7 @@
 			name = GPXQuickLook;
 			packageProductDependencies = (
 				1235A0132587C78600365811 /* CoreGPX */,
+				1219618626DB621D00B7B10F /* MapCache */,
 			);
 			productName = GPXQuickLook;
 			productReference = 12359FDF2587C27300365811 /* GPXQuickLook.appex */;
@@ -445,7 +444,7 @@
 		12359FEE2587C27300365811 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLookDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 133;
@@ -613,7 +612,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Avenue/AvenueDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Avenue/Avenue.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -761,6 +760,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1219618626DB621D00B7B10F /* MapCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */;
+			productName = MapCache;
+		};
 		1235A0132587C78600365811 /* CoreGPX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;

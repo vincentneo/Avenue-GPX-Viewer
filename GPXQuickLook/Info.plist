@@ -40,6 +40,6 @@
 		<string>$(PRODUCT_MODULE_NAME).PreviewViewController</string>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2020 Vincent. All rights reserved.</string>
+	<string>Copyright © 2021 Vincent. All rights reserved.</string>
 </dict>
 </plist>

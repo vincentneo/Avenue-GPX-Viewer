@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreviewViewController" customModule="GPXQuickLook" customModuleProvider="target">
             <connections>
+                <outlet property="debugLabel" destination="Pwb-eC-4H5" id="cb8-N2-0fi"/>
                 <outlet property="distanceLabel" destination="PGM-OW-i8f" id="76I-qV-Xt2"/>
                 <outlet property="distanceView" destination="z4j-eI-R5b" id="xtC-of-jqW"/>
                 <outlet property="elapsedLabel" destination="TCb-44-1O8" id="BDR-Rg-KLO"/>
@@ -20,14 +21,14 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" userLabel="Preview View">
-            <rect key="frame" x="0.0" y="0.0" width="440" height="309"/>
+            <rect key="frame" x="0.0" y="0.0" width="440" height="268"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UzC-PF-7Pd" customClass="QLMapView" customModule="GPXQuickLook" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="440" height="309"/>
+                    <rect key="frame" x="0.0" y="0.0" width="440" height="268"/>
                 </mapView>
                 <visualEffectView blendingMode="behindWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="z9b-oc-KHM">
-                    <rect key="frame" x="287" y="267" width="143" height="33"/>
+                    <rect key="frame" x="287" y="226" width="143" height="33"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-44-1O8">
                             <rect key="frame" x="51" y="0.0" width="91" height="33"/>
@@ -37,9 +38,9 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q3K-bU-gff">
+                        <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q3K-bU-gff">
                             <rect key="frame" x="7" y="10" width="39" height="13"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Elapsed" id="SwB-hW-NEz">
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Debug2" id="SwB-hW-NEz">
                                 <font key="font" metaFont="miniSystem"/>
                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -58,7 +59,7 @@
                     </constraints>
                 </visualEffectView>
                 <visualEffectView blendingMode="behindWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="z4j-eI-R5b">
-                    <rect key="frame" x="316" y="230" width="114" height="33"/>
+                    <rect key="frame" x="316" y="189" width="114" height="33"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-OW-i8f">
                             <rect key="frame" x="51" y="0.0" width="62" height="33"/>
@@ -68,7 +69,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="la4-nS-cgE">
+                        <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="la4-nS-cgE">
                             <rect key="frame" x="3" y="10" width="43" height="13"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Distance" id="g1M-xM-aC9">
                                 <font key="font" metaFont="miniSystem"/>
@@ -88,15 +89,30 @@
                         <constraint firstAttribute="trailing" secondItem="PGM-OW-i8f" secondAttribute="trailing" constant="3" id="rqx-yI-anO"/>
                     </constraints>
                 </visualEffectView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pwb-eC-4H5">
+                    <rect key="frame" x="18" y="17" width="108" height="234"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="104" id="Fwd-5G-Ye9"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="234" id="zY8-fY-eLj"/>
+                    </constraints>
+                    <textFieldCell key="cell" title="Debug" id="nCz-xw-TG9">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="z9b-oc-KHM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="Ebk-dJ-Fa7"/>
                 <constraint firstItem="UzC-PF-7Pd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="H1F-Mi-9rJ"/>
                 <constraint firstAttribute="trailing" secondItem="z9b-oc-KHM" secondAttribute="trailing" constant="10" id="HzP-3X-MPo"/>
+                <constraint firstItem="Pwb-eC-4H5" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="17" id="Jxv-e1-sW2"/>
                 <constraint firstItem="z9b-oc-KHM" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="9" id="NAX-AU-NUd"/>
                 <constraint firstAttribute="trailing" secondItem="z4j-eI-R5b" secondAttribute="trailing" constant="10" id="NMf-Ix-owc"/>
+                <constraint firstAttribute="bottom" secondItem="Pwb-eC-4H5" secondAttribute="bottom" constant="17" id="S5a-Tk-71i"/>
                 <constraint firstItem="z4j-eI-R5b" firstAttribute="top" secondItem="z9b-oc-KHM" secondAttribute="bottom" constant="4" id="YG8-Xy-Ztq"/>
                 <constraint firstItem="UzC-PF-7Pd" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ace-48-IQY"/>
+                <constraint firstItem="Pwb-eC-4H5" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="dGm-G4-sDw"/>
                 <constraint firstItem="z4j-eI-R5b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="n4b-kQ-9Nw"/>
                 <constraint firstAttribute="bottom" secondItem="UzC-PF-7Pd" secondAttribute="bottom" id="oYn-Mk-Ygq"/>
                 <constraint firstAttribute="trailing" secondItem="UzC-PF-7Pd" secondAttribute="trailing" id="pAp-5R-hcY"/>
