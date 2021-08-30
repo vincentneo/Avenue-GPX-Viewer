@@ -6,6 +6,8 @@
 import Foundation
 import CoreLocation
 
+let kAppGroup = "group.com.vincent-neo.Avenue"
+
 let kDefaultsHideMiniMap: String = "HideMiniMap"
 
 let kDefaultsEnableCache: String = "CacheSettings"
@@ -14,6 +16,7 @@ let kDefaultsPreferRetina: String = "PreferRetina"
 
 let kDefaultsShowMapScale: String = "ShowMapScale"
 
+let kDefaultsMapTileIndex: String = "MapTileIndex"
 
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
@@ -35,9 +38,11 @@ class Preferences: NSObject {
     private var _enableCache: Bool = true
     private var _preferRetina: Bool = true
     private var _showMapScale: Bool = true
+    private var _defaultMapTile: Int = 0
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
+    //private let appGroupDefaults = UserDefaults(suiteName: kAppGroup) ?? UserDefaults.standard
     
     /// Loads preferences from UserDefaults.
     private override init() {
@@ -56,6 +61,10 @@ class Preferences: NSObject {
         
         if let showMapScale = defaults.object(forKey: kDefaultsShowMapScale) as? Bool {
             _showMapScale = showMapScale
+        }
+        
+        if let defaultMapTileIndex = defaults.object(forKey: kDefaultsMapTileIndex) as? Int {
+            _defaultMapTile = defaultMapTileIndex
         }
     }
     
@@ -96,6 +105,16 @@ class Preferences: NSObject {
         set {
             _showMapScale = newValue
             defaults.set(newValue, forKey: kDefaultsShowMapScale)
+        }
+    }
+    
+    var mapTileIndex: Int {
+        get {
+            return _defaultMapTile
+        }
+        set {
+            _defaultMapTile = newValue
+            defaults.set(newValue, forKey: kDefaultsMapTileIndex)
         }
     }
     

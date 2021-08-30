@@ -199,11 +199,13 @@ class ViewController: NSViewController, MKMapViewDelegate {
         for server in GPXTileServer.allCases {
             dropDownMenu.addItem(withTitle: server.name)
         }
-        dropDownMenu.select(dropDownMenu.item(at: 0))
+        dropDownMenu.selectItem(at: Preferences.shared.mapTileIndex)
         dropDownMenu.wantsLayer = true
         dropDownMenu.layer?.opacity = 0.9
         //dropDownMenu.menu?.items.append()
         self.view.addSubview(dropDownMenu)
+        
+        
         
         //self.view.addSubview(segments)
         //segments.selectedSegment = 0
@@ -289,6 +291,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         attribution.drawsBackground = false
         attribution.isEditable = false
         attribution.isSelectable = false
+        
+        shouldChangeMapView(indexOfSelected: Preferences.shared.mapTileIndex)
     }
     
     deinit {
@@ -363,23 +367,36 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
     }
     
-    @objc func dropDownDidChange(_ sender: NSPopUpButton) {
+    func getMapType(basedOn index: Int) -> MKMapType {
         var mapType: MKMapType
-        
-        switch sender.indexOfSelectedItem {
+        switch index {
             case 0: mapType = .standard;             tileServer = .apple
             case 1: mapType = .hybridFlyover;        tileServer = .apple
             case 2: mapType = .satelliteFlyover;     tileServer = .apple
          // case 3: will be a seperator; > 4 = custom
         default:
-            mapType = .standard; tileServer = GPXTileServer(rawValue: sender.indexOfSelectedItem) ?? .apple
+            mapType = .standard; tileServer = GPXTileServer(rawValue: index) ?? .apple
         }
-        let userInfo = ["index" : sender.indexOfSelectedItem, "filePath" : self.filePath] as [String : Any]
+        return mapType
+    }
+    
+    @objc func dropDownDidChange(_ sender: NSPopUpButton) {
+        shouldChangeMapView(indexOfSelected: sender.indexOfSelectedItem)
+    }
+    
+    func shouldChangeMapView(indexOfSelected index: Int) {
+        let mapType = getMapType(basedOn: index)
+        
+        let userInfo = ["index" : index, "filePath" : self.filePath] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name("EncodeRestorableState"), object: nil, userInfo: userInfo)
         
+        updateMapViewToUse(mapType: mapType, index: index)
+    }
+    
+    func updateMapViewToUse(mapType: MKMapType, index: Int) {
         if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
-            if sender.indexOfSelectedItem > 3 {
+            if index > 3 {
                 attribution.font = .boldSystemFont(ofSize: 8.5)
                 guard tileServer != .apple else { return }
                 attribution.stringValue = tileServer.attribution
