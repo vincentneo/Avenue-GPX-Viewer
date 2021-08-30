@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <plugIn identifier="com.apple.MapKitIBPlugin" version="18122"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -221,7 +222,7 @@
                                         <menuItem title="About Avenue" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                                <segue destination="2gR-2b-oiZ" kind="show" id="2aw-80-T21"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
@@ -462,5 +463,244 @@
             </objects>
             <point key="canvasLocation" x="75" y="658"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="b62-fB-04V">
+            <objects>
+                <windowController id="2gR-2b-oiZ" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="CAJ-wZ-ESM">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+                        <view key="contentView" id="FAo-hz-ky0">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="2gR-2b-oiZ" id="dhG-PL-dMy"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="FqM-W5-hUs" kind="relationship" relationship="window.shadowedContentViewController" id="Mcj-BN-K11"/>
+                    </connections>
+                </windowController>
+                <customObject id="1n3-lL-uEG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-406" y="-705"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="XC7-Lu-csO">
+            <objects>
+                <splitViewController showSeguePresentationStyle="single" id="FqM-W5-hUs" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem holdingPriority="1000" id="jSH-9C-oah"/>
+                        <splitViewItem canCollapse="YES" collapsed="YES" holdingPriority="260" behavior="sidebar" id="1vi-Ig-zAD"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" id="vWe-5v-AxE">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="FqM-W5-hUs" id="fTg-Ob-UQo"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="vWe-5v-AxE" id="uS3-vm-Mxo"/>
+                        <segue destination="hep-uV-hSx" kind="relationship" relationship="splitItems" id="VzC-3b-LM4"/>
+                        <segue destination="GpK-3a-Exm" kind="relationship" relationship="splitItems" id="oBr-aT-bH6"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="Dlc-PK-666" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="200" y="-790"/>
+        </scene>
+        <!--Acknowledgement View Controller-->
+        <scene sceneID="a2o-cS-UIJ">
+            <objects>
+                <viewController id="GpK-3a-Exm" customClass="AcknowledgementViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="lrf-Ru-WdK">
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="321"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzF-iU-OCk">
+                                <rect key="frame" x="20" y="20" width="520" height="281"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="HzF-iU-OCk" secondAttribute="bottom" constant="20" symbolic="YES" id="OiP-3a-dZp"/>
+                            <constraint firstItem="HzF-iU-OCk" firstAttribute="leading" secondItem="lrf-Ru-WdK" secondAttribute="leading" constant="20" symbolic="YES" id="Tdx-7c-hm7"/>
+                            <constraint firstAttribute="trailing" secondItem="HzF-iU-OCk" secondAttribute="trailing" constant="20" symbolic="YES" id="Teu-Gw-CHl"/>
+                            <constraint firstItem="HzF-iU-OCk" firstAttribute="top" secondItem="lrf-Ru-WdK" secondAttribute="top" constant="20" symbolic="YES" id="uxd-n3-rcy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="HzF-iU-OCk" id="3jr-9W-hEd"/>
+                    </connections>
+                </viewController>
+                <customObject id="Atv-ek-Fb1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="-568"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="zFu-2y-A7l">
+            <objects>
+                <viewController id="hep-uV-hSx" customClass="AboutViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="pzO-eC-GcI">
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="268"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GlK-RO-jnO">
+                                <rect key="frame" x="30" y="105" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="WbU-by-yZX"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T1l-9U-bUf">
+                                <rect key="frame" x="214" y="202" width="143" height="50"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Avenue" id="p0I-oc-1RX">
+                                    <font key="font" metaFont="systemMedium" size="42"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duc-6a-ugC">
+                                <rect key="frame" x="214" y="188" width="328" height="19"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Version X, Build Y" id="xSX-v2-pn6">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GFY-ty-RJ7">
+                                <rect key="frame" x="214" y="160" width="328" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2021 Vincent Neo" id="T69-NO-jky">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Twt-0Z-Qju">
+                                <rect key="frame" x="214" y="145" width="328" height="14"/>
+                                <textFieldCell key="cell" title="Created with help from Open GPX Tracker project on GitHub." id="jRI-fy-bs5">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-vL-TI0">
+                                <rect key="frame" x="214" y="115" width="328" height="14"/>
+                                <textFieldCell key="cell" title="Source Code available on GitHub, licensed under GPL-3.0." id="HlK-ey-0TT">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I2c-O3-XIx">
+                                <rect key="frame" x="209" y="57" width="153" height="32"/>
+                                <buttonCell key="cell" type="push" title="Acknowledgements" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZCA-Yk-TOa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="acknowledgmentButtonClicked:" target="hep-uV-hSx" id="tby-8N-Oue"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YAv-T9-vSI">
+                                <rect key="frame" x="209" y="25" width="153" height="32"/>
+                                <buttonCell key="cell" type="push" title="View Source Code" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3hF-Xl-ecu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="sourceCodeButtonClicked:" target="hep-uV-hSx" id="Spt-PF-FUl"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-EA-AS8">
+                                <rect key="frame" x="361" y="25" width="186" height="32"/>
+                                <buttonCell key="cell" type="push" title="View Open GPX Tracker" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tl6-45-VfV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="gpxTrackerButtonClicked:" target="hep-uV-hSx" id="TOf-3e-tzx"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="feW-do-P8c">
+                                <rect key="frame" x="361" y="57" width="186" height="32"/>
+                                <buttonCell key="cell" type="push" title="Check out my other apps" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5W0-23-5MS">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="otherAppsButtonClicked:" target="hep-uV-hSx" id="XFn-tA-CWx"/>
+                                </connections>
+                            </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tg3-wG-kTZ">
+                                <rect key="frame" x="33" y="59" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="4pq-Jp-5Us"/>
+                                    <constraint firstAttribute="width" constant="150" id="Ecz-9z-lcg"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="QLE-I4-ByA"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSk-4K-qye">
+                                <rect key="frame" x="214" y="100" width="328" height="14"/>
+                                <textFieldCell key="cell" title="Do check out my other apps if you enjoy Avenue GPX Viewer!" id="cem-LM-3aT">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="duc-6a-ugC" firstAttribute="top" secondItem="T1l-9U-bUf" secondAttribute="bottom" constant="-5" id="4Zb-B6-h0W"/>
+                            <constraint firstItem="Tg3-wG-kTZ" firstAttribute="leading" secondItem="pzO-eC-GcI" secondAttribute="leading" constant="33" id="AjD-1u-c8V"/>
+                            <constraint firstItem="I2c-O3-XIx" firstAttribute="top" secondItem="uSk-4K-qye" secondAttribute="bottom" constant="16" id="BVX-IL-H9f"/>
+                            <constraint firstItem="Twt-0Z-Qju" firstAttribute="trailing" secondItem="GFY-ty-RJ7" secondAttribute="trailing" id="CRc-yJ-MDe"/>
+                            <constraint firstItem="GFY-ty-RJ7" firstAttribute="top" secondItem="duc-6a-ugC" secondAttribute="bottom" constant="14" id="D6n-LP-wae"/>
+                            <constraint firstItem="feW-do-P8c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I2c-O3-XIx" secondAttribute="trailing" constant="8" id="Gw4-s4-xpp"/>
+                            <constraint firstItem="GFY-ty-RJ7" firstAttribute="leading" secondItem="duc-6a-ugC" secondAttribute="leading" id="H9Y-Jr-yxo"/>
+                            <constraint firstItem="YAv-T9-vSI" firstAttribute="top" secondItem="I2c-O3-XIx" secondAttribute="bottom" constant="12" symbolic="YES" id="Kr1-Q8-zq7"/>
+                            <constraint firstItem="feW-do-P8c" firstAttribute="centerY" secondItem="I2c-O3-XIx" secondAttribute="centerY" id="MHb-Uj-KST"/>
+                            <constraint firstItem="yfT-vL-TI0" firstAttribute="top" secondItem="Twt-0Z-Qju" secondAttribute="bottom" constant="16" id="NDq-FV-7fD"/>
+                            <constraint firstItem="Kpj-EA-AS8" firstAttribute="width" secondItem="feW-do-P8c" secondAttribute="width" id="OH2-ED-3Mc"/>
+                            <constraint firstItem="YAv-T9-vSI" firstAttribute="width" secondItem="I2c-O3-XIx" secondAttribute="width" id="Pdn-qt-7QA"/>
+                            <constraint firstItem="I2c-O3-XIx" firstAttribute="leading" secondItem="yfT-vL-TI0" secondAttribute="leading" id="T9L-B1-RB4"/>
+                            <constraint firstItem="Twt-0Z-Qju" firstAttribute="leading" secondItem="GFY-ty-RJ7" secondAttribute="leading" id="TDL-eT-Kba"/>
+                            <constraint firstItem="T1l-9U-bUf" firstAttribute="leading" secondItem="Tg3-wG-kTZ" secondAttribute="trailing" constant="33" id="XuF-m0-3zU"/>
+                            <constraint firstItem="yfT-vL-TI0" firstAttribute="trailing" secondItem="Twt-0Z-Qju" secondAttribute="trailing" id="YaA-jt-1Qk"/>
+                            <constraint firstItem="Twt-0Z-Qju" firstAttribute="top" secondItem="GFY-ty-RJ7" secondAttribute="bottom" constant="1" id="b1I-Nd-OJ2"/>
+                            <constraint firstItem="YAv-T9-vSI" firstAttribute="leading" secondItem="I2c-O3-XIx" secondAttribute="leading" id="c6p-Kr-g2N"/>
+                            <constraint firstItem="duc-6a-ugC" firstAttribute="leading" secondItem="T1l-9U-bUf" secondAttribute="leading" id="edW-do-x7L"/>
+                            <constraint firstItem="uSk-4K-qye" firstAttribute="leading" secondItem="yfT-vL-TI0" secondAttribute="leading" id="hqf-f3-T5r"/>
+                            <constraint firstItem="Kpj-EA-AS8" firstAttribute="top" secondItem="feW-do-P8c" secondAttribute="bottom" constant="12" symbolic="YES" id="jPt-S1-re7"/>
+                            <constraint firstAttribute="trailing" secondItem="duc-6a-ugC" secondAttribute="trailing" constant="20" symbolic="YES" id="jSY-ze-cuy"/>
+                            <constraint firstItem="uSk-4K-qye" firstAttribute="top" secondItem="yfT-vL-TI0" secondAttribute="bottom" constant="1" id="kb6-rU-8Ym"/>
+                            <constraint firstAttribute="bottom" secondItem="YAv-T9-vSI" secondAttribute="bottom" constant="32" id="lRH-57-L03"/>
+                            <constraint firstItem="GFY-ty-RJ7" firstAttribute="trailing" secondItem="duc-6a-ugC" secondAttribute="trailing" id="lxq-lh-1QN"/>
+                            <constraint firstItem="feW-do-P8c" firstAttribute="trailing" secondItem="uSk-4K-qye" secondAttribute="trailing" id="m3O-aJ-wPi"/>
+                            <constraint firstItem="Kpj-EA-AS8" firstAttribute="trailing" secondItem="feW-do-P8c" secondAttribute="trailing" id="p1k-5F-cBc"/>
+                            <constraint firstItem="Kpj-EA-AS8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YAv-T9-vSI" secondAttribute="trailing" constant="8" id="qCF-9c-gli"/>
+                            <constraint firstItem="yfT-vL-TI0" firstAttribute="leading" secondItem="Twt-0Z-Qju" secondAttribute="leading" id="qWy-FD-kvH"/>
+                            <constraint firstItem="Tg3-wG-kTZ" firstAttribute="centerY" secondItem="pzO-eC-GcI" secondAttribute="centerY" id="rG7-2G-QMS"/>
+                            <constraint firstAttribute="height" constant="268" id="smi-3k-2VD"/>
+                            <constraint firstAttribute="trailing" secondItem="Twt-0Z-Qju" secondAttribute="trailing" constant="20" symbolic="YES" id="vcQ-jc-zmj"/>
+                            <constraint firstItem="T1l-9U-bUf" firstAttribute="top" secondItem="pzO-eC-GcI" secondAttribute="top" constant="16" id="wfO-cf-GZB"/>
+                            <constraint firstItem="uSk-4K-qye" firstAttribute="trailing" secondItem="yfT-vL-TI0" secondAttribute="trailing" id="xgT-HH-KUm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="versionBuildLabel" destination="duc-6a-ugC" id="FMt-jK-s3H"/>
+                    </connections>
+                </viewController>
+                <customObject id="ZLD-ld-pAW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850" y="-1020"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="NSApplicationIcon" width="32" height="32"/>
+    </resources>
 </document>
