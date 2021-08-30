@@ -9,7 +9,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreviewViewController" customModule="GPXQuickLook" customModuleProvider="target">
             <connections>
-                <outlet property="debugLabel" destination="Pwb-eC-4H5" id="cb8-N2-0fi"/>
                 <outlet property="distanceLabel" destination="PGM-OW-i8f" id="76I-qV-Xt2"/>
                 <outlet property="distanceView" destination="z4j-eI-R5b" id="xtC-of-jqW"/>
                 <outlet property="elapsedLabel" destination="TCb-44-1O8" id="BDR-Rg-KLO"/>
@@ -40,7 +39,7 @@
                         </textField>
                         <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q3K-bU-gff">
                             <rect key="frame" x="7" y="10" width="39" height="13"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Debug2" id="SwB-hW-NEz">
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Elapsed" id="SwB-hW-NEz">
                                 <font key="font" metaFont="miniSystem"/>
                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -89,30 +88,15 @@
                         <constraint firstAttribute="trailing" secondItem="PGM-OW-i8f" secondAttribute="trailing" constant="3" id="rqx-yI-anO"/>
                     </constraints>
                 </visualEffectView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pwb-eC-4H5">
-                    <rect key="frame" x="18" y="17" width="108" height="234"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="104" id="Fwd-5G-Ye9"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="234" id="zY8-fY-eLj"/>
-                    </constraints>
-                    <textFieldCell key="cell" title="Debug" id="nCz-xw-TG9">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="z9b-oc-KHM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="Ebk-dJ-Fa7"/>
                 <constraint firstItem="UzC-PF-7Pd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="H1F-Mi-9rJ"/>
                 <constraint firstAttribute="trailing" secondItem="z9b-oc-KHM" secondAttribute="trailing" constant="10" id="HzP-3X-MPo"/>
-                <constraint firstItem="Pwb-eC-4H5" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="17" id="Jxv-e1-sW2"/>
                 <constraint firstItem="z9b-oc-KHM" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="9" id="NAX-AU-NUd"/>
                 <constraint firstAttribute="trailing" secondItem="z4j-eI-R5b" secondAttribute="trailing" constant="10" id="NMf-Ix-owc"/>
-                <constraint firstAttribute="bottom" secondItem="Pwb-eC-4H5" secondAttribute="bottom" constant="17" id="S5a-Tk-71i"/>
                 <constraint firstItem="z4j-eI-R5b" firstAttribute="top" secondItem="z9b-oc-KHM" secondAttribute="bottom" constant="4" id="YG8-Xy-Ztq"/>
                 <constraint firstItem="UzC-PF-7Pd" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ace-48-IQY"/>
-                <constraint firstItem="Pwb-eC-4H5" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="dGm-G4-sDw"/>
                 <constraint firstItem="z4j-eI-R5b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="n4b-kQ-9Nw"/>
                 <constraint firstAttribute="bottom" secondItem="UzC-PF-7Pd" secondAttribute="bottom" id="oYn-Mk-Ygq"/>
                 <constraint firstAttribute="trailing" secondItem="UzC-PF-7Pd" secondAttribute="trailing" id="pAp-5R-hcY"/>
