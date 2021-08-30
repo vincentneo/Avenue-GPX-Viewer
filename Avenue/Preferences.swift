@@ -42,7 +42,7 @@ class Preferences: NSObject {
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
-    private let appGroupDefaults = UserDefaults(suiteName: kAppGroup) ?? UserDefaults.standard
+    //private let appGroupDefaults = UserDefaults(suiteName: kAppGroup) ?? UserDefaults.standard
     
     /// Loads preferences from UserDefaults.
     private override init() {
@@ -63,7 +63,7 @@ class Preferences: NSObject {
             _showMapScale = showMapScale
         }
         
-        if let defaultMapTileIndex = appGroupDefaults.object(forKey: kDefaultsMapTileIndex) as? Int {
+        if let defaultMapTileIndex = defaults.object(forKey: kDefaultsMapTileIndex) as? Int {
             _defaultMapTile = defaultMapTileIndex
         }
     }
@@ -114,7 +114,7 @@ class Preferences: NSObject {
         }
         set {
             _defaultMapTile = newValue
-            appGroupDefaults.set(newValue, forKey: kDefaultsMapTileIndex)
+            defaults.set(newValue, forKey: kDefaultsMapTileIndex)
         }
     }
     
