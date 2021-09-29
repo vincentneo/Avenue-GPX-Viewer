@@ -12,8 +12,6 @@ jobs:
   mac:
     name: Build
     runs-on: macos-latest
-    env: 
-      DEVELOPER_DIR: /Applications/Xcode_12.3.app/Contents/Developer
     steps:
     - uses: actions/checkout@v2
     - name: Build Avenue GPX Viewer
