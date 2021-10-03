@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		120A142A249D055F0014E690 /* LaunchWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120A1429249D055F0014E690 /* LaunchWindow.xib */; };
+		120A510D2709BCF600214CB9 /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = 120A510C2709BCF600214CB9 /* Cluster */; };
 		120B520026DD370A00110657 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B51FF26DD370A00110657 /* AboutViewController.swift */; };
 		1214D2DB24BE0590002D399E /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DA24BE0590002D399E /* PreferenceViewController.swift */; };
 		1214D2DD24BE06E7002D399E /* Int+asFilesize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */; };
@@ -129,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */,
+				120A510D2709BCF600214CB9 /* Cluster in Frameworks */,
 				121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */,
 				12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */,
 			);
@@ -265,6 +267,7 @@
 			packageProductDependencies = (
 				12C445052478F67D00BE9465 /* CoreGPX */,
 				BF626D7624CC6CBB007E2EEF /* MapCache */,
+				120A510C2709BCF600214CB9 /* Cluster */,
 			);
 			productName = Avenue;
 			productReference = BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */;
@@ -322,6 +325,7 @@
 			packageReferences = (
 				12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */,
 				BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */,
+				120A510B2709BCF600214CB9 /* XCRemoteSwiftPackageReference "Cluster" */,
 			);
 			productRefGroup = BF4F5AAC22D1FBCD00C8E95A /* Products */;
 			projectDirPath = "";
@@ -745,6 +749,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		120A510B2709BCF600214CB9 /* XCRemoteSwiftPackageReference "Cluster" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vincentneo/Cluster/";
+			requirement = {
+				branch = macOS;
+				kind = branch;
+			};
+		};
 		12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
@@ -764,6 +776,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		120A510C2709BCF600214CB9 /* Cluster */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 120A510B2709BCF600214CB9 /* XCRemoteSwiftPackageReference "Cluster" */;
+			productName = Cluster;
+		};
 		1219618626DB621D00B7B10F /* MapCache */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */;

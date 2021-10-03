@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Cluster",
+        "repositoryURL": "https://github.com/vincentneo/Cluster/",
+        "state": {
+          "branch": "macOS",
+          "revision": "d2c91ed95b90596056e62098e2a60565ec68de75",
+          "version": null
+        }
+      },
+      {
         "package": "CoreGPX",
         "repositoryURL": "https://github.com/vincentneo/CoreGPX.git",
         "state": {

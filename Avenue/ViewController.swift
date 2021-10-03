@@ -10,6 +10,7 @@ import Cocoa
 import MapKit
 import CoreGPX
 import MapCache
+import Cluster
 
 class ViewController: NSViewController, MKMapViewDelegate {
 
@@ -347,7 +348,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 miniMap.addOverlay(overlay, level: .aboveLabels)
             }
         }
-        miniMap.addAnnotations(mapView.annotations)
+        //miniMap.addAnnotations(mapView.annotations)
     }
     
     @objc func cacheSettingsDidChange(_ sender: Notification) {
@@ -508,8 +509,71 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         return MKOverlayRenderer()
     }
+//    @available(macOS 10.13, *)
+//    func mapView(_ mapView: MKMapView, clusterAnnotationForMemberAnnotations memberAnnotations: [MKAnnotation]) -> MKClusterAnnotation {
+//        //print("memberAnnotations \(memberAnnotations)")
+//        return MKClusterAnnotation(memberAnnotations: memberAnnotations)
+//    }
+    
+    let reusableID = "waypointPin"
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else { return nil }
+        
+        if let annotation = annotation as? ClusterAnnotation {
+            print("anno cluster")
+//            if #available(macOS 11.0, *) {
+//                return MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "marker")
+//            } else {
+//                // Fallback on earlier versions
+//                return nil
+//            }//
+            let color: NSColor
+            if #available(macOS 10.14, *) {
+                color = .controlAccentColor
+            } else {
+                color = .blue
+            }
+            let v = StyledClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster", style: .color(color, radius: 25))
+            return v
+        } else {
+            print("anno norm")
+            return MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        }
+        
+//        let annotationView = self.annotationView(of: CountClusterAnnotationView.self, annotation: annotation, reuseIdentifier: reuseIdentifier)
+//        if #available(macOS 10.13, *), annotation is MKClusterAnnotation {
+//            return nil
+//        }
+//        else {
+//            var view = mapView.dequeueReusableAnnotationView(withIdentifier: reusableID)
+//            if view == nil {
+//                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reusableID)
+//                if #available(macOS 10.13, *) {
+//                    view?.clusteringIdentifier = MKMapViewDefaultClusterAnnotationViewReuseIdentifier
+//                }
+//                view?.canShowCallout = true
+//            }
+//            else {
+//                view?.annotation = annotation
+//            }
+//
+//            return view
+//        }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        self.mapView.clusterManager.reload(mapView: mapView) {_ in}
+    }
+    
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         setMiniMapRegion(mapView)
+        let visRect = mapView.visibleMapRect
+        let inRectAnnotations = mapView.annotations(in: visRect)
+//
+//        if (inRectAnnotations.contains(annotation as! AnyHashable)) {
+//             print(inRectAnnotations.contains(annotation as! AnyHashable))
+//        } else {mapView.removeAnnotation(annotation) }
     }
     
     func setMiniMapRegion(_ mapView: MKMapView) {

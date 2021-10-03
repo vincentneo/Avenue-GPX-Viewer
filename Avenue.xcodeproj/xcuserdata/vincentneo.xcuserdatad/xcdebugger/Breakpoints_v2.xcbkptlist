@@ -238,5 +238,84 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9681CCD-702B-48C6-B4BC-5455856FF3DF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Avenue/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "520"
+            endingLineNumber = "520"
+            landmarkName = "mapView(_:viewFor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD338DBA-B3BE-411E-844B-C7F525AC0002"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/Cluster/Sources/Cluster.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "ClusterManager"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "AD338DBA-B3BE-411E-844B-C7F525AC0002 - cb7ea472676545ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of Cluster.ClusterManager.reload(mapView: __C.MKMapView, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/Cluster/Sources/Cluster.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "AD338DBA-B3BE-411E-844B-C7F525AC0002 - 52dc11446211b276"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in default argument 1 of Cluster.ClusterManager.reload(mapView: __C.MKMapView, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/Cluster/Sources/Cluster.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "AD338DBA-B3BE-411E-844B-C7F525AC0002 - b60d5ee21dc4558f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cluster.ClusterManager.reload(mapView: __C.MKMapView, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Avenue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/Cluster/Sources/Cluster.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "107">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

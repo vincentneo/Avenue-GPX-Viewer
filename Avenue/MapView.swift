@@ -9,8 +9,9 @@
 import Cocoa
 import MapKit
 import CoreGPX
+import Cluster
 
-class MapView: MKMapView {
+class MapView: MKMapView, ClusterManagerDelegate {
     
     var extent = GPXExtentCoordinates()
     
@@ -72,12 +73,35 @@ class MapView: MKMapView {
         }
     }
     
+    var clusterManager: ClusterManager = {
+        let manager = ClusterManager()
+        //manager.delegate = self
+        manager.maxZoomLevel = 17
+        manager.minCountForClustering = 10
+        manager.clusterPosition = .nearCenter
+        return manager
+    }()
+    
     func loadedGPXFile(_ root: GPXRoot) {
         print("MapView: GPX Object Loaded \(root)")
         
         for waypoint in root.waypoints {
-            self.addAnnotation(waypoint)
+            self.extent.extendAreaToIncludeLocation(waypoint.coordinate)
         }
+        
+        self.clusterManager.add(root.waypoints) {
+            DispatchQueue.main.async {
+                self.clusterManager.reload(mapView: self) { finished in
+                    print("cluster reload \(finished)")
+                }
+            }
+        }
+
+                //self.addAnnotations(root.waypoints)
+                //self.annotations
+                //self.showAnnotations([], animated: false)
+
+
         
         for track in root.tracks {
             for segment in track.tracksegments {
