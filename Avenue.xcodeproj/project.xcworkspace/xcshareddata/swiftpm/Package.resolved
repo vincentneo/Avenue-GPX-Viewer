@@ -1,25 +1,23 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CoreGPX",
-        "repositoryURL": "https://github.com/vincentneo/CoreGPX.git",
-        "state": {
-          "branch": "master",
-          "revision": "ee1fa3fed02a6ece9f8ac15167bc901d248ad14c",
-          "version": null
-        }
-      },
-      {
-        "package": "MapCache",
-        "repositoryURL": "https://github.com/merlos/MapCache.git",
-        "state": {
-          "branch": null,
-          "revision": "54000665b3cdf399236694e117f46b024faaf096",
-          "version": "0.9.0"
-        }
+  "pins" : [
+    {
+      "identity" : "coregpx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vincentneo/CoreGPX.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ee1fa3fed02a6ece9f8ac15167bc901d248ad14c"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "mapcache",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/merlos/MapCache.git",
+      "state" : {
+        "revision" : "54000665b3cdf399236694e117f46b024faaf096",
+        "version" : "0.9.0"
+      }
+    }
+  ],
+  "version" : 2
 }
