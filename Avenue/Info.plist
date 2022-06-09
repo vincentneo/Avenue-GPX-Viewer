@@ -7,8 +7,6 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array/>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>application/gpx+xml</string>
@@ -26,6 +24,23 @@
 				<string>com.glacierpeakstudios.gpx</string>
 				<string>com.berbie.documenttypes.gpx</string>
 				<string>com.topographix.gpx</string>
+			</array>
+			<key>NSDocumentClass</key>
+			<string>$(PRODUCT_MODULE_NAME).Document</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/gpx+xml</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>GPX File</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
 				<string>public.gpx</string>
 			</array>
 			<key>NSDocumentClass</key>
@@ -68,6 +83,8 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIcons</key>
+			<dict/>
 			<key>UTTypeIdentifier</key>
 			<string>com.topografix.gpx</string>
 			<key>UTTypeReferenceURL</key>

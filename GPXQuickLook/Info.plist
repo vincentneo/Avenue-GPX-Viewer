@@ -28,8 +28,13 @@
 		<dict>
 			<key>QLSupportedContentTypes</key>
 			<array>
-				<string>com.apple.dt.document.gpx</string>
 				<string>com.topografix.gpx</string>
+				<string>com.apple.dt.document.gpx</string>
+				<string>com.glacierpeakstudios.gpx</string>
+				<string>com.berbie.documenttypes.gpx</string>
+				<string>com.topographix.gpx</string>
+				<string>public.gpx</string>
+				<string>public.xml</string>
 			</array>
 			<key>QLSupportsSearchableItems</key>
 			<true/>
@@ -40,6 +45,6 @@
 		<string>$(PRODUCT_MODULE_NAME).PreviewViewController</string>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2021 Vincent. All rights reserved.</string>
+	<string>Copyright © 2021-2022 Vincent. All rights reserved.</string>
 </dict>
 </plist>
