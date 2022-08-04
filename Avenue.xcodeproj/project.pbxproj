@@ -29,6 +29,7 @@
 		12CA895226CAD43C00CFAE47 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
 		12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43C6824D090A90075B8B8 /* ElapsedTime.swift */; };
 		12D813D624AA3D77003397F1 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
+		12D81ABD289C2FD500E5BE2E /* CGSize+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */; };
 		12F930DB25886E5500501C8F /* QLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F930DA25886E5500501C8F /* QLMapView.swift */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
 		12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
@@ -93,6 +94,7 @@
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		12D43C6824D090A90075B8B8 /* ElapsedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Multiplier.swift"; sourceTree = "<group>"; };
 		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
 		12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +212,7 @@
 				12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */,
 				122BD57A249F4C63006FBB2F /* Double+Measures.swift */,
 				120B51FF26DD370A00110657 /* AboutViewController.swift */,
+				12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */,
 			);
 			path = Avenue;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D81ABD289C2FD500E5BE2E /* CGSize+Multiplier.swift in Sources */,
 				BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */,
 				12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */,
 				BFF76B5422D36F4500C269D8 /* WindowController.swift in Sources */,

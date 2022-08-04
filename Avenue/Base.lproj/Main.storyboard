@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="18122"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="20037"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -291,6 +291,17 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="Ccc-sG-ZgV"/>
+                                        <menuItem title="Page Setup…" keyEquivalent="P" id="sTg-yB-cGa">
+                                            <connections>
+                                                <action selector="runPageLayout:" target="Ady-hI-5gd" id="Trc-uP-rfS"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Print" keyEquivalent="p" id="uFe-bd-VB2">
+                                            <connections>
+                                                <action selector="printDocument:" target="Ady-hI-5gd" id="oGu-1v-bmt"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -431,7 +442,7 @@
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="249.5"/>
+            <point key="canvasLocation" x="75" y="304"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

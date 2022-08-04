@@ -8,10 +8,12 @@
 
 import Cocoa
 import CoreGPX
+import MapKit
 
 class Document: NSDocument {
     
-    //var gpx = GPXRoot()
+    var gpx: GPXRoot?
+    var extent = GPXExtentCoordinates()
     var data = Data()
     
     let appDelegate = NSApp.delegate as! AppDelegate
@@ -74,7 +76,41 @@ class Document: NSDocument {
         }
         */
     }
-
-
+    
+    override func printDocument(_ sender: Any?) {
+        Swift.print("print doc call")
+        
+        let options = MKMapSnapshotter.Options()
+        
+        if #available(macOS 10.14, *) {
+            options.appearance = NSAppearance(named: .aqua)
+        }
+        options.region = extent.region
+        
+        let printInfo = self.printInfo
+        printInfo.horizontalPagination = .fit
+        printInfo.verticalPagination = .fit
+        
+        let imageSize = printInfo.paperSize
+        options.size = imageSize
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.start { snapshot, error in
+            guard let image = snapshot?.image else {
+                if let error = error {
+                    Swift.print(error)
+                }
+                return
+            }
+            
+            let imageView = NSImageView()
+            imageView.frame = NSRect(origin: .zero, size: image.size)
+            imageView.image = image
+            
+            let printOperation = NSPrintOperation(view: imageView, printInfo: printInfo)
+            printOperation.showsPrintPanel = true
+            printOperation.run()
+        }
+    }
 }
 

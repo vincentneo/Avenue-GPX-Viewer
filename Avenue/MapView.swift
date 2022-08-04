@@ -12,7 +12,9 @@ import CoreGPX
 
 class MapView: MKMapView {
     
-    var extent = GPXExtentCoordinates()
+    var document: Document? {
+        return self.window?.windowController?.document as? Document
+    }
     
     func loadedGPXData(_ data: Data, _ windowCon: WindowController) {
         let indicator = NSProgressIndicator(frame: self.frame)
@@ -65,14 +67,18 @@ class MapView: MKMapView {
                 
                 let timeText = timeInterval > 0 ? "\(ElapsedTime.getString(from: timeInterval))｜": ""
                 windowCon.barDistance.stringValue = "\(timeText)\(length.toDistance(useImperial: false))"
-                self.loadedGPXFile(fileGPX)
+                self.document?.gpx = fileGPX
+                self.loadedGPXFile()
                 NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
             }
 
         }
     }
     
-    func loadedGPXFile(_ root: GPXRoot) {
+    func loadedGPXFile() {
+        guard let document = document, let root = document.gpx else { fatalError("this shouldn't happen...") }
+        document.extent = .init()
+        
         print("MapView: GPX Object Loaded \(root)")
         
         for waypoint in root.waypoints {
@@ -86,15 +92,15 @@ class MapView: MKMapView {
                 self.addOverlay(overlay, level: .aboveLabels)
                 
                 for trkpt in segment.trackpoints {
-                    self.extent.extendAreaToIncludeLocation(trkpt.coordinate)
+                    document.extent.extendAreaToIncludeLocation(trkpt.coordinate)
                 }
             }
         }
         // reduce region span being too close to bounds of view
-        extent.region.span.latitudeDelta *= 1.25
-        extent.region.span.longitudeDelta *= 1.25
+        document.extent.region.span.latitudeDelta *= 1.25
+        document.extent.region.span.longitudeDelta *= 1.25
         
-        self.setRegion(extent.region, animated: true)
+        self.setRegion(document.extent.region, animated: true)
         
     }
     
