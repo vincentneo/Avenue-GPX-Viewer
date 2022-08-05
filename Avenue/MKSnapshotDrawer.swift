@@ -50,6 +50,16 @@ class MKSnapshotDrawer {
             path.stroke()
         }
         
+        guard let pinImage = NSImage(named: "avenue-pin") else { image.unlockFocus(); return image }
+        let size = pinImage.size
+        
+        for waypoint in gpx.waypoints {
+            var point = snapshot.point(for: waypoint.coordinate)
+            point.x -= size.width / 2
+            point.y -= size.height / 2
+            pinImage.draw(at: point, from: NSRect(origin: .zero, size: image.size), operation: .sourceOver, fraction: 1)
+        }
+        
         image.unlockFocus()
         return image
         

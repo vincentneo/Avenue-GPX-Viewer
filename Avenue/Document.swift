@@ -103,7 +103,7 @@ class Document: NSDocument {
         printInfo.rightMargin = 0
         
         let imageSize = printInfo.imageablePageBounds.size
-        options.size = imageSize.multiplied(2)
+        options.size = imageSize//.multiplied(2)
         Swift.print("Paper Size \(printInfo.paperSize) | Printable Bounds \(printInfo.imageablePageBounds.size)")
         
         let snapshotter = MKMapSnapshotter(options: options)
