@@ -77,6 +77,12 @@ class Document: NSDocument {
         */
     }
     
+//    override func preparePageLayout(_ pageLayout: NSPageLayout) -> Bool {
+//        Swift.print(pageLayout.accessoryControllers)
+//        pageLayout.addAccessoryController(NSViewController)
+//        return true
+//    }
+    
     override func printDocument(_ sender: Any?) {
         Swift.print("print doc call")
         
@@ -88,11 +94,17 @@ class Document: NSDocument {
         options.region = extent.region
         
         let printInfo = self.printInfo
-        printInfo.horizontalPagination = .fit
+        printInfo.scalingFactor = floor(printInfo.scalingFactor)
         printInfo.verticalPagination = .fit
+        printInfo.horizontalPagination = .fit
+        printInfo.bottomMargin = 0
+        printInfo.topMargin = 0
+        printInfo.leftMargin = 0
+        printInfo.rightMargin = 0
         
-        let imageSize = printInfo.paperSize
-        options.size = imageSize
+        let imageSize = printInfo.imageablePageBounds.size
+        options.size = imageSize.multiplied(2)
+        Swift.print("Paper Size \(printInfo.paperSize) | Printable Bounds \(printInfo.imageablePageBounds.size)")
         
         let snapshotter = MKMapSnapshotter(options: options)
         snapshotter.start { snapshot, error in
@@ -107,9 +119,14 @@ class Document: NSDocument {
             imageView.frame = NSRect(origin: .zero, size: image.size)
             imageView.image = image
             
+            NSPrintInfo.shared = printInfo
+            imageView.beginDocument()
+            
             let printOperation = NSPrintOperation(view: imageView, printInfo: printInfo)
             printOperation.showsPrintPanel = true
             printOperation.run()
+            
+            imageView.endDocument()
         }
     }
 }
