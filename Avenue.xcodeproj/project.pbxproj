@@ -25,6 +25,7 @@
 		1235A0242587C7C800365811 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
 		1235A03D2587D69300365811 /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43C6824D090A90075B8B8 /* ElapsedTime.swift */; };
 		1235A0412587D69800365811 /* Double+Measures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122BD57A249F4C63006FBB2F /* Double+Measures.swift */; };
+		1292DD3E289D1F7B00D42E77 /* MKSnapshotDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292DD3D289D1F7B00D42E77 /* MKSnapshotDrawer.swift */; };
 		12B1A1A024A0B428005F781F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 12B1A19F24A0B428005F781F /* Credits.html */; };
 		12CA895226CAD43C00CFAE47 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D813D524AA3D77003397F1 /* Preferences.swift */; };
 		12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D43C6824D090A90075B8B8 /* ElapsedTime.swift */; };
@@ -91,6 +92,7 @@
 		12359FE62587C27300365811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
 		12359FE82587C27300365811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12359FE92587C27300365811 /* GPXQuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GPXQuickLook.entitlements; sourceTree = "<group>"; };
+		1292DD3D289D1F7B00D42E77 /* MKSnapshotDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKSnapshotDrawer.swift; sourceTree = "<group>"; };
 		12B1A19F24A0B428005F781F /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		12D43C6824D090A90075B8B8 /* ElapsedTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElapsedTime.swift; sourceTree = "<group>"; };
 		12D813D524AA3D77003397F1 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				122BD57A249F4C63006FBB2F /* Double+Measures.swift */,
 				120B51FF26DD370A00110657 /* AboutViewController.swift */,
 				12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */,
+				1292DD3D289D1F7B00D42E77 /* MKSnapshotDrawer.swift */,
 			);
 			path = Avenue;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12D81ABD289C2FD500E5BE2E /* CGSize+Multiplier.swift in Sources */,
+				1292DD3E289D1F7B00D42E77 /* MKSnapshotDrawer.swift in Sources */,
 				BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */,
 				12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */,
 				BFF76B5422D36F4500C269D8 /* WindowController.swift in Sources */,

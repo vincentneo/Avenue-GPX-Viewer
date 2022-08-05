@@ -114,10 +114,11 @@ class Document: NSDocument {
                 }
                 return
             }
-            
+            let drawer = MKSnapshotDrawer(snapshot!, gpx: self.gpx!)
+            let newImage = drawer.processImage()
             let imageView = NSImageView()
             imageView.frame = NSRect(origin: .zero, size: image.size)
-            imageView.image = image
+            imageView.image = newImage
             
             NSPrintInfo.shared = printInfo
             imageView.beginDocument()
@@ -128,6 +129,25 @@ class Document: NSDocument {
             
             imageView.endDocument()
         }
+    }
+    
+    override var isEntireFileLoaded: Bool {
+        return true
+    }
+    
+    override var isDocumentEdited: Bool {
+        return false
+    }
+    
+    override func updateChangeCount(_ change: NSDocument.ChangeType) {
+    }
+    
+    override var hasUnautosavedChanges: Bool {
+        return false
+    }
+    
+    override class var autosavesDrafts: Bool {
+        return false
     }
 }
 
