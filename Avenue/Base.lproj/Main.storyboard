@@ -184,14 +184,24 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyR-HW-d9L">
+                                <rect key="frame" x="26" y="17" width="456" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change print related preferences, use ⇧⌘P or go to File &gt; Page Setup... &gt; Avenue " id="N7s-Li-gUR">
+                                    <font key="font" metaFont="message" size="11"/>
+                                    <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="45" id="EJb-8d-QJI"/>
                             <constraint firstItem="bQ6-mG-Hit" firstAttribute="top" secondItem="gsR-gZ-c1V" secondAttribute="bottom" constant="6" id="Q2G-q3-OdQ"/>
                             <constraint firstItem="bQ6-mG-Hit" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="f30-f1-HfN"/>
                             <constraint firstAttribute="trailing" secondItem="bQ6-mG-Hit" secondAttribute="trailing" constant="20" symbolic="YES" id="h2b-re-HL7"/>
+                            <constraint firstItem="RyR-HW-d9L" firstAttribute="top" secondItem="7lP-OM-v12" secondAttribute="bottom" constant="3" id="hcW-GG-Md8"/>
                             <constraint firstItem="7lP-OM-v12" firstAttribute="top" secondItem="bQ6-mG-Hit" secondAttribute="bottom" constant="10" id="hjH-wH-Dd9"/>
                             <constraint firstAttribute="trailing" secondItem="gsR-gZ-c1V" secondAttribute="trailing" constant="20" symbolic="YES" id="jxY-lm-JyU"/>
+                            <constraint firstItem="RyR-HW-d9L" firstAttribute="centerX" secondItem="pgP-JJ-pLD" secondAttribute="centerX" id="lRQ-br-ch9"/>
                             <constraint firstItem="7lP-OM-v12" firstAttribute="centerX" secondItem="pgP-JJ-pLD" secondAttribute="centerX" id="lZv-1G-HZZ"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="top" secondItem="pgP-JJ-pLD" secondAttribute="top" constant="20" id="qwZ-zF-HEJ"/>
                             <constraint firstItem="gsR-gZ-c1V" firstAttribute="leading" secondItem="pgP-JJ-pLD" secondAttribute="leading" constant="20" symbolic="YES" id="xTa-vU-rc1"/>
