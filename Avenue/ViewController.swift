@@ -275,6 +275,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(decodeRestorableState(_:)), name: Notification.Name("DecodeRestorableState"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cacheSettingsDidChange(_:)), name: Notification.Name("CacheSettingsDidChange"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(retinaSettingDidChange(_:)), name: Notification.Name("RetinaSettingDidChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(distanceUnitDidChange(_:)), name: Notification.Name("DistanceUnitChanged"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -474,6 +475,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
             }
             self.setBoxBorderColor()
         }
+    }
+    
+    @objc func distanceUnitDidChange(_ sender: NSNotification) {
+        self.mapView.updateBarInfo()
     }
     
     func setBoxBorderColor() {

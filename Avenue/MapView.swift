@@ -16,6 +16,9 @@ class MapView: MKMapView {
         return self.window?.windowController?.document as? Document
     }
     
+    private var trackLength = 0.0
+    private var trackDuration = 0.0
+    
     func loadedGPXData(_ data: Data, _ windowCon: WindowController) {
         let indicator = NSProgressIndicator(frame: self.frame)
         let visualView = NSVisualEffectView(frame: self.frame)
@@ -65,13 +68,23 @@ class MapView: MKMapView {
                     }
                 }
                 
-                let timeText = timeInterval > 0 ? "\(ElapsedTime.getString(from: timeInterval))｜": ""
-                windowCon.barDistance.stringValue = "\(timeText)\(length.toDistance(useImperial: false))"
+                self.trackLength = length
+                self.trackDuration = timeInterval
+                
+                self.updateBarInfo()
+
                 self.document?.gpx = fileGPX
                 self.loadedGPXFile()
                 NotificationCenter.default.post(Notification(name: Notification.Name("GPXFileFinishedLoading")))
             }
 
+        }
+    }
+    
+    func updateBarInfo() {
+        let timeText = self.trackDuration > 0 ? "\(ElapsedTime.getString(from: self.trackDuration))｜": ""
+        if let windowController = window?.windowController as? WindowController {
+            windowController.barDistance.stringValue = "\(timeText)\(self.trackLength.toDistance(type: Preferences.shared.distanceUnitType))"
         }
     }
     

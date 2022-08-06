@@ -20,6 +20,8 @@ let kDefaultsShowMapScale: String = "ShowMapScale"
 
 let kDefaultsMapTileIndex: String = "MapTileIndex"
 
+let kDefaultsDistanceUnitType: String = "DistanceUnitType"
+
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
 ///
@@ -41,6 +43,7 @@ class Preferences: NSObject {
     private var _preferRetina: Bool = true
     private var _showMapScale: Bool = true
     private var _defaultMapTile: Int = 0
+    private var _distanceUnitType: Int = 0
     
     /// UserDefaults.standard shortcut
     private let defaults = UserDefaults.standard
@@ -67,6 +70,10 @@ class Preferences: NSObject {
         
         if let defaultMapTileIndex = defaults.object(forKey: kDefaultsMapTileIndex) as? Int {
             _defaultMapTile = defaultMapTileIndex
+        }
+        
+        if let distanceUnitType = defaults.object(forKey: kDefaultsDistanceUnitType) as? Int {
+            _distanceUnitType = distanceUnitType
         }
     }
     
@@ -117,6 +124,28 @@ class Preferences: NSObject {
         set {
             _defaultMapTile = newValue
             defaults.set(newValue, forKey: kDefaultsMapTileIndex)
+        }
+    }
+    
+    var distanceUnitTypeInt: Int {
+        get {
+            return _distanceUnitType
+        }
+        set {
+            _distanceUnitType = newValue
+            NotificationCenter.default.post(Notification(name: Notification.Name("DistanceUnitChanged")))
+            defaults.set(newValue, forKey: kDefaultsDistanceUnitType)
+        }
+    }
+    
+    var distanceUnitType: Double.DistanceUnitTypes {
+        get {
+            return Double.DistanceUnitTypes(rawValue: _distanceUnitType)!
+        }
+        set {
+            _distanceUnitType = newValue.rawValue
+            NotificationCenter.default.post(Notification(name: Notification.Name("DistanceUnitChanged")))
+            defaults.set(newValue.rawValue, forKey: kDefaultsDistanceUnitType)
         }
     }
     
