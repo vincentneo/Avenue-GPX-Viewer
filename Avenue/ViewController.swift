@@ -481,7 +481,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
             self.box.layer?.borderColor = NSColor.controlAccentColor.cgColor
         }
         else {
-            self.box.layer?.borderColor = NSColor.blue.cgColor
+            self.box.layer?.borderColor = systemBlueColor.cgColor
         }
     }
     
@@ -500,7 +500,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 }
                 pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
             } else {
-                pr.strokeColor = .blue
+                pr.strokeColor = systemBlueColor
             }
             pr.alpha = 0.65
             pr.lineWidth = 4
@@ -593,7 +593,7 @@ class MiniDelegate: NSObject, MKMapViewDelegate {
                 }
                 pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
             } else {
-                pr.strokeColor = .blue
+                pr.strokeColor = systemBlueColor
             }
             pr.alpha = 0.8
             pr.lineWidth = 1.5

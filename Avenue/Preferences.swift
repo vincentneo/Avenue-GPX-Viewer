@@ -3,8 +3,10 @@
 //  Style from Open GPX Tracker
 //
 
-import Foundation
+import Cocoa
 import CoreLocation
+
+let systemBlueColor = NSColor(red: 0.01, green: 0.47, blue: 1.00, alpha: 1.00)
 
 let kAppGroup = "group.com.vincent-neo.Avenue"
 

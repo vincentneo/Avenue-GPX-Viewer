@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AdditionalPageSetupViewController" customModule="Avenue" customModuleProvider="target">
+            <connections>
+                <outlet property="resolutionButtonsView" destination="Ldk-gJ-X3b" id="OSv-aq-t3C"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="403" height="168"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box fixedFrame="YES" borderType="bezel" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YeI-TD-8Ia">
+                    <rect key="frame" x="17" y="16" width="369" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="yGU-Xd-wdr">
+                        <rect key="frame" x="3" y="3" width="363" height="116"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-gJ-X3b">
+                                <rect key="frame" x="16" y="42" width="331" height="66"/>
+                                <subviews>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="e8o-SD-uWG" customClass="PageSetupCellButton" customModule="Avenue" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="e8o-SD-uWG" secondAttribute="height" multiplier="1:1" id="sp3-Op-pln"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PrintSetting0" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="GVe-4H-bsa">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="resolutionChanged:" target="-2" id="vK2-HK-hgF"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xnx-bM-9b6" customClass="PageSetupCellButton" customModule="Avenue" customModuleProvider="target">
+                                        <rect key="frame" x="88" y="0.0" width="66" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Xnx-bM-9b6" secondAttribute="height" multiplier="1:1" id="S5s-je-lxZ"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PrintSetting1" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="VEd-g5-YhA">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="resolutionChanged:" target="-2" id="bkz-Yq-Vfv"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="RaP-90-dS2" customClass="PageSetupCellButton" customModule="Avenue" customModuleProvider="target">
+                                        <rect key="frame" x="177" y="0.0" width="66" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RaP-90-dS2" secondAttribute="height" multiplier="1:1" id="S4A-Gi-Acb"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PrintSetting2" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="zz6-WN-J4E">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="resolutionChanged:" target="-2" id="rgk-Tm-kJC"/>
+                                        </connections>
+                                    </button>
+                                    <button tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="VS6-kv-pI1" customClass="PageSetupCellButton" customModule="Avenue" customModuleProvider="target">
+                                        <rect key="frame" x="265" y="0.0" width="66" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VS6-kv-pI1" secondAttribute="height" multiplier="1:1" id="jTG-Hk-LDa"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PrintSetting3" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="4Qi-bd-HvA">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="resolutionChanged:" target="-2" id="H54-VE-e4M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="vTT-Xf-EGp"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-hd-yGG">
+                                <rect key="frame" x="11" y="11" width="71" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="less detailed" id="i88-n8-DS6">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFE-Li-gxk">
+                                <rect key="frame" x="27" y="24" width="40" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Larger" id="NKb-u2-f8b">
+                                    <font key="font" metaFont="systemSemibold" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hgj-ms-wy2">
+                                <rect key="frame" x="274" y="11" width="80" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="more detailed" id="dst-PW-8cO">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-72-olF">
+                                <rect key="frame" x="289" y="24" width="50" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Smaller" id="ded-Q9-z5m">
+                                    <font key="font" metaFont="systemSemibold" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ldk-gJ-X3b" firstAttribute="leading" secondItem="yGU-Xd-wdr" secondAttribute="leading" constant="16" id="5sq-4I-ujm"/>
+                            <constraint firstAttribute="trailing" secondItem="Ldk-gJ-X3b" secondAttribute="trailing" constant="16" id="clQ-Fx-akL"/>
+                            <constraint firstItem="Ldk-gJ-X3b" firstAttribute="top" secondItem="yGU-Xd-wdr" secondAttribute="top" constant="8" id="ipM-ZH-Yb7"/>
+                        </constraints>
+                    </view>
+                </box>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mC9-BL-pVL">
+                    <rect key="frame" x="18" y="144" width="104" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Print Resolution:" id="geM-ZJ-1Pu">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <point key="canvasLocation" x="99.5" y="93"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="PrintSetting0" width="88" height="88"/>
+        <image name="PrintSetting1" width="88" height="88"/>
+        <image name="PrintSetting2" width="88" height="88"/>
+        <image name="PrintSetting3" width="88" height="88"/>
+    </resources>
+</document>

@@ -80,7 +80,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "610"
                   endingLineNumber = "610"
-                  offsetFromSymbolStart = "122">
+                  offsetFromSymbolStart = "90">
                </Location>
                <Location
                   uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - 75b077dee23bf860"
@@ -95,10 +95,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "610"
                   endingLineNumber = "610"
-                  offsetFromSymbolStart = "148">
+                  offsetFromSymbolStart = "116">
                </Location>
                <Location
-                  uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - 36df7a5d6a4ae9c9"
+                  uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - 36df7a5d6a4b386f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -108,9 +108,9 @@
                   urlString = "file:///Users/vincentneo/Library/Developer/Xcode/DerivedData/Avenue-gdwwepibxiazlufjkficlqarmdnl/SourcePackages/checkouts/CoreGPX/Classes/GPXLegacy.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
+                  startingLineNumber = "610"
+                  endingLineNumber = "610"
+                  offsetFromSymbolStart = "0">
                </Location>
                <Location
                   uuid = "EAA0A2D1-4EB7-47A0-AA5E-EA9EBD592D4D - f42a06ddae6e5154"
@@ -125,7 +125,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "610"
                   endingLineNumber = "610"
-                  offsetFromSymbolStart = "8">
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -158,7 +158,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "126">
+                  offsetFromSymbolStart = "94">
                </Location>
                <Location
                   uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 3fc3f269bebf44dd"
@@ -173,10 +173,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "164">
+                  offsetFromSymbolStart = "132">
                </Location>
                <Location
-                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - c01e59e52d9bdc19"
+                  uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - c01e59e52d9bd94c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -186,9 +186,9 @@
                   urlString = "file:///Users/vincentneo/Documents/GitHub/Avenue/Avenue/PreferenceViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
                </Location>
                <Location
                   uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 31584b06a40a0c5c"
@@ -203,7 +203,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "8">
+                  offsetFromSymbolStart = "15">
                </Location>
                <Location
                   uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - 91938dd826e3a191"
@@ -218,7 +218,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "685">
+                  offsetFromSymbolStart = "487">
                </Location>
                <Location
                   uuid = "C01620C9-5AF3-47C1-977A-B406F7119AAF - d9d5c5f4d3f49c9a"
@@ -233,7 +233,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "614">
+                  offsetFromSymbolStart = "423">
                </Location>
             </Locations>
          </BreakpointContent>

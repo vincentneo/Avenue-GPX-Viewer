@@ -8,10 +8,12 @@
 
 import Cocoa
 import CoreGPX
+import MapKit
 
 class Document: NSDocument {
     
-    //var gpx = GPXRoot()
+    var gpx: GPXRoot?
+    var extent = GPXExtentCoordinates()
     var data = Data()
     
     let appDelegate = NSApp.delegate as! AppDelegate
@@ -74,7 +76,81 @@ class Document: NSDocument {
         }
         */
     }
-
-
+    
+    override func preparePageLayout(_ pageLayout: NSPageLayout) -> Bool {
+        Swift.print(pageLayout.accessoryControllers)
+        pageLayout.addAccessoryController(AdditionalPageSetupViewController())
+        return true
+    }
+    
+    override func printDocument(_ sender: Any?) {
+        Swift.print("print doc call")
+        
+        let options = MKMapSnapshotter.Options()
+        
+        if #available(macOS 10.14, *) {
+            options.appearance = NSAppearance(named: .aqua)
+        }
+        options.region = extent.region
+        
+        let printInfo = self.printInfo
+        printInfo.scalingFactor = floor(printInfo.scalingFactor)
+        printInfo.verticalPagination = .fit
+        printInfo.horizontalPagination = .fit
+        printInfo.bottomMargin = 0
+        printInfo.topMargin = 0
+        printInfo.leftMargin = 0
+        printInfo.rightMargin = 0
+        
+        let imageSize = printInfo.imageablePageBounds.size
+        options.size = imageSize.multiplied(PageSetupResolution.chosenScale)
+        
+        Swift.print("Paper Size \(printInfo.paperSize) | Printable Bounds \(printInfo.imageablePageBounds.size)")
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.start { snapshot, error in
+            guard let image = snapshot?.image else {
+                if let error = error {
+                    Swift.print(error)
+                }
+                return
+            }
+            let drawer = MKSnapshotDrawer(snapshot!, gpx: self.gpx!)
+            let newImage = drawer.processImage()
+            let imageView = NSImageView()
+            imageView.frame = NSRect(origin: .zero, size: image.size)
+            imageView.image = newImage
+            
+            NSPrintInfo.shared = printInfo
+            imageView.beginDocument()
+            
+            let printOperation = NSPrintOperation(view: imageView, printInfo: printInfo)
+            printOperation.showsPrintPanel = true
+            printOperation.run()
+            
+            imageView.endDocument()
+        }
+    }
+    
+    override var isEntireFileLoaded: Bool {
+        return true
+    }
+    
+    // MARK: - To prevent Save Dialog from appearing
+    
+    override var isDocumentEdited: Bool {
+        return false
+    }
+    
+    override func updateChangeCount(_ change: NSDocument.ChangeType) {
+    }
+    
+    override var hasUnautosavedChanges: Bool {
+        return false
+    }
+    
+    override class var autosavesDrafts: Bool {
+        return false
+    }
 }
 

@@ -200,7 +200,7 @@ class PreviewViewController: NSViewController, QLPreviewingController, MKMapView
                 }
                 pr.strokeColor = NSColor.controlAccentColor //.withAlphaComponent(0.65)
             } else {
-                pr.strokeColor = .blue
+                pr.strokeColor = systemBlueColor
             }
             pr.alpha = 0.65
             pr.lineWidth = 5
