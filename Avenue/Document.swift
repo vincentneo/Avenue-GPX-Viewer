@@ -77,11 +77,11 @@ class Document: NSDocument {
         */
     }
     
-//    override func preparePageLayout(_ pageLayout: NSPageLayout) -> Bool {
-//        Swift.print(pageLayout.accessoryControllers)
-//        pageLayout.addAccessoryController(NSViewController)
-//        return true
-//    }
+    override func preparePageLayout(_ pageLayout: NSPageLayout) -> Bool {
+        Swift.print(pageLayout.accessoryControllers)
+        pageLayout.addAccessoryController(AdditionalPageSetupViewController())
+        return true
+    }
     
     override func printDocument(_ sender: Any?) {
         Swift.print("print doc call")
@@ -103,7 +103,8 @@ class Document: NSDocument {
         printInfo.rightMargin = 0
         
         let imageSize = printInfo.imageablePageBounds.size
-        options.size = imageSize//.multiplied(2)
+        options.size = imageSize.multiplied(PageSetupResolution.chosenScale)
+        
         Swift.print("Paper Size \(printInfo.paperSize) | Printable Bounds \(printInfo.imageablePageBounds.size)")
         
         let snapshotter = MKMapSnapshotter(options: options)
@@ -134,6 +135,8 @@ class Document: NSDocument {
     override var isEntireFileLoaded: Bool {
         return true
     }
+    
+    // MARK: - To prevent Save Dialog from appearing
     
     override var isDocumentEdited: Bool {
         return false
