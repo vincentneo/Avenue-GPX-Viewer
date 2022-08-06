@@ -96,6 +96,10 @@ class MapView: MKMapView {
                 }
             }
         }
+        
+        for waypoint in root.waypoints {
+            document.extent.extendAreaToIncludeLocation(waypoint.coordinate)
+        }
         // reduce region span being too close to bounds of view
         document.extent.region.span.latitudeDelta *= 1.25
         document.extent.region.span.longitudeDelta *= 1.25
