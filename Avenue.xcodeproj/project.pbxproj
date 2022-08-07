@@ -179,6 +179,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		12FA7B80289FA49B0053358A /* User Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				12D813D524AA3D77003397F1 /* Preferences.swift */,
+				1214D2DA24BE0590002D399E /* PreferenceViewController.swift */,
+				1292DD43289D6F3000D42E77 /* PageSetupPreferences.swift */,
+				1292DD3F289D6DFF00D42E77 /* AdditionalPageSetupViewController.swift */,
+				1292DD40289D6DFF00D42E77 /* AdditionalPageSetupViewController.xib */,
+				1266EC97289E5C5800A098B8 /* PageSetupCellButton.swift */,
+				1266EC99289E7F3100A098B8 /* PageSetupResolution.swift */,
+			);
+			path = "User Preferences";
+			sourceTree = "<group>";
+		};
 		BF4F5AA222D1FBCD00C8E95A = {
 			isa = PBXGroup;
 			children = (
@@ -203,14 +217,13 @@
 		BF4F5AAD22D1FBCD00C8E95A /* Avenue */ = {
 			isa = PBXGroup;
 			children = (
+				12FA7B80289FA49B0053358A /* User Preferences */,
 				BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */,
 				BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */,
 				BFF76B5522D3819100C269D8 /* MapView.swift */,
 				BFF76B5322D36F4500C269D8 /* WindowController.swift */,
+				120B51FF26DD370A00110657 /* AboutViewController.swift */,
 				BF4F5AB222D1FBCD00C8E95A /* Document.swift */,
-				12D813D524AA3D77003397F1 /* Preferences.swift */,
-				1292DD43289D6F3000D42E77 /* PageSetupPreferences.swift */,
-				1214D2DA24BE0590002D399E /* PreferenceViewController.swift */,
 				BF4F5AB422D1FBCF00C8E95A /* Assets.xcassets */,
 				12B1A19F24A0B428005F781F /* Credits.html */,
 				120A1429249D055F0014E690 /* LaunchWindow.xib */,
@@ -224,13 +237,8 @@
 				BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */,
 				12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */,
 				122BD57A249F4C63006FBB2F /* Double+Measures.swift */,
-				120B51FF26DD370A00110657 /* AboutViewController.swift */,
 				12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */,
 				1292DD3D289D1F7B00D42E77 /* MKSnapshotDrawer.swift */,
-				1292DD3F289D6DFF00D42E77 /* AdditionalPageSetupViewController.swift */,
-				1292DD40289D6DFF00D42E77 /* AdditionalPageSetupViewController.xib */,
-				1266EC97289E5C5800A098B8 /* PageSetupCellButton.swift */,
-				1266EC99289E7F3100A098B8 /* PageSetupResolution.swift */,
 			);
 			path = Avenue;
 			sourceTree = "<group>";
