@@ -48,6 +48,8 @@ class PreferenceViewController: NSViewController {
         
         mapTilesDefaultPopUp.selectItem(at: preferences.mapTileIndex)
         mapTilesDefaultPopUp.action = #selector(popupButtonTriggered(_:))
+        
+        distanceUnitSegmentControl.selectedSegment = preferences.distanceUnitTypeInt
     }
     
     @IBAction func clearButtonPressed(_ sender: NSButton) {
