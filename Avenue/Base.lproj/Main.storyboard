@@ -29,7 +29,7 @@
                 </windowController>
                 <customObject id="d2e-Va-5gc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518" y="-209"/>
+            <point key="canvasLocation" x="75" y="-196"/>
         </scene>
         <!--Preferences-->
         <scene sceneID="mVJ-M5-hcc">
@@ -244,7 +244,7 @@
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="304.5"/>
+            <point key="canvasLocation" x="734" y="-91"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -407,7 +407,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="-120"/>
+            <point key="canvasLocation" x="-828" y="-390"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -509,7 +509,7 @@
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="658"/>
+            <point key="canvasLocation" x="734" y="326"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="b62-fB-04V">
@@ -535,7 +535,7 @@
                 </windowController>
                 <customObject id="1n3-lL-uEG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="-705"/>
+            <point key="canvasLocation" x="-344" y="-661"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="XC7-Lu-csO">
@@ -623,7 +623,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GFY-ty-RJ7">
                                 <rect key="frame" x="214" y="160" width="328" height="14"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2021 Vincent Neo" id="T69-NO-jky">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2022 Vincent Neo" id="T69-NO-jky">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -639,7 +639,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-vL-TI0">
                                 <rect key="frame" x="214" y="115" width="328" height="14"/>
-                                <textFieldCell key="cell" title="Source Code available on GitHub, licensed under GPL-3.0." id="HlK-ey-0TT">
+                                <textFieldCell key="cell" title="Source Code is available on GitHub, licensed under GPL-3.0." id="HlK-ey-0TT">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
