@@ -358,6 +358,18 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Edit" id="rjI-wq-fIi">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="EmN-Wg-Mf4">
+                                    <items>
+                                        <menuItem title="Copy" keyEquivalent="c" id="zIi-IH-J9a">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="dyT-AI-SIa"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">

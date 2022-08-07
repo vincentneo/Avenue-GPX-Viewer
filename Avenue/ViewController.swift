@@ -176,6 +176,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     var mmSize = MiniMapSize.shared
     
     let cursorFollowLabel = NSTextField(labelWithString: "")
+    var lastCursorCoordinates: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -309,10 +310,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         shouldChangeMapView(indexOfSelected: Preferences.shared.mapTileIndex)
         
         NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) {
-            if Preferences.shared.showCursorCoordinates {
-                self.cursorFollowLabel.isHidden = false
-                self.shouldUpdateCursor()
-            }
+            self.cursorFollowLabel.isHidden = !Preferences.shared.showCursorCoordinates
+            self.shouldUpdateCursor()
             return $0
         }
     }
@@ -320,27 +319,31 @@ class ViewController: NSViewController, MKMapViewDelegate {
     func shouldUpdateCursor() {
         if let point = self.view.window?.convertPoint(fromScreen: NSEvent.mouseLocation) {
             let coordinates = self.mapView.convert(point, toCoordinateFrom: self.view)
-            self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f", coordinates.latitude, coordinates.longitude)
+            self.lastCursorCoordinates = coordinates
             
-            let frame = self.view.frame
-            
-            let width = 80.0
-            let height = 30.0
-            let offset = 9.0
-            
-            var x = point.x + offset
-            var y = (frame.height - point.y) + offset
-            
-            if x + width > frame.width {
-                x -= (width + offset)
+            if Preferences.shared.showCursorCoordinates {
+                self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f", coordinates.latitude, coordinates.longitude)
+                
+                let frame = self.view.frame
+                
+                let width = 80.0
+                let height = 30.0
+                let offset = 9.0
+                
+                var x = point.x + offset
+                var y = (frame.height - point.y) + offset
+                
+                if x + width > frame.width {
+                    x -= (width + offset)
+                }
+                
+                if y + height > frame.height {
+                    y -= (height + offset)
+                }
+                
+                
+                self.cursorFollowLabel.frame = NSRect(x: x, y: y, width: width, height: height)
             }
-            
-            if y + height > frame.height {
-                y -= (height + offset)
-            }
-            
-            
-            self.cursorFollowLabel.frame = NSRect(x: x, y: y, width: width, height: height)
         }
     }
     
@@ -530,7 +533,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     @objc func toggleCursorFollowerVisibility(_ sender: NSNotification) {
-        self.cursorFollowLabel.isHidden = Preferences.shared.showCursorCoordinates
+        self.cursorFollowLabel.isHidden = !Preferences.shared.showCursorCoordinates
     }
     
     func setBoxBorderColor() {
@@ -623,6 +626,14 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
     }
 
+    @IBAction func copy(_ sender: Any?) {
+        let pasteboard = NSPasteboard.general
+        if let lastCursorCoordinates = lastCursorCoordinates {
+            let coordinateString = String(format: "%.15f, %.15f", lastCursorCoordinates.latitude, lastCursorCoordinates.longitude)
+            pasteboard.clearContents()
+            pasteboard.setString(coordinateString, forType: .string)
+        }
+    }
 
 }
 
