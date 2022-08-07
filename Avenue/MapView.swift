@@ -57,12 +57,12 @@ class MapView: MKMapView {
                 var length = 0.0
                 var timeInterval = 0.0
                 for track in fileGPX.tracks {
-                    for trackseg in track.tracksegments {
+                    for trackseg in track.segments {
                         length += trackseg.length()
                     }
-                    for trackseg in track.tracksegments {
-                        guard let startTime = trackseg.trackpoints.first?.time,
-                            let endTime = trackseg.trackpoints.last?.time else { continue }
+                    for trackseg in track.segments {
+                        guard let startTime = trackseg.points.first?.time,
+                              let endTime = trackseg.points.last?.time else { continue }
                         let timeBetween = endTime.timeIntervalSince(startTime)
                         timeInterval += timeBetween
                     }
@@ -99,12 +99,12 @@ class MapView: MKMapView {
         }
         
         for track in root.tracks {
-            for segment in track.tracksegments {
+            for segment in track.segments {
                 let overlay = segment.overlay
 
                 self.addOverlay(overlay, level: .aboveLabels)
                 
-                for trkpt in segment.trackpoints {
+                for trkpt in segment.points {
                     document.extent.extendAreaToIncludeLocation(trkpt.coordinate)
                 }
             }
