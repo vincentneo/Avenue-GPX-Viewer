@@ -24,6 +24,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let prefs = Preferences.shared.hideMiniMap
         hideMiniMap = prefs
         switchTitle(hideMiniMap)
+        
+        // to remove "Start Dictation" and "Emoji & Symbols" menu items.
+        if let editMenu = NSApplication.shared.mainMenu?.item(withTitle: "Edit")?.submenu {
+            if editMenu.items.last?.action?.description == "orderFrontCharacterPalette:" {
+                editMenu.removeItem(at: editMenu.items.count - 1)
+            }
+            if editMenu.items.last?.action?.description == "orderFrontCharacterPalette:" {
+                editMenu.removeItem(at: editMenu.items.count - 1)
+            }
+            if editMenu.items.last?.action?.description == "orderFrontCharacterPalette:" {
+                editMenu.removeItem(at: editMenu.items.count - 1)
+            }
+            if editMenu.items.last?.action?.description == "startDictation:" {
+                editMenu.removeItem(at: editMenu.items.count - 1)
+            }
+            if editMenu.items.last?.action?.description == "startDictation:" {
+                editMenu.removeItem(at: editMenu.items.count - 1)
+            }
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

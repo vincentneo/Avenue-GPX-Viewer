@@ -793,7 +793,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
 			requirement = {
-				branch = master;
+				branch = "maybe-safer-date-parsing";
 				kind = branch;
 			};
 		};

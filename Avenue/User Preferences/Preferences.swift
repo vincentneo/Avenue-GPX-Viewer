@@ -18,6 +18,8 @@ let kDefaultsPreferRetina: String = "PreferRetina"
 
 let kDefaultsShowMapScale: String = "ShowMapScale"
 
+let kDefaultsShowCursorCoordinates: String = "ShowCursorFollowerCoordinates"
+
 let kDefaultsMapTileIndex: String = "MapTileIndex"
 
 let kDefaultsDistanceUnitType: String = "DistanceUnitType"
@@ -42,6 +44,7 @@ class Preferences: NSObject {
     private var _enableCache: Bool = true
     private var _preferRetina: Bool = true
     private var _showMapScale: Bool = true
+    private var _showCursorCoordinates: Bool = false
     private var _defaultMapTile: Int = 0
     private var _distanceUnitType: Int = 0
     
@@ -66,6 +69,10 @@ class Preferences: NSObject {
         
         if let showMapScale = defaults.object(forKey: kDefaultsShowMapScale) as? Bool {
             _showMapScale = showMapScale
+        }
+        
+        if let showCursorCoordinates = defaults.object(forKey: kDefaultsShowCursorCoordinates) as? Bool {
+            _showCursorCoordinates = showCursorCoordinates
         }
         
         if let defaultMapTileIndex = defaults.object(forKey: kDefaultsMapTileIndex) as? Int {
@@ -149,4 +156,13 @@ class Preferences: NSObject {
         }
     }
     
+    var showCursorCoordinates: Bool {
+        get {
+            return _showCursorCoordinates
+        }
+        set {
+            _showCursorCoordinates = newValue
+            defaults.set(newValue, forKey: kDefaultsShowCursorCoordinates)
+        }
+    }
 }

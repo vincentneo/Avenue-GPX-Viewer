@@ -17,6 +17,7 @@ class PreferenceViewController: NSViewController {
     @IBOutlet weak var preferRetinaCheckBox: NSButton!
     @IBOutlet weak var mapTilesDefaultPopUp: NSPopUpButton!
     @IBOutlet weak var distanceUnitSegmentControl: NSSegmentedControl!
+    @IBOutlet weak var showCursorCoordinatesButton: NSButton!
     
     /// Global Preferences
     var preferences : Preferences = Preferences.shared
@@ -50,6 +51,8 @@ class PreferenceViewController: NSViewController {
         mapTilesDefaultPopUp.action = #selector(popupButtonTriggered(_:))
         
         distanceUnitSegmentControl.selectedSegment = preferences.distanceUnitTypeInt
+        
+        showCursorCoordinatesButton.state = preferences.showCursorCoordinates ? .on : .off
     }
     
     @IBAction func clearButtonPressed(_ sender: NSButton) {
@@ -102,4 +105,13 @@ class PreferenceViewController: NSViewController {
         Preferences.shared.distanceUnitTypeInt = selectedTag
     }
     
+    @IBAction func cursorCoordinatesClicked(_ sender: NSButton) {
+        if sender.state == .on {
+            preferences.showCursorCoordinates = true
+        }
+        else {
+            preferences.showCursorCoordinates = false
+        }
+        NotificationCenter.default.post(Notification(name: Notification.Name("CursorCoordinatesSettingDidChange")))
+    }
 }
