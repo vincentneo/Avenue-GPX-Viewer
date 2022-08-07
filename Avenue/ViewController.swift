@@ -181,7 +181,17 @@ class ViewController: NSViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mmHidden = Preferences.shared.hideMiniMap
         mapView.delegate = self
+        
         // Do any additional setup after loading the view.
+        
+        self.cursorFollowLabel.frame = NSRect(x: 0, y: 0, width: 80, height: 30)
+        self.cursorFollowLabel.wantsLayer = true
+        self.cursorFollowLabel.layer?.backgroundColor = NSColor.gray.withAlphaComponent(0.4).cgColor
+        self.cursorFollowLabel.layer?.cornerRadius = 8
+        self.cursorFollowLabel.font = .systemFont(ofSize: 11, weight: .bold)
+        //self.cursorFollowLabel.isHidden
+        mapView.addSubview(self.cursorFollowLabel)
+        
         miniMap.autoresizingMask = .none
         miniMap.delegate = mmDelegate
         // size of minimap
@@ -296,17 +306,17 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         shouldChangeMapView(indexOfSelected: Preferences.shared.mapTileIndex)
         
-        self.cursorFollowLabel.frame = NSRect(x: 0, y: 0, width: 100, height: 100)
-        //self.cursorFollowLabel.isHidden
-        mapView.addSubview(self.cursorFollowLabel)
-        
         NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) {
-            if let point = self.view.window?.convertPoint(fromScreen: NSEvent.mouseLocation) {
-                let coordinates = self.mapView.convert(point, toCoordinateFrom: self.view)
-                self.cursorFollowLabel.stringValue = String(format: "%.6f,\n%.6f", coordinates.latitude, coordinates.longitude)
-                self.cursorFollowLabel.frame = NSRect(x: point.x + 10, y: (self.view.frame.height - point.y) + 10, width: 100, height: 100)
-            }
+            self.shouldUpdateCursor()
             return $0
+        }
+    }
+    
+    func shouldUpdateCursor() {
+        if let point = self.view.window?.convertPoint(fromScreen: NSEvent.mouseLocation) {
+            let coordinates = self.mapView.convert(point, toCoordinateFrom: self.view)
+            self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f", coordinates.latitude, coordinates.longitude)
+            self.cursorFollowLabel.frame = NSRect(x: point.x + 9, y: (self.view.frame.height - point.y) + 9, width: 80, height: 30)
         }
     }
     
@@ -529,6 +539,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         setMiniMapRegion(mapView)
+        self.shouldUpdateCursor()
     }
     
     func setMiniMapRegion(_ mapView: MKMapView) {
