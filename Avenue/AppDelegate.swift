@@ -92,6 +92,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         main?.isHidden = false
     }
     
+    @IBAction func fileAnIssue(_ sender: Any) {
+        NSWorkspace.shared.open(URL(string: "https://github.com/vincentneo/Avenue-GPX-Viewer/issues")!)
+    }
+    
 }
 
 extension NSNotification.Name {

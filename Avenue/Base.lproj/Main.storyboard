@@ -421,6 +421,19 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Help" id="3dh-hC-A4Y">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" id="oKA-qw-a2w">
+                                    <items>
+                                        <menuItem title="File an issue" id="wUQ-1N-B2Y">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="fileAnIssue:" target="Voe-Tx-rLC" id="oaW-ve-fap"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                         </items>
                     </menu>
                     <connections>
