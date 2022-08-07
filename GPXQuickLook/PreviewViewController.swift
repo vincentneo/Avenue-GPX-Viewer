@@ -165,10 +165,10 @@ class PreviewViewController: NSViewController, QLPreviewingController, MKMapView
             guard let gpx = try parser.fallibleParsedData(forceContinue: false) else { handler(PossibleErrors.fileIsNil); return }
             mapView.loadedGPXFile(gpx)
             let locale = Locale.current
-            let useImperial = !locale.usesMetricSystem
+            let unitType: Double.DistanceUnitTypes = locale.usesMetricSystem ? .metric : .imperial
             
             let elapsedText = ElapsedTime.getString(from: mapView.timeInterval)
-            let distanceText = mapView.length.toDistance(useImperial: useImperial)
+            let distanceText = mapView.length.toDistance(type: unitType)
             
             if mapView.timeInterval == 0 {
                 elapsedLabel.isHidden = true

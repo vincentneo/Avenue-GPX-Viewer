@@ -16,6 +16,7 @@ class PreferenceViewController: NSViewController {
     @IBOutlet weak var clearCacheButton: NSButton!
     @IBOutlet weak var preferRetinaCheckBox: NSButton!
     @IBOutlet weak var mapTilesDefaultPopUp: NSPopUpButton!
+    @IBOutlet weak var distanceUnitSegmentControl: NSSegmentedControl!
     
     /// Global Preferences
     var preferences : Preferences = Preferences.shared
@@ -47,6 +48,8 @@ class PreferenceViewController: NSViewController {
         
         mapTilesDefaultPopUp.selectItem(at: preferences.mapTileIndex)
         mapTilesDefaultPopUp.action = #selector(popupButtonTriggered(_:))
+        
+        distanceUnitSegmentControl.selectedSegment = preferences.distanceUnitTypeInt
     }
     
     @IBAction func clearButtonPressed(_ sender: NSButton) {
@@ -94,5 +97,9 @@ class PreferenceViewController: NSViewController {
         preferences.mapTileIndex = newValue
     }
     
+    @IBAction func distanceUnitChanged(_ sender: NSSegmentedControl) {
+        let selectedTag = sender.selectedSegment
+        Preferences.shared.distanceUnitTypeInt = selectedTag
+    }
     
 }

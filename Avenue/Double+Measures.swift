@@ -12,6 +12,9 @@ import Foundation
 /// Number of meters in 1 mile (mi)
 let kMetersPerMile = 1609.344
 
+/// Number of meters in 1 mile (mi)
+let kMetersPerNauticalMile = 1852.0
+
 /// Number of meters in 1 kilometer (km)
 let kMetersPerKilometer = 1000.0
 
@@ -66,6 +69,15 @@ extension Double {
         return String(format: "%.2fmi", toMiles() as Double)
     }
     
+    /// Assuming current value is in meters, it returns the equivalent in miles
+    func toNauticalMiles() -> Double {
+        return self/kMetersPerNauticalMile
+    }
+    
+    func toNauticalMiles() -> String {
+        return String(format: "%.2fnmi", toNauticalMiles() as Double)
+    }
+    
     /// Assuming current value is in meters, it returns the equivalent in kilometers
     func toKilometers() -> Double {
         return self/kMetersPerKilometer
@@ -86,15 +98,24 @@ extension Double {
         return String(format: "%.0fm", self)
     }
     
+    enum DistanceUnitTypes: Int {
+        case metric
+        case imperial
+        case nautical
+    }
+    
     /// Assuming current value (d) is in meters it returns the distance as string
     /// * if d < 1000 => in meters ("567m")
     /// * if d > 1000 => in kilometers ("1.24km")
     /// * if useImperial == true => converted in miles ("1.24mi")
-    func toDistance(useImperial: Bool = false) -> String {
-        if useImperial {
-            return toMiles() as String
-        } else {
+    func toDistance(type: DistanceUnitTypes) -> String {
+        switch type {
+        case .metric:
             return self > kMetersPerKilometer ? toKilometers() as String : toMeters() as String
+        case .imperial:
+            return toMiles() as String
+        case .nautical:
+            return toNauticalMiles() as String
         }
     }
     
