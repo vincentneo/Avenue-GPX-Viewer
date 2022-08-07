@@ -321,7 +321,26 @@ class ViewController: NSViewController, MKMapViewDelegate {
         if let point = self.view.window?.convertPoint(fromScreen: NSEvent.mouseLocation) {
             let coordinates = self.mapView.convert(point, toCoordinateFrom: self.view)
             self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f", coordinates.latitude, coordinates.longitude)
-            self.cursorFollowLabel.frame = NSRect(x: point.x + 9, y: (self.view.frame.height - point.y) + 9, width: 80, height: 30)
+            
+            let frame = self.view.frame
+            
+            let width = 80.0
+            let height = 30.0
+            let offset = 9.0
+            
+            var x = point.x + offset
+            var y = (frame.height - point.y) + offset
+            
+            if x + width > frame.width {
+                x -= (width + offset)
+            }
+            
+            if y + height > frame.height {
+                y -= (height + offset)
+            }
+            
+            
+            self.cursorFollowLabel.frame = NSRect(x: x, y: y, width: width, height: height)
         }
     }
     
