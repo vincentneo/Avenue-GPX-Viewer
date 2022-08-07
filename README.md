@@ -7,7 +7,7 @@
     <img src="https://github.com/vincentneo/Avenue-GPX-Viewer/actions/workflows/swift.yml/badge.svg"/>
   </a>
   <a href="https://github.com/vincentneo/CoreGPX">
-    <img src="https://img.shields.io/badge/CoreGPX-v0.8.0-yellow.svg"/>
+    <img src="https://img.shields.io/badge/CoreGPX-v0.9.0-yellow.svg"/>
   </a>
   <a href="https://swift.org">
     <img src="https://img.shields.io/badge/Swift-5.2-orange.svg"/>
