@@ -34,10 +34,10 @@ class Document: NSDocument {
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! WindowController
         
         if let fileName = self.fileURL?.lastPathComponent {
-            let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .regular) ]
+            //let systemRegular = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .regular) ]
             let systemSemibold = [ NSAttributedString.Key.font: NSFont.systemFont(ofSize: 18, weight: .semibold) ]
-            let title = NSMutableAttributedString(string: "File: \(fileName)", attributes: systemSemibold)
-            title.addAttributes(systemRegular, range: NSMakeRange(0, 5))
+            let title = NSMutableAttributedString(string: "\(fileName)", attributes: systemSemibold)
+            //title.addAttributes(systemRegular, range: NSMakeRange(0, 5))
             
             //windowController.barTitle.stringValue = "Avenue - \(title)"
             windowController.barTitle.attributedStringValue = title
@@ -49,6 +49,11 @@ class Document: NSDocument {
         //viewController.mapView.loadedGPXFile(gpx)
         viewController.mapView.loadedGPXData(data, windowController)
         viewController.filePath = fileURL?.absoluteString ?? ""
+        Swift.print(viewController.filePath)
+            
+        windowController.fileImageView.image = NSWorkspace.shared.icon(forFileType: "public.gpx").resize(withSize: NSSize(width: 22, height: 22))
+        windowController.fileImageView.fileURL = fileURL
+        
         appDelegate.enableViewMenuItem()
         //viewController.mmHidden = !UserDefaults.standard.bool(forKey: "showMiniMap")
     }

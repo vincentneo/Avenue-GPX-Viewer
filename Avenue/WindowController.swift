@@ -12,6 +12,7 @@ class WindowController: NSWindowController {
     
     @IBOutlet weak var barTitle: NSTextField!
     @IBOutlet weak var barDistance: NSTextField!
+    @IBOutlet weak var fileImageView: DraggableImageView!
     
     private var dropDownIndex = [String : Int]() // filePath : idx
     
@@ -21,7 +22,6 @@ class WindowController: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         barTitle.stringValue = "Avenue"
         barTitle.isHidden = true
-        
         if #available(OSX 10.12, *) {
             window?.tabbingMode = .preferred
         }
