@@ -175,6 +175,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     var mmSize = MiniMapSize.shared
     
+    let cursorFollowLabel = NSTextField(labelWithString: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -294,6 +295,19 @@ class ViewController: NSViewController, MKMapViewDelegate {
         attribution.isSelectable = false
         
         shouldChangeMapView(indexOfSelected: Preferences.shared.mapTileIndex)
+        
+        self.cursorFollowLabel.frame = NSRect(x: 0, y: 0, width: 100, height: 100)
+        //self.cursorFollowLabel.isHidden
+        mapView.addSubview(self.cursorFollowLabel)
+        
+        NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) {
+            if let point = self.view.window?.convertPoint(fromScreen: NSEvent.mouseLocation) {
+                let coordinates = self.mapView.convert(point, toCoordinateFrom: self.view)
+                self.cursorFollowLabel.stringValue = String(format: "%.6f,\n%.6f", coordinates.latitude, coordinates.longitude)
+                self.cursorFollowLabel.frame = NSRect(x: point.x + 10, y: (self.view.frame.height - point.y) + 10, width: 100, height: 100)
+            }
+            return $0
+        }
     }
     
     deinit {
