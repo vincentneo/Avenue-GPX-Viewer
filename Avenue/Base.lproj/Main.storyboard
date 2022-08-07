@@ -451,7 +451,7 @@
                                 <toolbarItem implicitItemIdentifier="860EE761-8452-4733-A7FB-A5C2BABAB57A" label="Distance" paletteLabel="Distance" sizingBehavior="auto" id="x6A-dH-1Dg">
                                     <nil key="toolTip"/>
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uub-Ud-ev7">
-                                        <rect key="frame" x="0.0" y="14" width="87" height="22"/>
+                                        <rect key="frame" x="0.0" y="14" width="88" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" borderStyle="bezel" alignment="center" placeholderString="Loading..." usesSingleLineMode="YES" bezelStyle="round" id="Xxw-0s-Bts">
                                             <font key="font" metaFont="systemMedium" size="13"/>
@@ -460,8 +460,17 @@
                                         </textFieldCell>
                                     </textField>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="87DE77C2-DFDA-482C-88E4-6359E1F9FE87" label="File Icon" paletteLabel="File Icon" image="NSMultipleDocuments" sizingBehavior="auto" id="TPj-xy-Mux">
+                                    <nil key="toolTip"/>
+                                    <imageView key="view" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="krd-y8-kwy" customClass="DraggableImageView" customModule="Avenue" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="14" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="NSMultipleDocuments" id="IgI-gl-GD6"/>
+                                    </imageView>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="TPj-xy-Mux"/>
                                 <toolbarItem reference="9NC-dN-VgB"/>
                                 <toolbarItem reference="S0k-PL-XeI"/>
                                 <toolbarItem reference="x6A-dH-1Dg"/>
@@ -474,6 +483,7 @@
                     <connections>
                         <outlet property="barDistance" destination="Uub-Ud-ev7" id="iDN-BJ-kgS"/>
                         <outlet property="barTitle" destination="lI5-bJ-PDa" id="R2k-6b-giL"/>
+                        <outlet property="fileImageView" destination="krd-y8-kwy" id="Qfa-eg-Tp8"/>
                         <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
                     </connections>
                 </windowController>
@@ -750,5 +760,6 @@
     </scenes>
     <resources>
         <image name="NSApplicationIcon" width="32" height="32"/>
+        <image name="NSMultipleDocuments" width="32" height="32"/>
     </resources>
 </document>
