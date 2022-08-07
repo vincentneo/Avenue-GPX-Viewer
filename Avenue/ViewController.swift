@@ -189,7 +189,8 @@ class ViewController: NSViewController, MKMapViewDelegate {
         self.cursorFollowLabel.layer?.backgroundColor = NSColor.gray.withAlphaComponent(0.4).cgColor
         self.cursorFollowLabel.layer?.cornerRadius = 8
         self.cursorFollowLabel.font = .systemFont(ofSize: 11, weight: .bold)
-        //self.cursorFollowLabel.isHidden
+        self.cursorFollowLabel.isHidden = true
+        
         mapView.addSubview(self.cursorFollowLabel)
         
         miniMap.autoresizingMask = .none
@@ -287,6 +288,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(cacheSettingsDidChange(_:)), name: Notification.Name("CacheSettingsDidChange"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(retinaSettingDidChange(_:)), name: Notification.Name("RetinaSettingDidChange"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(distanceUnitDidChange(_:)), name: Notification.Name("DistanceUnitChanged"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleCursorFollowerVisibility(_:)), name: Notification.Name("CursorCoordinatesSettingDidChange"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -307,7 +309,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
         shouldChangeMapView(indexOfSelected: Preferences.shared.mapTileIndex)
         
         NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) {
-            self.shouldUpdateCursor()
+            if Preferences.shared.showCursorCoordinates {
+                self.cursorFollowLabel.isHidden = false
+                self.shouldUpdateCursor()
+            }
             return $0
         }
     }
@@ -503,6 +508,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
     
     @objc func distanceUnitDidChange(_ sender: NSNotification) {
         self.mapView.updateBarInfo()
+    }
+    
+    @objc func toggleCursorFollowerVisibility(_ sender: NSNotification) {
+        self.cursorFollowLabel.isHidden = Preferences.shared.showCursorCoordinates
     }
     
     func setBoxBorderColor() {

@@ -193,7 +193,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="preferRetinaCheckBox:" target="3rf-Gu-ZGF" id="WUQ-8a-ko8"/>
+                                                <action selector="cursorCoordinatesClicked:" target="3rf-Gu-ZGF" id="kK6-NK-pHs"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -254,6 +254,7 @@
                         <outlet property="distanceUnitSegmentControl" destination="2R8-TG-SGp" id="iqM-cN-fqS"/>
                         <outlet property="mapTilesDefaultPopUp" destination="B0w-Nn-adW" id="dLI-vQ-ros"/>
                         <outlet property="preferRetinaCheckBox" destination="eYQ-Q4-sO5" id="0wt-xJ-eSs"/>
+                        <outlet property="showCursorCoordinatesButton" destination="vhN-WN-agw" id="eRT-0u-vjO"/>
                         <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
                     </connections>
                 </viewController>
