@@ -23,10 +23,10 @@ class MKSnapshotDrawer {
         let image = snapshot.image
         
         let allTrackSegments = self.gpx.tracks.reduce(into: ([GPXTrackSegment]())) { partialResult, track in
-            partialResult.append(contentsOf: track.tracksegments)
+            partialResult.append(contentsOf: track.segments)
         }
         let allCoordinates = allTrackSegments.map({
-            $0.trackpoints.map({$0.coordinate})
+            $0.points.map({$0.coordinate})
         })
         let allPoints = allCoordinates.map({
             $0.map({ snapshot.point(for: $0) })
