@@ -110,6 +110,14 @@ class MapView: MKMapView {
             }
         }
         
+        for route in root.routes {
+            let overlay = route.overlay
+            self.addOverlay(overlay, level: .aboveLabels)
+            for point in route.points {
+                document.extent.extendAreaToIncludeLocation(point.coordinate)
+            }
+        }
+        
         for waypoint in root.waypoints {
             document.extent.extendAreaToIncludeLocation(waypoint.coordinate)
         }
