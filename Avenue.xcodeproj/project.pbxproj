@@ -49,8 +49,10 @@
 		BF4F5AC422D1FBCF00C8E95A /* AvenueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AC322D1FBCF00C8E95A /* AvenueTests.swift */; };
 		BF5D102F2387F2C000F7D3C9 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
 		BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = BF626D7624CC6CBB007E2EEF /* MapCache */; };
+		BF63F37929718C8300255014 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
 		BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
 		BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
+		BFE75161296829F000864EF4 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
 		BFF76B5422D36F4500C269D8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF76B5322D36F4500C269D8 /* WindowController.swift */; };
 		BFF76B5622D3819100C269D8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF76B5522D3819100C269D8 /* MapView.swift */; };
 /* End PBXBuildFile section */
@@ -127,6 +129,7 @@
 		BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXExtentCoordinates.swift; sourceTree = "<group>"; };
 		BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
+		BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPXRoute+MapKit.swift"; sourceTree = "<group>"; };
 		BFF76B5322D36F4500C269D8 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		BFF76B5522D3819100C269D8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +240,7 @@
 				12D43C6824D090A90075B8B8 /* ElapsedTime.swift */,
 				1214D2DC24BE06E7002D399E /* Int+asFilesize.swift */,
 				BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */,
+				BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */,
 				BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */,
 				BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */,
 				12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */,
@@ -413,6 +417,7 @@
 				1235A0182587C7AF00365811 /* GPXWaypoint+MKAnnotation.swift in Sources */,
 				1235A01C2587C7C100365811 /* GPXExtentCoordinates.swift in Sources */,
 				12CA895226CAD43C00CFAE47 /* Preferences.swift in Sources */,
+				BF63F37929718C8300255014 /* GPXRoute+MapKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +440,7 @@
 				122BD57B249F4C63006FBB2F /* Double+Measures.swift in Sources */,
 				BFF76B5622D3819100C269D8 /* MapView.swift in Sources */,
 				BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */,
+				BFE75161296829F000864EF4 /* GPXRoute+MapKit.swift in Sources */,
 				1265BC6D289FCF3E0058BFDF /* DraggableImageView.swift in Sources */,
 				12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */,
 				BF4F5AB322D1FBCD00C8E95A /* Document.swift in Sources */,
@@ -495,7 +501,7 @@
 				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 138;
+				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = GPXQuickLook/Info.plist;
@@ -504,8 +510,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue.GPXQuickLook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -520,7 +526,7 @@
 				CODE_SIGN_ENTITLEMENTS = GPXQuickLook/GPXQuickLook.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 138;
+				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = GPXQuickLook/Info.plist;
@@ -529,8 +535,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincent-neo.Avenue.GPXQuickLook";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -664,7 +670,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 138;
+				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
@@ -672,8 +678,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -690,7 +696,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 138;
+				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = 3X69W4AQD6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Avenue/Info.plist;
@@ -698,8 +704,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vincent-neo.Avenue";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -720,6 +726,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.AvenueTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -740,6 +747,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.AvenueTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -793,8 +801,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vincentneo/CoreGPX.git";
 			requirement = {
-				branch = "maybe-safer-date-parsing";
-				kind = branch;
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.9.0;
 			};
 		};
 		BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */ = {

@@ -68,6 +68,14 @@ class MapView: MKMapView {
                     }
                 }
                 
+                for route in fileGPX.routes {
+                    length += route.length()
+                    guard let startTime = route.points.first?.time,
+                          let endTime = route.points.last?.time else { continue }
+                    let timeBetween = endTime.timeIntervalSince(startTime)
+                    timeInterval += timeBetween
+                }
+                
                 self.trackLength = length
                 self.trackDuration = timeInterval
                 
@@ -107,6 +115,14 @@ class MapView: MKMapView {
                 for trkpt in segment.points {
                     document.extent.extendAreaToIncludeLocation(trkpt.coordinate)
                 }
+            }
+        }
+        
+        for route in root.routes {
+            let overlay = route.overlay
+            self.addOverlay(overlay, level: .aboveLabels)
+            for point in route.points {
+                document.extent.extendAreaToIncludeLocation(point.coordinate)
             }
         }
         
