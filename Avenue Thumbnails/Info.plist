@@ -7,7 +7,15 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>QLSupportedContentTypes</key>
-			<array/>
+			<array>
+				<string>com.topografix.gpx</string>
+				<string>com.apple.dt.document.gpx</string>
+				<string>com.glacierpeakstudios.gpx</string>
+				<string>com.berbie.documenttypes.gpx</string>
+				<string>com.topographix.gpx</string>
+				<string>public.gpx</string>
+				<string>public.xml</string>
+			</array>
 			<key>QLThumbnailMinimumDimension</key>
 			<integer>0</integer>
 		</dict>
