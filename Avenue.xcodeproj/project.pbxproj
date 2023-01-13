@@ -59,8 +59,8 @@
 		BF63F3912971B76000255014 /* MKSnapshotDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1292DD3D289D1F7B00D42E77 /* MKSnapshotDrawer.swift */; };
 		BF63F3922971B77200255014 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
 		BF63F3932971B77A00255014 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
-		BF63F3942971BDA800255014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4F5AB422D1FBCF00C8E95A /* Assets.xcassets */; };
 		BF63F3952971BE0E00255014 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
+		BF63F3972971C3D600255014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF63F3962971C3D600255014 /* Assets.xcassets */; };
 		BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
 		BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
 		BFE75161296829F000864EF4 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
@@ -151,6 +151,7 @@
 		BF63F3832971B5DD00255014 /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
 		BF63F3852971B5DD00255014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF63F3862971B5DD00255014 /* Avenue_Thumbnails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avenue_Thumbnails.entitlements; sourceTree = "<group>"; };
+		BF63F3962971C3D600255014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPXRoute+MapKit.swift"; sourceTree = "<group>"; };
@@ -306,6 +307,7 @@
 				BF63F3832971B5DD00255014 /* ThumbnailProvider.swift */,
 				BF63F3852971B5DD00255014 /* Info.plist */,
 				BF63F3862971B5DD00255014 /* Avenue_Thumbnails.entitlements */,
+				BF63F3962971C3D600255014 /* Assets.xcassets */,
 			);
 			path = "Avenue Thumbnails";
 			sourceTree = "<group>";
@@ -478,7 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF63F3942971BDA800255014 /* Assets.xcassets in Resources */,
+				BF63F3972971C3D600255014 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
