@@ -23,6 +23,7 @@ class QLMapView: MKMapView {
                 self.extent.extendAreaToIncludeLocation(point.coordinate)
             }
             
+            length += route.length()
             guard let startTime = route.points.first?.time,
                   let endTime = route.points.last?.time else { continue }
             let timeBetween = endTime.timeIntervalSince(startTime)

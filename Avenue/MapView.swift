@@ -68,6 +68,14 @@ class MapView: MKMapView {
                     }
                 }
                 
+                for route in fileGPX.routes {
+                    length += route.length()
+                    guard let startTime = route.points.first?.time,
+                          let endTime = route.points.last?.time else { continue }
+                    let timeBetween = endTime.timeIntervalSince(startTime)
+                    timeInterval += timeBetween
+                }
+                
                 self.trackLength = length
                 self.trackDuration = timeInterval
                 
@@ -116,11 +124,6 @@ class MapView: MKMapView {
             for point in route.points {
                 document.extent.extendAreaToIncludeLocation(point.coordinate)
             }
-            
-            guard let startTime = route.points.first?.time,
-                  let endTime = route.points.last?.time else { continue }
-            let timeBetween = endTime.timeIntervalSince(startTime)
-            self.trackDuration += timeBetween
         }
         
         for waypoint in root.waypoints {
