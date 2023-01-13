@@ -116,6 +116,11 @@ class MapView: MKMapView {
             for point in route.points {
                 document.extent.extendAreaToIncludeLocation(point.coordinate)
             }
+            
+            guard let startTime = route.points.first?.time,
+                  let endTime = route.points.last?.time else { continue }
+            let timeBetween = endTime.timeIntervalSince(startTime)
+            self.trackDuration += timeBetween
         }
         
         for waypoint in root.waypoints {

@@ -15,13 +15,18 @@ class QLMapView: MKMapView {
     var timeInterval = 0.0
     
     func loadedGPXFile(_ root: GPXRoot) {
-        print("MapView: GPX Object Loaded \(root)")        
+        print("MapView: GPX Object Loaded \(root)")
         for route in root.routes {
             let overlay = route.overlay
             self.addOverlay(overlay, level: .aboveLabels)
             for point in route.points {
                 self.extent.extendAreaToIncludeLocation(point.coordinate)
             }
+            
+            guard let startTime = route.points.first?.time,
+                  let endTime = route.points.last?.time else { continue }
+            let timeBetween = endTime.timeIntervalSince(startTime)
+            timeInterval += timeBetween
         }
         
         for waypoint in root.waypoints {
