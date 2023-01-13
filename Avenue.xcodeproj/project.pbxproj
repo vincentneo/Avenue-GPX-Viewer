@@ -49,6 +49,7 @@
 		BF4F5AC422D1FBCF00C8E95A /* AvenueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AC322D1FBCF00C8E95A /* AvenueTests.swift */; };
 		BF5D102F2387F2C000F7D3C9 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
 		BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = BF626D7624CC6CBB007E2EEF /* MapCache */; };
+		BF63F37929718C8300255014 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
 		BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
 		BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
 		BFE75161296829F000864EF4 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
@@ -416,6 +417,7 @@
 				1235A0182587C7AF00365811 /* GPXWaypoint+MKAnnotation.swift in Sources */,
 				1235A01C2587C7C100365811 /* GPXExtentCoordinates.swift in Sources */,
 				12CA895226CAD43C00CFAE47 /* Preferences.swift in Sources */,
+				BF63F37929718C8300255014 /* GPXRoute+MapKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
