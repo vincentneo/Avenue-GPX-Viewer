@@ -50,6 +50,12 @@
 		BF5D102F2387F2C000F7D3C9 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */; };
 		BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */ = {isa = PBXBuildFile; productRef = BF626D7624CC6CBB007E2EEF /* MapCache */; };
 		BF63F37929718C8300255014 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
+		BF63F3802971B5DD00255014 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF63F37F2971B5DC00255014 /* QuickLookThumbnailing.framework */; };
+		BF63F3812971B5DD00255014 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12359FE02587C27300365811 /* Quartz.framework */; };
+		BF63F3842971B5DD00255014 /* ThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF63F3832971B5DD00255014 /* ThumbnailProvider.swift */; };
+		BF63F3892971B5DD00255014 /* Avenue Thumbnails.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BF63F37E2971B5DC00255014 /* Avenue Thumbnails.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF63F38F2971B68A00255014 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = BF63F38E2971B68A00255014 /* CoreGPX */; };
+		BF63F3902971B69000255014 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121E04C724C6F303008EAA29 /* MapKit.framework */; };
 		BF9CFB0822F0787700658566 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */; };
 		BF9CFB0922F0787700658566 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */; };
 		BFE75161296829F000864EF4 /* GPXRoute+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */; };
@@ -72,6 +78,13 @@
 			remoteGlobalIDString = BF4F5AAA22D1FBCD00C8E95A;
 			remoteInfo = Avenue;
 		};
+		BF63F3872971B5DD00255014 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF4F5AA322D1FBCD00C8E95A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF63F37D2971B5DC00255014;
+			remoteInfo = "Avenue Thumbnails";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +94,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				BF63F3892971B5DD00255014 /* Avenue Thumbnails.appex in Embed App Extensions */,
 				12359FEC2587C27300365811 /* GPXQuickLook.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -127,6 +141,11 @@
 		BF4F5AC322D1FBCF00C8E95A /* AvenueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvenueTests.swift; sourceTree = "<group>"; };
 		BF4F5AC522D1FBCF00C8E95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF5D102E2387F2C000F7D3C9 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXExtentCoordinates.swift; sourceTree = "<group>"; };
+		BF63F37E2971B5DC00255014 /* Avenue Thumbnails.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Avenue Thumbnails.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF63F37F2971B5DC00255014 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
+		BF63F3832971B5DD00255014 /* ThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProvider.swift; sourceTree = "<group>"; };
+		BF63F3852971B5DD00255014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF63F3862971B5DD00255014 /* Avenue_Thumbnails.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Avenue_Thumbnails.entitlements; sourceTree = "<group>"; };
 		BF9CFB0522F0787700658566 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		BF9CFB0622F0787700658566 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		BFE75160296829F000864EF4 /* GPXRoute+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GPXRoute+MapKit.swift"; sourceTree = "<group>"; };
@@ -162,6 +181,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF63F37B2971B5DC00255014 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF63F38F2971B68A00255014 /* CoreGPX in Frameworks */,
+				BF63F3802971B5DD00255014 /* QuickLookThumbnailing.framework in Frameworks */,
+				BF63F3902971B69000255014 /* MapKit.framework in Frameworks */,
+				BF63F3812971B5DD00255014 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -182,6 +212,7 @@
 			children = (
 				121E04C724C6F303008EAA29 /* MapKit.framework */,
 				12359FE02587C27300365811 /* Quartz.framework */,
+				BF63F37F2971B5DC00255014 /* QuickLookThumbnailing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,6 +237,7 @@
 				BF4F5AAD22D1FBCD00C8E95A /* Avenue */,
 				BF4F5AC222D1FBCF00C8E95A /* AvenueTests */,
 				12359FE22587C27300365811 /* GPXQuickLook */,
+				BF63F3822971B5DD00255014 /* Avenue Thumbnails */,
 				BF4F5AAC22D1FBCD00C8E95A /* Products */,
 				12C4452A2478FA4100BE9465 /* Frameworks */,
 			);
@@ -217,6 +249,7 @@
 				BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */,
 				BF4F5ABF22D1FBCF00C8E95A /* AvenueTests.xctest */,
 				12359FDF2587C27300365811 /* GPXQuickLook.appex */,
+				BF63F37E2971B5DC00255014 /* Avenue Thumbnails.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +295,16 @@
 			path = AvenueTests;
 			sourceTree = "<group>";
 		};
+		BF63F3822971B5DD00255014 /* Avenue Thumbnails */ = {
+			isa = PBXGroup;
+			children = (
+				BF63F3832971B5DD00255014 /* ThumbnailProvider.swift */,
+				BF63F3852971B5DD00255014 /* Info.plist */,
+				BF63F3862971B5DD00255014 /* Avenue_Thumbnails.entitlements */,
+			);
+			path = "Avenue Thumbnails";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,6 +342,7 @@
 			);
 			dependencies = (
 				12359FEB2587C27300365811 /* PBXTargetDependency */,
+				BF63F3882971B5DD00255014 /* PBXTargetDependency */,
 			);
 			name = Avenue;
 			packageProductDependencies = (
@@ -327,13 +371,33 @@
 			productReference = BF4F5ABF22D1FBCF00C8E95A /* AvenueTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BF63F37D2971B5DC00255014 /* Avenue Thumbnails */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF63F38C2971B5DD00255014 /* Build configuration list for PBXNativeTarget "Avenue Thumbnails" */;
+			buildPhases = (
+				BF63F37A2971B5DC00255014 /* Sources */,
+				BF63F37B2971B5DC00255014 /* Frameworks */,
+				BF63F37C2971B5DC00255014 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Avenue Thumbnails";
+			packageProductDependencies = (
+				BF63F38E2971B68A00255014 /* CoreGPX */,
+			);
+			productName = "Avenue Thumbnails";
+			productReference = BF63F37E2971B5DC00255014 /* Avenue Thumbnails.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BF4F5AA322D1FBCD00C8E95A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Vincent;
 				TargetAttributes = {
@@ -346,6 +410,9 @@
 					BF4F5ABE22D1FBCF00C8E95A = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = BF4F5AAA22D1FBCD00C8E95A;
+					};
+					BF63F37D2971B5DC00255014 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
@@ -369,6 +436,7 @@
 				BF4F5AAA22D1FBCD00C8E95A /* Avenue */,
 				BF4F5ABE22D1FBCF00C8E95A /* AvenueTests */,
 				12359FDE2587C27300365811 /* GPXQuickLook */,
+				BF63F37D2971B5DC00255014 /* Avenue Thumbnails */,
 			);
 		};
 /* End PBXProject section */
@@ -395,6 +463,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BF4F5ABD22D1FBCF00C8E95A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF63F37C2971B5DC00255014 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -460,6 +535,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF63F37A2971B5DC00255014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF63F3842971B5DD00255014 /* ThumbnailProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -472,6 +555,11 @@
 			isa = PBXTargetDependency;
 			target = BF4F5AAA22D1FBCD00C8E95A /* Avenue */;
 			targetProxy = BF4F5AC022D1FBCF00C8E95A /* PBXContainerItemProxy */;
+		};
+		BF63F3882971B5DD00255014 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF63F37D2971B5DC00255014 /* Avenue Thumbnails */;
+			targetProxy = BF63F3872971B5DD00255014 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -755,6 +843,64 @@
 			};
 			name = Release;
 		};
+		BF63F38A2971B5DD00255014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Avenue Thumbnails/Avenue_Thumbnails.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 139;
+				DEVELOPMENT_TEAM = 3X69W4AQD6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Avenue Thumbnails/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Avenue Thumbnails";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Vincent. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.4.1;
+				PRODUCT_BUNDLE_IDENTIFIER = neo.vincent.Avenue.AvenueThumbnails;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BF63F38B2971B5DD00255014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Avenue Thumbnails/Avenue_Thumbnails.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 139;
+				DEVELOPMENT_TEAM = 3X69W4AQD6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Avenue Thumbnails/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Avenue Thumbnails";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Vincent. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.4.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vincent-neo.Avenue.AvenueThumbnails";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -790,6 +936,15 @@
 			buildConfigurations = (
 				BF4F5ACC22D1FBCF00C8E95A /* Debug */,
 				BF4F5ACD22D1FBCF00C8E95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF63F38C2971B5DD00255014 /* Build configuration list for PBXNativeTarget "Avenue Thumbnails" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF63F38A2971B5DD00255014 /* Debug */,
+				BF63F38B2971B5DD00255014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -835,6 +990,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF626D7524CC6CBB007E2EEF /* XCRemoteSwiftPackageReference "MapCache" */;
 			productName = MapCache;
+		};
+		BF63F38E2971B68A00255014 /* CoreGPX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;
+			productName = CoreGPX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
