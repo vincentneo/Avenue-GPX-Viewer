@@ -553,7 +553,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         
         if overlay is MKPolyline {
-            let pr = MKPolylineRenderer(overlay: overlay)
+            let pr = AvenuePolylineRenderer(overlay: overlay)
             if #available(OSX 10.14, *) {
                 if #available(OSX 10.15, *) {
                     pr.shouldRasterize = true
