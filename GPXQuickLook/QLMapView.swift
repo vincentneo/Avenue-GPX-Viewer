@@ -31,6 +31,7 @@ class QLMapView: MKMapView {
         }
         
         for waypoint in root.waypoints {
+            self.extent.extendAreaToIncludeLocation(waypoint.coordinate)
             self.addAnnotation(waypoint)
         }
         
