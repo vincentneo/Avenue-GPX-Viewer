@@ -28,9 +28,22 @@ class MKSnapshotDrawer {
         let allCoordinates = allTrackSegments.map({
             $0.points.map({$0.coordinate})
         })
-        let allPoints = allCoordinates.map({
+        
+        let trackPoints = allCoordinates.map({
             $0.map({ snapshot.point(for: $0) })
         })
+        
+        let routeCoordinates = self.gpx.routes.map({
+            $0.points.map({$0.coordinate})
+        })
+        
+        let routePoints = routeCoordinates.map({
+            $0.map({ snapshot.point(for: $0) })
+        })
+        
+        var allPoints = [[NSPoint]]()
+        allPoints.append(contentsOf: trackPoints)
+        allPoints.append(contentsOf: routePoints)
         
         image.lockFocus()
         
