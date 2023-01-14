@@ -7,6 +7,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>legacy-doc-icon</string>
 			<key>CFBundleTypeIconSystemGenerated</key>
 			<integer>1</integer>
 			<key>CFBundleTypeMIMETypes</key>
@@ -31,6 +33,8 @@
 			<string>$(PRODUCT_MODULE_NAME).Document</string>
 		</dict>
 		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>legacy-doc-icon</string>
 			<key>CFBundleTypeIconSystemGenerated</key>
 			<integer>1</integer>
 			<key>CFBundleTypeMIMETypes</key>
@@ -87,8 +91,13 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIconFile</key>
+			<string>legacy-doc-icon</string>
 			<key>UTTypeIcons</key>
-			<dict/>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>modern-doc-icon-fill</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.topografix.gpx</string>
 			<key>UTTypeReferenceURL</key>
@@ -119,6 +128,13 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIconFile</key>
+			<string>legacy-doc-icon</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>modern-doc-icon-fill</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.apple.dt.document.gpx</string>
 			<key>UTTypeTagSpecification</key>
@@ -144,6 +160,13 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIconFile</key>
+			<string>legacy-doc-icon</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>modern-doc-icon-fill</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.glacierpeakstudios.gpx</string>
 			<key>UTTypeTagSpecification</key>
@@ -169,6 +192,13 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIconFile</key>
+			<string>legacy-doc-icon</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBadgeName</key>
+				<string>modern-doc-icon-fill</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.berbie.documenttypes.gpx</string>
 			<key>UTTypeTagSpecification</key>
@@ -194,8 +224,13 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIconFile</key>
+			<string>legacy-doc-icon</string>
 			<key>UTTypeIcons</key>
-			<dict/>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>modern-doc-icon-fill</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.topographix.gpx</string>
 			<key>UTTypeTagSpecification</key>
@@ -221,8 +256,13 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>GPX File</string>
+			<key>UTTypeIconFile</key>
+			<string>legacy-doc-icon</string>
 			<key>UTTypeIcons</key>
-			<dict/>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>modern-doc-icon-fill</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>public.gpx</string>
 			<key>UTTypeTagSpecification</key>
