@@ -49,6 +49,9 @@ class ThumbnailProvider: QLThumbnailProvider {
         let options = MKMapSnapshotter.Options()
         options.region = extent.region
         options.size = request.maximumSize
+        if #available(macOS 10.14, *) {
+            options.appearance = NSAppearance(named: .aqua)
+        }
         
         let snapshotter = MKMapSnapshotter(options: options)
         snapshotter.start { snapshot, error in
