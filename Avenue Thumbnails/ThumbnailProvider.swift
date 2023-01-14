@@ -12,7 +12,7 @@ import CoreGPX
 
 class ThumbnailProvider: QLThumbnailProvider {
 
-    func prepareExtent(from gpx: GPXRoot) -> GPXExtentCoordinates {
+    func prepareRegion(from gpx: GPXRoot) -> MKCoordinateRegion {
         let extent = GPXExtentCoordinates()
         for route in gpx.routes {
             for point in route.points {
@@ -31,7 +31,12 @@ class ThumbnailProvider: QLThumbnailProvider {
         for waypoint in gpx.waypoints {
             extent.extendAreaToIncludeLocation(waypoint.coordinate)
         }
-        return extent
+        
+        var region = extent.region
+        region.span.latitudeDelta *= 1.25
+        region.span.longitudeDelta *= 1.25
+        
+        return region
     }
     
     override func provideThumbnail(for request: QLFileThumbnailRequest, _ handler: @escaping (QLThumbnailReply?, Error?) -> Void) {
@@ -44,10 +49,10 @@ class ThumbnailProvider: QLThumbnailProvider {
             return
         }
         
-        let extent = self.prepareExtent(from: gpx)
+        let region = self.prepareRegion(from: gpx)
         
         let options = MKMapSnapshotter.Options()
-        options.region = extent.region
+        options.region = region
         options.size = request.maximumSize
         if #available(macOS 10.14, *) {
             options.appearance = NSAppearance(named: .aqua)
