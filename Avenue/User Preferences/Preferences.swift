@@ -26,6 +26,8 @@ let kDefaultsMapTileIndex: String = "MapTileIndex"
 
 let kDefaultsDistanceUnitType: String = "DistanceUnitType"
 
+let kDefaultsShowDirectionalArrows: String = "ShowDirectionalArrows"
+
 /// A class to handle app preferences in one single place.
 /// When the app starts for the first time the following preferences are set:
 ///
@@ -48,6 +50,7 @@ class Preferences: NSObject {
     private var _showMapScale: Bool = true
     private var _showCursorCoordinates: Bool = false
     private var _showCursorGPXInfo: Bool = false
+    private var _showDirectionalArrows: Bool = false
     private var _defaultMapTile: Int = 0
     private var _distanceUnitType: Int = 0
     
@@ -80,6 +83,10 @@ class Preferences: NSObject {
         
         if let showCursorGPXInfo = defaults.object(forKey: kDefaultsShowCursorGPXInfo) as? Bool {
             _showCursorGPXInfo = showCursorGPXInfo
+        }
+        
+        if let showDirectionalArrows = defaults.object(forKey: kDefaultsShowDirectionalArrows) as? Bool {
+            _showDirectionalArrows = showDirectionalArrows
         }
         
         if let defaultMapTileIndex = defaults.object(forKey: kDefaultsMapTileIndex) as? Int {
@@ -182,4 +189,15 @@ class Preferences: NSObject {
             defaults.set(newValue, forKey: kDefaultsShowCursorGPXInfo)
         }
     }
+    
+    var showDirectionalArrows: Bool {
+        get {
+            return _showDirectionalArrows
+        }
+        set {
+            _showDirectionalArrows = newValue
+            defaults.set(newValue, forKey: kDefaultsShowDirectionalArrows)
+        }
+    }
+    
 }

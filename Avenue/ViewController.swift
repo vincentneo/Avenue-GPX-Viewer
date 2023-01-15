@@ -290,6 +290,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(retinaSettingDidChange(_:)), name: Notification.Name("RetinaSettingDidChange"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(distanceUnitDidChange(_:)), name: Notification.Name("DistanceUnitChanged"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(toggleCursorFollowerVisibility(_:)), name: Notification.Name("CursorCoordinatesSettingDidChange"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(directionalArrowsSettingSwitched(_: )), name: Notification.Name("DirectionArrowsSettingDidChange"), object: nil)
         systemAccentObserver = UserDefaults.standard.observe(\.AppleHighlightColor, options: [.initial, .new], changeHandler: { (defaults, change) in
             // update color based on highlight color. Delay required to get correct color as it may update faster before color change.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
@@ -606,7 +607,14 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         
         if overlay is MKPolyline {
-            let pr = AvenuePolylineRenderer(overlay: overlay)
+            let pr: MKPolylineRenderer
+            if Preferences.shared.showDirectionalArrows {
+                pr = AvenuePolylineRenderer(overlay: overlay)
+            }
+            else {
+                pr = MKPolylineRenderer(overlay: overlay)
+            }
+            
             if #available(OSX 10.14, *) {
                 if #available(OSX 10.15, *) {
                     pr.shouldRasterize = true
@@ -685,6 +693,14 @@ class ViewController: NSViewController, MKMapViewDelegate {
             let coordinateString = String(format: "%.15f, %.15f", lastCursorCoordinates.latitude, lastCursorCoordinates.longitude)
             pasteboard.clearContents()
             pasteboard.setString(coordinateString, forType: .string)
+        }
+    }
+    
+    @objc func directionalArrowsSettingSwitched(_ sender: Notification) {
+        let polylines = mapView.overlays.compactMap({$0 as? MKPolyline})
+        for polyline in polylines {
+            mapView.removeOverlay(polyline)
+            mapView.addOverlay(polyline, level: .aboveLabels)
         }
     }
 

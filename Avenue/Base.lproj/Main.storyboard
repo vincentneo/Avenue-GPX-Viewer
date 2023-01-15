@@ -36,11 +36,11 @@
             <objects>
                 <viewController title="Preferences" showSeguePresentationStyle="single" id="3rf-Gu-ZGF" customClass="PreferenceViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pgP-JJ-pLD">
-                        <rect key="frame" x="0.0" y="0.0" width="508" height="397"/>
+                        <rect key="frame" x="0.0" y="0.0" width="508" height="433"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="246" width="474" height="133"/>
+                                <rect key="frame" x="17" y="282" width="474" height="133"/>
                                 <view key="contentView" id="j0r-nZ-idm">
                                     <rect key="frame" x="4" y="5" width="466" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,13 +113,13 @@
                                 </view>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
-                                <rect key="frame" x="17" y="49" width="474" height="197"/>
+                                <rect key="frame" x="17" y="63" width="474" height="219"/>
                                 <view key="contentView" id="VOx-0n-Jex">
-                                    <rect key="frame" x="4" y="5" width="466" height="189"/>
+                                    <rect key="frame" x="4" y="5" width="466" height="211"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
-                                            <rect key="frame" x="27" y="144" width="57" height="25"/>
+                                            <rect key="frame" x="27" y="166" width="57" height="25"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -127,10 +127,10 @@
                                             </textFieldCell>
                                         </textField>
                                         <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzY-vf-ozC">
-                                            <rect key="frame" x="29" y="20" width="408" height="116"/>
+                                            <rect key="frame" x="29" y="20" width="408" height="138"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
-                                                    <rect key="frame" x="-2" y="99" width="357" height="18"/>
+                                                    <rect key="frame" x="-2" y="121" width="357" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Prefer Retina/HiDPI resolution map tiles when available" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3SV-nz-FNV">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -140,7 +140,7 @@
                                                     </connections>
                                                 </button>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="IJQ-Pa-9Yv">
-                                                    <rect key="frame" x="0.0" y="72" width="408" height="22"/>
+                                                    <rect key="frame" x="0.0" y="94" width="408" height="22"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-R8-oRK">
                                                             <rect key="frame" x="-2" y="3" width="186" height="16"/>
@@ -175,7 +175,7 @@
                                                     </constraints>
                                                 </customView>
                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="L2D-SC-3a3">
-                                                    <rect key="frame" x="0.0" y="44" width="408" height="22"/>
+                                                    <rect key="frame" x="0.0" y="66" width="408" height="22"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PZA-xi-0oq">
                                                             <rect key="frame" x="-2" y="3" width="147" height="16"/>
@@ -209,7 +209,7 @@
                                                     </constraints>
                                                 </customView>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-WN-agw">
-                                                    <rect key="frame" x="-2" y="21" width="218" height="18"/>
+                                                    <rect key="frame" x="-2" y="43" width="218" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Show cursor coordinates (Beta)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pBE-zV-4bc">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -219,13 +219,23 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-Mg-Nti">
-                                                    <rect key="frame" x="-2" y="-1" width="364" height="18"/>
+                                                    <rect key="frame" x="-2" y="21" width="364" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Show track or route's date and time when cursor is near" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SHf-PC-raJ">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="cursorGPXInfoClicked:" target="3rf-Gu-ZGF" id="rjQ-vf-wtl"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mlN-MN-mBJ">
+                                                    <rect key="frame" x="-2" y="-1" width="202" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Show path directional arrows" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="21a-mO-xQw">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="pathDirectionalArrowsClicked:" target="3rf-Gu-ZGF" id="CeV-x9-6sb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -235,8 +245,10 @@
                                                 <integer value="1000"/>
                                                 <integer value="1000"/>
                                                 <integer value="1000"/>
+                                                <integer value="1000"/>
                                             </visibilityPriorities>
                                             <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
                                                 <real value="3.4028234663852886e+38"/>
                                                 <real value="3.4028234663852886e+38"/>
                                                 <real value="3.4028234663852886e+38"/>
@@ -257,7 +269,7 @@
                                 </view>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-OM-v12">
-                                <rect key="frame" x="37" y="23" width="434" height="14"/>
+                                <rect key="frame" x="37" y="37" width="434" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change visibility of the mini map, use ⌘S or go to View &gt; Hide/Show Mini Map " id="ewJ-fA-SjV">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -265,7 +277,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyR-HW-d9L">
-                                <rect key="frame" x="26" y="6" width="456" height="14"/>
+                                <rect key="frame" x="26" y="20" width="456" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change print related preferences, use ⇧⌘P or go to File &gt; Page Setup... &gt; Avenue " id="N7s-Li-gUR">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -294,13 +306,14 @@
                         <outlet property="mapTilesDefaultPopUp" destination="B0w-Nn-adW" id="dLI-vQ-ros"/>
                         <outlet property="preferRetinaCheckBox" destination="eYQ-Q4-sO5" id="0wt-xJ-eSs"/>
                         <outlet property="showCursorCoordinatesButton" destination="vhN-WN-agw" id="eRT-0u-vjO"/>
+                        <outlet property="showPathDirectionalArrows" destination="mlN-MN-mBJ" id="vFq-ud-0Db"/>
                         <outlet property="showTrackOrRouteInfo" destination="2dh-Mg-Nti" id="V9k-ct-tyh"/>
                         <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
                     </connections>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="-83.5"/>
+            <point key="canvasLocation" x="734" y="-72.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -600,7 +613,7 @@
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="326"/>
+            <point key="canvasLocation" x="734" y="367"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="b62-fB-04V">
