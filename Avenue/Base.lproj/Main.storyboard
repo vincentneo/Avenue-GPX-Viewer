@@ -36,11 +36,11 @@
             <objects>
                 <viewController title="Preferences" showSeguePresentationStyle="single" id="3rf-Gu-ZGF" customClass="PreferenceViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pgP-JJ-pLD">
-                        <rect key="frame" x="0.0" y="0.0" width="508" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="508" height="397"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="249" width="474" height="133"/>
+                                <rect key="frame" x="17" y="246" width="474" height="133"/>
                                 <view key="contentView" id="j0r-nZ-idm">
                                     <rect key="frame" x="4" y="5" width="466" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,112 +113,151 @@
                                 </view>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
-                                <rect key="frame" x="17" y="73" width="474" height="176"/>
+                                <rect key="frame" x="17" y="49" width="474" height="197"/>
                                 <view key="contentView" id="VOx-0n-Jex">
-                                    <rect key="frame" x="4" y="5" width="466" height="168"/>
+                                    <rect key="frame" x="4" y="5" width="466" height="189"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
-                                            <rect key="frame" x="27" y="123" width="57" height="25"/>
+                                            <rect key="frame" x="27" y="144" width="57" height="25"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
-                                            <rect key="frame" x="27" y="98" width="357" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="HTp-6w-Ag5"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="check" title="Prefer Retina/HiDPI resolution map tiles when available" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3SV-nz-FNV">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="preferRetinaCheckBox:" target="3rf-Gu-ZGF" id="opC-zm-IKj"/>
-                                            </connections>
-                                        </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-R8-oRK">
-                                            <rect key="frame" x="30" y="75" width="186" height="16"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Preferred map tiles on launch:" id="qrm-dM-hFs">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-Nn-adW">
-                                            <rect key="frame" x="219" y="68" width="106" height="25"/>
-                                            <popUpButtonCell key="cell" type="push" title="Tile Type 2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="opS-g9-mfa" id="XQU-e6-o5t">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
-                                                <menu key="menu" id="b8d-2a-nP9">
-                                                    <items>
-                                                        <menuItem title="Tile Type 1" id="Vbm-9a-soW"/>
-                                                        <menuItem title="Tile Type 2" state="on" id="opS-g9-mfa"/>
-                                                        <menuItem title="Tile Type 3" id="Aop-hd-hwa"/>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                        </popUpButton>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PZA-xi-0oq">
-                                            <rect key="frame" x="30" y="43" width="147" height="16"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Preferred distance unit:" id="fbc-WP-RF0">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2R8-TG-SGp">
-                                            <rect key="frame" x="181" y="39" width="198" height="24"/>
-                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jdA-6a-MAj">
-                                                <font key="font" metaFont="system"/>
-                                                <segments>
-                                                    <segment label="Metric" selected="YES"/>
-                                                    <segment label="Miles" tag="1"/>
-                                                    <segment label="Nautical Miles" tag="2"/>
-                                                </segments>
-                                            </segmentedCell>
-                                            <connections>
-                                                <action selector="distanceUnitChanged:" target="3rf-Gu-ZGF" id="D3X-9p-fAt"/>
-                                            </connections>
-                                        </segmentedControl>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-WN-agw">
-                                            <rect key="frame" x="28" y="15" width="357" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="5vg-7y-L2k"/>
-                                            </constraints>
-                                            <buttonCell key="cell" type="check" title="Show cursor coordinates (Beta)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pBE-zV-4bc">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="cursorCoordinatesClicked:" target="3rf-Gu-ZGF" id="kK6-NK-pHs"/>
-                                            </connections>
-                                        </button>
+                                        <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzY-vf-ozC">
+                                            <rect key="frame" x="29" y="20" width="408" height="116"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
+                                                    <rect key="frame" x="-2" y="99" width="357" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Prefer Retina/HiDPI resolution map tiles when available" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3SV-nz-FNV">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="preferRetinaCheckBox:" target="3rf-Gu-ZGF" id="opC-zm-IKj"/>
+                                                    </connections>
+                                                </button>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="IJQ-Pa-9Yv">
+                                                    <rect key="frame" x="0.0" y="72" width="408" height="22"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-R8-oRK">
+                                                            <rect key="frame" x="-2" y="3" width="186" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Preferred map tiles on launch:" id="qrm-dM-hFs">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-Nn-adW">
+                                                            <rect key="frame" x="187" y="-4" width="106" height="25"/>
+                                                            <popUpButtonCell key="cell" type="push" title="Tile Type 2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="opS-g9-mfa" id="XQU-e6-o5t">
+                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="menu"/>
+                                                                <menu key="menu" id="b8d-2a-nP9">
+                                                                    <items>
+                                                                        <menuItem title="Tile Type 1" id="Vbm-9a-soW"/>
+                                                                        <menuItem title="Tile Type 2" state="on" id="opS-g9-mfa"/>
+                                                                        <menuItem title="Tile Type 3" id="Aop-hd-hwa"/>
+                                                                    </items>
+                                                                </menu>
+                                                            </popUpButtonCell>
+                                                        </popUpButton>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="B0w-Nn-adW" firstAttribute="leading" secondItem="QvW-R8-oRK" secondAttribute="trailing" constant="8" id="1YR-kM-l3p"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="B0w-Nn-adW" secondAttribute="trailing" constant="20" symbolic="YES" id="7Y7-ba-R6k"/>
+                                                        <constraint firstItem="B0w-Nn-adW" firstAttribute="centerY" secondItem="QvW-R8-oRK" secondAttribute="centerY" constant="1" id="JiT-Ed-jVC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QvW-R8-oRK" secondAttribute="bottom" constant="3" id="QOY-IZ-q4j"/>
+                                                        <constraint firstItem="QvW-R8-oRK" firstAttribute="top" secondItem="IJQ-Pa-9Yv" secondAttribute="top" constant="3" id="uNh-YX-0IN"/>
+                                                        <constraint firstItem="QvW-R8-oRK" firstAttribute="leading" secondItem="IJQ-Pa-9Yv" secondAttribute="leading" id="vqr-WZ-e2a"/>
+                                                    </constraints>
+                                                </customView>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="L2D-SC-3a3">
+                                                    <rect key="frame" x="0.0" y="44" width="408" height="22"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PZA-xi-0oq">
+                                                            <rect key="frame" x="-2" y="3" width="147" height="16"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Preferred distance unit:" id="fbc-WP-RF0">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2R8-TG-SGp">
+                                                            <rect key="frame" x="149" y="-1" width="198" height="24"/>
+                                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jdA-6a-MAj">
+                                                                <font key="font" metaFont="system"/>
+                                                                <segments>
+                                                                    <segment label="Metric" selected="YES"/>
+                                                                    <segment label="Miles" tag="1"/>
+                                                                    <segment label="Nautical Miles" tag="2"/>
+                                                                </segments>
+                                                            </segmentedCell>
+                                                            <connections>
+                                                                <action selector="distanceUnitChanged:" target="3rf-Gu-ZGF" id="D3X-9p-fAt"/>
+                                                            </connections>
+                                                        </segmentedControl>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="2R8-TG-SGp" firstAttribute="centerY" secondItem="PZA-xi-0oq" secondAttribute="centerY" id="0be-zY-ftl"/>
+                                                        <constraint firstItem="PZA-xi-0oq" firstAttribute="leading" secondItem="L2D-SC-3a3" secondAttribute="leading" id="RUs-6Q-Ex6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PZA-xi-0oq" secondAttribute="bottom" constant="3" id="tKt-6J-OsV"/>
+                                                        <constraint firstItem="2R8-TG-SGp" firstAttribute="leading" secondItem="PZA-xi-0oq" secondAttribute="trailing" constant="8" symbolic="YES" id="wqT-ou-hsJ"/>
+                                                        <constraint firstItem="PZA-xi-0oq" firstAttribute="top" secondItem="L2D-SC-3a3" secondAttribute="top" constant="3" id="zu7-Cs-BlV"/>
+                                                    </constraints>
+                                                </customView>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-WN-agw">
+                                                    <rect key="frame" x="-2" y="21" width="218" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Show cursor coordinates (Beta)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pBE-zV-4bc">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="cursorCoordinatesClicked:" target="3rf-Gu-ZGF" id="kK6-NK-pHs"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-Mg-Nti">
+                                                    <rect key="frame" x="-2" y="-1" width="364" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Show track or route's date and time when cursor is near" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SHf-PC-raJ">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="cursorGPXInfoClicked:" target="3rf-Gu-ZGF" id="rjQ-vf-wtl"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PZA-xi-0oq" firstAttribute="top" secondItem="QvW-R8-oRK" secondAttribute="bottom" constant="16" id="2U8-MO-KPA"/>
-                                        <constraint firstItem="2R8-TG-SGp" firstAttribute="leading" secondItem="PZA-xi-0oq" secondAttribute="trailing" constant="8" symbolic="YES" id="5kc-4I-Bgn"/>
-                                        <constraint firstItem="QvW-R8-oRK" firstAttribute="leading" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="32" id="64M-D2-ycC"/>
-                                        <constraint firstItem="eYQ-Q4-sO5" firstAttribute="centerX" secondItem="VOx-0n-Jex" secondAttribute="centerX" constant="-27" id="AJr-6D-EDW"/>
                                         <constraint firstItem="WKb-wA-L0B" firstAttribute="top" secondItem="VOx-0n-Jex" secondAttribute="top" constant="20" id="B8F-qe-ifu"/>
-                                        <constraint firstItem="PZA-xi-0oq" firstAttribute="leading" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="32" id="CKd-tR-fCf"/>
-                                        <constraint firstItem="QvW-R8-oRK" firstAttribute="top" secondItem="eYQ-Q4-sO5" secondAttribute="bottom" constant="8" id="DdO-er-R88"/>
-                                        <constraint firstItem="2R8-TG-SGp" firstAttribute="centerY" secondItem="PZA-xi-0oq" secondAttribute="centerY" id="GYp-cw-uqm"/>
-                                        <constraint firstItem="eYQ-Q4-sO5" firstAttribute="top" secondItem="WKb-wA-L0B" secondAttribute="bottom" constant="8" symbolic="YES" id="HuV-gb-Ptu"/>
-                                        <constraint firstItem="vhN-WN-agw" firstAttribute="top" secondItem="2R8-TG-SGp" secondAttribute="bottom" constant="8" symbolic="YES" id="K45-kl-rIy"/>
                                         <constraint firstAttribute="centerX" secondItem="WKb-wA-L0B" secondAttribute="trailing" constant="151.5" id="TcZ-59-7zp"/>
-                                        <constraint firstItem="vhN-WN-agw" firstAttribute="leading" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="30" id="aD1-Ue-CLK"/>
+                                        <constraint firstItem="pzY-vf-ozC" firstAttribute="leading" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="29" id="YAe-jB-y2S"/>
+                                        <constraint firstItem="pzY-vf-ozC" firstAttribute="top" secondItem="WKb-wA-L0B" secondAttribute="bottom" constant="8" symbolic="YES" id="bNu-nN-RYf"/>
+                                        <constraint firstAttribute="bottom" secondItem="pzY-vf-ozC" secondAttribute="bottom" constant="20" symbolic="YES" id="c88-AL-ZQh"/>
                                         <constraint firstItem="WKb-wA-L0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VOx-0n-Jex" secondAttribute="leading" constant="23" id="ckc-cB-s1r"/>
-                                        <constraint firstAttribute="bottom" secondItem="vhN-WN-agw" secondAttribute="bottom" constant="16" id="hQp-t6-Mgp"/>
-                                        <constraint firstItem="B0w-Nn-adW" firstAttribute="centerY" secondItem="QvW-R8-oRK" secondAttribute="centerY" constant="1" id="hpz-h7-43k"/>
-                                        <constraint firstItem="B0w-Nn-adW" firstAttribute="leading" secondItem="QvW-R8-oRK" secondAttribute="trailing" constant="8" id="pT7-R9-1zs"/>
+                                        <constraint firstAttribute="trailing" secondItem="pzY-vf-ozC" secondAttribute="trailing" constant="29" id="q1T-My-jsC"/>
                                     </constraints>
                                 </view>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-OM-v12">
-                                <rect key="frame" x="37" y="47" width="434" height="14"/>
+                                <rect key="frame" x="37" y="23" width="434" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change visibility of the mini map, use ⌘S or go to View &gt; Hide/Show Mini Map " id="ewJ-fA-SjV">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -226,7 +265,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyR-HW-d9L">
-                                <rect key="frame" x="26" y="30" width="456" height="14"/>
+                                <rect key="frame" x="26" y="6" width="456" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change print related preferences, use ⇧⌘P or go to File &gt; Page Setup... &gt; Avenue " id="N7s-Li-gUR">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -255,12 +294,13 @@
                         <outlet property="mapTilesDefaultPopUp" destination="B0w-Nn-adW" id="dLI-vQ-ros"/>
                         <outlet property="preferRetinaCheckBox" destination="eYQ-Q4-sO5" id="0wt-xJ-eSs"/>
                         <outlet property="showCursorCoordinatesButton" destination="vhN-WN-agw" id="eRT-0u-vjO"/>
+                        <outlet property="showTrackOrRouteInfo" destination="2dh-Mg-Nti" id="V9k-ct-tyh"/>
                         <outlet property="sizeText" destination="2a1-Ol-b7u" id="lBm-8p-8Uo"/>
                     </connections>
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="-70"/>
+            <point key="canvasLocation" x="734" y="-83.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">

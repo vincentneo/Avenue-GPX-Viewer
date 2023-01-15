@@ -20,6 +20,8 @@ let kDefaultsShowMapScale: String = "ShowMapScale"
 
 let kDefaultsShowCursorCoordinates: String = "ShowCursorFollowerCoordinates"
 
+let kDefaultsShowCursorGPXInfo: String = "ShowCursorFollowerGPXInfo"
+
 let kDefaultsMapTileIndex: String = "MapTileIndex"
 
 let kDefaultsDistanceUnitType: String = "DistanceUnitType"
@@ -45,6 +47,7 @@ class Preferences: NSObject {
     private var _preferRetina: Bool = true
     private var _showMapScale: Bool = true
     private var _showCursorCoordinates: Bool = false
+    private var _showCursorGPXInfo: Bool = false
     private var _defaultMapTile: Int = 0
     private var _distanceUnitType: Int = 0
     
@@ -73,6 +76,10 @@ class Preferences: NSObject {
         
         if let showCursorCoordinates = defaults.object(forKey: kDefaultsShowCursorCoordinates) as? Bool {
             _showCursorCoordinates = showCursorCoordinates
+        }
+        
+        if let showCursorGPXInfo = defaults.object(forKey: kDefaultsShowCursorGPXInfo) as? Bool {
+            _showCursorGPXInfo = showCursorGPXInfo
         }
         
         if let defaultMapTileIndex = defaults.object(forKey: kDefaultsMapTileIndex) as? Int {
@@ -163,6 +170,16 @@ class Preferences: NSObject {
         set {
             _showCursorCoordinates = newValue
             defaults.set(newValue, forKey: kDefaultsShowCursorCoordinates)
+        }
+    }
+    
+    var showCursorGPXInfo: Bool {
+        get {
+            return _showCursorGPXInfo
+        }
+        set {
+            _showCursorGPXInfo = newValue
+            defaults.set(newValue, forKey: kDefaultsShowCursorGPXInfo)
         }
     }
 }

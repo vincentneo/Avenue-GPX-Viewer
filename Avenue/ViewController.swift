@@ -316,18 +316,71 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
     }
     
+    // radius is in meters.
+    private func findPoint(withinRadius radius: Double = 60, cursorCoordinates: CLLocationCoordinate2D) -> GPXWaypoint? {
+        var breakAll = false
+        var waypoint: GPXWaypoint?
+        let cursorLocation = CLLocation(latitude: cursorCoordinates.latitude, longitude: cursorCoordinates.longitude)
+        
+        if let gpx = self.mapView.document?.gpx {
+            for route in gpx.routes {
+                for point in route.points {
+                    let location = CLLocation(latitude: point.coordinate.latitude, longitude: point.coordinate.longitude)
+                    if location.distance(from: cursorLocation) <= radius {
+                        breakAll = true
+                        waypoint = point
+                        break
+                    }
+                }
+                if breakAll { break }
+            }
+            for track in gpx.tracks {
+                for segment in track.segments {
+                    for point in segment.points {
+                        let location = CLLocation(latitude: point.coordinate.latitude, longitude: point.coordinate.longitude)
+                        if location.distance(from: cursorLocation) <= radius {
+                            breakAll = true
+                            waypoint = point
+                            break
+                        }
+                    }
+                    if breakAll { break }
+                }
+                if breakAll { break }
+            }
+        }
+        return waypoint
+    }
+    
     func shouldUpdateCursor() {
         if let point = self.view.window?.convertPoint(fromScreen: NSEvent.mouseLocation) {
             let coordinates = self.mapView.convert(point, toCoordinateFrom: self.view)
             self.lastCursorCoordinates = coordinates
             
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .medium
+            
             if Preferences.shared.showCursorCoordinates {
-                self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f", coordinates.latitude, coordinates.longitude)
+                var width = 80.0
+                var height = 30.0
+                
+                var withinRadiusPoint: GPXWaypoint? = nil
+                if Preferences.shared.showCursorGPXInfo {
+                    withinRadiusPoint = self.findPoint(cursorCoordinates: coordinates)
+                }
+                
+                if let withinRadiusPoint, let time = withinRadiusPoint.time {
+                    self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f,\n %@", coordinates.latitude, coordinates.longitude, dateFormatter.string(from: time))
+                    width = 130.0
+                    height = 45.0
+                }
+                else {
+                    self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f", coordinates.latitude, coordinates.longitude)
+                }
                 
                 let frame = self.view.frame
                 
-                let width = 80.0
-                let height = 30.0
                 let offset = 9.0
                 
                 var x = point.x + offset
@@ -553,7 +606,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         
         if overlay is MKPolyline {
-            let pr = MKPolylineRenderer(overlay: overlay)
+            let pr = AvenuePolylineRenderer(overlay: overlay)
             if #available(OSX 10.14, *) {
                 if #available(OSX 10.15, *) {
                     pr.shouldRasterize = true

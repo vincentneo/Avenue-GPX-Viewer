@@ -41,6 +41,7 @@
 		12F930DB25886E5500501C8F /* QLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F930DA25886E5500501C8F /* QLMapView.swift */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
 		12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
+		BF1E4A102972D1C300B0C294 /* AvenuePolylineRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E4A0F2972D1C300B0C294 /* AvenuePolylineRenderer.swift */; };
 		BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */; };
 		BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */; };
 		BF4F5AB322D1FBCD00C8E95A /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AB222D1FBCD00C8E95A /* Document.swift */; };
@@ -134,6 +135,7 @@
 		12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Multiplier.swift"; sourceTree = "<group>"; };
 		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
 		12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
+		BF1E4A0F2972D1C300B0C294 /* AvenuePolylineRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvenuePolylineRenderer.swift; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				1292DD3D289D1F7B00D42E77 /* MKSnapshotDrawer.swift */,
 				1265BC6C289FCF3E0058BFDF /* DraggableImageView.swift */,
 				1265BC6E289FCFD20058BFDF /* NSImagesExtensions.swift */,
+				BF1E4A0F2972D1C300B0C294 /* AvenuePolylineRenderer.swift */,
 			);
 			path = Avenue;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				12D81ABD289C2FD500E5BE2E /* CGSize+Multiplier.swift in Sources */,
 				1292DD3E289D1F7B00D42E77 /* MKSnapshotDrawer.swift in Sources */,
 				BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */,
+				BF1E4A102972D1C300B0C294 /* AvenuePolylineRenderer.swift in Sources */,
 				1265BC6F289FCFD20058BFDF /* NSImagesExtensions.swift in Sources */,
 				12D43C6924D090A90075B8B8 /* ElapsedTime.swift in Sources */,
 				1292DD41289D6DFF00D42E77 /* AdditionalPageSetupViewController.swift in Sources */,
