@@ -10,6 +10,7 @@ import Cocoa
 import MapKit
 import CoreGPX
 import MapCache
+import StoreKit
 
 class ViewController: NSViewController, MKMapViewDelegate {
 
@@ -314,6 +315,16 @@ class ViewController: NSViewController, MKMapViewDelegate {
             self.cursorFollowLabel.isHidden = !Preferences.shared.showCursorCoordinates
             self.shouldUpdateCursor()
             return $0
+        }
+        
+        if #available(OSX 10.14, *) {
+            let randomInt = Int.random(in: 0..<5)
+            
+            if randomInt == 2 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    SKStoreReviewController.requestReview()
+                }
+            }
         }
     }
     
