@@ -219,7 +219,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-Mg-Nti">
-                                                    <rect key="frame" x="-2" y="21" width="364" height="18"/>
+                                                    <rect key="frame" x="21" y="21" width="364" height="18"/>
                                                     <buttonCell key="cell" type="check" title="Show track or route's date and time when cursor is near" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SHf-PC-raJ">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -239,6 +239,9 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2dh-Mg-Nti" firstAttribute="leading" secondItem="pzY-vf-ozC" secondAttribute="leading" constant="23" id="FRo-Qy-y0Z"/>
+                                            </constraints>
                                             <visibilityPriorities>
                                                 <integer value="1000"/>
                                                 <integer value="1000"/>
@@ -313,7 +316,7 @@
                 </viewController>
                 <customObject id="4O6-ve-Jtt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="-72.5"/>
+            <point key="canvasLocation" x="734" y="-76.5"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">

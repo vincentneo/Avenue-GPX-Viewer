@@ -61,6 +61,13 @@ class PreferenceViewController: NSViewController {
         showPathDirectionalArrows.state = preferences.showDirectionalArrows ? .on : .off
     }
     
+    override func viewDidAppear() {
+        if #available(macOS 13, *) {
+            self.view.window?.title = "Settings"
+        }
+        // pre macOS Ventura would have the title of "Preferences"
+    }
+    
     @IBAction func clearButtonPressed(_ sender: NSButton) {
         print("clear cache")
         sizeText.stringValue = "Clearing..."
