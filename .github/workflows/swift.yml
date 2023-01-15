@@ -13,6 +13,6 @@ jobs:
     name: Build
     runs-on: macos-12
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build Avenue GPX Viewer
       run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Avenue.xcodeproj" -scheme "Avenue" -destination "platform=macOS" clean build | xcpretty
