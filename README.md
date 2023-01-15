@@ -71,7 +71,7 @@ Please do note that by contributing, you are providing me (Vincent Neo) the righ
 ## License
 Avenue GPX Viewer for macOS. 
 
-Copyright © 2020-2022 Vincent Neo, with certain codes belonging to Juan M. Merlos (@merlos) from [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), used with permission.
+Copyright © 2020-2023 Vincent Neo, with certain codes belonging to Juan M. Merlos (@merlos) from [iOS-Open-GPX-Tracker](https://github.com/merlos/iOS-Open-GPX-Tracker), used with permission.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
