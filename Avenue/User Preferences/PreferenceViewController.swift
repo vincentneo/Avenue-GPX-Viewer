@@ -18,6 +18,7 @@ class PreferenceViewController: NSViewController {
     @IBOutlet weak var mapTilesDefaultPopUp: NSPopUpButton!
     @IBOutlet weak var distanceUnitSegmentControl: NSSegmentedControl!
     @IBOutlet weak var showCursorCoordinatesButton: NSButton!
+    @IBOutlet weak var showTrackOrRouteInfo: NSButton!
     
     /// Global Preferences
     var preferences : Preferences = Preferences.shared
@@ -53,6 +54,8 @@ class PreferenceViewController: NSViewController {
         distanceUnitSegmentControl.selectedSegment = preferences.distanceUnitTypeInt
         
         showCursorCoordinatesButton.state = preferences.showCursorCoordinates ? .on : .off
+        showTrackOrRouteInfo.state = preferences.showCursorGPXInfo ? .on : .off
+        showTrackOrRouteInfo.isEnabled = preferences.showCursorCoordinates
     }
     
     @IBAction func clearButtonPressed(_ sender: NSButton) {
@@ -111,6 +114,16 @@ class PreferenceViewController: NSViewController {
         }
         else {
             preferences.showCursorCoordinates = false
+        }
+        showTrackOrRouteInfo.isEnabled = preferences.showCursorCoordinates
+        NotificationCenter.default.post(Notification(name: Notification.Name("CursorCoordinatesSettingDidChange")))
+    }
+    @IBAction func cursorGPXInfoClicked(_ sender: NSButton) {
+        if sender.state == .on {
+            preferences.showCursorGPXInfo = true
+        }
+        else {
+            preferences.showCursorGPXInfo = false
         }
         NotificationCenter.default.post(Notification(name: Notification.Name("CursorCoordinatesSettingDidChange")))
     }

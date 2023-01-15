@@ -317,7 +317,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     // radius is in meters.
-    func findPoint(withinRadius radius: Double = 60, cursorCoordinates: CLLocationCoordinate2D) -> GPXWaypoint? {
+    private func findPoint(withinRadius radius: Double = 60, cursorCoordinates: CLLocationCoordinate2D) -> GPXWaypoint? {
         var breakAll = false
         var waypoint: GPXWaypoint?
         let cursorLocation = CLLocation(latitude: cursorCoordinates.latitude, longitude: cursorCoordinates.longitude)
@@ -365,7 +365,10 @@ class ViewController: NSViewController, MKMapViewDelegate {
                 var width = 80.0
                 var height = 30.0
                 
-                var withinRadiusPoint = self.findPoint(cursorCoordinates: coordinates)
+                var withinRadiusPoint: GPXWaypoint? = nil
+                if Preferences.shared.showCursorGPXInfo {
+                    withinRadiusPoint = self.findPoint(cursorCoordinates: coordinates)
+                }
                 
                 if let withinRadiusPoint, let time = withinRadiusPoint.time {
                     self.cursorFollowLabel.stringValue = String(format: " %.6f,\n %.6f,\n %@", coordinates.latitude, coordinates.longitude, dateFormatter.string(from: time))
