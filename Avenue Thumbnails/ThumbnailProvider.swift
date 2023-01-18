@@ -43,6 +43,11 @@ class ThumbnailProvider: QLThumbnailProvider {
         
         // There are three ways to provide a thumbnail through a QLThumbnailReply. Only one of them should be used.
         
+        guard request.fileURL.pathExtension.lowercased() == "gpx" else {
+            handler(nil, nil)
+            return
+        }
+        
         // First way: Draw the thumbnail into the current context, set up with UIKit's coordinate system.
         guard let parser = GPXParser(withURL: request.fileURL), let gpx = parser.parsedData() else {
             handler(nil, GPXError.parser.fileIsEmpty)
