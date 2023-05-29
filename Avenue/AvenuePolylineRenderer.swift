@@ -23,6 +23,8 @@ class AvenuePolylineRenderer: MKPolylineRenderer {
         
         var prevMapPoint: MKMapPoint?
         
+        guard self.polyline.pointCount > 2 else { return }
+        
         for idx in 0..<self.polyline.pointCount - 2 {
             guard mapRect.contains(mapPoints[idx]) || mapRect.contains(mapPoints[idx + 1]) else { continue }
             let startMapPoint = mapPoints[idx]
