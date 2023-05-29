@@ -11,6 +11,7 @@ import MapKit
 import CoreGPX
 import MapCache
 import StoreKit
+import Cluster
 
 class ViewController: NSViewController, MKMapViewDelegate {
 
@@ -640,9 +641,29 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         return MKOverlayRenderer()
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ClusterAnnotation {
+            let view = StyledClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster", style: .color(.systemRed, radius: 30))
+            return view
+        }
+        else {
+            if #available(macOS 11, *) {
+                return MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "marker")
+            }
+            else {
+                return MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            }
+        }
+    }
+    
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         setMiniMapRegion(mapView)
         self.shouldUpdateCursor()
+        if let mapView = mapView as? MapView {
+            mapView.clusterManager.reload(mapView: mapView) { finished in
+            }
+        }
     }
     
     func setMiniMapRegion(_ mapView: MKMapView) {
@@ -753,8 +774,14 @@ class MiniDelegate: NSObject, MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is GPXWaypoint else {
-            print("Non-GPXWaypoint annotation for minimap found")
-            return nil
+//            if let annotation = annotation as? ClusterAnnotation {
+//                let view = StyledClusterAnnotationView(annotation: annotation, reuseIdentifier: "cluster", style: .color(.systemRed, radius: 25))
+//                return view
+//            }
+//            else {
+                print("Non-GPXWaypoint annotation for minimap found")
+                return nil
+            //}
         }
         
         let identifier = "mmPin"

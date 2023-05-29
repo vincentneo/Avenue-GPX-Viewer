@@ -41,6 +41,7 @@
 		12F930DB25886E5500501C8F /* QLMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F930DA25886E5500501C8F /* QLMapView.swift */; };
 		12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */ = {isa = PBXBuildFile; productRef = 12C445052478F67D00BE9465 /* CoreGPX */; };
 		12FF818424AF7D02001A2DB3 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */; };
+		BF18054229838C5400BBDC9D /* Cluster in Frameworks */ = {isa = PBXBuildFile; productRef = BF18054129838C5400BBDC9D /* Cluster */; };
 		BF1E4A102972D1C300B0C294 /* AvenuePolylineRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E4A0F2972D1C300B0C294 /* AvenuePolylineRenderer.swift */; };
 		BF4F5AAF22D1FBCD00C8E95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */; };
 		BF4F5AB122D1FBCD00C8E95A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F5AB022D1FBCD00C8E95A /* ViewController.swift */; };
@@ -135,6 +136,7 @@
 		12D81ABC289C2FD500E5BE2E /* CGSize+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Multiplier.swift"; sourceTree = "<group>"; };
 		12F930DA25886E5500501C8F /* QLMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMapView.swift; sourceTree = "<group>"; };
 		12FF818324AF7D02001A2DB3 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXTileServer.swift; sourceTree = "<group>"; };
+		BF180540298389F200BBDC9D /* Cluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Cluster; path = ../Cluster; sourceTree = "<group>"; };
 		BF1E4A0F2972D1C300B0C294 /* AvenuePolylineRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvenuePolylineRenderer.swift; sourceTree = "<group>"; };
 		BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avenue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4F5AAE22D1FBCD00C8E95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF626D7724CC6CBB007E2EEF /* MapCache in Frameworks */,
+				BF18054229838C5400BBDC9D /* Cluster in Frameworks */,
 				121E04C824C6F303008EAA29 /* MapKit.framework in Frameworks */,
 				12FD1FE42478FA53002D1892 /* CoreGPX in Frameworks */,
 			);
@@ -239,9 +242,18 @@
 			path = "User Preferences";
 			sourceTree = "<group>";
 		};
+		BF18053F298389F200BBDC9D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BF180540298389F200BBDC9D /* Cluster */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		BF4F5AA222D1FBCD00C8E95A = {
 			isa = PBXGroup;
 			children = (
+				BF18053F298389F200BBDC9D /* Packages */,
 				BF4F5AAD22D1FBCD00C8E95A /* Avenue */,
 				BF4F5AC222D1FBCF00C8E95A /* AvenueTests */,
 				12359FE22587C27300365811 /* GPXQuickLook */,
@@ -358,6 +370,7 @@
 			packageProductDependencies = (
 				12C445052478F67D00BE9465 /* CoreGPX */,
 				BF626D7624CC6CBB007E2EEF /* MapCache */,
+				BF18054129838C5400BBDC9D /* Cluster */,
 			);
 			productName = Avenue;
 			productReference = BF4F5AAB22D1FBCD00C8E95A /* Avenue.app */;
@@ -1001,6 +1014,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 12C445042478F67D00BE9465 /* XCRemoteSwiftPackageReference "CoreGPX" */;
 			productName = CoreGPX;
+		};
+		BF18054129838C5400BBDC9D /* Cluster */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Cluster;
 		};
 		BF626D7624CC6CBB007E2EEF /* MapCache */ = {
 			isa = XCSwiftPackageProductDependency;

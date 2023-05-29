@@ -9,8 +9,9 @@
 import Cocoa
 import MapKit
 import CoreGPX
+import Cluster
 
-class MapView: MKMapView {
+class MapView: MKMapView, ClusterManagerDelegate {
     
     var document: Document? {
         return self.window?.windowController?.document as? Document
@@ -18,6 +19,16 @@ class MapView: MKMapView {
     
     private var trackLength = 0.0
     private var trackDuration = 0.0
+    
+    var clusterManager: ClusterManager = {
+        let manager = ClusterManager()
+        //manager.delegate = self
+        manager.maxZoomLevel = 10
+        manager.minCountForClustering = 5
+        manager.distanceFromContestedLocation = 100
+        manager.clusterPosition = .average
+        return manager
+    }()
     
     func loadedGPXData(_ data: Data, _ windowCon: WindowController) {
         let indicator = NSProgressIndicator(frame: self.frame)
@@ -102,9 +113,9 @@ class MapView: MKMapView {
         
         print("MapView: GPX Object Loaded \(root)")
         
-        for waypoint in root.waypoints {
-            self.addAnnotation(waypoint)
-        }
+//        for waypoint in root.waypoints {
+//            self.addAnnotation(waypoint)
+//        }
         
         for track in root.tracks {
             for segment in track.segments {
@@ -129,6 +140,12 @@ class MapView: MKMapView {
         for waypoint in root.waypoints {
             document.extent.extendAreaToIncludeLocation(waypoint.coordinate)
         }
+        
+        self.clusterManager.add(root.waypoints)
+        //DispatchQueue.main.async {
+
+        //}
+        
         // reduce region span being too close to bounds of view
         document.extent.region.span.latitudeDelta *= 1.25
         document.extent.region.span.longitudeDelta *= 1.25
