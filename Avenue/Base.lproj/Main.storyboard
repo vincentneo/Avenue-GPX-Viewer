@@ -730,7 +730,7 @@
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GFY-ty-RJ7">
                                 <rect key="frame" x="214" y="180" width="328" height="14"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2023 Vincent Neo" id="T69-NO-jky">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2025 Vincent Neo" id="T69-NO-jky">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
