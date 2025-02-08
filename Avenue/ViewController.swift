@@ -231,7 +231,11 @@ class ViewController: NSViewController, MKMapViewDelegate {
            let mapText = miniMap.subviews.filter({ $0.isKind(of: textClass) }).first {
             mapText.isHidden = true
         }
-        if let textClass = NSClassFromString("MKAttributionLabel"),
+        if let textClass = NSClassFromString("MKAppleLogoLabel"),
+           let logo = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
+            dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: logo.frame.height + 6)
+        }
+        else if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
             dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
             //segments.frame = segments.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
