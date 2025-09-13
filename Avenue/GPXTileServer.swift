@@ -32,10 +32,6 @@ enum GPXTileServer: Int, CaseIterable {
     /// OpenTopoMap tile server
     case openTopoMap
     
-    /// Wikimedia tile server
-    case wikimedia
-    
-    
     /// CyclOSM tile server
     case cyclOSM
     
@@ -46,7 +42,6 @@ enum GPXTileServer: Int, CaseIterable {
         case .openStreetMap: return "Open Street Map"
         case .cartoDB: return "CARTO"
         case .openTopoMap: return "OpenTopoMap"
-        case .wikimedia: return "Wikimedia"
         case .cyclOSM: return "CyclOSM"
         //case .AnotherMap: return "My Map"
         }
@@ -60,7 +55,6 @@ enum GPXTileServer: Int, CaseIterable {
        // case .cartoDB: return "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
         case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png"
         case .openTopoMap: return "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-        case .wikimedia: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
         case .cyclOSM: return "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
         //case .AnotherMap: return "http://another.map.tile.server/{z}/{x}/{y}.png"
         }
@@ -70,7 +64,6 @@ enum GPXTileServer: Int, CaseIterable {
     var retinaUrl: String? {
         switch self {
         case .cartoDB: return "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png"
-        case .wikimedia: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}@2x.png"
         default: return nil
         }
     }
@@ -88,7 +81,6 @@ enum GPXTileServer: Int, CaseIterable {
         case .openStreetMap: return ["a","b","c"]
         case .cartoDB: return ["a","b","c","d"]
         case .openTopoMap: return ["a","b","c"]
-        case .wikimedia: return []
         case .cyclOSM: return ["a", "b", "c"]
         //case .AnotherMap: return ["a","b"]
         }
@@ -109,7 +101,6 @@ enum GPXTileServer: Int, CaseIterable {
             case .openStreetMap: return 19
             case .cartoDB: return 25
             case .openTopoMap: return 17
-            case .wikimedia: return 19
             case .cyclOSM: return 19
             //case .AnotherMap: return 10
         }
@@ -128,7 +119,6 @@ enum GPXTileServer: Int, CaseIterable {
             case .openStreetMap: return 0
             case .cartoDB: return 0
             case .openTopoMap: return 0
-            case .wikimedia: return 0
             case .cyclOSM: return 0
             //case .AnotherMap: return ["a","b"]
         }
@@ -140,7 +130,6 @@ enum GPXTileServer: Int, CaseIterable {
         case .openStreetMap: return "© OpenStreetMap contributors"
         case .cartoDB: return "© OpenStreetMap contributors, © CARTO"
         case .openTopoMap: return "© OpenStreetMap contributors, SRTM, © OpenTopoMap (CC-BY-SA)"
-        case .wikimedia: return "Wikimedia Maps | Map Data © OpenStreetMap contributors"
         case .cyclOSM: return " CyclOSM | Map data © OpenStreetMap contributors"
         }
     }
@@ -149,6 +138,6 @@ enum GPXTileServer: Int, CaseIterable {
     static var count: Int { return GPXTileServer.cyclOSM.rawValue + 1 }
     
     static var allCases: [GPXTileServer] { return [.openStreetMap, .cartoDB,
-                                                   .openTopoMap, .wikimedia,
+                                                   .openTopoMap,
                                                    .cyclOSM]}
 }
