@@ -721,7 +721,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duc-6a-ugC">
-                                <rect key="frame" x="214" y="208" width="328" height="19"/>
+                                <rect key="frame" x="214" y="203" width="328" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Version X, Build Y" id="xSX-v2-pn6">
                                     <font key="font" metaFont="system" size="15"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -819,11 +819,11 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="duc-6a-ugC" firstAttribute="top" secondItem="T1l-9U-bUf" secondAttribute="bottom" constant="-5" id="4Zb-B6-h0W"/>
+                            <constraint firstItem="duc-6a-ugC" firstAttribute="top" secondItem="T1l-9U-bUf" secondAttribute="bottom" id="4Zb-B6-h0W"/>
                             <constraint firstItem="Tg3-wG-kTZ" firstAttribute="leading" secondItem="pzO-eC-GcI" secondAttribute="leading" constant="33" id="AjD-1u-c8V"/>
                             <constraint firstItem="I2c-O3-XIx" firstAttribute="top" secondItem="uSk-4K-qye" secondAttribute="bottom" constant="16" id="BVX-IL-H9f"/>
                             <constraint firstItem="Twt-0Z-Qju" firstAttribute="trailing" secondItem="GFY-ty-RJ7" secondAttribute="trailing" id="CRc-yJ-MDe"/>
-                            <constraint firstItem="GFY-ty-RJ7" firstAttribute="top" secondItem="duc-6a-ugC" secondAttribute="bottom" constant="14" id="D6n-LP-wae"/>
+                            <constraint firstItem="GFY-ty-RJ7" firstAttribute="top" secondItem="duc-6a-ugC" secondAttribute="bottom" constant="9" id="D6n-LP-wae"/>
                             <constraint firstItem="feW-do-P8c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I2c-O3-XIx" secondAttribute="trailing" constant="8" id="Gw4-s4-xpp"/>
                             <constraint firstItem="GFY-ty-RJ7" firstAttribute="leading" secondItem="duc-6a-ugC" secondAttribute="leading" id="H9Y-Jr-yxo"/>
                             <constraint firstItem="YAv-T9-vSI" firstAttribute="top" secondItem="I2c-O3-XIx" secondAttribute="bottom" constant="12" symbolic="YES" id="Kr1-Q8-zq7"/>

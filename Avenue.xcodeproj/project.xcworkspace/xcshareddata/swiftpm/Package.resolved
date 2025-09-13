@@ -1,4 +1,5 @@
 {
+  "originHash" : "8e3370b7daf62116a65501e9879fee91a246dad1f74e9af797ac6528722b3bd9",
   "pins" : [
     {
       "identity" : "coregpx",
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/merlos/MapCache.git",
       "state" : {
-        "revision" : "54000665b3cdf399236694e117f46b024faaf096",
-        "version" : "0.9.0"
+        "revision" : "c18c99823de57b6d91c6af248a1e436d380f88cc",
+        "version" : "0.10.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
