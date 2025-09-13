@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24127" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="23094"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24127"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="24127"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +13,7 @@
                 <outlet property="distanceView" destination="z4j-eI-R5b" id="xtC-of-jqW"/>
                 <outlet property="elapsedLabel" destination="TCb-44-1O8" id="BDR-Rg-KLO"/>
                 <outlet property="elapsedView" destination="z9b-oc-KHM" id="cJ3-kz-UGI"/>
+                <outlet property="infoLabel" destination="tgV-rA-4BU" id="BaD-LO-lDw"/>
                 <outlet property="mapView" destination="UzC-PF-7Pd" id="ga4-Lj-1gy"/>
                 <outlet property="view" destination="c22-O7-iKe" id="NRM-P4-wb6"/>
             </connections>
@@ -88,13 +89,23 @@
                         <constraint firstAttribute="trailing" secondItem="PGM-OW-i8f" secondAttribute="trailing" constant="3" id="rqx-yI-anO"/>
                     </constraints>
                 </visualEffectView>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tgV-rA-4BU">
+                    <rect key="frame" x="203" y="8" width="34" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Text" id="V1L-Ox-yhD">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
+                <constraint firstItem="tgV-rA-4BU" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="99b-py-7Qk"/>
                 <constraint firstItem="z9b-oc-KHM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="Ebk-dJ-Fa7"/>
                 <constraint firstItem="UzC-PF-7Pd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="H1F-Mi-9rJ"/>
                 <constraint firstAttribute="trailing" secondItem="z9b-oc-KHM" secondAttribute="trailing" constant="10" id="HzP-3X-MPo"/>
                 <constraint firstItem="z9b-oc-KHM" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="9" id="NAX-AU-NUd"/>
                 <constraint firstAttribute="trailing" secondItem="z4j-eI-R5b" secondAttribute="trailing" constant="10" id="NMf-Ix-owc"/>
+                <constraint firstAttribute="bottom" secondItem="tgV-rA-4BU" secondAttribute="bottom" constant="8" id="PMB-Hk-oki"/>
                 <constraint firstItem="z4j-eI-R5b" firstAttribute="top" secondItem="z9b-oc-KHM" secondAttribute="bottom" constant="4" id="YG8-Xy-Ztq"/>
                 <constraint firstItem="UzC-PF-7Pd" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ace-48-IQY"/>
                 <constraint firstItem="z4j-eI-R5b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" id="n4b-kQ-9Nw"/>

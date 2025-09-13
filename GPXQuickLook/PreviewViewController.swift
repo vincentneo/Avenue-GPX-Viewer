@@ -20,6 +20,7 @@ class PreviewViewController: NSViewController, QLPreviewingController, MKMapView
     @IBOutlet weak var distanceLabel: NSTextField!
     @IBOutlet weak var mapView: QLMapView!
     //@IBOutlet weak var debugLabel: NSTextField!
+    @IBOutlet weak var infoLabel: NSTextField!
     
     enum PossibleErrors: Error {
         case fileIsNil
@@ -132,6 +133,13 @@ class PreviewViewController: NSViewController, QLPreviewingController, MKMapView
         distanceView.wantsLayer = true
         distanceView.layer?.cornerRadius = 5
         distanceView.layer?.masksToBounds = true
+        
+        if #available(macOS 15, *) {
+            infoLabel.stringValue = "Note: Starting with macOS 15 Sequoia, a macOS Quick Look bug has caused the map to fail to load, ever since."
+        }
+        else {
+            infoLabel.stringValue = ""
+        }
         
         //mapView.addOverlay(tileServerOverlay)
         //updateMapViewToUse(index: Preferences.shared.mapTileIndex)

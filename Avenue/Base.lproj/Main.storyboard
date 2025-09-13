@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="23094"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="23094"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24127"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="24127"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="24127"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -154,7 +154,7 @@
                                                             <rect key="frame" x="187" y="-4" width="106" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="Tile Type 2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="opS-g9-mfa" id="XQU-e6-o5t">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="menu"/>
+                                                                <font key="font" metaFont="message"/>
                                                                 <menu key="menu" id="b8d-2a-nP9">
                                                                     <items>
                                                                         <menuItem title="Tile Type 1" id="Vbm-9a-soW"/>
@@ -517,7 +517,7 @@
                         <rect key="contentRect" x="360" y="580" width="600" height="320"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="510" height="280"/>
-                        <toolbar key="toolbar" implicitIdentifier="0EEF5A14-8378-48A4-8460-11D6D979D7C4" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="TlO-sG-wAA">
+                        <toolbar key="toolbar" implicitIdentifier="0EEF5A14-8378-48A4-8460-11D6D979D7C4" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="TlO-sG-wAA">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="6D6F2236-97C4-44A9-B5EB-72153FF70CE2" label="Custom View" paletteLabel="Custom View" title="Textured Rounded" sizingBehavior="auto" id="y9P-Wf-7VF">
                                     <nil key="toolTip"/>

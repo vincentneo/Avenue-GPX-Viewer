@@ -175,6 +175,7 @@ class ViewController: NSViewController, MKMapViewDelegate {
     }
     
     var mmSize = MiniMapSize.shared
+    var glassView: NSView?
     
     let cursorFollowLabel = NSTextField(labelWithString: "")
     var lastCursorCoordinates: CLLocationCoordinate2D?
@@ -214,12 +215,21 @@ class ViewController: NSViewController, MKMapViewDelegate {
             dropDownMenu.addItem(withTitle: server.name)
         }
         dropDownMenu.selectItem(at: Preferences.shared.mapTileIndex)
-        dropDownMenu.wantsLayer = true
-        dropDownMenu.layer?.opacity = 0.9
         //dropDownMenu.menu?.items.append()
-        self.view.addSubview(dropDownMenu)
+//        self.view.addSubview(dropDownMenu)
         
-        
+        if #available(macOS 26, *) {
+            let glassView = NSGlassEffectView()
+            glassView.frame = NSRect(x: 0, y: 0, width: 145, height: 25)
+            glassView.contentView = dropDownMenu
+            self.glassView = glassView
+            self.view.addSubview(glassView)
+        }
+        else {
+            dropDownMenu.wantsLayer = true
+            dropDownMenu.layer?.opacity = 0.9
+            self.view.addSubview(dropDownMenu)
+        }
         
         //self.view.addSubview(segments)
         //segments.selectedSegment = 0
@@ -233,11 +243,21 @@ class ViewController: NSViewController, MKMapViewDelegate {
         }
         if let textClass = NSClassFromString("MKAppleLogoLabel"),
            let logo = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
-            dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: logo.frame.height + 6)
+            if let glassView {
+                self.glassView?.frame = glassView.frame.offsetBy(dx: 8, dy: logo.frame.height - 8)
+            }
+            else {
+                dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: logo.frame.height + 6)
+            }
         }
         else if let textClass = NSClassFromString("MKAttributionLabel"),
            let mapText = mapView.subviews.filter({ $0.isKind(of: textClass) }).first {
-            dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
+            if let glassView {
+                self.glassView?.frame = glassView.frame.offsetBy(dx: 8, dy: mapText.frame.height - 8)
+            }
+            else {
+                dropDownMenu.frame = dropDownMenu.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
+            }
             //segments.frame = segments.frame.offsetBy(dx: 3, dy: mapText.frame.height + 3)
         }
         
@@ -305,8 +325,15 @@ class ViewController: NSViewController, MKMapViewDelegate {
         
         mapView.addSubview(attribution)
         attribution.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: attribution, attribute: .leading, relatedBy: .equal, toItem: mapView, attribute: .leading, multiplier: 1, constant: 5).isActive = true
-        NSLayoutConstraint(item: attribution, attribute: .bottom, relatedBy: .equal, toItem: mapView, attribute: .bottom, multiplier: 1, constant: -3).isActive = true
+        
+        if #available(macOS 26, *) {
+            NSLayoutConstraint(item: attribution, attribute: .leading, relatedBy: .equal, toItem: mapView, attribute: .leading, multiplier: 1, constant: 10).isActive = true
+            NSLayoutConstraint(item: attribution, attribute: .bottom, relatedBy: .equal, toItem: mapView, attribute: .bottom, multiplier: 1, constant: -10).isActive = true
+        }
+        else {
+            NSLayoutConstraint(item: attribution, attribute: .leading, relatedBy: .equal, toItem: mapView, attribute: .leading, multiplier: 1, constant: 5).isActive = true
+            NSLayoutConstraint(item: attribution, attribute: .bottom, relatedBy: .equal, toItem: mapView, attribute: .bottom, multiplier: 1, constant: -3).isActive = true
+        }
         
         attribution.isBezeled = false
         attribution.drawsBackground = false
