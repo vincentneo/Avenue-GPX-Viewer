@@ -23,33 +23,12 @@
 			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
+				<string>public.gpx</string>
 				<string>com.topografix.gpx</string>
 				<string>com.apple.dt.document.gpx</string>
 				<string>com.glacierpeakstudios.gpx</string>
 				<string>com.berbie.documenttypes.gpx</string>
 				<string>com.topographix.gpx</string>
-			</array>
-			<key>NSDocumentClass</key>
-			<string>$(PRODUCT_MODULE_NAME).Document</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeIconFile</key>
-			<string>legacy-doc-icon</string>
-			<key>CFBundleTypeIconSystemGenerated</key>
-			<integer>1</integer>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>application/gpx+xml</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>GPX File</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>public.gpx</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>$(PRODUCT_MODULE_NAME).Document</string>
@@ -76,7 +55,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2019-2025 Vincent Neo. All rights reserved.</string>
+	<string>Copyright © 2019-2026 Vincent Neo. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
