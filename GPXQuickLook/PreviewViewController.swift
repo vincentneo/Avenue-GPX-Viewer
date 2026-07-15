@@ -135,7 +135,7 @@ class PreviewViewController: NSViewController, QLPreviewingController, MKMapView
         distanceView.layer?.masksToBounds = true
         
         if #available(macOS 15, *) {
-            infoLabel.stringValue = "Note: Starting with macOS 15 Sequoia, a macOS Quick Look bug has caused the map to fail to load, ever since."
+            infoLabel.stringValue = ""//"Note: Starting with macOS 15 Sequoia, a macOS Quick Look bug has caused the map to fail to load, ever since."
         }
         else {
             infoLabel.stringValue = ""
