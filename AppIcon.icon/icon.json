@@ -4,6 +4,7 @@
   },
   "groups" : [
     {
+      "blur-material" : 0.33,
       "layers" : [
         {
           "hidden" : false,
@@ -47,7 +48,21 @@
               -67.45117903398129
             ]
           }
-        },
+        }
+      ],
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.89
+      }
+    },
+    {
+      "blur-material" : 0.5,
+      "hidden" : false,
+      "layers" : [
         {
           "blend-mode-specializations" : [
             {
@@ -57,7 +72,7 @@
           ],
           "hidden-specializations" : [
             {
-              "value" : true
+              "value" : false
             },
             {
               "appearance" : "tinted",
@@ -73,7 +88,40 @@
               79.71165486155957
             ]
           }
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Group",
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency-specializations" : [
+        {
+          "value" : {
+            "enabled" : true,
+            "value" : 0
+          }
         },
+        {
+          "appearance" : "dark",
+          "value" : {
+            "enabled" : true,
+            "value" : 0
+          }
+        }
+      ]
+    },
+    {
+      "blur-material-specializations" : [
+        {
+          "appearance" : "dark",
+          "value" : null
+        }
+      ],
+      "hidden" : false,
+      "layers" : [
         {
           "blend-mode-specializations" : [
             {
@@ -138,6 +186,7 @@
           }
         },
         {
+          "blend-mode" : "normal",
           "glass" : false,
           "hidden" : false,
           "image-name" : "AvenueV3.png",
@@ -158,14 +207,42 @@
           "name" : "Back"
         }
       ],
-      "shadow" : {
-        "kind" : "neutral",
-        "opacity" : 0.5
-      },
-      "translucency" : {
-        "enabled" : true,
-        "value" : 0.5
-      }
+      "shadow-specializations" : [
+        {
+          "value" : {
+            "kind" : "neutral",
+            "opacity" : 0.5
+          }
+        },
+        {
+          "appearance" : "dark",
+          "value" : {
+            "kind" : "neutral",
+            "opacity" : 0
+          }
+        }
+      ],
+      "specular-specializations" : [
+        {
+          "appearance" : "dark",
+          "value" : false
+        }
+      ],
+      "translucency-specializations" : [
+        {
+          "value" : {
+            "enabled" : false,
+            "value" : 1
+          }
+        },
+        {
+          "appearance" : "dark",
+          "value" : {
+            "enabled" : false,
+            "value" : 0
+          }
+        }
+      ]
     }
   ],
   "supported-platforms" : {
