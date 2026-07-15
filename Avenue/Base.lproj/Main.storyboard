@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24127"/>
-        <plugIn identifier="com.apple.MapKitIBPlugin" version="24127"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="24127"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24765"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="24765"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="24765"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,13 +40,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                         <subviews>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-gZ-c1V">
-                                <rect key="frame" x="17" y="282" width="474" height="133"/>
+                                <rect key="frame" x="20" y="288" width="468" height="125"/>
                                 <view key="contentView" id="j0r-nZ-idm">
-                                    <rect key="frame" x="4" y="5" width="466" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="468" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFn-5E-saa">
-                                            <rect key="frame" x="23" y="29" width="421" height="18"/>
+                                            <rect key="frame" x="27" y="30" width="417" height="16"/>
                                             <buttonCell key="cell" type="check" title="Allow saving of third party map tiles for offline and faster loading." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WtD-KG-Igf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -56,7 +56,7 @@
                                             </connections>
                                         </button>
                                         <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEL-zv-0ZR">
-                                            <rect key="frame" x="25" y="54" width="153" height="19"/>
+                                            <rect key="frame" x="26" y="54" width="153" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Current Cache Size: " id="eIQ-e1-Cjj">
                                                 <font key="font" metaFont="system" size="16"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -64,7 +64,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-Ol-b7u">
-                                            <rect key="frame" x="178" y="54" width="78" height="19"/>
+                                            <rect key="frame" x="179" y="54" width="78" height="19"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Loading..." id="I0e-gG-oth">
                                                 <font key="font" metaFont="systemMedium" size="16"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -72,7 +72,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-5v-HwY">
-                                            <rect key="frame" x="328" y="45" width="108" height="32"/>
+                                            <rect key="frame" x="336" y="52" width="98" height="24"/>
                                             <buttonCell key="cell" type="push" title="Clear Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Cje-Sj-iGg">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -82,7 +82,7 @@
                                             </connections>
                                         </button>
                                         <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HzW-jp-WHY">
-                                            <rect key="frame" x="25" y="81" width="66" height="24"/>
+                                            <rect key="frame" x="26" y="81" width="66" height="24"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Cache" id="l1K-Z0-7de">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -113,13 +113,13 @@
                                 </view>
                             </box>
                             <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-mG-Hit">
-                                <rect key="frame" x="17" y="63" width="474" height="219"/>
+                                <rect key="frame" x="20" y="71" width="468" height="211"/>
                                 <view key="contentView" id="VOx-0n-Jex">
-                                    <rect key="frame" x="4" y="5" width="466" height="211"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="468" height="211"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WKb-wA-L0B">
-                                            <rect key="frame" x="27" y="166" width="57" height="25"/>
+                                            <rect key="frame" x="28" y="166" width="57" height="25"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Maps" id="x5Y-qj-KKG">
                                                 <font key="font" metaFont="systemSemibold" size="21"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -127,10 +127,10 @@
                                             </textFieldCell>
                                         </textField>
                                         <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzY-vf-ozC">
-                                            <rect key="frame" x="29" y="20" width="408" height="138"/>
+                                            <rect key="frame" x="29" y="20" width="410" height="138"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eYQ-Q4-sO5">
-                                                    <rect key="frame" x="-2" y="121" width="357" height="18"/>
+                                                    <rect key="frame" x="0.0" y="122" width="353" height="16"/>
                                                     <buttonCell key="cell" type="check" title="Prefer Retina/HiDPI resolution map tiles when available" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3SV-nz-FNV">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -151,7 +151,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-Nn-adW">
-                                                            <rect key="frame" x="187" y="-4" width="106" height="25"/>
+                                                            <rect key="frame" x="190" y="-2" width="114" height="24"/>
                                                             <popUpButtonCell key="cell" type="push" title="Tile Type 2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="opS-g9-mfa" id="XQU-e6-o5t">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="message"/>
@@ -186,7 +186,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2R8-TG-SGp">
-                                                            <rect key="frame" x="149" y="-1" width="198" height="24"/>
+                                                            <rect key="frame" x="151" y="-1" width="218" height="24"/>
                                                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="jdA-6a-MAj">
                                                                 <font key="font" metaFont="system"/>
                                                                 <segments>
@@ -209,7 +209,7 @@
                                                     </constraints>
                                                 </customView>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-WN-agw">
-                                                    <rect key="frame" x="-2" y="43" width="218" height="18"/>
+                                                    <rect key="frame" x="0.0" y="44" width="214" height="16"/>
                                                     <buttonCell key="cell" type="check" title="Show cursor coordinates (Beta)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pBE-zV-4bc">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -219,7 +219,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-Mg-Nti">
-                                                    <rect key="frame" x="21" y="21" width="364" height="18"/>
+                                                    <rect key="frame" x="23" y="22" width="360" height="16"/>
                                                     <buttonCell key="cell" type="check" title="Show track or route's date and time when cursor is near" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SHf-PC-raJ">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -229,7 +229,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mlN-MN-mBJ">
-                                                    <rect key="frame" x="-2" y="-1" width="202" height="18"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="16"/>
                                                     <buttonCell key="cell" type="check" title="Show path directional arrows" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="21a-mO-xQw">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -272,7 +272,7 @@
                                 </view>
                             </box>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-OM-v12">
-                                <rect key="frame" x="37" y="37" width="434" height="14"/>
+                                <rect key="frame" x="37" y="41" width="434" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change visibility of the mini map, use ⌘S or go to View &gt; Hide/Show Mini Map " id="ewJ-fA-SjV">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -280,7 +280,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyR-HW-d9L">
-                                <rect key="frame" x="26" y="20" width="456" height="14"/>
+                                <rect key="frame" x="26" y="24" width="456" height="14"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="To change print related preferences, use ⇧⌘P or go to File &gt; Page Setup... &gt; Avenue " id="N7s-Li-gUR">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -705,14 +705,14 @@
             <objects>
                 <viewController id="hep-uV-hSx" customClass="AboutViewController" customModule="Avenue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="pzO-eC-GcI">
-                        <rect key="frame" x="0.0" y="0.0" width="560" height="288"/>
+                        <rect key="frame" x="0.0" y="0.0" width="563" height="288"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GlK-RO-jnO">
                                 <rect key="frame" x="30" y="125" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="WbU-by-yZX"/>
                             </imageView>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T1l-9U-bUf">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1l-9U-bUf">
                                 <rect key="frame" x="214" y="222" width="143" height="50"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Avenue" id="p0I-oc-1RX">
                                     <font key="font" metaFont="systemMedium" size="42"/>
@@ -720,40 +720,40 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duc-6a-ugC">
-                                <rect key="frame" x="214" y="203" width="328" height="19"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duc-6a-ugC">
+                                <rect key="frame" x="214" y="203" width="331" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Version X, Build Y" id="xSX-v2-pn6">
                                     <font key="font" metaFont="system" size="15"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GFY-ty-RJ7">
-                                <rect key="frame" x="214" y="180" width="328" height="14"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2025 Vincent Neo" id="T69-NO-jky">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GFY-ty-RJ7">
+                                <rect key="frame" x="214" y="180" width="331" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2019-2026 Vincent Neo" id="T69-NO-jky">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Twt-0Z-Qju">
-                                <rect key="frame" x="214" y="165" width="328" height="14"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Twt-0Z-Qju">
+                                <rect key="frame" x="214" y="165" width="331" height="14"/>
                                 <textFieldCell key="cell" title="Created with help from Open GPX Tracker project on GitHub." id="jRI-fy-bs5">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-vL-TI0">
-                                <rect key="frame" x="214" y="135" width="328" height="14"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-vL-TI0">
+                                <rect key="frame" x="214" y="135" width="331" height="14"/>
                                 <textFieldCell key="cell" title="Source code is available on GitHub, licensed under GPL-3.0." id="HlK-ey-0TT">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I2c-O3-XIx">
-                                <rect key="frame" x="209" y="77" width="153" height="32"/>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2c-O3-XIx">
+                                <rect key="frame" x="216" y="77" width="143" height="32"/>
                                 <buttonCell key="cell" type="push" title="Acknowledgements" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZCA-Yk-TOa">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -762,8 +762,8 @@
                                     <action selector="acknowledgmentButtonClicked:" target="hep-uV-hSx" id="tby-8N-Oue"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YAv-T9-vSI">
-                                <rect key="frame" x="209" y="45" width="153" height="32"/>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YAv-T9-vSI">
+                                <rect key="frame" x="216" y="45" width="143" height="32"/>
                                 <buttonCell key="cell" type="push" title="Go to GitHub" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3hF-Xl-ecu">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -772,8 +772,8 @@
                                     <action selector="sourceCodeButtonClicked:" target="hep-uV-hSx" id="Spt-PF-FUl"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-EA-AS8">
-                                <rect key="frame" x="361" y="45" width="186" height="32"/>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpj-EA-AS8">
+                                <rect key="frame" x="367" y="45" width="176" height="32"/>
                                 <buttonCell key="cell" type="push" title="View Open GPX Tracker" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tl6-45-VfV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -782,8 +782,8 @@
                                     <action selector="gpxTrackerButtonClicked:" target="hep-uV-hSx" id="TOf-3e-tzx"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="feW-do-P8c">
-                                <rect key="frame" x="361" y="77" width="186" height="32"/>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feW-do-P8c">
+                                <rect key="frame" x="367" y="77" width="176" height="32"/>
                                 <buttonCell key="cell" type="push" title="Check out my other apps" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5W0-23-5MS">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -800,8 +800,8 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="QLE-I4-ByA"/>
                             </imageView>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSk-4K-qye">
-                                <rect key="frame" x="214" y="120" width="328" height="14"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSk-4K-qye">
+                                <rect key="frame" x="214" y="120" width="331" height="14"/>
                                 <textFieldCell key="cell" title="Do check out my other apps if you enjoy Avenue GPX Viewer!" id="cem-LM-3aT">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
