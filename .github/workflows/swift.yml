@@ -15,8 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Build Avenue GPX Viewer
-      run: xcodebuild \
-            -project "Avenue.xcodeproj" \
-            -scheme "Avenue" \
-            -destination "generic/platform=macOS" \
-            clean build
+      run: |
+            set -o pipefail
+            env NSUnbufferedIO=YES xcodebuild \
+              -project "Avenue.xcodeproj" \
+              -scheme "Avenue" \
+              -destination "generic/platform=macOS" \
+              clean build 2>&1 | tee xcodebuild.log | xcpretty
