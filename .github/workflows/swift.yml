@@ -27,4 +27,4 @@ jobs:
             -project "Avenue.xcodeproj" 
             -scheme "Avenue" 
             -destination "generic/platform=macOS" 
-            clean build | xcpretty --color
+            clean build
