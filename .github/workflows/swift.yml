@@ -7,7 +7,14 @@ on:
   pull_request:
     branches: 
       - '*'
-
+      
+defaults:
+  run:
+    shell: zsh --login --errexit --pipefail {0}
+    
+env:
+  NSUnbufferedIO: YES
+  
 jobs:
   mac:
     name: Build
@@ -15,4 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - name: Build Avenue GPX Viewer
-      run: set -o pipefail env NSUnbufferedIO=YES xcodebuild -project "Avenue.xcodeproj" -scheme "Avenue" -destination "generic/platform=macOS" clean build | xcpretty
+      run: >
+            xcodebuild 
+            -project "Avenue.xcodeproj" 
+            -scheme "Avenue" 
+            -destination "generic/platform=macOS" 
+            clean build | xcpretty --color
