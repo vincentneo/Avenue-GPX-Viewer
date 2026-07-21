@@ -23,8 +23,11 @@ jobs:
     - uses: actions/checkout@v7
     - name: Build Avenue GPX Viewer
       run: >
-            xcodebuild 
+            xcodebuild clean build
             -project "Avenue.xcodeproj" 
             -scheme "Avenue" 
             -destination "generic/platform=macOS" 
-            clean build
+            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_REQUIRED=NO
+            CODE_SIGN_IDENTITY=""
+            CODE_SIGN_ENTITLEMENTS=""
